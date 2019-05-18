@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "Docker - an overview!"
+date:   2019-05-18 10:58:08 +0100
+categories: devop
+permalink: /:categories/
+---
+Hey guys.
+
+Today I will talk about [Docker](https://www.docker.com/). It is a nice whale that has been appearing in the development environment.
+
+Yeah. Reading something about that I was very enthusiastic with that. Who usually studies new IT topics to perform some tests knows how annoying sometimes have to go installing and configuring various tools, polluting your computer with various technologies to perform some tests and then have to discard. With docker this can be solved. With docker you can centralize these settings and, when you finish your tests, you can throw away or even save a portion of the environment that you can use at other times.
+
+Of course, Docker is muuuuuch more than that. Docker helps you through the entire development process, from the development itself to the production environment.
+
+Good, but my goal here is to just give you a general idea about what docker is and what it can bring of benefits. And from there each one will be able to deepen according to two needs.
+
+Let’s go!!!.
+
+<h3>What is it – An Overview</h3>
+
+[Docker](https://docs.docker.com/engine/docker-overview/) is an open source project that aims to leave applications in containers. Docker can be used to develop, deploy, and run applications. It allows you to separate the application from the infrastructure.
+
+Anyone who works developing application knows how annoying it is often to worry about the environment itself instead of focusing on the main focus that is developing features.
+
+The docker is based on client-server architecture where the client initiates a request to the server (deamon), the server can be remote or not. This communication is performed via [REST API](https://pt.wikipedia.org/wiki/REST).
+
+<center>
+<img src="https://docs.docker.com/engine/images/architecture.svg" height="400" width="350">
+</center>
+
+Some confusion is common when we begin our studies on Docker. One is to think that Docker is a kind of virtual machine (VM).
+
+A good comparison was made in the [eBook: Docker-for-Virtualization-Admin](https://pt.wikipedia.org/wiki/REST) in which compares VM to a home while Docker is compared to an apartment. In a house, the whole structure is individual and independent, while in an apartment a part of the structure is shared. You can create Docker image only with what will be used in your application. While the VMs start with the complete operating system and depending on the application, the developer may or may not perform some customization. But that does not mean that VM and Docker container cannot coexist. It is possible to have a Docker container inside a VM.
+
+In a simplistic way, we can consider that docker is something to manage an easy, small portion of the infrastructure needed to run an application. It is possible to have more than one such structure in communication, but this detail I leave to those who will need to deepen according to their needs.
+
+<h3>Terminology</h3>
+
+<ui>
+  <li>Daemon: a portion of the server where there is container management</li>
+  <li>CLI: commands and communicates with the docker daemon</li>
+  <li>Image: a repository for the images, is the basis for the containers.</li>
+  <li>Containers: application directories created from the docker image and where the application runs</li>
+  <li>Images: instant images of containers. They can be official, which are maintained by a specialized team, and users, which are created by users like you and me.</li>
+  <li>Dockerfiles: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</li>
+  <li>Docker Hub: Register of images, as if it were a directory</li>
+  <li>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</li>
+  <li>Docker compose: a tool for defining and executing multi-container applications</li>
+  <li>Docker Swarm: native clustering solution for docker;</li>
+</ui>
+
+Each built container can be stored and made available in a repository, which works similarly to GitHub. In the same way that each one can publish, it is also possible to use container already available.
+
+<h3>Best Practices</h3>
+
+<ui>
+ <li>Have small images</li>
+ <li>Use swarm whenever possible</li>
+ <li>Use continuous integration for application testing and deployment</li>
+ <li>Create ephemeral containers, that is, containers that can be simply replaced.</li>
+ <li>Do not install unnecessary things</li>
+ <li>Each container must have a goal</li>
+</ui>
+
+<br/>
+<h3>Summary</h3>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
