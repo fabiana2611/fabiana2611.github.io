@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Docker - an overview!"
-date:   2019-05-18 10:58:08 +0100
+date:   2019-05-17 16:58:08
 categories: devop
-permalink: /:categories/
+permalink: /:categories/docker
 ---
 Hey guys.
 

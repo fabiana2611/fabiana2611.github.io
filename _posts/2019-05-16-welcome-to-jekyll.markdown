@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome to my new technical blog!"
-date:   2019-05-18 10:58:08 +0100
+date:   2019-05-16 10:58:08 +0100
 categories: jekyll
 permalink: /:categories/
 ---
