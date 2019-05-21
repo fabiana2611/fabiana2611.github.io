@@ -60,7 +60,7 @@ The mechanisms behind the OCP are abstraction and polymorphism. Every new shape
  <img src="/img/5Principles/OCP2.png" height="300" width="550">  
 </center>
 
-The detail about this principle can be seen in the article about <a href="https://drive.google.com/file/d/0BwhCYaYDn8EgN2M5MTkwM2EtNWFkZC00ZTI3LWFjZTUtNTFhZGZiYmUzODc1/view">OCP</a> with examples. The examples in Java can be seen <a href="https://www.javabrahman.com/programming-principles/open-closed-principle-with-examples-in-java/">here</a>.
+The detail about this principle can be seen in the article about <a href="https://drive.google.com/file/d/0BwhCYaYDn8EgN2M5MTkwM2EtNWFkZC00ZTI3LWFjZTUtNTFhZGZiYmUzODc1/view">OCP</a> with examples. The examples in Java can be seen <a href="https://www.javabrahman.com/programming-principles/open-closed-principle-with-examples-in-java/">Java Brahman</a>.
 
 <br/>
 <h3>3. Liskov Substitution Principle</h3>
