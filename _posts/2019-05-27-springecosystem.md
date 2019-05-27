@@ -44,7 +44,7 @@ Hey everyone!!!
 <p style="text-align: justify;"><strong>Foundation Layer</strong>: <a href="https://spring.io/projects/platform" ><em>Spring IO Platform</em></a> provides facilities to use different projects or modules together (one platform, many workloads), but the supported life finishes on 9 April 2019. The <em><a href="https://spring.io/projects/spring-boot" >Spring Boot</a></em> makes the programmer more productive because it'll not necessary to be worried about configurations (no requirement for XML configuration; embed Tomcat, Jetty or Undertow directly). <a href="https://projects.spring.io/spring-xd/" ><em>Spring XD</em></a> is related to build and manage big data applications (<em>Spring XD</em> is redesigned as <em><a href="https://cloud.spring.io/spring-cloud-dataflow/">Spring Cloud Data Flow</a></em>).</p>
 
 <center>
-  <img src="/img/spring/springboot.png" alt="springBoot.png" width="290" height="194" />
+  <img src="/img/spring/springBoot.png" alt="springBoot.png" width="290" height="194" />
   <br/>
   Figure 3 - Spring Boot: Reference - DevMedia
 </center>
@@ -54,19 +54,19 @@ Hey everyone!!!
 <p style="text-align: justify;">Dependency management is an important issue in the projects. To help the developer, Spring Boot and an automation tool such as Maven, can make the process easier. For that, the <a href="https://www.baeldung.com/spring-boot-starters" >Spring Boot Staters</a> were built, and that reduced the number of manually added dependencies just by adding one dependency in pom.xml.</p>
 <p style="text-align: justify;">One example is when you wish to build a <strong>WEB</strong> application. It's necessary only one dependency from Spring Boot. This Spring Boot declaration control <a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web/2.1.0.M3" >other dependencies</a> like Web, MVC, Tomcat. It allows the RESTfull implementation. It’s actually Spring MVC which provides all useful annotations to REST implementation.</p>
 
-<img src="/img/spring/starterweb.png" width="464" height="88" />
+<img src="/img/spring/starterWeb.png" width="464" height="88" />
 
 Another example is to use <strong>test</strong> libraries. This Spring Boot declaration control <a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test/2.1.0.RELEASE" >other dependencies</a> like mockito, junit, spring test.
 
-<img src="/img/spring/startertest.png" width="436" height="100" />
+<img src="/img/spring/starterTest.png" width="436" height="100" />
 
 <p style="text-align: justify;">The <a href="https://www.baeldung.com/spring-boot-devtools" >Spring Boot <strong>DevTool</strong></a><strong> </strong>can help to <a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools/2.1.0.RELEASE" >control</a> autoconfigure, jdb, hibernate core, servlet-api, sprint web. Two important features in DevTool is the automatic restart whenever files change in the classpath and permit a browser refresh when a resource is changed.</p>
 
-<img src="/img/spring/starterdevtool.png" width="385" height="90" />
+<img src="/img/spring/starterDevtool.png" width="385" height="90" />
 
 To use Spring Data you can use:
 
-<img src="/img/spring/starterdata.png" width="428" height="78" />
+<img src="/img/spring/starterData.png" width="428" height="78" />
 
 A complete example of pom.xml using Spring Boot you can see <a href="https://github.com/fabiana2611/api-java/blob/master/food-delivery/pom.xml" >here</a>.
 
