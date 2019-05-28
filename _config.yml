@@ -15,13 +15,18 @@
 # in the templates via {{ site.myvariable }}.
 title: Bia In Tech
 email: fabiana2611@hotmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: #>- # this means to ignore newlines until "baseurl:"
   It is a blog where I can explain my studies and share them.
+  If you wish to know some tips about Portugal you can find
+  in my other blog.
+  Good studies! Go deeply!
+
+  https://biaintech.wordpress.com/category/portugal/
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: biafreire2611
 github_username:  fabiana2611
-linkedin_username:  fabianafreiredearaujo
+linkedin_username:  fabianadearaujo
 youtube_username:  biafreire2611
 
 # Build settings

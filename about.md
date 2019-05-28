@@ -10,6 +10,8 @@ I work in a WEB DEVELOPMENT team using Web Service where I am responsible for im
 
 I am very motivated about working in dynamic, fast-paced and continuously-evolving environments, where I might be able to explore, learn and develop new technologies and their applications.
 
+In the current moment, I'm working in Porto, Portugal, where I have great moments. And I post about that in another [blog](https://biaintech.wordpress.com/category/portugal/) to share my experience in this wonderful place.
+
 <h3>Skills and Soft-skills</h3>
 
 <br/><b>Tech</b>
@@ -49,7 +51,9 @@ I am very motivated about working in dynamic, fast-paced and continuously-evolvi
 
 
 <b>Me</b>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nnzLFoXY7Mc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/nnzLFoXY7Mc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>  
 
 I also have a blog talking about Portugal, my new place. If you want to know some curiosities about that you can access [here](https://biaintech.wordpress.com/category/portugal/).
 
