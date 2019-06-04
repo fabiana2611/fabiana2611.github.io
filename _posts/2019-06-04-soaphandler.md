@@ -81,7 +81,7 @@ When the WS is invoked to be executed on server-side[<a href="https://docs.oracl
 
 <h2>Conclusion</h2>
 
-<p style="text-align: justify;">If you are working on <a href="https://fabiana2611.github.io/webservice/soap">XML-Based Web Service</a>, SOAP, and need to do some process before the service, it is a great solution for you. This and the <a href="https://fabiana2611.github.io/java/logger/">Logger</a> are powerful tools for your system.</p>
+<p style="text-align: justify;">If you are working on <a href="https://fabiana2611.github.io/webservice/soap">XML-Based Web Service</a>, SOAP, and need to do some process before the service, it is a great solution for you. This and the <a href="https://fabiana2611.github.io/java/logger">Logger</a> are powerful tools for your system.</p>
 
 <h2>References</h2>
 <ul>
