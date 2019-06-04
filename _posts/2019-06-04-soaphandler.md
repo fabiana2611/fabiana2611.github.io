@@ -42,7 +42,7 @@ The two types of handler supported by JAX-WS are:
 
 <p style="text-align: justify;">After the method is processed you can invoke the next handler from the handler-chain returning true, or block processing returning false.</p>
 
-<a href="https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-logging-with-handler-example/" ><img src="/img/soaphandler/soapclass.png" width="552" height="564" /></a>
+<a href="https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-logging-with-handler-example/" ><img src="/img/soaphandler/soapClass.png" width="552" height="564" /></a>
 
 <p style="text-align: center;"><em><a href="https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-logging-with-handler-example/">Soap Class</a></em></p>
 
