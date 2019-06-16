@@ -17,11 +17,10 @@ title: Bia In Tech
 email: fabiana2611@hotmail.com
 description: #>- # this means to ignore newlines until "baseurl:"
   It is a blog where I can explain my studies and share them.
-  If you wish to know some tips about Portugal you can find
-  in my other blog.
+  I also have a blog to share my personal and professional experience in Portugal.
+  In case you want to get tips or just curiosities about Portugal go there.
   Good studies! Go deeply!
-
-  https://biaintech.wordpress.com/category/portugal/
+  https://bianoporto.wordpress.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: biafreire2611
