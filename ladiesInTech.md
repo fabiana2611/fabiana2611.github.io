@@ -9,38 +9,38 @@ permalink: /ladiesintech/
 <table>
 <tbody>
 <tr>
-<td style="text-align: justify;"><img class="alignnone  wp-image-436 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/47692671_2025723680841823_4940425288480904195_n.jpg" alt="47692671_2025723680841823_4940425288480904195_n" width="206" height="206" /><a href="https://www.instagram.com/p/BrvA63QhTbb/" >ADA LOVELACE</a> - A Primeira Programadora</td>
-<td style="text-align: justify;"><img class="  wp-image-435 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/47581511_2190631751148814_306473113280306170_n.jpg" alt="47581511_2190631751148814_306473113280306170_n" width="186" height="185" /><a href="https://www.instagram.com/p/BrsODPzBJY9/" >GRACE HOPPER</a> - A Rainha da Computação (Vovó COBOL)</td>
-<td style="text-align: justify;"><img class="  wp-image-437 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/47582583_1024828587692302_6390214723005325282_n.jpg" alt="47582583_1024828587692302_6390214723005325282_n" width="189" height="166" /><br/><a href="https://www.instagram.com/p/BrqM3YthgvL/">HEDY LAMARR</a> - A Mulher mais bonita do mundo - a inventora do salto de frequência</td>
+<td style="text-align: justify;"><img class="alignnone  wp-image-436 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47692671_2025723680841823_4940425288480904195_n.jpg" alt="47692671_2025723680841823_4940425288480904195_n" width="206" height="206" /><a href="https://www.instagram.com/p/BrvA63QhTbb/" >ADA LOVELACE</a> - A Primeira Programadora</td>
+<td style="text-align: justify;"><img class="  wp-image-435 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47581511_2190631751148814_306473113280306170_n.jpg" alt="47581511_2190631751148814_306473113280306170_n" width="186" height="185" /><a href="https://www.instagram.com/p/BrsODPzBJY9/" >GRACE HOPPER</a> - A Rainha da Computação (Vovó COBOL)</td>
+<td style="text-align: justify;"><img class="  wp-image-437 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47582583_1024828587692302_6390214723005325282_n.jpg" alt="47582583_1024828587692302_6390214723005325282_n" width="189" height="166" /><br/><a href="https://www.instagram.com/p/BrqM3YthgvL/">HEDY LAMARR</a> - A Mulher mais bonita do mundo - a inventora do salto de frequência</td>
 </tr>
 <tr>
 <td>
-<p style="text-align: justify;"><img class="  wp-image-439 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/47582662_1772241839552741_8156747569969463395_n.jpg" alt="47582662_1772241839552741_8156747569969463395_n" width="174" height="181" /><br/><a href="https://www.instagram.com/p/Brm3oXrBbTG/" >KATHERINE JOHNSON</a> - Cálculo da trajetória de vôo da Apolo 11</p>
+<p style="text-align: justify;"><img class="  wp-image-439 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47582662_1772241839552741_8156747569969463395_n.jpg" alt="47582662_1772241839552741_8156747569969463395_n" width="174" height="181" /><br/><a href="https://www.instagram.com/p/Brm3oXrBbTG/" >KATHERINE JOHNSON</a> - Cálculo da trajetória de vôo da Apolo 11</p>
 </td>
-<td><img class="  wp-image-440 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/46800437_437653150104088_1337849065313863483_n.jpg" alt="46800437_437653150104088_1337849065313863483_n" width="177" height="221" /><br/><a href="https://www.instagram.com/p/Brk-CkWhQtC/" >RADIA PERLMAN</a> - A mãe da Internet</td>
+<td><img class="  wp-image-440 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/46800437_437653150104088_1337849065313863483_n.jpg" alt="46800437_437653150104088_1337849065313863483_n" width="177" height="221" /><br/><a href="https://www.instagram.com/p/Brk-CkWhQtC/" >RADIA PERLMAN</a> - A mãe da Internet</td>
 <td>
-<p style="text-align: center;"><img class="  wp-image-438 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/47693478_572860536520210_7079131311030993156_n.jpg" alt="47693478_572860536520210_7079131311030993156_n" width="150" height="188" /><br/><a href="https://www.instagram.com/p/Brn9BhEBJkI/" >IRMÃ MARY KENNETH </a><a href="https://www.instagram.com/p/Brn9BhEBJkI/" >KELLER</a>- inclusão social através da tecnologia</p>
-</td>
-</tr>
-<tr>
-<td>
-<p style="text-align: justify;"><img class="alignnone  wp-image-443 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/20225256_284871648588313_9216409731659202560_n.jpg" alt="20225256_284871648588313_9216409731659202560_n" width="161" height="201" /><a href="https://www.instagram.com/p/BWxz0w0HaXN/">Margaret Hamilton</a> - Escreveu o código-fonte da espaçonave que levou o homem a lua a 1a vez</p>
-</td>
-<td>
-<p style="text-align: center;"><img class="alignnone size-full wp-image-444" src="https://biaintech.files.wordpress.com/2018/12/18644736_159365377934779_3736958500589273088_n.jpg" alt="18644736_159365377934779_3736958500589273088_n" width="702" height="200" /><a href="https://www.instagram.com/p/BUZgmKsFS13/" >As garotas do ENIAC</a></p>
-</td>
-<td>
-<p style="text-align: justify;"><img class="alignnone  wp-image-442" src="https://biaintech.files.wordpress.com/2018/12/28430755_585800535117963_4485308555657740288_n.jpg" alt="28430755_585800535117963_4485308555657740288_n" width="199" height="199" /><br/><a href="https://www.instagram.com/p/Bfv4-FlHZ7I/" >Mariéme Jamme</a> - Movimento I Am the Code, que pretende ensinar um milhão de meninas na África e no mundo a programar até 2030</p>
+<p style="text-align: center;"><img class="  wp-image-438 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47693478_572860536520210_7079131311030993156_n.jpg" alt="47693478_572860536520210_7079131311030993156_n" width="150" height="188" /><br/><a href="https://www.instagram.com/p/Brn9BhEBJkI/" >IRMÃ MARY KENNETH </a><a href="https://www.instagram.com/p/Brn9BhEBJkI/" >KELLER</a>- inclusão social através da tecnologia</p>
 </td>
 </tr>
 <tr>
 <td>
-<p style="text-align: justify;"><img class="alignnone size-full wp-image-441" src="https://biaintech.files.wordpress.com/2018/12/28428064_599661963721093_6353494998704455680_n.jpg" alt="28428064_599661963721093_6353494998704455680_n" width="300" height="200" /><a href="https://www.instagram.com/p/Bf-yyPGAsqF/" >JEAN SUMMET</a> - A criadora de uma das primeiras linguagens computadorizadas existentes.</p>
+<p style="text-align: justify;"><img class="alignnone  wp-image-443 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/20225256_284871648588313_9216409731659202560_n.jpg" alt="20225256_284871648588313_9216409731659202560_n" width="161" height="201" /><a href="https://www.instagram.com/p/BWxz0w0HaXN/">Margaret Hamilton</a> - Escreveu o código-fonte da espaçonave que levou o homem a lua a 1a vez</p>
 </td>
-<td><img class="wp-image-502 aligncenter" src="https://biaintech.files.wordpress.com/2018/12/00overlooked-Jones2-superJumbo-v3.jpg" alt="00overlooked-Jones2-superJumbo-v3" width="133" height="174" />
+<td>
+<p style="text-align: center;"><img class="alignnone size-full wp-image-444" src="https://bianoporto.files.wordpress.com/2018/12/18644736_159365377934779_3736958500589273088_n.jpg" alt="18644736_159365377934779_3736958500589273088_n" width="702" height="200" /><a href="https://www.instagram.com/p/BUZgmKsFS13/" >As garotas do ENIAC</a></p>
+</td>
+<td>
+<p style="text-align: justify;"><img class="alignnone  wp-image-442" src="https://bianoporto.files.wordpress.com/2018/12/28430755_585800535117963_4485308555657740288_n.jpg" alt="28430755_585800535117963_4485308555657740288_n" width="199" height="199" /><br/><a href="https://www.instagram.com/p/Bfv4-FlHZ7I/" >Mariéme Jamme</a> - Movimento I Am the Code, que pretende ensinar um milhão de meninas na África e no mundo a programar até 2030</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: justify;"><img class="alignnone size-full wp-image-441" src="https://bianoporto.files.wordpress.com/2018/12/28428064_599661963721093_6353494998704455680_n.jpg" alt="28428064_599661963721093_6353494998704455680_n" width="300" height="200" /><a href="https://www.instagram.com/p/Bf-yyPGAsqF/" >JEAN SUMMET</a> - A criadora de uma das primeiras linguagens computadorizadas existentes.</p>
+</td>
+<td><img class="wp-image-502 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/00overlooked-Jones2-superJumbo-v3.jpg" alt="00overlooked-Jones2-superJumbo-v3" width="133" height="174" />
 <p style="text-align: justify;"><a href="https://www.nytimes.com/2019/01/02/obituaries/karen-sparck-jones-overlooked.html" >Karen Sparck Jones</a> - A pioneer of computer science for work combining statistics and linguistics, and an advocate for women in the field</p>
 </td>
-<td><img class="alignnone size-full wp-image-718" src="https://biaintech.files.wordpress.com/2018/12/anita_borg.jpg" alt="anita_borg" width="200" height="200" /> <br/><a href="https://en.wikipedia.org/wiki/Anita_Borg" >Anita Borg</a> - <span id="Advocacy_for_technical_women" class="mw-headline">Advocacy for technical women</span></td>
+<td><img class="alignnone size-full wp-image-718" src="https://bianoporto.files.wordpress.com/2018/12/anita_borg.jpg" alt="anita_borg" width="200" height="200" /> <br/><a href="https://en.wikipedia.org/wiki/Anita_Borg" >Anita Borg</a> - <span id="Advocacy_for_technical_women" class="mw-headline">Advocacy for technical women</span></td>
 </tr>
 </tbody>
 </table>
