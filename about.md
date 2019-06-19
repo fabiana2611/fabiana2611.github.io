@@ -55,7 +55,7 @@ In the current moment, I'm working in Porto, Portugal, where I have great moment
   <iframe width="560" height="315" src="https://www.youtube.com/embed/nnzLFoXY7Mc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>  
 
-I also have a blog talking about Portugal, my new place. If you want to know some curiosities about that you can access [here](https://biaintech.wordpress.com/category/portugal/).
+I also have a blog talking about Portugal, my new place. If you want to know some curiosities about that you can access [here](https://bianoporto.wordpress.com/).
 
 <b>My Links</b>
 
