@@ -18,16 +18,16 @@ In the current moment, I'm working in Porto, Portugal, where I have great moment
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
-| Java | [Java EE](https://biaintech.wordpress.com/2018/08/15/javaee/)  | JSF | PrimeFaces | Ajax | JavaScript|
+| [Java](https://fabiana2611.github.io/java/enhancements) | [Java EE](https://biaintech.wordpress.com/2018/08/15/javaee/)  | JSF | PrimeFaces | Ajax | JavaScript|
 | PrimeFaces | Ajax | JavaScript | EJB     | JUnit     | [JPA](https://biaintech.wordpress.com/2018/09/04/jpa/) |
-| SQL     |  JSON    |   XML  |
+| SQL     |  JSON    |   XML  | [SOAP](https://biaintech.wordpress.com/2019/05/01/ws-soap/) | [REST](https://fabiana2611.github.io/webservice/rest) | [Spring Batch](https://fabiana2611.github.io/spring/springbatch)
 
 <br/><b>Tools</b>
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
 | Eclipse | iReport  | Mantis | Jira | Sql Developer |
-| [Maven](https://biaintech.wordpress.com/2018/11/14/maven/)| Git | WebLogic | JBoss | EclipseLink     |
+| [Maven](https://biaintech.wordpress.com/2018/11/14/maven/)| Git | WebLogic | JBoss | SoapUI     |
 
 <br/><b>Best Practices</b>
 {:class="table table-bordered"}
@@ -39,7 +39,7 @@ In the current moment, I'm working in Porto, Portugal, where I have great moment
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
-| [SOAP](https://biaintech.wordpress.com/2019/05/01/ws-soap/) | REST | Microservice  | [Spring](https://biaintech.wordpress.com/2018/11/25/spring-ecosystem/) | [Swagger](https://biaintech.wordpress.com/2018/08/15/swagger/) | TypeScript |
+| Microservice  | [Spring](https://biaintech.wordpress.com/2018/11/25/spring-ecosystem/) | [Swagger](https://biaintech.wordpress.com/2018/08/15/swagger/) | TypeScript |
 
 <br/><b>Highlight of Qualification</b>
 
