@@ -33,7 +33,7 @@ In the current moment, I'm working in Porto, Portugal, where I have great moment
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
-| SCRUM | TDD  | [Refactory](https://biaintech.wordpress.com/2018/09/18/s-o-l-i-d-principles/) | [Clean Code](https://biaintech.wordpress.com/2018/09/12/clean-code/) | | [Design Pattern](https://fabiana2611.github.io/bestpractice/design-pattern)|
+| SCRUM | TDD  | [Refactory](https://biaintech.wordpress.com/2018/09/18/s-o-l-i-d-principles/) | [Clean Code](https://biaintech.wordpress.com/2018/09/12/clean-code/) | [Design Pattern](https://fabiana2611.github.io/bestpractice/design-pattern)|
 
 <br/><b>Enthusiastic</b>
 {:class="table table-bordered"}
