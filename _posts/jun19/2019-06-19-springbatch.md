@@ -45,7 +45,7 @@ The mains <a href="https://www.tutorialspoint.com/spring_batch/spring_batch_arch
 </ul>
 </li>
 	<li><strong>Job Launcher</strong>: interface to use parameters. <span style="color: #993366;">SampleJoblauncher</span> implements it.</li>
-	<li><strong>Job Repository</strong>: It provides CRUD operations for the <em><span style="color: #993366;">JobLuncher</span></em>, <em><span style="color: #993366;">Job</span></em> and <em><span style="color: #993366;">STEP</span></em> implementations. If you don’t want to persist in the database, you can configure the <em>in-memory</em> version of the jobRepository.</li>
+	<li><strong>Job Repository</strong>: It provides CRUD operations for the <em><span style="color: #993366;">JobLuncher</span></em>, <em><span style="color: #993366;">Job</span></em> and <em><span style="color: #993366;">STEP</span></em> implementations. If you don’t want to persist in the database, you can configure the <a href="https://docs.spring.io/spring-batch/4.0.x/reference/html/index-single.html#inMemoryRepository">in-memory</a> version of the jobRepository.</li>
 	<li><strong>Job Instance</strong>: represents the <em>logical</em> <em>run</em> of a <em>job</em>.</li>
 	<li><strong>Job Execution</strong>: represents the <em>execution</em> of a <em>job</em></li>
 	<li><strong>Step Execution</strong>: represents the <em>execution</em> of a <em>step</em></li>
