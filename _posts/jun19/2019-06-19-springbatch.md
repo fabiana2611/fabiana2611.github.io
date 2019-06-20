@@ -163,6 +163,14 @@ After that, we need to create java classes:
 | :------------- | :------------- |
 | <img class="alignnone size-full wp-image-904" src="/img/spring/springBatch/javaBean.png" alt="javaBean" width="1026" height="520" />       |  <img src="/img/spring/springBatch/mapper.png" width="378" height="156" /> <img src="/img/spring/springBatch/launcher.png" width="358" height="174" /><img src="/img/spring/springBatch/processor.png" width="322" height="96" />       |
 
+In case you are using a java class to config you just need to remove the lines in Launcher class related to xml file and to add the reference of the java class config. The complete example you can see <a href="https://github.com/fabiana2611/spring-batch/blob/master/spring.batch/src/main/java/br/study/spring/batch/basic/AppConfigJava.java">here</a>.
+
+{% highlight ruby %}
+AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+context.register(SpringConfig.class);
+context.refresh();
+{% endhighlight %}
+
 The result of the execution is:
 
 {% highlight ruby %}
