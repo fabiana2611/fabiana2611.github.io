@@ -232,7 +232,7 @@ The result of the execution is:
 
 <h2>Run</h2>
 
-<p style="text-align: justify;">The examples run the application using a class with the main method. Another way to execute the example batch job is by using <strong>CommandLineJobRunner</strong>, which is provided by Spring Batch.</p>
+<p style="text-align: justify;">The examples run the application using a class with the main method. But there are other ways to launch the batch, and one of them is by <a href="https://docs.spring.io/spring-batch/4.0.x/reference/html/index-single.html#runningJobsFromCommandLine">command line</a> using the class <strong>CommandLineJobRunner</strong> provided by Spring Batch. The pictures below show you how to do this using eclipse.</p>
 
 <img src="/img/spring/springBatch/main.png" width="900" height="250" />
 
