@@ -38,8 +38,8 @@ In the current moment, I'm working in Porto, Portugal, where I have great moment
 <br/><b>Enthusiastic</b>
 {:class="table table-bordered"}
 
-|-------------- |----------------   |------------------ |
-| Microservice  | [Spring](https://biaintech.wordpress.com/2018/11/25/spring-ecosystem/) | [Swagger](https://biaintech.wordpress.com/2018/08/15/swagger/) | TypeScript |
+|-------------- |----------------   |------------------ |------------------ | ------------------ |
+| Microservice  | [Spring](https://biaintech.wordpress.com/2018/11/25/spring-ecosystem/) | [Swagger](https://biaintech.wordpress.com/2018/08/15/swagger/) | TypeScript |Ruby | Kotlin |
 
 <br/><b>Highlight of Qualification</b>
 
