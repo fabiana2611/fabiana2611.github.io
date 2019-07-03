@@ -83,8 +83,8 @@ Also you can find many other patterns specific to Distributed System categorized
   <li>Eventsourcing Patterns</li>
   <li>General Messaging Patterns</li>
 <ui>
-	
-You can access the list and detail about them in [here](http://verraes.net/2019/05/ddd-msg-arch/).
+<br/>	
+You can access the list and detail about them in <a href="http://verraes.net/2019/05/ddd-msg-arch/">here</a>.
 
 <br/>
 
