@@ -244,7 +244,7 @@ The complete code you will see in <a href="https://github.com/fabiana2611/spring
 
 <h2>Test</h2>
 
-<p style="text-align: justify;">To Unit Test you can follow the <a href="https://docs.spring.io/spring-batch/3.0.x/reference/html/testing.html">documentation</a></p>. 
+<p style="text-align: justify;">To Unit Test you can follow the <a href="https://docs.spring.io/spring-batch/3.0.x/reference/html/testing.html">documentation</a>.</p>
 
 The main annotation is:
 
@@ -256,15 +256,17 @@ The main annotation is:
 <p style="text-align: justify;">The @ContextConfiguration annotation is where you will say to test where is your configurations, 
 that can be in xml (use property locations) or class (use property classes)</p>.
 
-<p style="text-align: justify;">Also you should have the JobLauncherTestUtils instantiate on your class and declared in your configuration file</p>.
+<p style="text-align: justify;">Also you should have the JobLauncherTestUtils instantiate on your class and declared in your configuration file.</p>
 
 {% highlight ruby %}
-	 <bean id="JobLauncherTestUtils" class="org.springframework.batch.test.JobLauncherTestUtils">
-		<property name="jobLauncher" ref="jobLauncher"/>
-	</bean>
+<bean id="JobLauncherTestUtils" class="org.springframework.batch.test.JobLauncherTestUtils">
+   <property name="jobLauncher" ref="jobLauncher"/>
+</bean>
+{% endhighlight %}
 	
 You can test the execution of the Job or by step.	
 
+{% highlight ruby %}
 JobExecution job = jobLauncherTestUtils.launchJob();
 Assert.assertEquals(BatchStatus.COMPLETED, job.getStatus());
 		
