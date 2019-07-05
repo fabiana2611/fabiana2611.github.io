@@ -293,4 +293,6 @@ Go deeply!!!
 	<li><a href="https://stackoverflow.com/questions/44238232/define-an-in-memory-jobrepository">jobRepository in-memory</a></li>
 	<li><a href="https://keyholesoftware.com/2012/06/25/getting-started-with-spring-batch-part-two/">Getting Started</a></li>
 	<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-autotasks">Deployment Guide</a></li>
+	<li><a href="https://www.mkyong.com/spring-batch/spring-batch-unit-test-example/">Spring Batch unit test example</a></li>
+	<li><a href="https://dzone.com/articles/junit-spring-%E2%80%93-what-you-don%E2%80%99t">JUnit & Spring – What You Don’t Know</a></li>
 </ul>
