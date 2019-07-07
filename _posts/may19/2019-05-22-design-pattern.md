@@ -72,19 +72,6 @@ The post <a href="https://dzone.com/articles/design-patterns-for-microservices">
 |:--------|
 |<strong>External Configuration:</strong> it avoids code modification for configuration changes<br/><strong>Service Discovery Pattern:</strong> the idea is to publish the service where the consumers can find services.<br/> <strong>Circuit Breaker Pattern:</strong> it avoids cascading service failures and handles failures gracefully. It is based on invoke service via a proxy (electrical circuit breaker) and timeout.<br/> <strong>Blue-Green Deployment Pattern:</strong> implemented to reduce or remove downtime by running two identical production environments, Blue and Green, which one of them is the new version that will replace the other one.<br/>|
 
-<br/>
-
-<h3>Distributed Systems</h3>
-
-Also you can find many other patterns specific to Distributed System categorized as:
-
-<ui>
-  <li>Patterns for Decoupling in Distributed Systems</li>
-  <li>Eventsourcing Patterns</li>
-  <li>General Messaging Patterns</li>
-<ui>
-<br/>	
-You can access the list and detail about them in <a href="http://verraes.net/2019/05/ddd-msg-arch/">here</a>.
 
 <br/>
 
