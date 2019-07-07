@@ -3,7 +3,7 @@ layout: post
 title:  "Welcome to my new technical blog!"
 date:   2019-05-16 10:58:08 +0100
 categories: jekyll
-permalink: /:categories/
+permalink: /:categories/welcome
 ---
 This post is to start the new version of my blog. To do this, I move on from wordpress to git pages. So, my technical posts are going to be here. The other posts are going to continue on wordpress.
 
@@ -13,7 +13,7 @@ Then, to start this, I wached the overview in a Udemy [here](https://www.udemy.c
 
 The first step is to create an account on github, of course. After that, you have to create a repository with your username followed by 'github.io'. The next step you need to have some tool to manage the repository. I downloaded the [GitHub Desktop](https://desktop.github.com/). To edit the files I am using the [Atom](https://atom.io/).
 
-To help you with your pages you can use [Jekyll](https://jekyllrb.com/) that is integrated with GitHub Pages. There is great [tutorial](https://jekyllrb.com/tutorials/video-walkthroughs/) that will help you to get an overview of the Jekyll. If you use MacOS, like me, you need be sure about the version of ruby. Jekyll need the version 2.4 installed. For more detail you can read that [here](https://jekyllrb.com/docs/installation/macos/).
+To help you with your pages you can use [Jekyll][jekyll-docs] that is integrated with GitHub Pages. There is great [tutorial](https://jekyllrb.com/tutorials/video-walkthroughs/) that will help you to get an overview of the Jekyll. If you use MacOS, like me, you need be sure about the version of ruby. Jekyll need the version 2.4 installed. For more detail you can read that [here](https://jekyllrb.com/docs/installation/macos/).
 
 <h3>Facilities</h3>
 
@@ -32,6 +32,15 @@ bundle exec jekyll serve
 
 {% endhighlight %}
 
+<h3>Conclusion</h3>
+
+The first version of my blog is using the [minima][minima-them] themes using a simple menu and the list of posts on the first page.
+
+On my [next][jekyll-step1] post about jekyll I will give more information to help you to understand a little more how this work.
+
+See you!!
+
+
 [jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+[minima-them]: https://github.com/jekyll/minima/blob/master/_layouts/home.html
+[jekyll-step1]: http://fabiana2611.github.io/jekyll/jekyll-step1
