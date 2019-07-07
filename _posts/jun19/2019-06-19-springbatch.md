@@ -242,6 +242,40 @@ The arguments receive the config XML and the job name. If you have some other co
 
 The complete code you will see in <a href="https://github.com/fabiana2611/spring-batch">my github</a>.
 
+<h2>Test</h2>
+
+<p style="text-align: justify;">To Unit Test you can follow the <a href="https://docs.spring.io/spring-batch/3.0.x/reference/html/testing.html">documentation.</a></p>
+
+The main annotation is:
+
+{% highlight ruby %}
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration
+{% endhighlight %}
+
+<p style="text-align: justify;">The @ContextConfiguration annotation is where you will say to test where is your configurations, 
+that can be in xml (use property locations) or class (use property classes).</p>
+
+<p style="text-align: justify;">Also you should have the JobLauncherTestUtils instantiate on your class and declared in your configuration file.</p>
+
+{% highlight ruby %}
+<bean id="JobLauncherTestUtils" class="org.springframework.batch.test.JobLauncherTestUtils">
+   <property name="jobLauncher" ref="jobLauncher"/>
+</bean>
+{% endhighlight %}
+	
+You can test the execution of the Job or by step.	
+
+{% highlight ruby %}
+JobExecution job = jobLauncherTestUtils.launchJob();
+Assert.assertEquals(BatchStatus.COMPLETED, job.getStatus());
+		
+JobExecution step = jobLauncherTestUtils.launchStep("stepTest");
+Assert.assertEquals(BatchStatus.COMPLETED, step.getStatus());
+{% endhighlight %}
+
+Also you can create a tradicional unit test to test your Mapper or your tasklet classes.
+
 <h2>Conclusion</h2>
 Spring batch is a very important resource to run schedule process. There are mach more resource to use. This post show you just the first step. Now you have a world to explore.
 
@@ -259,4 +293,6 @@ Go deeply!!!
 	<li><a href="https://stackoverflow.com/questions/44238232/define-an-in-memory-jobrepository">jobRepository in-memory</a></li>
 	<li><a href="https://keyholesoftware.com/2012/06/25/getting-started-with-spring-batch-part-two/">Getting Started</a></li>
 	<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/deployment_guide/ch-autotasks">Deployment Guide</a></li>
+	<li><a href="https://www.mkyong.com/spring-batch/spring-batch-unit-test-example/">Spring Batch unit test example</a></li>
+	<li><a href="https://dzone.com/articles/junit-spring-%E2%80%93-what-you-don%E2%80%99t">JUnit & Spring – What You Don’t Know</a></li>
 </ul>
