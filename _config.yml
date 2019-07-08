@@ -35,19 +35,6 @@ plugins:
   - jekyll-feed
   - jekyll-paginate-v2
 
-# Pagination Settings
-pagination:
-  enabled: true
-  per_page: 5
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-  trail:
-    before: 2
-    after: 2
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
