@@ -6,3 +6,5 @@ layout: home
 pagination:
   enabled: true
 ---
+
+Index
