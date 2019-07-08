@@ -2,6 +2,8 @@
 layout: page
 title: Links
 permalink: /links/
+pagination:
+  enabled: false
 ---
 
 <h2>To Code</h2>

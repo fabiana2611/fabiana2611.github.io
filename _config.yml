@@ -19,7 +19,7 @@ description: #>- # this means to ignore newlines until "baseurl:"
   It is a blog where I can explain my studies and share them.
   I also have a blog to share my personal and professional experience in Portugal.
   In case you want to get tips or just curiosities about Portugal go there.
-  Good studies! 
+  Good studies! Goo deeply!
   https://bianoporto.wordpress.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com

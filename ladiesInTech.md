@@ -2,6 +2,8 @@
 layout: page
 title: Ladies In Tech
 permalink: /ladiesintech/
+pagination:
+  enabled: false
 ---
 
 <div class="container">

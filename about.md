@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+pagination:
+  enabled: false
 ---
 
 I am a Java Developer with over 9 years of experience in Java and over 4 years of experience using Scrum. I did my undergraduate and Master's degrees in Computer Science.
