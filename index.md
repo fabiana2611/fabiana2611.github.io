@@ -8,4 +8,4 @@ pagination:
   enabled: true
 ---
 
-  {% include postsByCategory.html %}
+{% include postsByCategory.html %}
