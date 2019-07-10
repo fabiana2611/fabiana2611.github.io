@@ -2,7 +2,7 @@
 layout: post
 title:  "Java 8 - Part I [Language Enhancements]"
 date:   2019-06-05
-categories: java
+category: java
 permalink: /:categories/enhancements
 ---
 
