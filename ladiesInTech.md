@@ -106,6 +106,7 @@ pagination:
 	<li><a href="https://blogs.oracle.com/women/"  >Women@Oracle</a></li>
 	<li><a href="https://anitab.org/"  >Anitab.org</a></li>
 	<li><a href="http://www.portuguesewomenintech.com/"  rel="noopener">Portuguese Women {in Tech}</a></li>
+	<li><a href="http://geekgirlsportugal.pt/" >Geek Girls Portugal</a></li>
 </ul>
 
 
