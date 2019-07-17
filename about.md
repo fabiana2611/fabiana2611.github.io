@@ -64,7 +64,7 @@ I also have a blog talking about Portugal, my new place. If you want to know som
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
-| [Resumé](https://docs.google.com/document/d/1CUdn7kem-nT5xuB3Fi9kSNt3LK8hlu2Fh3A9jhSCmXU/edit?usp=sharing) | [Curriculum Lattes](http://lattes.cnpq.br/7549888781032556) | [CV - Europass](https://drive.google.com/open?id=1Mwl2Z1Pt7DU1a7Lj6xQV57hc-l39lKcD) | [Gravatar](https://pt.gravatar.com/biafreire2611)   | [About.Me](https://about.me/fabianafreiredearaujo)  |
+| [Resumé](https://docs.google.com/document/d/1CUdn7kem-nT5xuB3Fi9kSNt3LK8hlu2Fh3A9jhSCmXU/edit?usp=sharing) | [Curriculum Lattes](http://lattes.cnpq.br/7549888781032556) | [CV - Europass](https://drive.google.com/open?id=1Mwl2Z1Pt7DU1a7Lj6xQV57hc-l39lKcD) | [Gravatar](https://pt.gravatar.com/biafreire2611)   | [In French](https://about.me/fabianafreiredearaujo)  |
 
 
 [jekyll-organization]: https://github.com/jekyll
