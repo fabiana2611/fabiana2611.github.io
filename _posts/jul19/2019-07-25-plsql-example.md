@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "PL/SQL - Using a sql result"
-date:   2019-07-17
+date:   2019-07-25
 categories: database
 permalink: /:categories/plsql-example
 ---
