@@ -61,9 +61,9 @@ Here is the basic structure that the angular will create for you.
 <p style="text-align: justify;">The same <span style="color: #993366;">app.component.ts </span>file has a "<span style="color: #993366;">selector</span>" that define  "<span style="color: #993366;">app-root</span>". You will see that in the <span style="color: #993366;">index.html</span> page. That is all the magic.</p>
 
 <h2>A simple modification - Module</h2>
-<p style="text-align: justify;">A simple test that you can do just is adding a new <a href="https://www.tutorialspoint.com/angular7/angular7_modules.htm">module</a>. The module is the place where you will put every the groups that you need to your application such the components.
+<p style="text-align: justify;">A simple test that you can do just is adding a new <a href="https://www.tutorialspoint.com/angular7/angular7_modules.htm">module</a>. The module is the place where you will put every the groups that you need to your application such the components. The module created by default is the @NgModule.</p>
 
-One example is to add a dynamic input text. To do this, delete all the content of the <span style="color: #993366;">app.component.html</span> and put this:</p>
+<p style="text-align: justify;">One example is to add a dynamic input text. To do this, delete all the content of the <span style="color: #993366;">app.component.html</span> and put this:</p>
 
 {% highlight ruby %}
 < input type = "text" [(ngModel)]= "title" >
