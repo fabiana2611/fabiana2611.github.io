@@ -56,10 +56,12 @@ ng g c new-cmp
 <p style="text-align: justify;">The CLI generated three metadata properties inside of <strong>new-cmp.component.ts</strong>:</p>
 
 <ul>
-	<li style="text-align: justify;"><strong>selector:</strong> the component's CSS element selector</li>
-  <li style="text-align: justify;"><strong>templateUrl:</strong> the location of the component's template file.</li>
+	<li style="text-align: justify;"><strong>selector:</strong> the component's CSS element selector. It's possible declare the tag that will be used or such a tag's attribute.</li>
+  <li style="text-align: justify;"><strong>templateUrl:</strong> the location of the component's template file. It's possble use just 'template' and add code inline.</li>
   <li style="text-align: justify;"><strong>styleUrls:</strong> the location of the component's private CSS styles.</li>
 </ul>
+
+Every metadata can be declared inline commands.
 
 <h2>References</h2>
 

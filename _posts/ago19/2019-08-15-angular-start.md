@@ -60,6 +60,8 @@ Here is the basic structure that the angular will create for you.
 <p style="text-align: justify;">For a test, go to the <span style="color: #993366;">app.component.html</span> and change the title. This file also has a variable <span style="color: #993366;">{{ title }}</span> defined in the <span style="color: #993366;">app.component.ts</span>. Change this as well and see the result. The <span style="color: #993366;">app.component.ts</span> is the typescript file that defines the component.</p>
 <p style="text-align: justify;">The same <span style="color: #993366;">app.component.ts </span>file has a "<span style="color: #993366;">selector</span>" that define  "<span style="color: #993366;">app-root</span>". You will see that in the <span style="color: #993366;">index.html</span> page. That is all the magic.</p>
 
+<p style="text-align: justify;">For more detail about what does mean each file in the project can see that in <a href="https://angular.io/guide/file-structure">here</a>.</p>
+
 <h2>A simple modification - Module</h2>
 <p style="text-align: justify;">A simple test that you can do just is adding a new <a href="https://www.tutorialspoint.com/angular7/angular7_modules.htm">module</a>. The module is a set of functional blocks related to an application domain. The module created by default is the @NgModule. Angular is defined by a set of NgModules, which is a set of functional blocks related to an application domain. It declares a compilation text for a set of components. The <a href="https://angular.io/guide/architecture-modules">NgModule</a> is identified by @NgModule() decorator.</p>
 
