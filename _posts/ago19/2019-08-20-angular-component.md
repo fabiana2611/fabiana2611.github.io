@@ -63,6 +63,14 @@ ng g c new-cmp
 
 Every metadata can be declared inline commands.
 
+<br/>
+<h2>Next/Previsous Angular Post</h2>
+<br/>
+Start<a href="https://fabiana2611.github.io/angular/angular-start" class="btn btn-primary">
+<img src="/img/angular/previous.png" width="50" height="50" ></a> <a href="https://fabiana2611.github.io/angular/angular-databinding" class="btn btn-primary">
+<img src="/img/angular/next.png" width="50" height="50" ></a>Data Binding
+
+
 <h2>References</h2>
 
 <ul>

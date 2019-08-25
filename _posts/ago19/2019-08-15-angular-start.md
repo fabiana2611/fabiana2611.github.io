@@ -85,6 +85,13 @@ Other examples you can find <a href="https://angular.io/start/routing">here</a>.
 <pre class="p1">npm install --save bootstrap@3</pre>
 <p class="p2"><span class="s1">Refresh your project and the folder will be shown inside the node_modules folder. Now, update the file <span style="color: #993366;">Angular.json</span> adding in <strong>styles</strong> tag "</span><strong><span class="s2">node_modules/bootstrap/dist/css/bootstrap.min.css".</span></strong></p>
 <img class="  wp-image-1001 aligncenter" src="https://bianoporto.files.wordpress.com/2019/08/stylesbootstrap-1.png" alt="stylesBootstrap.png" width="390" height="283" />
+
+<br/>
+<h2>Next/Previsous Angular Post</h2>
+<br/>
+<a href="https://fabiana2611.github.io/angular/angular-component" class="btn btn-primary">
+<img src="/img/angular/next.png" width="50" height="50" >Component</a>
+
 <h2>References</h2>
 <ul>
 	<li class="p1"><span class="s1"><a href="https://github.com/angular/angular-cli/wiki">https://github.com/angular/angular-cli/wiki</a></span></li>
