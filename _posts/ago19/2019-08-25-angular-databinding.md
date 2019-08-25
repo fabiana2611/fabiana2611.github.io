@@ -38,7 +38,7 @@ permalink: /:categories/angular-databinding
 <p style="text-align: justify;">It is to respond DOM events ((event)="expression"). The object can be used by the component. To use the event is necessary to pass this object using '$'. The method in component can declare the type with <a href="https://angular.io/guide/user-input#get-user-input-from-the-event-object">any</a>, which not specify the type. Or  with 'Event', for example, and you should <a href="https://angular.io/guide/user-input#type-the-event">do a cast to get the value</a>.</p>
 
 <center>
-  <img src="/img/angular/property.png" width="700" height="166" />
+  <img src="/img/angular/event.png" width="700" height="166" />
 </center>
 <br/>
 
