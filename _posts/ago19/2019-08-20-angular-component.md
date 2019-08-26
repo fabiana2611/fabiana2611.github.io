@@ -63,6 +63,16 @@ ng g c new-cmp
 
 Every metadata can be declared inline commands.
 
+<h2>Lifecycle</h2>
+<p style="text-align: justify;">Every component has a <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-hooks">lifecycle</a> controlled by Angular that creates, render the component and its children, checks for updates, and destroy the component to remove from DOM.</p>
+
+<center>
+<img src="/img/angular/lifecycle.png" width="596" height="129"/>
+</center>
+<br/>
+
+<p style="text-align: justify;">It's possible to work inside the phases to do several treatments using interfaces. One example is the OnInit interface. Then, use their methods to implement some behaviour that is necessary for the specific phase. To see the sequence os methods see <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-sequence">here</a>.</p>
+
 <br/>
 <h2>Next/Previsous Angular Post</h2>
 <br/>
