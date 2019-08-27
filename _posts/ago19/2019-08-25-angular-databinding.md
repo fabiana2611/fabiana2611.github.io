@@ -47,7 +47,7 @@ permalink: /:categories/angular-databinding
 <br/>
 <a href="https://fabiana2611.github.io/angular/angular-component" class="btn btn-primary">
 <img src="/img/angular/previous.png" width="50" height="50" >Component</a>
-<a href="https://fabiana2611.github.io/angular/angular-directive" class="btn btn-primary">
+<a href="https://fabiana2611.github.io/angular/angular-directives" class="btn btn-primary">
 <img src="/img/angular/next.png" width="50" height="50" ></a>Directive
 
 <h2>References</h2>
