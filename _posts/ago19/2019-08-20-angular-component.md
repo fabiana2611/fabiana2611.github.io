@@ -71,6 +71,13 @@ Every metadata can be declared inline commands.
 </center>
 <br/>
 
+In terms of “calls”, the lifecycle can be executed through the list of methods:
+
+<center>
+<img src="/img/angular/lifecycle_call.png" width="156" height="200"/>
+</center>
+<br/>
+
 <p style="text-align: justify;">It's possible to work inside the phases to do several treatments using interfaces. One example is the OnInit interface. Then, use their methods to implement some behaviour that is necessary for the specific phase. To see the sequence os methods see <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-sequence">here</a>.</p>
 
 <br/>
