@@ -53,7 +53,7 @@ The Angular dependency injector is a <a href="https://angular.io/guide/hierarchi
 <br/>
 Pipes<a href="https://fabiana2611.github.io/angular/angular-pipes" class="btn btn-primary">
 <img src="/img/angular/previous.png" width="50" height="50" ></a>
-<img src="/img/angular/previous.png" width="50" height="50" ></a>
+
 <a href="https://fabiana2611.github.io/angular/angular-observable" class="btn btn-primary">
 <img src="/img/angular/next.png" width="50" height="50" ></a>Observable
 
