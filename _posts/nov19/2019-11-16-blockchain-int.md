@@ -6,7 +6,7 @@ categories: blockchain
 permalink: /:categories/blockchain-int
 ---
 
-<p style="text-align: justify;">I'm not sure if you already listeners about Blockchain, but how about <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin</a>? Probably yes, right? The Blockchain is the technology behind the cryptocurrency. However, this technology is used to much more scenarios: smart contracts (facilitate, verify, or negotiate a contract agreement), financial services, video games,  security, Healthcare (store their patients’ medical records), Automobiles, Insurance, etc. It is a really safe technology. Most parts of the problems happen because of the users and not because of the technology.</p>
+<p style="text-align: justify;">I'm not sure if you already listened about Blockchain, but how about <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin</a>? Probably yes, right? The Blockchain is the technology behind the cryptocurrency. However, this technology is used to much more scenarios: smart contracts (facilitate, verify, or negotiate a contract agreement), financial services, video games, security, Healthcare (store their patients’ medical records), Automobiles, Insurance, etc. It is a really safe technology. Most parts of the problems happen because of the users and not because of the technology.</p>
 Here, let's understand the basic concepts about how the Blockchain works.
 
 <em>The <a href="https://www.geeksforgeeks.org/blockchain-technology-introduction/">characteristics</a>: distributed, secure, transparent, consensus-based and flexible.</em>
@@ -72,7 +72,7 @@ In blockchain only insert new block is permitted. No deletions or updates are pe
 <td style="text-align: center;"><strong>What are miners</strong></td>
 </tr>
 <tr>
-<td>[<iframe width="390" height="235" src="https://www.youtube.com/embed/SSo_EIwHSd4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+<td><iframe width="390" height="235" src="https://www.youtube.com/embed/SSo_EIwHSd4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 <td><iframe width="390" height="235" src="https://www.youtube.com/embed/RmhrGHKWZA8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 </tr>
 <tr>
