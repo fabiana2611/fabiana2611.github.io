@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Directives"
 date:   2019-08-27
-category: "angular"
+category: "frontend"
 permalink: /:categories/angular-directives
 ---
 <h2>Introduction</h2>

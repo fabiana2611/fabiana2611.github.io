@@ -2,7 +2,7 @@
 layout: post
 title:  "Jekyll - Category"
 date:   2019-07-17
-categories: jekyll
+categories: frontend
 permalink: /:categories/jekyll-category
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to my new technical blog!"
 date:   2019-05-16 10:58:08 +0100
-categories: jekyll
+categories: frontend
 permalink: /:categories/welcome
 ---
 This post is to start the new version of my blog. To do this, I move on from wordpress to git pages. So, my technical posts are going to be here. The other posts are going to continue on wordpress.
