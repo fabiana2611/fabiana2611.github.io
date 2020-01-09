@@ -9,7 +9,7 @@ permalink: /:categories/css-less-sass
 <p style="text-align: justify;">The idea of this post is not go dive in this subject, but only say that there are other options besides the CSS.</p>
 
 <h2>CSS and Preprocessors</h2>
-<p style="text-align: justify;">The <strong>CSS</strong> is responsible for the layout or the presentation of your html page, describing how the pages will be exhibit and how them elements will be displayed.</p>
+<p style="text-align: justify;">The <strong>CSS</strong> is responsible for the layout or the presentation of your HTML page, describing how the pages will be an exhibit and how their elements will be displayed.</p>
 
 <blockquote>
 <p style="text-align: center;"><a href="https://www.w3schools.com/css/css_intro.asp">CSS stands for Cascading Style Sheets</a>.</p>
@@ -19,9 +19,9 @@ permalink: /:categories/css-less-sass
 <ul style="text-align: justify;">
 	<li><em>inline</em> (directly on the component code),</li>
 	<li><em>internal</em> (inside the tag 'style' in the page) or</li>
-	<li><em>external</em> (external file with .css extention).</li>
+	<li><em>external</em> (external file with .css extension).</li>
 </ul>
-<p style="text-align: justify;">As soon you start to work with CSS you will note that there are a huge chance to repeat the code. To make the CSS build more dynamic, there are the <strong><span style="color: #993366;">preprocessors</span></strong>. The examples of preprocessors are <a href="http://lesscss.org/features/">LESS</a> and <a href="https://en.wikipedia.org/wiki/Sass_(stylesheet_language)">SASS</a>.</p>
+<p style="text-align: justify;">As soon you start to work with CSS you will note that there is a huge chance to repeat the code. To make the CSS build more dynamic, there are the <strong><span style="color: #993366;">preprocessors</span></strong>. The examples of preprocessors are <a href="http://lesscss.org/features/">LESS</a> and <a href="https://en.wikipedia.org/wiki/Sass_(stylesheet_language)">SASS</a>.</p>
 <p style="text-align: justify;">These preprocessors are compiled to the CSS and used on the client or server. They allow, for example, the use of <em>mixins</em> (template) and variables. Both allow a clean and dynamic CSS. However, SASS is based in Ruby and LESS uses JavaScript.</p>
 Some <strong>differences</strong> between LESS and SASS you can see [<a href="https://www.keycdn.com/blog/sass-vs-less">1</a>] and [<a href="https://dev.to/flippedcoding/the-differences-between-css-less--sass-5a74">2</a>].
 <h3>LESS vs SASS</h3>
@@ -40,10 +40,29 @@ Some <strong>differences</strong> between LESS and SASS you can see [<a href="ht
 </tr>
 </tbody>
 </table>
-<h2>Conclusion</h2>
-You can choice any of the options, even continue to use CSS. It depends on the objective and maturity of your code and developers.
 
-How I said,  this post is just to say that exist more life then the CSS.
+<h2>Migration to Angular 6</h2>
+If you need to migrate version you should have pay attention to some points:
+
+<em>You should config your angular.json to accept the processor.</em>
+<div>
+<pre>"schematics": {
+   "@schematics/angular:component":{
+      "styleext":"less"
+   }
+},</pre>
+</div>
+<div></div>
+You should declare your less globally or by component.
+<pre><strong>COMPONENT</strong>:
+styleUrls: ['../styles/yourstyle.less']
+<strong>GLOBAL</strong>: <em>angular.json</em>
+"styles": ["src/yourstyle.less"]</pre>
+
+<h2>Conclusion</h2>
+<p style="text-align: justify;">You can choose any of the options, even continue to use CSS. It depends on the objective and maturity of your code and developers.</p>
+<p style="text-align: justify;">How I said,  this post is just to say that exists more life than the CSS.</p>
+
 <h2>References</h2>
 <ul>
 	<li><a href="http://lesscss.org/features/">Less.org</a></li>
