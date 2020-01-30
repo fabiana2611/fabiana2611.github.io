@@ -46,13 +46,3 @@ permalink: /:categories/angular-best-practices
 	<li><span style="color: #993366;">Use Interface</span></li>
 	<li><span style="color: #993366;">Add one empty line between imports and module such as third party and application imports and third-party module and custom module</span></li>
 </ul>
-
-<h2>REFERENCES</h2>
-<ul>
-	<li>https://angular.io/guide/styleguide</li>
-	<li>https://www.freecodecamp.org/news/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f/</li>
-	<li>https://code-maze.com/angular-best-practices/</li>
-	<li>https://aglowiditsolutions.com/blog/angular-best-practices/</li>
-	<li>https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7</li>
-	<li>https://www.zeolearn.com/magazine/angular-best-practices</li>
-</ul>
