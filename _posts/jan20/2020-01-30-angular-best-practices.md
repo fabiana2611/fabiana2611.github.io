@@ -46,3 +46,7 @@ permalink: /:categories/angular-best-practices
 	<li><span style="color: #993366;">Use Interface</span></li>
 	<li><span style="color: #993366;">Add one empty line between imports and module such as third party and application imports and third-party module and custom module</span></li>
 </ul>
+
+<h2>Conclusion</h2>
+<p style="text-align: justify;">This list of best practices gives us a good idea about the way to follow in the development. More detail about the item you need to use go to the links and see the examples.</p>
+Good coding!!!
