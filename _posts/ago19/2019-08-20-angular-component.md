@@ -33,6 +33,8 @@ A new component will have the same structure, and to use that you need to put it
 ng generate component new-cmp
 // Simplified command
 ng g c new-cmp
+// A component inside another one
+ng g c component_path/new-cmp
 {% endhighlight %}
 
 <p style="text-align: justify;">When you do this, a new component is created with a folder, their files and references in <span style="color: #993366;">app.module.ts</span>. Considering the new components <span style="color: #993366;">servers</span>, the new structure is shown below.</p>
