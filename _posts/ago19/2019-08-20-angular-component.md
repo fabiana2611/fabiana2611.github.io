@@ -84,6 +84,7 @@ In terms of “calls”, the lifecycle can be executed through the list of metho
 
 <br/>
 <h2>Next/Previsous Angular Post</h2>
+As the studies progress, I will add the code in the <a href="https://github.com/fabiana2611/br-prev-analisys">github project</a>.
 <br/>
 Start<a href="https://fabiana2611.github.io/angular/angular-start" class="btn btn-primary">
 <img src="/img/angular/previous.png" width="50" height="50" ></a> <a href="https://fabiana2611.github.io/angular/angular-databinding" class="btn btn-primary">
