@@ -16,18 +16,18 @@ You can create a service using the <span style="color: #993366;">@angular/cli</s
 @Injectable()
 export class MyService { ... }</pre>
 </div>
-<p style="text-align: justify;">If the service is specific to your component you just need to declare the service inside the '<a href="https://angular.io/guide/dependency-injection-providers#dependency-providers"><span style="color: #993366;">provider</span></a>' of your component to be available to Angular inject this service. Also the constructor should declare parameters which services will be used. A github example you can see <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/core/http/open-data-br.service.ts">here</a>.</p>
+<p style="text-align: justify;">If the service is specific to your component you just need to declare the service inside the '<a href="https://angular.io/guide/dependency-injection-providers#dependency-providers"><span style="color: #993366;">provider</span></a>' of your component to be available to Angular inject this service. Also the constructor should declare parameters which services will be used.</p>
 
-<pre>
-@Component({
+<div>
+<pre>@Component({
      selector: 'my-app',
      templateUrl: './my-app.component.html',
      providers: [MyService]
 })
 export class MyComponent {
      constructor(private myservice:MyService){}
-... }
-</pre>
+... }</pre>
+</div>
  
 <p style="text-align: justify;">If it is a service that you need to use in many situations in your app and, for example, need to preserve the state of the data, you need to declare this service in a higher level. It is necessary because, when you navigate to other component and get back, the state will be restarted. Then, one example is to declare inside the <span style="color: #993366;">app.component.ts</span>.</p>
 
@@ -52,7 +52,10 @@ The Angular dependency injector is a <a href="https://angular.io/guide/hierarchi
 <h2>Next/Previsous Angular Post</h2>
 <br/>
 Pipes<a href="https://fabiana2611.github.io/angular/angular-pipes" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a> <a href="https://fabiana2611.github.io/angular/angular-observable" class="btn btn-primary"> <img src="/img/angular/next.png" width="50" height="50" ></a>Observable
+<img src="/img/angular/previous.png" width="50" height="50" ></a>
+
+<a href="https://fabiana2611.github.io/angular/angular-observable" class="btn btn-primary">
+<img src="/img/angular/next.png" width="50" height="50" ></a>Observable
 
 <h2>References</h2>
 <ul>
