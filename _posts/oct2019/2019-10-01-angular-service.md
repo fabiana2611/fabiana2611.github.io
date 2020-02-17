@@ -16,7 +16,7 @@ You can create a service using the <span style="color: #993366;">@angular/cli</s
 @Injectable()
 export class MyService { ... }</pre>
 </div>
-<p style="text-align: justify;">If the service is specific to your component you just need to declare the service inside the '<a href="https://angular.io/guide/dependency-injection-providers#dependency-providers"><span style="color: #993366;">provider</span></a>' of your component to be available to Angular inject this service. Also the constructor should declare parameters which services will be used. A github example you can see <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/core/http/open-data-br.service.ts">here</a>.</p>
+<p style="text-align: justify;">If the service is specific to your component you just need to declare the service inside the '<a href="https://angular.io/guide/dependency-injection-providers#dependency-providers"><span style="color: #993366;">provider</span></a>' of your component to be available to Angular inject this service. Also the constructor should declare parameters which services will be used. Some github examples you can see here: <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/core/http/open-data-br.service.ts">[1]</a>, <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/modules/acidente-trabalho/acidente.service.ts">[2]</a>, <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/modules/beneficios/beneficio.service.ts">[3]</a> and <a href="https://github.com/fabiana2611/br-prev-analisys/blob/master/src/app/modules/contribuicao/contribuicao.service.ts">[4]</a></p>
 
 <pre>
 @Component({
