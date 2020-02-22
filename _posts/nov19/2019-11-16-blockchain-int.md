@@ -102,4 +102,6 @@ In blockchain only insert new block is permitted. No deletions or updates are pe
 	<li><a href="https://www.baeldung.com/java-blockchain">Implementing a Simple Blockchain in Java</a>
 </li>
 	<li><a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa">Creating Your First Blockchain with Java. Part 1</a></li>
+  <li><a href="https://101blockchains.com/blockchain-applications/">Real World Blockchain Use Cases – 46 Blockchain Applications</a></li>
+  <li><a href="https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54">A blockchain in 200 lines of code</a></li>
 </ul>
