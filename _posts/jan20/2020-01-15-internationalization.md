@@ -94,8 +94,8 @@ In your init method add the code below. It will put the parameters in the messag
 <pre>
 //json files
 {
-  "firstName": "Your first name is {{paramFirstName}}",
-  "lastName": "Your name is {{paramLastName}}"
+  "firstName": "Your first name is { { paramFirstName } }",
+  "lastName": "Your name is { { paramLastName } }"
 }
 
 // ngOnInit method
