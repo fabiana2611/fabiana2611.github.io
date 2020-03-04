@@ -83,6 +83,30 @@ import * as translationEs from './assets/i18n/es.json';</pre>
 "combine-json": "ngx-i18n-combine -i ./src/i18n/fragments -o src/assets/i18n/en.json"</pre>
 <p style="text-align: justify;">Pay attention to the output source. It should be the same declared in <span style="color: #993366;">assets</span> property in the '<em><span style="color: #993366;">angular.json</span></em>' file. The build will get this file and add it to the <span style="color: #993366;">dist</span> folder. Both module you can give folder such input or a list of files.</p>
 
+<h2>Asynchronous</h2>
+
+<p style="text-align: justify;">If you need pass parameters to the message in your json but the values cames from a service, for example, when the page is rendered there is a possibility that your message will not populate with the parameters.</p>
+
+<p style="text-align: justify;">To guarantee the correct renderization with the values you need to use the <a href="https://alligator.io/angular/ngx-translate/#translateservice">asynchroous way</a> to use the translate service.</p>
+
+In your init method add the code below. It will put the parameters in the messages as soon as the data is recovered.
+
+<pre>
+//json files
+{
+  "firstName": "Your first name is {{paramFirstName}}",
+  "lastName": "Your name is {{paramLastName}}"
+}
+
+// ngOnInit method
+  this.translate.get(['firstName', 'lastName'],
+      [{paramFirstName: "Maria"}, { paramLastName: "Silva"}]})
+    .subscribe(translations => {
+      this.firstName = translations['firstName'];
+      this.lastName = translations['lastName'];
+    });
+</pre>
+
 <h2>Conclusion</h2>
 <p style="text-align: justify;">The use of the translate is not a big deal. If you are migrating probably you will have some incompatibilities issues regarding with version.</p>
 <p style="text-align: justify;">The big decision, in fact, is if you will use a big file or fragments. Don't worry. There's no right answer. Take your decision and go on.</p>

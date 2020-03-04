@@ -87,4 +87,5 @@ The post <a href="https://dzone.com/articles/design-patterns-for-microservices">
 	<li><a href="https://howtodoinjava.com/gang-of-four-java-design-patterns/" >HowToDoInJava</a></li>
 	<li><a href="https://www.tutorialspoint.com/design_pattern/factory_pattern.htm" >totorialspoint</a></li>
 	<li><a href="https://stackabuse.com/creational-design-patterns-in-java/" >StackAbuse</a></li>
+	<li><a href="https://www.java67.com/2012/09/top-10-java-design-pattern-interview-question-answer.html">Top 18 Java Design Pattern Interview Questions Answers for Experienced </a></li>
 </ul>
