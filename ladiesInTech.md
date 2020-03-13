@@ -44,6 +44,7 @@ pagination:
 </td>
 <td><img class="alignnone size-full wp-image-718" src="https://bianoporto.files.wordpress.com/2018/12/anita_borg.jpg" alt="anita_borg" width="200" height="200" /> <br/><a href="https://en.wikipedia.org/wiki/Anita_Borg" >Anita Borg</a> - <span id="Advocacy_for_technical_women" class="mw-headline">Advocacy for technical women</span></td>
 </tr>
+<tr><td colspan="3"><a href="https://www.linkedin.com/feed/update/urn:li:activity:6644196863794827264/"><img src="/img/wwc.jpeg" alt="anita_borg" width="450" height="200" /></a></td></tr>
 </tbody>
 </table>
 
