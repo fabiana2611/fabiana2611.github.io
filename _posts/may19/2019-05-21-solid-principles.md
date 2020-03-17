@@ -3,7 +3,7 @@ layout: post
 title:  "S.O.L.I.D. Principles"
 date:   2019-05-21
 categories: bestpractice
-permalink: /:categories/silid-principles
+permalink: /:categories/solid-principles
 ---
 
 Hello World!!!
@@ -36,7 +36,7 @@ Uncle Bob, in his chapter about <a href="https://drive.google.com/file/d/0ByOwmq
 The picture below shows how Uncle Bob represented in his article a set of classes with more than one responsibility (left) and how he changes the class Rectangle (right).
 
 | :------------- | :------------- |
-| <img src="/img/5Principles/SRP1.png" height="300" width="550">       | <img src="/img/5Principles/SRP2.png" height="300" width="550">       |
+| <img src="/img/5Principles/SRP1.png" height="250" width="550">       | <img src="/img/5Principles/SRP2.png" height="250" width="550">       |
 
 <br/>
 <H3>2. Open-closed Principle</h3>
@@ -92,7 +92,7 @@ The Interface Pollution happens when an InterfaceA has to add an InterfaceB tha
 The picture below shows an example of the problem (left) where one interface is used for many clients and a solution (right) where the interface is split to be used to specific clients. The detail about this example can be seen <a href="https://code.tutsplus.com/tutorials/solid-part-3-liskov-substitution-interface-segregation-principles--net-36710" >here</a>.
 
 <center>
- <img src="/img/5Principles/isp4.png" width="500" height="400">  
+ <img src="/img/5Principles/ISP4.png" width="500" height="400">  
 </center>
 
 <br/>
