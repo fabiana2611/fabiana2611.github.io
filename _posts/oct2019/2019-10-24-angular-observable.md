@@ -45,7 +45,7 @@ observable.subscribe({
   ( ...) ,
   error(x) { console.log(x)}
 });
-<?pre>
+</pre>
 
 To synchronous behaviour you can use the Promise.
 
