@@ -53,15 +53,12 @@ To synchronous behaviour you can use the Promise.
 promise.then(....).catch(...);
 </pre>
 
-<h3>Observables vs promises <a href="https://angular.io/guide/comparing-observables#observables-compared-to-promises">[Ref]</a></h3>
+<h3><em>Observables vs promises <a href="https://angular.io/guide/comparing-observables#observables-compared-to-promises">[Ref]</a></em></h3>
 <ul>
   <li>Observables: start with subscription call. Promises: execute with the creation.</li>
   <li>Observables: many values. Promises: one value</li>
   <li>Observables: more then one clauses. Promises: only one (then)</li>
   <li>Observables: the subscribe method handling errors. Promises: the child is responsible for the errors.</li>
-  <li></li>
-  <li></li>
-
 </ul>
 
 <br/>
