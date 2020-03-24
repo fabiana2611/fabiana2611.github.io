@@ -51,7 +51,7 @@ To synchronous behaviour you can use the Promise.
 
 <pre>
 promise.then(....).catch(...);
-<pre>
+</pre>
 
 <h3>Observables vs promises <a href="https://angular.io/guide/comparing-observables#observables-compared-to-promises">[Ref]</a></h3>
 <ul>
