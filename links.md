@@ -22,6 +22,8 @@ pagination:
 <a href="http://www.java2s.com/">Java2S</a><br/>
 <a href="https://www.javaskool.com/">javaskool</a><br/>
 <a href="http://www.javaguides.net/">Java Guides</a><br/>
+<a href="https://angular-university.io/home">Angular University</a><br/>
+<a href="https://angular.io/">Angular Guide</a><br/>
 </center>
 </td>
 
