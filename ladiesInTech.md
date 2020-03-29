@@ -11,7 +11,7 @@ pagination:
 <table>
 <tbody>
 <tr>
-<td style="text-align: justify;"><img class="alignnone  wp-image-436 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47692671_2025723680841823_4940425288480904195_n.jpg" alt="47692671_2025723680841823_4940425288480904195_n" width="206" height="206" /><a href="https://www.instagram.com/p/BrvA63QhTbb/" >ADA LOVELACE</a> - A Primeira Programadora</td>
+<td style="text-align: justify;"><img class="alignnone  wp-image-436 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47692671_2025723680841823_4940425288480904195_n.jpg" alt="47692671_2025723680841823_4940425288480904195_n" width="206" height="206" /><br><a href="https://www.instagram.com/p/BrvA63QhTbb/" >ADA LOVELACE</a> - A Primeira Programadora</td>
 <td style="text-align: justify;"><img class="  wp-image-435 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47581511_2190631751148814_306473113280306170_n.jpg" alt="47581511_2190631751148814_306473113280306170_n" width="186" height="185" /><a href="https://www.instagram.com/p/BrsODPzBJY9/" >GRACE HOPPER</a> - A Rainha da Computação (Vovó COBOL)</td>
 <td style="text-align: justify;"><img class="  wp-image-437 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/47582583_1024828587692302_6390214723005325282_n.jpg" alt="47582583_1024828587692302_6390214723005325282_n" width="189" height="166" /><br/><a href="https://www.instagram.com/p/BrqM3YthgvL/">HEDY LAMARR</a> - A Mulher mais bonita do mundo - a inventora do salto de frequência</td>
 </tr>
@@ -26,7 +26,7 @@ pagination:
 </tr>
 <tr>
 <td>
-<p style="text-align: justify;"><img class="alignnone  wp-image-443 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/20225256_284871648588313_9216409731659202560_n.jpg" alt="20225256_284871648588313_9216409731659202560_n" width="161" height="201" /><a href="https://www.instagram.com/p/BWxz0w0HaXN/">Margaret Hamilton</a> - Escreveu o código-fonte da espaçonave que levou o homem a lua a 1a vez</p>
+<p style="text-align: justify;"><img class="alignnone  wp-image-443 aligncenter" src="https://bianoporto.files.wordpress.com/2018/12/20225256_284871648588313_9216409731659202560_n.jpg" alt="20225256_284871648588313_9216409731659202560_n" width="161" height="201" /><br><a href="https://www.instagram.com/p/BWxz0w0HaXN/">Margaret Hamilton</a> - Escreveu o código-fonte da espaçonave que levou o homem a lua a 1a vez</p>
 </td>
 <td>
 <p style="text-align: center;"><img class="alignnone size-full wp-image-444" src="https://bianoporto.files.wordpress.com/2018/12/18644736_159365377934779_3736958500589273088_n.jpg" alt="18644736_159365377934779_3736958500589273088_n" width="702" height="200" /><a href="https://www.instagram.com/p/BUZgmKsFS13/" >As garotas do ENIAC</a></p>
@@ -44,7 +44,15 @@ pagination:
 </td>
 <td><img class="alignnone size-full wp-image-718" src="https://bianoporto.files.wordpress.com/2018/12/anita_borg.jpg" alt="anita_borg" width="200" height="200" /> <br/><a href="https://en.wikipedia.org/wiki/Anita_Borg" >Anita Borg</a> - <span id="Advocacy_for_technical_women" class="mw-headline">Advocacy for technical women</span></td>
 </tr>
-<tr><td colspan="3"><a href="https://www.linkedin.com/feed/update/urn:li:activity:6644196863794827264/"><img src="/img/wwc.jpeg" alt="anita_borg" width="450" height="200" /></a></td></tr>
+<tr>
+<td>
+<center><a href="https://justinedurrell.net/hypatia-lover-of-wisdom/">
+<img src="https://justinedurrell.net/wp-content/uploads/2015/09/tumblr_mpc2hcbasT1s3a4wlo1_r1_540-402x590.jpg" width="150" height="200"/>
+</a></center><br>
+<a href="https://en.wikipedia.org/wiki/Hypatia">Hypátia</a> - Philosopher, astronomer and mathematician. She constructed astrolabes and hydrometers. She did the elliptical orbits theory confirmed by Copernicus and proposed by Kepler.</td>
+
+<td colspan="2"><a href="https://www.linkedin.com/feed/update/urn:li:activity:6644196863794827264/"><img src="/img/wwc.jpeg" alt="anita_borg" width="450" height="200" /></a></td>
+</tr>
 </tbody>
 </table>
 
