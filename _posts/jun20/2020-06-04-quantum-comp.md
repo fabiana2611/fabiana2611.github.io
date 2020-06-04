@@ -44,7 +44,7 @@ permalink: /:categories/quantum-programming
 
 <h2 class="p2"><span class="s1"><b>LANGUAGES</b></span></h2>
 
-<ul><li><span class="s7"><b><a href="https://docs.microsoft.com/en-us/quantum/overview/what-is-qsharp-and-qdk"  rel="noopener">Q#</a>: </b>It's used by Microsoft to be easear. You can work using VSCode. All the docs you can access <a href="https://docs.microsoft.com/pt-pt/quantum/">here</a>.</span></li><li><span class="s9"><b><a href="https://github.com/lanl/qmasm">QMASM:</a></b>It's used by D-wave to program based on quantum assembler language.</span></li><li><a href="https://pythonprogramming.net/quantum-computer-programming-tutorial/"><strong>Python</strong></a>: This language is very popular and many companies or groups use that.</li></ul>
+<ul><li><span class="s7"><b><a href="https://docs.microsoft.com/en-us/quantum/overview/what-is-qsharp-and-qdk"  rel="noopener">Q#</a>: </b>It's used by Microsoft to be easear. You can work using VSCode. All the docs you can access <a href="https://docs.microsoft.com/pt-pt/quantum/">here</a>.</span></li><li><span class="s9"><b><a href="https://github.com/lanl/qmasm">QMASM:</a></b>It's used by D-wave to program based on quantum assembler language.</span></li><li><a href="https://pythonprogramming.net/quantum-computer-programming-tutorial/"><strong>Python</strong></a>: This language is very popular and many companies or groups use that, such as Google.</li></ul>
 
 <h2>Quantum Impact</h2>
 
