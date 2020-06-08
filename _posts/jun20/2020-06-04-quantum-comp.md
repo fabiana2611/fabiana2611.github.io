@@ -20,7 +20,12 @@ permalink: /:categories/quantum-programming
 
 <h2 class="p1"><b>Quantum Computer</b></h2>
 
-<p style="text-align: justify;">It's already a reality. However, it's not in every house yet. The processing is superior to traditional computers, at the same time the cost is superior as well. Some companies such as IBM, Microsoft, Google and D-wave, and other groups are working to improve the use of these machines. The works are around the hardware and software with different algorithms to use all the powerful processing. Each one has its own implementations of qubits, which makes us to abstract the hardware part and be focus to learn the quantum programming.</p>
+<p style="text-align: justify;">It's already a reality. However, it's not in every house yet. The processing is superior to traditional computers, at the same time the cost is superior as well. </p>
+
+<p style="text-align: justify;">This kind of machine has about 50-100 qubits which can overcome the classical computer problems. The limit of these machines regard to noise, but the works are towards to surpass this issue.</p>
+
+
+<p style="text-align: justify;">Some companies such as IBM, Microsoft, Google and D-wave, and other groups are working to improve the use of these machines. The works are around the hardware and software with different algorithms to use all the powerful processing. Each one has its own implementations of qubits, which makes us to abstract the hardware part and be focus to learn the quantum programming.</p>
 
 <p style="text-align: justify;">To start to learn this new concept is to follow a Zen story "<a href="https://youtu.be/O-uSQvsC6x4">A cup of tea</a>". You need to empty your mind and be available to different way to solve problems.</p>
 
