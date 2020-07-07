@@ -76,11 +76,18 @@ Every metadata can be declared inline commands.
 In terms of “calls”, the lifecycle can be executed through the list of methods:
 
 <center>
-<img src="/img/angular/lifecycle_call.png" width="156" height="200"/>
+<a href="https://angular.io/guide/lifecycle-hooks#lifecycle-event-sequence">
+<img src="/img/angular/lifecycle_call.png" width="156" height="200"/></a>
 </center>
 <br/>
 
-<p style="text-align: justify;">It's possible to work inside the phases to do several treatments using interfaces. One example is the OnInit interface. Then, use their methods to implement some behaviour that is necessary for the specific phase. To see the sequence os methods see <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-sequence">here</a>.</p>
+<p style="text-align: justify;">It's possible to work inside the phases to do several treatments using interfaces. One example is the OnInit interface and use ngOnInit method to load data. Other scenario is when is necessary to identify the changes but is not possible to use the events. In this case is possible use the method ngOnChanges. In this case, this method will be called in every change. You can add the strategy "OnPush" to guarantee to start the method only when the inputs are changed.</p>
+
+<pre>changeDetection: ChangeDetectionStrategy.OnPush</pre>
+
+<p style="text-align: justify;">Then, use their methods to implement some behaviour that is necessary for the specific phase. However, be careful to with these interventions on the life cycle.</p>
+
+<p style="text-align: justify;"><em>PS: Even though the use of interfaces in some methods is not mandatory, like ngOnChanges, it is a good practice to add these references to make it clear that you are overloading the method.</em></p>
 
 <br/>
 <h2>Next/Previsous Angular Post</h2>
