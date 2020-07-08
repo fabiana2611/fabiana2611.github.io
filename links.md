@@ -34,6 +34,7 @@ pagination:
 <a href="https://www.infoq.com/br">IngoQ</a><br/>
 <a href="https://www.thoughtworks.com/pt">Thoughtworks</a><br/>
 <a href="https://devops.com/">DevOps</a><br/>
+<a href="https://martinfowler.com/">Martin Fowler</a><br/>
 </center>
 </td>
 </tr>
