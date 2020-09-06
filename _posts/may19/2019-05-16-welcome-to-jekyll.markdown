@@ -32,6 +32,16 @@ bundle exec jekyll serve
 
 {% endhighlight %}
 
+<h3>Other commands</h3>
+
+If your variables environment is not configured, maybe you need other commands to start your application;
+
+{% highlight ruby %}
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+bundle exec jekyll serve
+{% endhighlight %}
+
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
