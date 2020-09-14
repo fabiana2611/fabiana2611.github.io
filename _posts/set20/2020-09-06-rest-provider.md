@@ -12,7 +12,7 @@ permalink: /:categories/rest-provider
 
 <p style="text-align: justify;">The Rest is a client/server architecture implemented by some API such as <a href="https://eclipse-ee4j.github.io/jersey/">Jersey</a> and <a href="https://docs.jboss.org/resteasy/docs/3.0.9.Final/userguide/html_single/index.html">RESTEasy</a>.</p>
 
-<p style="text-align: justify;">Now, you can see an exemple of a controller that use an entity with two attributes.  </p>
+<p style="text-align: justify;">Now, you can see an exemple of a controller that use an entity with two attributes.  The complete project used on this post you can see <a href="https://github.com/fabiana2611/rest-provider">here</a>.</p>
 
 {% highlight ruby %}
 // File 1
@@ -320,10 +320,6 @@ CustomerProviderMessageBodyWriter writeTo ...
 <center>
 <img src="/img/rest/pipeline.png" high="400" width="400">
 </center>
-
-<p style="text-align: justify;"></p>
-
-<p style="text-align: justify;"></p>
 
 <h2>References</h2>
 
