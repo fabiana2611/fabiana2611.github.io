@@ -23,7 +23,7 @@ Let’s go!!!.
 
 Anyone who works developing application knows how annoying it is often to worry about the environment itself instead of focusing on the main focus that is developing features.
 
-The docker is based on client-server architecture where the client initiates a request to the server (deamon), the server can be remote or not. This communication is performed via [REST API](https://pt.wikipedia.org/wiki/REST).
+The docker is based on client-server architecture where the client initiates a request to the server (deamon), the server can be remote or not. This communication is performed via [REST API](https://pt.wikipedia.org/wiki/REST), CLI (terminal) and the Kitematic (GUI).
 
 <center>
 <img src="https://docs.docker.com/engine/images/architecture.svg" height="400" width="350">
