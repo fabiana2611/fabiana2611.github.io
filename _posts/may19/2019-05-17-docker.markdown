@@ -69,3 +69,8 @@ Each built container can be stored and made available in a repository, which wor
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
+
+<h3>Course</h3>
+<p> A good course to introduce this subject to you is: 
+<a href="https://www.cod3r.com.br/courses/docker">Docker: Ferramenta essencial para Desenvolvedores</a>
+</p>
