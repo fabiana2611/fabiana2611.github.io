@@ -10,9 +10,14 @@ permalink: /:categories/blockchain-int
 Here, let's understand the basic concepts about how the Blockchain works.
 
 <em>The <a href="https://www.geeksforgeeks.org/blockchain-technology-introduction/">characteristics</a>: distributed, secure, transparent, consensus-based and flexible.</em>
+
 <h2>What is this?</h2>
+
 <p style="text-align: justify;">The Blockchain is a<a href="https://www.tutorialspoint.com/blockchain/blockchain_chaining_blocks.htm"><span style="color: #993366;"> list of blocks</span></a> (<span style="color: #ffcc00;">really? 🤔</span>) connected to each other by a <a href="https://fabiana2611.github.io/java/jca">cryptographic hash</a>. It is used to identify the previous block.</p>
-<p style="text-align: justify;">Each <span style="color: #993366;">block</span> contains many <span style="color: #993366;">messages</span> (or transactions), timestamps (when the block was created) and <span style="color: #993366;">hash codes</span>. In fact, you will identify different types of hash codes. One is to identify the <em>previous block</em>, the other is the <em>root hash</em> that represents a list of hash inside a binary tree that regarding all the transactions, and the other is the <em>Nonce</em>.</p>
+
+<p style="text-align: justify;">Each <span style="color: #993366;">block</span> contains many <span style="color: #993366;">messages</span> (or transactions), timestamps (when the block was created) and <span style="color: #993366;">hash codes</span>. To get better about the hash you can try <a href="https://tools.superdatascience.com/blockchain/hash/">here</a>.</p>
+
+<p>In fact, you will identify different types of hash codes. One is to identify the <em>previous block</em>, the other is the <em>root hash</em> that represents a list of hash inside a binary tree that regarding all the transactions, and the other is the <em>Nonce</em>.</p>
 
 <center>
   <img src="/img/blockchain/blockstructure.png" width="732" height="488" />
@@ -27,6 +32,7 @@ String <span class="s1">dataToHash</span> = <span class="s2">previousHash</span>
 <span class="Apple-converted-space">    </span>+ Integer.toString(<span class="s2">nonce</span>)<span class="Apple-converted-space">  </span>+ <span class="s2">data</span>;
 MessageDigest <span class="s1">digest</span> = MessageDigest.getInstance(<span class="s5">"SHA-256"</span>);
 <span class="Apple-converted-space"><span class="s3">byte</span>[] <span class="s1">bytes</span></span> = <span class="s1">digest</span>.digest(<span class="s1">dataToHash</span>.getBytes());</pre>
+
 <p style="text-align: justify;"><span style="color: var(--color-text);">The hash code is the key to verify if the block was modified. If a new process runs and generated a different hash code then it is known that this block was modified. A complete example of the <span style="color: #993366;"><em>Block class</em></span> you can see <a href="https://github.com/CryptoKass/NoobChain-Tutorial-Part-2/blob/master/src/noobchain/Block.java">here</a>.</span></p>
 <p style="text-align: justify;">The process to create the new block is mining.</p>
 
@@ -104,4 +110,5 @@ In blockchain only insert new block is permitted. No deletions or updates are pe
 	<li><a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa">Creating Your First Blockchain with Java. Part 1</a></li>
   <li><a href="https://101blockchains.com/blockchain-applications/">Real World Blockchain Use Cases – 46 Blockchain Applications</a></li>
   <li><a href="https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54">A blockchain in 200 lines of code</a></li>
+  <li>Udemy - <a href ="https://www.superdatascience.com/pages/blockchain">Blockchain A-Z™: Learn to Build Your Own Blockchain - Additional Resources</a></li>
 </ul>
