@@ -22,11 +22,10 @@ Here, let's understand the basic concepts about how the Blockchain works.
 </center>
 <br/>
 
-<p>In fact, you will identify different types of hash codes. One of them is to identify the <em>previous block</em>, the other one is the <em>root hash</em> that represents a list of hash inside a binary tree that regarding all the transactions. An important value inside the block is the <em>Nonce</em>, which will be used to generate the final hash that represents this block.</p>
+<p>In fact, you will identify different types of hash codes. One of them is to identify the <em>previous block</em>, the other one is the <em>root hash</em>[<a href="https://www.geeksforgeeks.org/introduction-to-blockchain/">1</a>], [<a href="https://www.tutorialspoint.com/blockchain/blockchain_merkle_tree.htm">2</a>] that represents a list of hash inside a binary tree that regarding all the transactions. An important value inside the block is the <em>Nonce</em>, which will be used to generate the final hash that represents this block.</p>
 
 <center>
   <img src="/img/blockchain/blockstructure.png" width="732" height="488" />
-  References: [<a href="https://www.geeksforgeeks.org/introduction-to-blockchain/">1</a>], [<a href="https://www.tutorialspoint.com/blockchain/blockchain_merkle_tree.htm">2</a>]
 </center>
 <br/>
 
@@ -49,7 +48,7 @@ MessageDigest <span class="s1">digest</span> = MessageDigest.getInstance(<span 
 <img src="/img/blockchain/broadcast.png" width="176" height="201" />
 </center>
 
-<p style="text-align: justify;">The mining begins when a transaction is broadcasted to all the nodes and a miner selects the transaction to starts the process. This process finishes when the signature <a href="https://www.baeldung.com/java-blockchain#5-blockchain-verification">attends the requirements</a>. This requirement can be the size of the hash, the prefix is started by zero, etc.  Below, another <a href="https://www.baeldung.com/java-blockchain#3-have-we-mined-the-block-yet">example</a> of how to mine the block.</p>
+<p style="text-align: justify;">The <a href="https://www.tutorialspoint.com/blockchain/bitcoin_mining.htm">mining</a> begins when a transaction is broadcasted to all the nodes and a miner selects the transaction to starts the process. This process finishes when the signature <a href="https://www.baeldung.com/java-blockchain#5-blockchain-verification">attends the requirements</a>. This requirement can be the size of the hash, the prefix is started by zero, etc.  Below, another <a href="https://www.baeldung.com/java-blockchain#3-have-we-mined-the-block-yet">example</a> of how to mine the block.</p>
 
 <pre class="p1"><span class="s1">public</span> String mineBlock(<span class="s1">int</span> <span class="s2">prefix</span>) {
 <span class="Apple-converted-space">    </span>String <span class="s2">prefixString</span> = <span class="s1">new</span> String(<span class="s1">new</span> <span class="s1">char</span>[<span class="s2">prefix</span>]).replace(<span class="s3">'\0'</span>, <span class="s3">'0'</span>);
