@@ -17,7 +17,12 @@ Here, let's understand the basic concepts about how the Blockchain works.
 
 <p style="text-align: justify;">Each <span style="color: #993366;">block</span> contains many <span style="color: #993366;">messages</span> (or transactions), timestamps (when the block was created) and <span style="color: #993366;">hash codes</span>. To get better about the hash you can try <a href="https://tools.superdatascience.com/blockchain/hash/">here</a>.</p>
 
-<p>In fact, you will identify different types of hash codes. One is to identify the <em>previous block</em>, the other is the <em>root hash</em> that represents a list of hash inside a binary tree that regarding all the transactions, and the other is the <em>Nonce</em>.</p>
+<center>
+  <img src="/img/blockchain/block.png" width="280" height="300" />
+</center>
+<br/>
+
+<p>In fact, you will identify different types of hash codes. One of them is to identify the <em>previous block</em>, the other one is the <em>root hash</em> that represents a list of hash inside a binary tree that regarding all the transactions. An important value inside the block is the <em>Nonce</em>, which will be used to generate the final hash that represents this block.</p>
 
 <center>
   <img src="/img/blockchain/blockstructure.png" width="732" height="488" />
