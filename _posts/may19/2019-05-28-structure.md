@@ -36,6 +36,8 @@ HashMap is a data structure that map keys to values. In Java, it is a collection
 
 <img src="/img/datastructure/HASH.png" width="504" height="189">
 
+You can try this structure using this <a src="http://cs.usfca.edu/%CB%9Cgalles/visualization/openHash.html">animation</a>.
+
 <h2>ArrayList</h2>
 
 <p style="text-align: justify;">In some languages, arrays and list are resizable.  In Java, an array's size is defined when it is created. The ArrayList is the dynamic resizing array. The access is O(1), but when you add a new value it can have some complexity. If the array is full another one is created with the double of the size and all the elements are copied to the new array, then it can be O(n).</p>
