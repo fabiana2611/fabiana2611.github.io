@@ -36,7 +36,7 @@ HashMap is a data structure that map keys to values. In Java, it is a collection
 
 <img src="/img/datastructure/HASH.png" width="504" height="189">
 
-You can try this structure using this <a src="http://cs.usfca.edu/%CB%9Cgalles/visualization/openHash.html">animation</a>.
+You can try this structure using this <a href="http://cs.usfca.edu/%CB%9Cgalles/visualization/openHash.html">animation</a>.
 
 <h2>ArrayList</h2>
 
