@@ -42,13 +42,13 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 
 <p style="text-align: justify;">In some languages, arrays and list are resizable.  In Java, an array's size is defined when it is created. The ArrayList is the dynamic resizing array. The access is O(1), but when you add a new value it can have some complexity. If the array is full another one is created with the double of the size and all the elements are copied to the new array, then it can be O(n).</p>
 
-Comparing with LinkedList, ArrayList is batter to retrieve values. If you will have many operations to add new values is better to use LinkedList.
+<p style="text-align: justify;">Comparing with LinkedList, ArrayList is batter to retrieve values. If you will have many operations to add new values is better to use LinkedList.</p>
 
 <center>
   <img src="/img/datastructure/arraylistvslinkedlist.png" width="433" height="232">
 </center>
 
-You can try the LinkedList using this <a href="https://visualgo.net/en/list">animation</a>
+<p style="text-align: justify;">You can try the LinkedList using this <a href="https://visualgo.net/en/list">animation</a></p>
 
 <h2>String</h2>
 
