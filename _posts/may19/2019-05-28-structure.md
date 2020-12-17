@@ -48,6 +48,8 @@ Comparing with LinkedList, ArrayList is batter to retrieve values. If you will h
   <img src="/img/datastructure/arraylistvslinkedlist.png" width="433" height="232">
 </center>
 
+You can try the LinkedList using this <a href="https://visualgo.net/en/list">animation</a>
+
 <h2>String</h2>
 
 <p style="text-align: justify;">Strings are immutable and always create a new object. Each new String object is stored in the <a href="https://www.journaldev.com/797/what-is-java-string-pool" >pool</a> to the application reuse the objects.</p>
