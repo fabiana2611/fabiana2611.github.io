@@ -42,11 +42,12 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 
 <p style="text-align: justify;">In some languages, arrays and list are resizable.  In Java, an array's size is defined when it is created. The ArrayList is the dynamic resizing array. The access is O(1), but when you add a new value it can have some complexity. If the array is full another one is created with the double of the size and all the elements are copied to the new array, then it can be O(n).</p>
 
-<p style="text-align: justify;">Comparing with LinkedList, ArrayList is batter to retrieve values. If you will have many operations to add new values is better to use LinkedList.</p>
+<p style="text-align: justify;">Comparing with <a href="https://www.studytonight.com/data-structures/introduction-to-linked-list">LinkedList</a>, ArrayList is batter to retrieve values. If you will have many operations to add new values is better to use LinkedList.</p>
 
 <center>
   <img src="/img/datastructure/arraylistvslinkedlist.png" width="433" height="232">
 </center>
+<br/>
 
 <p style="text-align: justify;">You can try the LinkedList using this <a href="https://visualgo.net/en/list">animation</a></p>
 
@@ -76,6 +77,8 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 <p style="text-align: justify;"><a href="https://www.studytonight.com/data-structures/stack-data-structure"><strong>Stack:</strong></a> LIFO (<a href="https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting#LIFO">last-in, first-out</a>) | pop, push, peek: O(1) | lookup: O(n)</p>
 
 <p style="text-align: justify;"><a href="https://www.studytonight.com/data-structures/queue-data-structure"><strong>Queues:</strong></a> FIFO (<a href="https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)">first-in, first-out</a>) | enqueue, dequeue, peek: O(1) | lookup: O(n) </p>
+
+<p style="text-align: justify;">The <a href="https://www.studytonight.com/data-structures/introduction-to-linked-list">LinkedList</a> has complexity of O(1) to insert and delete elements. It makes that structure a good choice to implement (<a href="https://www.geeksforgeeks.org/implement-a-stack-using-singly-linked-list/">stack</a> and <a href="https://www.javatpoint.com/linked-list-implementation-of-queue">queue</a> structures.</p>
 
 <center>
   <img src="/img/datastructure/stackqueue.png" width="350" height="249">
