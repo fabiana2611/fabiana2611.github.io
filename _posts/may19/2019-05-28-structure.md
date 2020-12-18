@@ -8,7 +8,7 @@ permalink: /:categories/data-structure
 
 Hello!!
 
-Here, I'd like to talk about some curiosities that I figure out during my studies. Some kind of knowledge that many times we don't pay attention in day-by-day.
+<p style="text-align: justify;">Here, I'd like to talk about some info we have pay attention of some <a href="https://en.wikipedia.org/wiki/List_of_data_structures">data structure</a> to decide which is the best choice in your scenario. Some kind of knowledge that many times we don't pay attention in day-by-day.</p>
 
 <h2>HashMap</h2>
 
@@ -71,6 +71,17 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 
 <p style="text-align: justify;">String Builder and String Buffer use the same instance to update the object. The difference between them is that the Spring Buffer is synchronized (thread-safe).</p>
 
+<h2>Stacks and Queues</h2>
+
+<p style="text-align: justify;"><a href="https://www.studytonight.com/data-structures/stack-data-structure"><strong>Stack:</strong></a> LIFO (<a href="https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting#LIFO">last-in, first-out</a>) | pop, push, peek: O(1) | lookup: O(n)</p>
+
+<p style="text-align: justify;"><a href="https://www.studytonight.com/data-structures/queue-data-structure"><strong>Queues:</strong></a> FIFO (<a href="https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)">first-in, first-out</a>) | enqueue, dequeue, peek: O(1) | lookup: O(n) </p>
+
+<center>
+  <img src="/img/datastructure/stackqueue.png" width="350" height="249">
+</center>
+<br/>
+
 <h2>Big O Common Data Structure</h2>
 
 <br/>
@@ -79,8 +90,7 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 </center>
 <br/>
 
-You can see more detail about that in <a href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a>
-
+<p>You can see more detail about that in <a href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a></p>
 
 <h2>References</h2>
 
