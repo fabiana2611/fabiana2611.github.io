@@ -71,6 +71,17 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 
 <p style="text-align: justify;">String Builder and String Buffer use the same instance to update the object. The difference between them is that the Spring Buffer is synchronized (thread-safe).</p>
 
+<h2>Big O Common Data Structure</h2>
+
+<br/>
+<center>
+  <img src="/img/datastructure/bigo.png" width="650" height="449">
+</center>
+<br/>
+
+You can see more detail about that in <a href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a>
+
+
 <h2>References</h2>
 
 <ul>
