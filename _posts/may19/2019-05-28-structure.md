@@ -100,4 +100,5 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 <ul>
 	<li class="entry-title"><a href="https://www.geeksforgeeks.org/internal-working-of-hashmap-java/" >Internal Working of HashMap in Java</a></li>
 	<li><a href="https://howtodoinjava.com/java-hashmap/" >Java HashMap</a></li>
+	<li><a href="https://www.simplilearn.com/data-structure-interview-questions-and-answers-article" >Top 35 Data Structure Interview Questions in 2021</a></li>
 </ul>
