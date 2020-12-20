@@ -73,10 +73,11 @@ this.http.get<<span class="typ">YourModel</span>>('http://domain.com/opendata/AI
 }
 </span></pre>
 
-<p style="text-align: justify;">In case to send data to the server, your need to change the verb. For example, if you will send data, you need to use <a href="https://angular.io/guide/http#making-a-post-request">POST</a> or <a href="https://angular.io/guide/http#making-a-put-request">PUT</a> verb.</p>
+<p style="text-align: justify;">In case to send data to the server, you need to change the verb. For example, if you will send data, you need to use <a href="https://angular.io/guide/http#making-a-post-request">POST</a> or <a href="https://angular.io/guide/http#making-a-put-request">PUT</a> verb.</p>
 
 <pre><span class="kwd">this</span><span class="pun">.</span><span class="pln">http</span><span class="pun">.</span><span class="pln">post</span><span class="pun"><</span><span class="typ">YourModel</span><span class="pun">>(
     'http://domain.com/opendata/AIn01'</span><span class="pun">,</span><span class="pln">yourObject</span><span class="pun">)</span></pre>
+
 You can follow the same idea to <a href="https://angular.io/guide/http#making-a-delete-request">DELETE</a>.
 
 <p style="text-align: justify;">With this API also is possible to handle <a href="https://angular.io/guide/http#error-handling">errors</a>, using <a href="https://angular.io/guide/http#observables-and-operators">operators</a> to manage the data, customize the <a href="https://angular.io/guide/http#http-headers">header</a>.</p>

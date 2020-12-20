@@ -44,7 +44,7 @@ The parts of the framework to know are:
 The resources around the Angular to support the developments are:
 <ul>
   <li>SPA (Single Page Application): where the UI is loaded once and load parts by demand.</li>
-	<li>Routing: collection of URL and correspondent component. Define navigation</li>
+	<li><a href="https://fabiana2611.github.io/frontend/angular-router">Routing:</a> collection of URL and correspondent component. Define navigation</li>
 	<li>Lazy Loading: load by demand</li>
 </ul>
 
