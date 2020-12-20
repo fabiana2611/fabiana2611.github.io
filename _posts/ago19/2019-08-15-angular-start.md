@@ -46,6 +46,7 @@ The resources around the Angular to support the developments are:
   <li>SPA (Single Page Application): where the UI is loaded once and load parts by demand.</li>
 	<li><a href="https://fabiana2611.github.io/frontend/angular-router">Routing:</a> collection of URL and correspondent component. Define navigation</li>
 	<li>Lazy Loading: load by demand</li>
+	<li><a href="https://fabiana2611.github.io/frontend/angular-pipes">Pipe:</a> transform a data to another format.</li>
 </ul>
 
 <h2 class="p1">Start</h2>

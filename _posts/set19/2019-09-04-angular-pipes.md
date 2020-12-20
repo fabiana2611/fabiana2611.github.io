@@ -6,7 +6,7 @@ category: "frontend"
 permalink: /:categories/angular-pipes
 ---
 
-<p style="text-align: justify;">The symbol of the pipe is the character '|', and to use this, you should put that inside the interpolation expression where the left side (integers, strings, arrays, and date) is your input and the right side is the function to transform the data. If necessary, you can use parameters as well.</p>
+<p style="text-align: justify;">The Pipe is a resource to transform a data to another format. The symbol of the pipe is the character '|', and to use this, you should put that inside the interpolation expression where the left side (integers, strings, arrays, and date) is your input and the right side is the function to transform the data. If necessary, you can use parameters as well.</p>
 
 Some examples are:
 <pre>

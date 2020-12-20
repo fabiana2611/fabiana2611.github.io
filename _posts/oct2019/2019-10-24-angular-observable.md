@@ -11,7 +11,8 @@ permalink: /:categories/angular-observable
 <p style="text-align: justify;">The consumer uses the observable result when it is notified by the use of the subscribe method. When the observable is part of the framework, the angular handle the observable. However, if the observable is created by the developer, then that should be handled and destroyed.</p>
 
 <p style="text-align: justify;">Examples of data sources candidates do be observable: (User Input) Event, Http requests, Triggered in code.</p>
-<p style="text-align: justify;">In Angular, the <a href="https://angular.io/guide/rx-library#the-rxjs-library">RxJS</a> is the library that implement the Observable type.</p>
+
+<p style="text-align: justify;">In Angular, the <a href="https://angular.io/guide/rx-library#the-rxjs-library">RxJS</a> is the library used to work with asynchronous data streams. It implement the Observable type.</p>
 
 <blockquote>
 <p style="text-align: justify;">RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables that makes it easier to compose asynchronous or callback-based code.</p>
