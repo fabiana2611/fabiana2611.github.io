@@ -40,7 +40,8 @@ export class MyComponent {
 export class AppComponent implements OnInit { ... }</pre>
 </div>
 
-<h2 id = "dep_inj">Dependency Injector</h2>
+<div id="dep_inj">
+<h2>Dependency Injector</h2></div>
 
 The Angular dependency injector is a <a href="https://angular.io/guide/hierarchical-dependency-injection">hierarchical injector</a>. Then you create a service to a component it will be available to all its child components. All of them will have the same instance of the service.
 <ol>
