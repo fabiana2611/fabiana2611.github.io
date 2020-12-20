@@ -42,14 +42,6 @@ permalink: /:categories/angular-databinding
 </center>
 <br/>
 
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-<br/>
-<a href="https://fabiana2611.github.io/angular/angular-component" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" >Component</a>
-<a href="https://fabiana2611.github.io/angular/angular-directives" class="btn btn-primary">
-<img src="/img/angular/next.png" width="50" height="50" ></a>Directive
-
 <h2>References</h2>
 <ul>
 <li>https://www.tutorialspoint.com/angular7/angular7_data_binding.htm</li>

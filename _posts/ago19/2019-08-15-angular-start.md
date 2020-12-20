@@ -33,7 +33,7 @@ The parts of the framework to know are:
  <li> <a href="https://fabiana2611.github.io/frontend/angular-databinding">Binding:</a> define how view and component communicate (expression inside the HTML tags or property biding)</li>
  <li> <a href="https://fabiana2611.github.io/frontend/angular-directives">Directives:</a> binding values and changes the HTML DOM behaviors. It can be Structural, Attribute or Component.</li>
  <li> <a href="https://fabiana2611.github.io/frontend/angular-service">Services:</a> helps to share common logic across the project</li>
- <li> DI: pattern to create instance within the components across constructor. To make ir works should be used the providers attributes in metadata. It helps decouple class dependency.</li>
+ <li> <a href="https://fabiana2611.github.io/frontend/angular-service/#dep_inj">DI:</a> pattern to create instance within the components across constructor. To make ir works should be used the providers attributes in metadata. It helps decouple class dependency.</li>
 </ul>
 
 <center>

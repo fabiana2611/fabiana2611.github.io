@@ -45,14 +45,6 @@ By default, every pipes are <a href="https://angular.io/guide/pipes#pure-pipes">
 
 The <a href="https://angular.io/guide/pipes#impure-pipes">impure pipes</a> are the pipes that are called every component change detection cycle. To make the pipe impure add the attribute 'pure: false' inside the '@Pipe' metadata.
 
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-<br/>
-Directives<a href="https://fabiana2611.github.io/angular/angular-directives" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a>
-<a href="https://fabiana2611.github.io/angular/angular-service" class="btn btn-primary">
-<img src="/img/angular/next.png" width="50" height="50" ></a>Service
-
 <h2>References</h2>
 
 <ul>

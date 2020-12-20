@@ -62,12 +62,6 @@ promise.then(....).catch(...);
   <li>Observables: the subscribe method handling errors. Promises: the child is responsible for the errors.</li>
 </ul>
 
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-<br/>
-Services<a href="https://fabiana2611.github.io/angular/angular-service" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a>
-
 <h2>References</h2>
 <ul>
   <li><a href="https://angular.io/guide/observables">Angular IO - Observables</a></li>

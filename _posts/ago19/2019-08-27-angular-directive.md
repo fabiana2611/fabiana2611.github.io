@@ -51,17 +51,6 @@ An explanation about the '\*' you can see <a href="https://angular.io/guide/stru
 
 An example id the ngStyle which can change the color of the component.
 
-
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-<br/>
-Data Binding<a href="https://fabiana2611.github.io/angular/angular-databinding" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a>
-
-<a href="https://fabiana2611.github.io/angular/angular-pipes" class="btn btn-primary">
-<img src="/img/angular/next.png" width="50" height="50" ></a>Pipes
-
-
 <h2>References</h2>
 
 <ul>

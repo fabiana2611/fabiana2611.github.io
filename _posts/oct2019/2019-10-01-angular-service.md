@@ -39,7 +39,9 @@ export class MyComponent {
 })
 export class AppComponent implements OnInit { ... }</pre>
 </div>
-<h2>Dependency Injector</h2>
+
+<h2 id = "dep_inj">Dependency Injector</h2>
+
 The Angular dependency injector is a <a href="https://angular.io/guide/hierarchical-dependency-injection">hierarchical injector</a>. Then you create a service to a component it will be available to all its child components. All of them will have the same instance of the service.
 <ol>
 	<li style="text-align: justify;">The <strong>highest</strong> <strong>level</strong> is the <span style="color: #993366;">AppModule</span>. Then, any instance declared in this level will be available to all the app.</li>
@@ -47,12 +49,6 @@ The Angular dependency injector is a <a href="https://angular.io/guide/hierarchi
 	<li style="text-align: justify;">The last level, the <strong>lowest level</strong>, where there are no children, the instances create in this level will be available only to this component. And if in a higher level the same service is provided, the local instance will be override.</li>
 </ol>
 <p style="text-align: justify;">There are <a href="https://angular.io/guide/hierarchical-dependency-injection#two-injector-hierarchies">two types of the hierarchies</a> in Angular. When you use <span style="color: #993366;">@Injection</span> or <span style="color: #993366;">@NgModule</span> to the injection, it is called <span style="color: #993366;">ModuleInjector</span>. However, if you use @Directive or @Component to provide the injection it is called <span style="color: #993366;">ElementInjector</span>.</p>
-
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-<br/>
-Pipes<a href="https://fabiana2611.github.io/angular/angular-pipes" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a> <a href="https://fabiana2611.github.io/angular/angular-observable" class="btn btn-primary"> <img src="/img/angular/next.png" width="50" height="50" ></a>Observable
 
 <h2>References</h2>
 <ul>
