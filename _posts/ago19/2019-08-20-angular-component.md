@@ -66,6 +66,7 @@ ng g c component_path/new-cmp
 Every metadata can be declared inline commands.
 
 <h2>Lifecycle</h2>
+
 <p style="text-align: justify;">Every component has a <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-hooks">lifecycle</a> controlled by Angular that creates, render the component and its children, checks for updates, and destroy the component to remove from DOM.</p>
 
 <center>
@@ -81,6 +82,10 @@ In terms of “calls”, the lifecycle can be executed through the list of metho
 </center>
 <br/>
 
+<p style="text-align: justify;">When start the page, the sequence os methods are called: (1) Constructor, (2) ngOnChanges, (3) ngOnInit, (4)ngDoCheck, (5) ngAfterContentInit, (6) ngAfterContentChecked, (7) ngAfterViewInit, (8) ngAfterViewCheck. In case finish the page, the (9) ngOnDestroy is called. In case some input be changed, some of these methods will be called again: ngOnChange, ngDoChek, ngAfterContentChecked, ngAfterViewCheked.</p>
+
+<blockquote><p style="text-align: justify;"><em><strong>Constructor vs ngOnInit:</strong> The first one is a TypeScript concept, and the second one is a Angular concept. In construct there are no access to the components because they were not initialized while ngOnInit event is fired after binding the UI and the component is initialized. The constructor should be used to initialized class variables or DI.</em></p></blockquote>
+
 <p style="text-align: justify;">It's possible to work inside the phases to do several treatments using interfaces. One example is the OnInit interface and use ngOnInit method to load data. Other scenario is when is necessary to identify the changes but is not possible to use the events. In this case is possible use the method ngOnChanges. In this case, this method will be called in every change. You can add the strategy "OnPush" to guarantee to start the method only when the inputs are changed.</p>
 
 <pre>changeDetection: ChangeDetectionStrategy.OnPush</pre>
@@ -88,15 +93,6 @@ In terms of “calls”, the lifecycle can be executed through the list of metho
 <p style="text-align: justify;">Then, use their methods to implement some behaviour that is necessary for the specific phase. However, be careful to with these interventions on the life cycle.</p>
 
 <p style="text-align: justify;"><em>PS: Even though the use of interfaces in some methods is not mandatory, like ngOnChanges, it is a good practice to add these references to make it clear that you are overloading the method.</em></p>
-
-<br/>
-<h2>Next/Previsous Angular Post</h2>
-As the studies progress, I will add the code in the <a href="https://github.com/fabiana2611/br-prev-analisys">github project</a>.
-<br/>
-Start<a href="https://fabiana2611.github.io/angular/angular-start" class="btn btn-primary">
-<img src="/img/angular/previous.png" width="50" height="50" ></a> <a href="https://fabiana2611.github.io/angular/angular-databinding" class="btn btn-primary">
-<img src="/img/angular/next.png" width="50" height="50" ></a>Data Binding
-
 
 <h2>References</h2>
 

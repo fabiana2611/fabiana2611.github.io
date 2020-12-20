@@ -115,12 +115,15 @@ Now, go to the app.module.ts and import the new module <span style="color: var(
 Save all files and the result is, what you write in the field it will be shown below.
 
 Other examples you can find <a href="https://angular.io/start/routing">here</a>.
+
 <h2>Adding bootstrap</h2>
 <p class="p1">To use bootstrap you need to install that. If you want a specific version you just need to add that on the end of the command.</p>
 
 <pre class="p1">npm install --save bootstrap@3</pre>
 <p class="p2"><span class="s1">Refresh your project and the folder will be shown inside the node_modules folder. Now, update the file <span style="color: #993366;">Angular.json</span> adding in <strong>styles</strong> tag "</span><strong><span class="s2">node_modules/bootstrap/dist/css/bootstrap.min.css".</span></strong></p>
 <img class="  wp-image-1001 aligncenter" src="https://bianoporto.files.wordpress.com/2019/08/stylesbootstrap-1.png" alt="stylesBootstrap.png" width="390" height="283" />
+
+PS: As the studies progress, I will add the code in the <a href="https://github.com/fabiana2611/br-prev-analisys">github project</a>.
 
 <h2>Commands++</h2>
 
@@ -129,12 +132,6 @@ Other examples you can find <a href="https://angular.io/start/routing">here</a>.
   <li>"ng serve" builds in memory while "ng build" builds on the hard disk</li>
   <li>"ng Build --prod" compress and reduces files</li>
 </ul>
-
-<h2>Next/Previsous Angular Post</h2>
-As the studies progress, I will add the code in the <a href="https://github.com/fabiana2611/br-prev-analisys">github project</a>.
-<br/>
-<a href="https://fabiana2611.github.io/angular/angular-component" class="btn btn-primary">
-<img src="/img/angular/next.png" width="50" height="50" >Component</a>
 
 <h2>References</h2>
 <ul>
