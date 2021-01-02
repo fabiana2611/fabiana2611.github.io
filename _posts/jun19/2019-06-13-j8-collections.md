@@ -317,7 +317,7 @@ Stream.of ("a","b","c").count(); // 3
 </ul>
 <h2>Related Posts</h2>
 <ul>
-<li><a href="http://localhost:4000/java/collections.html" >Java 8 - Part VII [Collections]</a></li>
+<li><a href="https://fabiana2611.github.io/java/collections.html" >Java 8 - Part VII [Collections]</a></li>
 <li><a href="https://fabiana2611.github.io/java/nio" >Java 8 – Part VI [File IO NIO.2]</a></li>
 <li><a href="https://fabiana2611.github.io/java/concurrency" >Java 8 – Part V [Concurreny]</a></li>
 <li><a href="https://fabiana2611.github.io/java/stream" >Java 8 – Part IV [Streams]</a></li>
