@@ -95,6 +95,21 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 
 <p>You can see more detail about that in <a href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a></p>
 
+<br/>
+<h2>Which structure to use: Set, Map or List</h2>
+
+<p tyle="text-align: justify;">Sometimes is hard to decide which structure is the best to each case. One image can explain better. In the stackOverflow discussion, someone create an image that can help it.</p>
+
+<br/>
+<center>
+  <a href="https://i.stack.imgur.com/aSDsG.png"><img src="/img/datastructure/structurediagram.png" width="650" height="749"></a>
+	<br/>
+	<em>StackOverflow: <a href="https://stackoverflow.com/questions/21974361/which-java-collection-should-i-use">Which Java Collection should I use?</a>
+	<br/>
+	This image was created for that answer in StackOverflow and is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. The simplest attribution is by linking to either that question or the answer.</em>
+</center>
+<br/>
+
 <h2>References</h2>
 
 <ul>
