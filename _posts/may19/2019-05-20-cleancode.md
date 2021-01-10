@@ -2,7 +2,7 @@
 layout: post
 title:  "Clean Code"
 date:   2019-05-20
-categories: bestpractice
+categories: foundation
 permalink: /:categories/cleancode
 ---
 Hello World!!!

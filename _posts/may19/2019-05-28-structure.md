@@ -2,7 +2,7 @@
 layout: post
 title:  "Data Structure Curiosity"
 date:   2019-05-28
-categories: algorithm
+categories: foundation
 permalink: /:categories/data-structure
 ---
 

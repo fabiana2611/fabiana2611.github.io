@@ -66,7 +66,7 @@ function myFunction() {
 {:class="table table-bordered"}
 
 |-------------- |----------------   |------------------ |
-| SCRUM | TDD  | [Refactory](https://biaintech.wordpress.com/2018/09/18/s-o-l-i-d-principles/) | [Clean Code](https://biaintech.wordpress.com/2018/09/12/clean-code/) | [Design Pattern](https://fabiana2611.github.io/bestpractice/design-pattern)|
+| SCRUM | TDD  | [Refactory](https://biaintech.wordpress.com/2018/09/18/s-o-l-i-d-principles/) | [Clean Code](https://biaintech.wordpress.com/2018/09/12/clean-code/) | [Design Pattern](https://fabiana2611.github.io/foundation/design-pattern)|
 
 <br/><b>Enthusiastic</b>
 {:class="table table-bordered"}

@@ -2,13 +2,13 @@
 layout: post
 title:  "S.O.L.I.D. Principles"
 date:   2019-05-21
-categories: bestpractice
+categories: foundation
 permalink: /:categories/solid-principles
 ---
 
 Hello World!!!
 
-Many times, when we are programming, we feel that we can make it better, but we don't know exactly what to do or if we are in the right way.  In the post about <a href="https://fabiana2611.github.io/bestpractice/cleancode">Clean Code</a> it was said that it is necessary a "code-sense". But how to get this? Where can I start?
+Many times, when we are programming, we feel that we can make it better, but we don't know exactly what to do or if we are in the right way.  In the post about <a href="https://fabiana2611.github.io/foundation/cleancode">Clean Code</a> it was said that it is necessary a "code-sense". But how to get this? Where can I start?
 
 Don't worry. Some people have been thinking about it and they will lead us.
 

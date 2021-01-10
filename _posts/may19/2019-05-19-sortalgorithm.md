@@ -2,7 +2,7 @@
 layout: post
 title:  "Sort Algorithm"
 date:   2019-05-19
-categories: algorithm
+categories: foundation
 permalink: /:categories/sortalgorithm
 ---
 

@@ -2,11 +2,11 @@
 layout: post
 title:  "Design Pattern"
 date:   2019-05-23
-categories: bestpractice
+categories: foundation
 permalink: /:categories/design-pattern
 ---
 
-The design patterns come up to help us with best practices to solve common problems. The patterns can help in the maintenance of the system. However, you should have a code sense to decide when should NOT use them. [Clean Code](https://fabiana2611.github.io/bestpractice/cleancode) is better than a code that makes you look smart. The excess of patter use just because you wanna do that can cause productivity and maintenance troubles. The SIMPLE can be beautiful.
+The design patterns come up to help us with best practices to solve common problems. The patterns can help in the maintenance of the system. However, you should have a code sense to decide when should NOT use them. [Clean Code](https://fabiana2611.github.io/foundation/cleancode) is better than a code that makes you look smart. The excess of patter use just because you wanna do that can cause productivity and maintenance troubles. The SIMPLE can be beautiful.
 
 There are a lot of patterns that you can choose an also you will find many blogs to speak about them. Here, I'd like to put together some of them just with the summary. I believe it can facilitate understanding and help us to decide about the next step. I'll list the GoF, Java EE and Microservice patterns.
 
