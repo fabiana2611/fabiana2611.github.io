@@ -81,6 +81,8 @@ Here is a good explanation how happen this use of stack by recursion.
 
 <p style="text-align:justify;">Dynamic Programming is a great resource to improve performance in complex problems and recursion is good support. However, the recursion can give memory problem is not have a good implementation.</p>
 
+<p style="text-align:justify;">Also, you can see other <a href="https://fabiana2611.github.io/foundation/sortalgorithm">algorithms</a> that use the DP: <a href="https://www.geeksforgeeks.org/quick-sort/">QuickSort</a> and <a href="https://www.geeksforgeeks.org/merge-sort/">MergeSort</a>.</p>
+
 <h2>Reference</h2>
 
 <ul>
@@ -91,10 +93,8 @@ Here is a good explanation how happen this use of stack by recursion.
  	<li><a href="https://www.geeksforgeeks.org/dynamic-programming-vs-divide-and-conquer/">Dynamic Programming vs Divide-and-Conquer</a></li>
  	<li><a href="https://www.geeksforgeeks.org/dynamic-programming/">Dynamic Programming</a></li>
  	<li><a href="https://dev.to/nikolaotasevic/dynamic-programming--7-steps-to-solve-any-dp-interview-problem-3870">Dynamic Programming – 7 Steps to Solve any DP Interview Problem</a></li>
- 	<li></li>
  	<li><a href="https://www.tutorialspoint.com/data_structures_algorithms/dynamic_programming.htm">Tutorials Point - DP</a></li>
  	<li><a href="https://www.cs.cmu.edu/~avrim/451f09/lectures/lect1001.pdf">Lecture 11 - DP</a></li>
- 	<li></li>
  	<li>Typical Problems to solve with DP
     <ul>
      	<li>https://www.guj.com.br/t/algoritmo-da-mochila-programacao-dinamica/91069</li>
