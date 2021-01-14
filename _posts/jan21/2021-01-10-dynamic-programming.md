@@ -36,21 +36,66 @@ We can summarize how to identify if a problem solved using DP in the <a href="ht
 </ul>
 <p style="text-align:justify;">One example is the Fibonacci problem [<a href="https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/">1</a>][<a href="https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/m2G1pAq0OO0">2</a>]. Using recursive solution the time complexity is O(2^n) while the DP solution only O(n).</p>
 
-<br/>
-<center>
-<img class=" size-full wp-image-1210 aligncenter" src="/img/dp/fibonacci.png?w=678" alt="fibonacci.png" width="449" height="418">
-</center>
-<br/>
+{% highlight ruby %}
+//  1 1 2 3 5 8 13 21 34 56 90
+public class Fibonacci {
 
-<p style="text-align:justify;">The first method (fibRec) solves the problem using the memorization idea, with recursive calls and star the state in N (TopDown). The second method (fibDP) uses the tabulation idea with the initial state started by '1' (BottomUp). The first strategy is easier to think and implement, however, it uses recursivity, which makes the second one, the iterative way, faster than the first method.</p>
+  private static int number;
+  private Integer cache[];
 
-<p style="text-align:justify;">The solution can be improved using cache. The figure bellow is an example given by <a href="https://medium.com/@isachenx/understanding-caching-with-memoize-and-fibonacci-numbers-3a6f174af90a">Isabella Chen</a> in his post.</p>
+  public static void main(String[] args) {
 
-<br/>
-<center>
-<img src="/img/dp/fibo_cache.png?w=678" width="349" height="218">
-</center>
-<br/>
+    number = 9;
+
+    Fibonacci fact = new Fibonacci();
+    System.out.println(fact.fibonacciRecursive(number));
+    System.out.println(fact.fibonacciIterative(number));
+  }
+
+  public int fibonacciRecursive(int number) {
+    if (number <= 1) {
+	    return number;
+    }
+    return fibonacciRecursive(number - 1) + fibonacciRecursive(number - 2);
+  }
+
+  public long fibonacciIterative(int number) {
+
+    int f[] = new int [number + 2];
+    f[0] = 0;
+    f[1] = 1;
+
+    for (int i = 2; i <= number; i++) {
+      f[i] = f[i -1] + f[i-2];
+    }
+
+    return f[number];
+  }
+
+  public int cacheFibo(int number) {
+
+    Integer cache[] = getCache();
+
+    if (cache[number] == null) {
+      cache [number] = cacheFibo(number-1) + cacheFibo(number-2);
+    }
+
+    return cache[number];
+  }
+
+  private Integer[] getCache() {
+    if(cache == null) {
+      cache = new Integer [number];
+    }
+    return cache;
+  }
+
+}
+{% endhighlight %}
+
+<p style="text-align:justify;">The first method (fibonacciRecursive) solves the problem using the memorization idea, with recursive calls and star the state in N (TopDown). The second method (fibonacciIterative) uses the tabulation idea with the initial state started by '1' (BottomUp). The first strategy is easier to think and implement, however, it uses recursivity, which makes the second one, the iterative way, faster than the first method.</p>
+
+<p style="text-align:justify;">The solution can be improved using cache. The last method (cacheFibo) show that.
 
 <h2>Recursion: Pay Attention to the stack</h2>
 
