@@ -103,24 +103,75 @@ public class Fibonacci {
 
 <p style="text-align:justify;">The example bellow (fibonacci) show how the stack is going to be used to process all the result in the end, going back each step when have values the be processed.</p>
 
-<br/>
-<center>
-<img src="/img/dp/stack.png" width="649" height="218">
-</center>
-<br/>
+{% highlight ruby %}
+//5! = 5*4*3*2*1
+public class Factorial {
 
-Here is a good explanation how happen this use of stack by recursion.
+  public static void main(String[] args) {
+    Factorial fact = new Factorial();
+    System.out.println(fact.factorialRecursive(5));
+    System.out.println(fact.factorialRecursive(5,1));
+    System.out.println(fact.factorialIterative(5));
+  }
+
+  public long factorialRecursive(int number) {
+    if (number == 2) {
+      return 2;
+    }
+    System.out.println(number + " * factorialRecursive(" + (number - 1) + ")" );
+    long result  =  number * factorialRecursive(number - 1);
+    System.out.println("Partial Result: " +  number + " * factorialRecursive(" + (number - 1) + ")" );
+    return result;
+  }
+
+  public long factorialRecursive(int number, int a) {
+    if (number <= 1) {
+      return a;
+    }
+    return factorialRecursive( number - 1, number * a);
+	}
+
+  public long factorialIterative(int number) {
+
+    if (number == 0 || number == 1) {
+      return 1;
+    }
+
+    int result = 1;
+
+    for (int i = 2; i <= number; i++) {
+      result *= i;
+    }
+
+    return result;
+  }
+}
+{% endhighlight %}
+
+<p style="text-align:justify;">The outcome from the first recursive code is printed bellow where you will see the stack being completed with data to calculate everything in the end, removing data from the stack.</p>
+
+<pre>
+// Storage data on stack
+5 * factorialRecursive(4)
+4 * factorialRecursive(3)
+3 * factorialRecursive(2)
+
+// Go down in the stack calculating values
+3 * factorialRecursive(2)
+4 * factorialRecursive(3)
+5 * factorialRecursive(4)
+
+// Result
+120
+</pre>
+
+<p style="text-align:justify;">The second recursive code is a memory improvement where the values is already calculate. It makes not necessary storage the data.</p>
+
+<p style="text-align:justify;">Here is a good explanation how happen this use of stack by recursion.</p>
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dxyYP3BSdcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
-
-<p style="text-align:justify;">The second example (factorial) uses a different approach. It solves that by pre-processing values. With the results known, is possible to process them without overuse the stack.</p>
-
-<center>
-<img src="/img/dp/optimization_stack.png" width="349" height="218">
-</center>
-<br/>
 
 <h2>Conclusion</h2>
 
