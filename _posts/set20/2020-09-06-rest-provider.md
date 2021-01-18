@@ -392,6 +392,5 @@ The order of execution is:
 <li><a href="https://howtodoinjava.com/resteasy/resteasy-tomcat-hello-world-application/">howtodoinjava - RESTEasy example tutorial for beginners</a></li>
 <li><a href="https://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access">Client-Side HTTP Basic Access Authentication With JAX-RS 2.0</a></li>
 <li><a href="https://www.logicbig.com/tutorials/java-ee-tutorial/jax-rs/client-filters.html">JAX-RS - Client Filters</a></li>
-
-
+<li><a href="https://www.wildfly.org/news/2020/01/04/Custom-Logging-Filter/">Custom Filters in WildFly</a></li>
 </ul>
