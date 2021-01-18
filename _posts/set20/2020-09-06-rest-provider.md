@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rest - Providers and Interceptors"
+title:  "Rest - Providers, Interceptors and Filters"
 date:   "2020-09-06"
 category: "webservice"
 permalink: /:categories/rest-provider
@@ -313,13 +313,50 @@ CustomWriterInterceptor writer... (method return an entity)
 CustomerProviderMessageBodyWriter writeTo ...
 {% endhighlight %}
 
+<h2>Filters</h2>
+
+<p style="text-align: justify;">Interceptors work with message bodies and filters workt with request and response.</p>
+
+<blockquote>Filters are mainly used to modify or process incoming and outgoing request headers or response headers. They execute before and after request and response processing. [<a href="https://docs.jboss.org/resteasy/docs/3.0-beta-2/userguide/html/Interceptors.html">4</a>]</blockquote>
+
+<p style="text-align: justify;">There are two types of filter: Server Side and Client Side. Both can be customized implementing their interfaces. They can be used to handle the log of the services. </p>
+
+<ul>
+  <li>Server Side Interfaces:  
+    <ul>
+      <li>ContainerRequestFilters: <em>run before your JAX-RS resource method is invoked.[4]</em></li>
+      <li>ContainerResponseFilters: <em>run after your JAX-RS resource method is invoked.[4]</em></li>
+    </ul>
+  </li>
+  <li>Client Side:
+    <ul>
+      <li>ClientRequestFilter: <em>run before your HTTP request is sent over the wire to the server.[4]</em></li>
+      <li>ClientResponseFilter: <em>run after a response is received from the server, but before the response body is unmarshalled.[4]</em></li>
+    </ul>
+  </li>
+
+</ul>
+
+The order of execution is:
+<pre>
+ - Server Filter Request
+ - - Client Filter Request
+ - - Client Filter Response
+ - Server Filter Response
+</pre>
+
+<p style="text-align: justify;">The ContainerRequestFilters can be used with @PreMatching or @PostMatching annotation. These are resources to change request attributes before JAX-RS.</p>
+
+<p style="text-align: justify;">An example of code to use filter you can see in <a href="https://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access">[5]</a> or <a href="https://www.logicbig.com/tutorials/java-ee-tutorial/jax-rs/client-filters.html">[6]</a></p>
+
 <h2>Pipeline</h2>
 
-<p style="text-align: justify;">For all the process, since start the method to return the result, you can apply filters and interceptors. The figure below show that idea. More detail you can see <a href="https://abhishek-gupta.gitbook.io/rest-assured-with-jaxrs/jax-rs-for-power-users-part-i">here.</a></p>
+<p style="text-align: justify;">For all the process, since start the method to return the result, you can apply filters and interceptors. Below you see two pictures that I believe give a good view to us about this subject. </p>
 
 <center>
-<img src="/img/rest/pipeline.png" high="400" width="400">
+<img src="/img/rest/restpipeline.png" high="600" width="800">
 </center>
+<br/>
 
 <h2>References</h2>
 
@@ -339,9 +376,12 @@ CustomerProviderMessageBodyWriter writeTo ...
   <li>
   <a href="https://www.baeldung.com/resteasy-tutorial">A Guide to RESTEasy</a>
   </li>
-  <li>
-  <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/development_guide/sect-resteasy_interceptors">RESTEASY CONFIGURATION</a>
+  <li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/development_guide/sect-resteasy_interceptors">RESTEASY CONFIGURATION</a>
   </li>
+  <li><a href="https://docs.jboss.org/resteasy/docs/3.0-beta-2/userguide/html/Interceptors.html">Chapter 30. Filters and Interceptors</a></li>
+  <li><a href="https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/filters-and-interceptors.html">Chapter 10. Filters and Interceptors</a></li>
+  <li><a href="https://www.baeldung.com/jersey-filters-interceptors">Jersey Filters and Interceptors</a></li>
+
 </ul>
 
 <strong>Code References:<strong>
@@ -350,4 +390,8 @@ CustomerProviderMessageBodyWriter writeTo ...
 <li><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/development_guide/sect-resteasy_interceptors">redhat - interceptors</a></li>
 <li><a href="https://dzone.com/articles/how-to-implement-get-and-post-request-through-simp">dzone - get and post rest</a></li>
 <li><a href="https://howtodoinjava.com/resteasy/resteasy-tomcat-hello-world-application/">howtodoinjava - RESTEasy example tutorial for beginners</a></li>
+<li><a href="https://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access">Client-Side HTTP Basic Access Authentication With JAX-RS 2.0</a></li>
+<li><a href="https://www.logicbig.com/tutorials/java-ee-tutorial/jax-rs/client-filters.html">JAX-RS - Client Filters</a></li>
+
+
 </ul>
