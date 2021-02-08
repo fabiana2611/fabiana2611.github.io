@@ -98,7 +98,7 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 <br/>
 <h2>Which structure to use: Set, Map or List</h2>
 
-<p tyle="text-align: justify;">Sometimes is hard to decide which structure is the best to each case. One image can explain better. In the stackOverflow discussion, someone create an image that can help it.</p>
+<p style="text-align: justify;">Sometimes is hard to decide which structure is the best to each case. One image can explain better. In the stackOverflow discussion, someone create an image that can help it.</p>
 
 <br/>
 <center>
@@ -117,4 +117,5 @@ You can try this structure using this <a href="https://www.cs.usfca.edu/~galles/
 	<li><a href="https://howtodoinjava.com/java-hashmap/" >Java HashMap</a></li>
 	<li><a href="https://www.simplilearn.com/data-structure-interview-questions-and-answers-article" >Top 35 Data Structure Interview Questions in 2021</a></li>
 	<li><a href="https://www.journaldev.com/1260/collections-in-java-tutorial">Collections in Java – 13 Things You MUST Know</a></li>
+	<li><a href="https://github.com/kdn251/interviews#graph-algorithms">Interviews</a></li>
 </ul>
