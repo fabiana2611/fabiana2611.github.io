@@ -115,4 +115,5 @@ In blockchain only insert new block is permitted. No deletions or updates are pe
   <li><a href="https://101blockchains.com/blockchain-applications/">Real World Blockchain Use Cases – 46 Blockchain Applications</a></li>
   <li><a href="https://medium.com/@lhartikk/a-blockchain-in-200-lines-of-code-963cc1cc0e54">A blockchain in 200 lines of code</a></li>
   <li>Udemy - <a href ="https://www.superdatascience.com/pages/blockchain">Blockchain A-Z™: Learn to Build Your Own Blockchain - Additional Resources</a></li>
+  <li><a href="https://thebitcamp.com/blog/how-blockchain-works">How Blockchain Works</a></li>
 </ul>
