@@ -2,7 +2,7 @@
 layout: post
 title:  "Blockchain - Init"
 date:   2019-11-16
-categories: beyond
+categories: blockchain
 permalink: /:categories/blockchain-int
 ---
 
