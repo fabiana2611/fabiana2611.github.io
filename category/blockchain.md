@@ -4,4 +4,4 @@ title: "Blockchain Category"
 permalink: /blockchain/
 ---
 
-{% include postsByCategory.html categoryName=site.categories.beyond %}
+{% include postsByCategory.html categoryName=site.categories.blockchain %}
