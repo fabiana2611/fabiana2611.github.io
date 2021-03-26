@@ -19,7 +19,7 @@ permalink: /:categories/architecture
 </tr>
 <tr>
 <td>
-<li><a href="#foundation/architecture/Monolithic">Monolithic</a></li>
+<li><a href="#Monolithic">Monolithic</a></li>
 <li><a href="https://fabiana2611.github.io/foundation/architecture/#NTier">N-Tier</a></li>
 <li><a href="https://fabiana2611.github.io/foundation/architecture/#SOA">SOA</a></li>
 <li><a href="https://fabiana2611.github.io/foundation/architecture/#Microservice">Microservice</a></li>
@@ -36,7 +36,7 @@ permalink: /:categories/architecture
 <td>
 <li><a href="https://fabiana2611.github.io/foundation/architecture/#MVC">MVC</a></li>
 <li><a href="https://fabiana2611.github.io/foundation/architecture/#MVP">MVP</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVVM">MVVM</a></li>
+<li><a href="#MVVM">MVVM</a></li>
 </td>
 </tr>
 </table>
