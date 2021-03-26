@@ -19,24 +19,24 @@ permalink: /:categories/architecture
 </tr>
 <tr>
 <td>
-<li><a href="foundation/architecture/#Monolithic">Monolithic</a></li>
-<li><a href="foundation/architecture/#NTier">N-Tier</a></li>
-<li><a href="foundation/architecture/#SOA">SOA</a></li>
-<li><a href="foundation/architecture/#Microservice">Microservice</a></li>
-<li><a href="foundation/architecture/#Serveless">Serveless</a></li>
-<li><a href="foundation/architecture/#P2P">Peer-To-Peer</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Monolithic">Monolithic</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#NTier">N-Tier</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#SOA">SOA</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Microservice">Microservice</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Serveless">Serveless</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#P2P">Peer-To-Peer</a></li>
 </td>
 <td>
-<li><a href="foundation/architecture/#Layered">Layered</a></li>
-<li><a href="foundation/architecture/#Microkernel">Microkernel</a></li>
-<li><a href="foundation/architecture/#EventSourcing">Event Sourcing</a></li>
-<li><a href="foundation/architecture/#CQRS">CQRS</a></li>
-<li><a href="foundation/architecture/#Hexagonal">Hexagonal</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Layered">Layered</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Microkernel">Microkernel</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#EventSourcing">Event Sourcing</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#CQRS">CQRS</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#Hexagonal">Hexagonal</a></li>
 </td>
 <td>
-<li><a href="foundation/architecture/#MVC">MVC</a></li>
-<li><a href="foundation/architecture/#MVP">MVP</a></li>
-<li><a href="foundation/architecture/#MVVM">MVVM</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVC">MVC</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVP">MVP</a></li>
+<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVVM">MVVM</a></li>
 </td>
 </tr>
 </table>
