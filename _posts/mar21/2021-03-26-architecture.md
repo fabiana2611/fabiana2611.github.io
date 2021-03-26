@@ -20,22 +20,22 @@ permalink: /:categories/architecture
 <tr>
 <td>
 <li><a href="#Monolithic">Monolithic</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#NTier">N-Tier</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#SOA">SOA</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#Microservice">Microservice</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#Serveless">Serveless</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#P2P">Peer-To-Peer</a></li>
+<li><a href="#NTier">N-Tier</a></li>
+<li><a href="#SOA">SOA</a></li>
+<li><a href="#Microservice">Microservice</a></li>
+<li><a href="#Serveless">Serveless</a></li>
+<li><a href="#P2P">Peer-To-Peer</a></li>
 </td>
 <td>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#Layered">Layered</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#Microkernel">Microkernel</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#EventSourcing">Event Sourcing</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#CQRS">CQRS</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#Hexagonal">Hexagonal</a></li>
+<li><a href="#Layered">Layered</a></li>
+<li><a href="#Microkernel">Microkernel</a></li>
+<li><a href="#EventSourcing">Event Sourcing</a></li>
+<li><a href="#CQRS">CQRS</a></li>
+<li><a href="#Hexagonal">Hexagonal</a></li>
 </td>
 <td>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVC">MVC</a></li>
-<li><a href="https://fabiana2611.github.io/foundation/architecture/#MVP">MVP</a></li>
+<li><a href="#MVC">MVC</a></li>
+<li><a href="#MVP">MVP</a></li>
 <li><a href="#MVVM">MVVM</a></li>
 </td>
 </tr>
@@ -307,9 +307,9 @@ The P2P architecture is a commonly used computer networking architecture where:
 
 <br/>
 
-<h1><u>MVVM</u></h1>
+<h1><u id="MVVM">MVVM</u></h1>
 
-<p id="MVVM" style="text-align: justify;">It is a pattern to use more deep the data binding idea, which makes it possible to get data from the model. The difference between ViewModel and Presenter is ViewModel doesn't have references to view. It's great for desktop and mobile applications. The user Interaction is handled by View. The code UI is minimal. </p>
+<p style="text-align: justify;">It is a pattern to use more deep the data binding idea, which makes it possible to get data from the model. The difference between ViewModel and Presenter is ViewModel doesn't have references to view. It's great for desktop and mobile applications. The user Interaction is handled by View. The code UI is minimal. </p>
 
 <blockquote>
 The view model is responsible for presenting functions, commands, methods, to support the state of the View. It is also accountable to operate the model and activate the events in the View. [Guru99]
