@@ -307,9 +307,9 @@ The P2P architecture is a commonly used computer networking architecture where:
 
 <br/>
 
-<h1 id="MVVM"><u>MVVM</u></h1>
+<h1><u>MVVM</u></h1>
 
-<p style="text-align: justify;">It is a pattern to use more deep the data binding idea, which makes it possible to get data from the model. The difference between ViewModel and Presenter is ViewModel doesn't have references to view. It's great for desktop and mobile applications. The user Interaction is handled by View. The code UI is minimal. </p>
+<p id="MVVM" style="text-align: justify;">It is a pattern to use more deep the data binding idea, which makes it possible to get data from the model. The difference between ViewModel and Presenter is ViewModel doesn't have references to view. It's great for desktop and mobile applications. The user Interaction is handled by View. The code UI is minimal. </p>
 
 <blockquote>
 The view model is responsible for presenting functions, commands, methods, to support the state of the View. It is also accountable to operate the model and activate the events in the View. [Guru99]
