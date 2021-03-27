@@ -59,6 +59,7 @@ permalink: /:categories/architecture
 <li><a href="http://www.codingthearchitecture.com/2014/11/19/what_is_a_monolith.html">Module Monolith</a></li>
 <li><a href="https://www.kamilgrzybek.com/design/modular-monolith-primer/">Modular Monolith: A Primer</a></li>
 <li><a href="https://microservices.io/patterns/monolithic.html">Pattern: Monolithic Architecture</a></li>
+<li><a href="https://github.com/kgrzybek/modular-monolith-with-ddd">Modular Monolith with DDD</a></li>
 </ul>
 </p>
 
