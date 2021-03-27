@@ -28,6 +28,9 @@ permalink: /:categories/smart-contract
 
 <p>Advantages: Autonomy, Trust, Backup, Safety, Speed </p>
 
+<p><center>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZE2HxTmxfrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center></p>
 
 <h2>Beginning...</h2>
 
