@@ -256,6 +256,9 @@ The P2P architecture is a commonly used computer networking architecture where:
 
 <p style="text-align: justify;">The Adapters should be created to each technology. On the driven side you can create mocks to simulate database, for example, and not block the business development. Furthermore, here is used Inversion of Control (IoC) to ensure the concept that the core is independent.</p>
 
+<p style="text-align: justify;">The core can be implemented using different patterns as Domain Model,
+Service Layer, Anemic Domain Model, Domain Driven Design (DDD), Clean Architecture.</p>
+
 <center><img src="/img/architecture/hexagonal.png" width = "450" height = "200"/><br/>
 <em> Sources: <a href="https://reflectoring.io/spring-hexagonal/">Tom Hombergs - reflectoring.io</a></em></center>
 
