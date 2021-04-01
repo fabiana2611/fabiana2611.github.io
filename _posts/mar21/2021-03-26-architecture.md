@@ -262,6 +262,8 @@ Service Layer, Anemic Domain Model, Domain Driven Design (DDD), Clean Architectu
 <center><img src="/img/architecture/hexagonal.png" width = "450" height = "200"/><br/>
 <em> Sources: <a href="https://reflectoring.io/spring-hexagonal/">Tom Hombergs - reflectoring.io</a></em></center>
 
+<p style="text-align: justify;">More detail about it you can see in this <a href="https://fabiana2611.github.io/foundation/hexa-arch-handson">post</a> where I show a skeleton how to start the project.</p>
+
 <p>
 <b> References </b>
 <ul>
