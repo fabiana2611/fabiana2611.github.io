@@ -131,6 +131,8 @@ Serverless architectures are application designs that incorporate third-party â€
 
 <blockquote>Serverless is a cloud-native development model that allows developers to build and run applications without having to manage servers.[RedHat]</blockquote>
 
+<blockquote>Serverless is a cloud computing execution model where the cloud provider dynamically manages the allocation and provisioning of servers. A serverless application runs in stateless compute containers that are event-triggered (http requests, database events, queuing services, monitoring alerts, file uploads), and fully managed by the cloud provider. The code that is sent to the cloud provider for execution is usually in the form of a function. . [GlobalDots]</blockquote>
+
 <p><em><b>BaaS</b> gives developers access to a variety of third-party services and apps.[RedHat]</em></p>
 
 <p><em><b>Function-as-a-Service (FaaS)</b> is an event-driven computing execution model where developers write logic that is deployed in containers fully managed by a platform, then executed on demand.[RedHat] </em></p>
@@ -147,6 +149,7 @@ Serverless architectures are application designs that incorporate third-party â€
 <li><a href="https://martinfowler.com/articles/serverless.html">Martin Fowler - Serveless</a></li>
 <li><a href="https://www.redhat.com/en/topics/cloud-native-apps/what-is-serverless">RedHat - Serveless</a></li>
 <li><a href="https://www.gocd.org/2017/06/26/serverless-architecture-continuous-delivery/">Serverless Architectures and Continuous Delivery</a></li>
+<li><a href="https://www.globaldots.com/serverless-computing-explained?utm_term=&utm_campaign=WW_DSA&utm_source=adwords&utm_medium=ppc&hsa_acc=7661827353&hsa_cam=12191334208&hsa_grp=118513102513&hsa_ad=494870623367&hsa_src=g&hsa_tgt=dsa-389542410620&hsa_kw=&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=EAIaIQobChMIzLSM8oje7wIVWUiRBR2hawSKEAMYAyAAEgKFffD_BwE">GlobalDots</a></li>
 </ul>
 </p>
 
