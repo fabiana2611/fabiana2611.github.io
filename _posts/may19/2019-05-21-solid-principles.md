@@ -106,7 +106,7 @@ The "inversion" term is used because usually software structures are created in 
 The next picture shows an <a href="https://code.tutsplus.com/tutorials/solid-part-4-the-dependency-inversion-principle--net-36872">example</a> of two dependencies. Two concrete classes, <em>PDFBook</em> and <em>EBookReader</em>, depend on <em>EBook</em> interface.
 
 <center>
- <img src="/img/5Principles/dip.png" width="385">  
+ <img src="/img/5Principles/DIP.png" width="385">  
 </center>
 
 Respecting DIP will help us respect the other principles.
