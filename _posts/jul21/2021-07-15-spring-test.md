@@ -59,7 +59,7 @@ permalink: /:categories/spring-test
 
 <p style="text-align: justify"><b><u>TDD: </u></b> The Test Driven Design is a way to start the development by the test: (1) RED - start write a test will fail (2) GREEN - Write code enough to pass (3) REFACTOR - Improve code.<a href="https://www.thinktocode.com/2018/02/05/what-is-tdd/">[2]</a></p>
 
-<p style="text-align: justify"><b><u>Builder Pattern: </u></b>Use this pattern improve the test and give support to the reuse of code, scenarios. I'll let here some post with explanation and examples about that. <a href="https://www.javacodegeeks.com/2012/12/using-builder-pattern-in-junit-tests.html">[3]</a></p>
+<p style="text-align: justify"><b><u>Builder Pattern: </u></b>You can use this pattern to improve the test and give support to the reuse of code. A example you can find here: <a href="https://www.javacodegeeks.com/2012/12/using-builder-pattern-in-junit-tests.html">[3]</a></p>
 
 <p style="text-align: justify"><b><u>BDD: </u></b> bahavior-driven development. A good test should be readable by humans. It should be clear and follow a natural language. The methodology <strong>given-when-then</strong> using BDDMockito and AssertJ helps to achieve that goal.<a href="https://en.wikipedia.org/wiki/Behavior-driven_development">[4]</a></p>
 
