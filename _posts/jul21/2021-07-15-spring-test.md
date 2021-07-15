@@ -95,7 +95,7 @@ then(obj.getAge()).isEqualTo(40);
   <li><a href="https://github.com/json-path/JsonPath">JSONPathe</a></li>
 </ul>
 
-@WebMvcTest: Auto configures MockMvc, no need for HTTP server, can be combined with @MockBean to mok=ck collaborators.
+@WebMvcTest: Auto configures MockMvc, no need for HTTP server, can be combined with @MockBean to mock collaborators.
 
 <br />
 
@@ -173,7 +173,7 @@ then(obj.getAge()).isEqualTo(40);
 
 <h3>Hands On</h3>
 
-<p style="text-align: justify">I'll present you short examples of unit test, integration test, caching test and test with database. The complete code you can access <a href="https://github.com/fabiana2611/demo-test">here</a>.</p>
+<p style="text-align: justify">I'll present you short examples of unit test, integration test, caching test and test with database. The complete code you can access <a href="https://github.com/fabiana2611/demo-spring-test">here</a>.</p>
 
 <p><li><b><em>Unit Test</em></b></li></p>
 
