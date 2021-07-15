@@ -105,7 +105,7 @@ then(obj.getAge()).isEqualTo(40);
 <p><b><a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#mock-objects">Packages</a></b></p>
 
 <ul>
-  <li><b>Environment:</b> <em>"contains mock implementations of the Environment and PropertySource abstractions"</em>.  Tests specifics when you need test specific properties by environment.</li>
+  <li><b>Environment:</b> <em>"contains mock implementations of the Environment and PropertySource abstractions"</em>.  When you need test specific properties by environment.</li>
   <li><b>JNDI:</b> <em>"contains a partial implementation of the JNDI SPI, which you can use to set up a simple JNDI environment for test suites or stand-alone applications"</em></li>
   <li><b>Servlet API:</b> <em>"contains a comprehensive set of Servlet API mock objects that are useful for testing web contexts, controllers, and filters."</em></li>
   <li><b>Spring Web Reactive:</b> used to mock request and response.</li>
@@ -132,14 +132,14 @@ then(obj.getAge()).isEqualTo(40);
 
 <b>Transaction Management</b>
 <ul>
-  <li>It is a resource to manage the database state. If you need to test using a real database it will run a rolls back to avoid change the database. <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#testing-tx">[7]</a></li>
+  <li>It is a resource to manage the database state. If you need to test using a real database it will run a roll back to avoid change the database. <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#testing-tx">[7]</a></li>
 </ul>
 
 <br />
 
 <h3>Annotations</h3>
 
-<p style="text-align: justify">Spring has a huge number of <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#integration-testing-annotations">annotations</a> to help the development. Here a list only some of them with the copy of description that you will find in the spring documentation. In the documentation you can see the complete list.</p>
+<p style="text-align: justify">Spring has a huge number of <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#integration-testing-annotations">annotations</a> to help the development. Here is some of them with the copy of description that you will find in the spring documentation. In the documentation you can see the complete list.</p>
 
 <ul>
   <li>
@@ -166,13 +166,11 @@ then(obj.getAge()).isEqualTo(40);
   </li>
 </ul>
 
-<p>Go directly to the spring documentation to see detail about the annotation you need.</p>
-
 <br />
 
 <h3>Hands On</h3>
 
-<p style="text-align: justify">I'll present you short examples of unit test, integration test, caching test and test with database. The complete code you can access <a href="https://github.com/fabiana2611/demo-spring-test">here</a>.</p>
+<p style="text-align: justify">I'll present you short examples of different kind tests. The complete code you can access <a href="https://github.com/fabiana2611/demo-spring-test">here</a>.</p>
 
 <p><li><b><em>Unit Test</em></b></li></p>
 
