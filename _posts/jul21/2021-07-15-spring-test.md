@@ -95,7 +95,6 @@ then(obj.getAge()).isEqualTo(40);
   <li><a href="https://github.com/json-path/JsonPath">JSONPathe</a></li>
 </ul>
 
-@WebMvcTest: Auto configures MockMvc, no need for HTTP server, can be combined with @MockBean to mock collaborators.
 
 <br />
 
