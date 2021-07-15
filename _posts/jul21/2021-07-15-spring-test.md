@@ -170,11 +170,11 @@ then(obj.getAge()).isEqualTo(40);
 
 <h3>Hands On</h3>
 
-<p style="text-align: justify">I'll present you short examples of different kind tests. The complete code you can access <a href="https://github.com/fabiana2611/demo-spring-test">here</a>.</p>
+<p style="text-align: justify">I'll present you short examples of different tests. The complete code you can access <a href="https://github.com/fabiana2611/demo-spring-test">here</a>.</p>
 
 <p><li><b><em>Unit Test</em></b></li></p>
 
-<p style="text-align: justify;">Here is one example of a unit test using mocks to simulate a service. </p>
+<p style="text-align: justify;">Here is one example of a unit test using mocks to simulate a service. In this case, you describe the action should be done when the service is called.</p>
 
 {% highlight ruby %}
 @SpringJUnitConfig
@@ -254,16 +254,18 @@ private StudentRepository studentRepository;
 @Test
 public void shouldRetrieveStudent() throws JsonProcessingException {
 
-  Student savedStudent = studentRepository.save(new Student(null, PARAM_QUERY, true, 100));
+  Student savedStudent = studentRepository
+            .save(new Student(null, PARAM_QUERY, true, 100));
 
-  ResponseEntity<Student> response = restTemplate.getForEntity("/students/" + PARAM_QUERY, Student.class);
+  ResponseEntity<Student> response = restTemplate
+            .getForEntity("/students/" + PARAM_QUERY, Student.class);
 
   assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
   assertThat(response.getBody().getId()).isEqualTo(savedStudent.getId());
 }
 {% endhighlight %}
 
-<p style="text-align: justify;">You can see another example <a href="https://www.baeldung.com/restclienttest-in-spring-boot">here</a>but using <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#spring-mvc-test-client">RestClientTest with MockRestServiceServer</a>. It is a more verbose solution and is necessary to know more detail about the implementation.</p>
+<p style="text-align: justify;">You can see another example <a href="https://www.baeldung.com/restclienttest-in-spring-boot">here</a> but using <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/testing.html#spring-mvc-test-client">RestClientTest and MockRestServiceServer</a>. It is a more verbose solution and is necessary to know more detail about the implementation.</p>
 
 <br />
 <p><li><b><em>Caching Test</em></b></li></p>
