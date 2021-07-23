@@ -328,6 +328,10 @@ Spring Bean container runs through three phases:
   <li><b>Repository:</b> It is a pattern introduced by DDD and used by <a href="https://fabiana2611.github.io/spring/spring-data">Spring Data</a>.</li>
   <li><b>Template Pattern:</b> Most used in remote calls. JDBC and REST are the most common scenario.</li>
   <li><b>MVC:</b> All the Web framework is based on this.</li>
+  <li><b>Observer:</b> One example of use is by ApplicationListener interface to observe if ApplicationContext is changed.</li>
+  <li><b>Command:</b> One example is in AbstractCommandController in MVC.</li>
+  <li><b>Mediator:</b> One example is use this when you need set state of many components at once.</li>
+  <li><b>Interpreter:</b> Used by Spring Expression Language.</li>
 </ul>
 
 <br/>
