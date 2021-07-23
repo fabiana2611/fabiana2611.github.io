@@ -312,6 +312,25 @@ Spring Bean container runs through three phases:
   <img src="/img/spring/beanlifecycle.png" width="100%" height="509" />
 </center></p>
 
+<br/>
+<h3>Spring Pattern</h3>
+
+<p>Here is a list of some patterns you can find in the Spring framework.</p>
+
+<ul>
+  <li><b>Inversion Of Control(IoC) Pattern:</b> It is an architectural pattern and it is the core pattern of the Spring wich one the runtime of the framework is based on. It makes Spring manages the dependencies. The objects are injected in runtime. ApplicationContext is the IoC Container.</li>
+  <li><b>Factory Pattern:</b> IoC container is a factory. BeanFactory is a data factory.</li>
+  <li><b>Builder Patter:</b> A creational pattern used, for example, in MockMvc.</li>
+  <li><b>Singleton and Prototype:</b> Most of the configurations use them. Every bean is a singleton by default. The bean configuration is used as prototype.</li>
+  <li><b>Adapter:</b> Used in Spring Integration to support communication between two different systems.</li>
+  <li><b>Decorator:</b> the framework itself uses decorator. The @Qualifier is a way to use the decorator. It allows add behavior without code modification</li>
+  <li><b>Proxy Patter:</b> involved in every object managed by Spring. Allows add new behaviors to improve the use of the framework. Every bean created gets a proxy. Creating proxies in Spring usually resolves around aspect-oriented programming. It is important when operations should be protected and called only when necessary, or to remove object access</li>
+  <li><b>Repository:</b> It is a pattern introduced by DDD and used by <a href="https://fabiana2611.github.io/spring/spring-data">Spring Data</a>.</li>
+  <li><b>Template Pattern:</b> Most used in remote calls. JDBC and REST are the most common scenario.</li>
+  <li><b>MVC:</b> All the Web framework is based on this.</li>
+</ul>
+
+<br/>
 
 <h3>Aspect-Oriented Programming in Spring <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#aop">(AOP)</a></h3>
 
@@ -346,6 +365,7 @@ Spring Bean container runs through three phases:
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft29HgsePfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
+<br />
 <h3>Summary</h3>
 
 <p> Here is a good summary about beans. It is in portugues, but I could not left it behind. They are very good.</p>
@@ -365,7 +385,8 @@ Spring Bean container runs through three phases:
 <h3>References</h3>
 
 <ul>
-	<li><a href="https://www.linkedin.com/learning/spring-framework-in-depth-2">Spring: Framework in Depth</a></li>
+	<li><a href="https://www.linkedin.com/learning/spring-framework-in-depth-2">Linkedin - Spring: Framework in Depth</a></li>
+  <li><a href="https://www.linkedin.com/learning/spring-design-patterns">Linkedin - Spring: Desing Pattern</a></li>
   <li><a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#spring-core" >Spring Doc: The IoC container</a></li>
   <li><a href="https://martinfowler.com/articles/injection.html" >martinfowler - Inversion of Control Containers and the Dependency Injection pattern</a></li>
   <li><a href="https://www.educative.io/edpresso/what-is-inversion-of-control" >Edutative: What is Inversion of Control?</a></li>
