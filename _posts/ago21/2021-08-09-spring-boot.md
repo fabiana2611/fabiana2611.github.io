@@ -129,6 +129,26 @@ Spring boot has auto-configuration support to many resources as <a href="https:/
   <br /><em>From Algaworks</em>
 </center></p>
 
+<table>
+  <tr>
+    <th>O que é Spring Boot (Algaworks)</th>
+    <th>Reload</th>
+  </tr>
+  <tr>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/ABjV1bObFW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/_3uMgaAncmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <th>Spring Boot: the best and the worst</th>
+    <th>Spring Boot - How to Create and Run?</th>
+  </tr>
+  <tr>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/myqK2vcg-5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/s0PA9jnyFaM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+
+  </tr>
+</table>
+
 
 <h3>References</h3>
 

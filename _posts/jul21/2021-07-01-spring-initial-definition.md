@@ -377,11 +377,19 @@ Spring Bean container runs through three phases:
 <table>
   <tr>
     <th>O que é um bean Spring Framework</th>
-    <th>Quando Utilizar @BEan em Spring</th>
+    <th>Quando Utilizar @Bean em Spring</th>
   </tr>
   <tr>
-    <td><iframe width="250" height="115" src="https://www.youtube.com/embed/-PT-pXe-7UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><iframe width="250" height="115" src="https://www.youtube.com/embed/S6ljIhE6mfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/-PT-pXe-7UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/S6ljIhE6mfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <th>Profiles</th>
+    <th>Cache</th>
+  </tr>
+  <tr>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/Op4SRM3t0nw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="250" height="150" src="https://www.youtube.com/embed/cWqNeANzEz0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
 
