@@ -137,4 +137,5 @@ Spring boot has auto-configuration support to many resources as <a href="https:/
   <li><a href="https://blog.algaworks.com/spring-boot/" >O que é Spring Boot?</a></li>
   <li><a href="https://www.baeldung.com/spring-vs-spring-boot" >A Comparison Between Spring and Spring Boot</a></li>
   <li><a href="https://www.javatpoint.com/spring-boot-tutorial" >Spring Boot Tutorial</a></li>
+  <li><a href="https://www.youtube.com/watch?v=OHn1jLHGptw&list=PL8iIphQOyG-DHLpEx1TPItqJamy08fs1D" >Curso Spring Boot : Criando uma aplicação Java Web</a></li>
 </ul>
