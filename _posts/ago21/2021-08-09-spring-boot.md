@@ -124,11 +124,6 @@ Spring boot has auto-configuration support to many resources as <a href="https:/
 
 <p>Your project is not dependent on Spring Boot. You can use many parts of the framework in a separate way. However, Spring Boot gives productivity to the development.</p>
 
-<p><center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ABjV1bObFW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br /><em>From Algaworks</em>
-</center></p>
-
 <table>
   <tr>
     <th>O que é Spring Boot (Algaworks)</th>
