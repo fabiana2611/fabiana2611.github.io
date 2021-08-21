@@ -237,7 +237,7 @@ public class AdapterUI {
 
 <p>
   <center>
-    <iframe width="460" height="315" src="https://www.youtube.com/embed/UmdOjbyYOX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="360" height="215" src="https://www.youtube.com/embed/UmdOjbyYOX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </center>
 </p>
 
