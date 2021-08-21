@@ -233,7 +233,7 @@ public class AdapterUI {
 
 <p>All the code you can see in my github <a href="https://github.com/fabiana2611/skeleton">here</a>.</p>
 
-<h2>Other example</h2>
+<h2>Another example</h2>
 
 <p>
   <center>
