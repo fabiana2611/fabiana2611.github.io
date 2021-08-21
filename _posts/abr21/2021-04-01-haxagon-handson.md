@@ -233,6 +233,14 @@ public class AdapterUI {
 
 <p>All the code you can see in my github <a href="https://github.com/fabiana2611/skeleton">here</a>.</p>
 
+<h2>Other example</h2>
+
+<p>
+  <center>
+    <iframe width="460" height="315" src="https://www.youtube.com/embed/UmdOjbyYOX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </center>
+</p>
+
 <h2>References</h2>
 
 <ul>
