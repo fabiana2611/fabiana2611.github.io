@@ -12,6 +12,21 @@ permalink: /:categories/spring-security
 
 <blockquote>Spring Security is a powerful and highly customizable authentication and access-control framework.  Like all Spring projects, the real power of Spring Security is found in how easily it can be extended to meet custom requirements <a href="https://spring.io/projects/spring-security">[1]</a></blockquote>
 
+<table>
+  <tr>
+    <th>What is Spring Security</th>
+    <th>Authentication vs authorization</th>
+  </tr>
+  <tr>
+    <td>
+        <iframe width="310" height="215" src="https://www.youtube.com/embed/sm-8qfMWEV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+    <td>
+      <iframe width="310" height="215" src="https://www.youtube.com/embed/I0poT4UxFxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
 <h3>Dependencies</h3>
 
 <p style="text-align: justify;"><b>spring-security-core</b> gives support to authentication and access control. It supports non-web applications, method level security and JDBC. Web security infrastructure is available using <b>spring-security-web</b> dependency. The <b> spring-security-config</b> dependency is necessary to use Spring Security XML namespace and annotations. The different ways to guarantee the secirity have their own dependencies: <b>spring-security-ldap, spring-security-acl, spring-security-cas, spring-security-oauth, spring-security-openid</b>.</p>
@@ -47,6 +62,10 @@ permalink: /:categories/spring-security
 {% endhighlight %}
 
 <p>All modules you can see <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#modules">here</a>.</p>
+
+<p><center>
+  <iframe width="100%" height="215" src="https://www.youtube.com/embed/PhG5p_yv0zs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center></p>
 
 <h3>Initial Config</h3>
 
@@ -153,6 +172,22 @@ public class MyUserDetailsService implements UserDetailsService{
 }
 {% endhighlight %}
 
+
+<table>
+  <tr>
+    <th>Config Authentication - AuthenticationManagerBuilder</th>
+    <th>Config Authorization - HttpSecurity</th>
+  </tr>
+  <tr>
+    <td>
+        <iframe width="310" height="215" src="https://www.youtube.com/embed/iyXne7dIn7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+    <td>
+      <iframe width="310" height="215" src="https://www.youtube.com/embed/payxWrmF_0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
 <h3>Architecture</h3>
 
 <p style="text-align: justify;">The Spring <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture">architecture</a> is based on <a href="">Servlet Filters</a>.</p>
@@ -164,6 +199,10 @@ The client sends a request to the application, and the container creates a Filte
 <p style="text-align: justify;">The DelegatingFilterProxy is one filter implemented by Sprint to delegate all the work to a Spring Bean. It allows the controls by ApplicationContext.</p>
 
 <p style="text-align: justify;">The FilterChainProxy is a filter to delegate Filter instances through SecurityFilterChain, which is responsible to define the Spring Security Filter (beans registered with FilterChainProxy) to be invoked. The ExceptionTranslationFilter (translation of AccessDeniedException and AuthenticationException into HTTP Response) is inserted into the FilterChainProxy.</p>
+
+<p><center>
+  <iframe width="100%" height="215" src="https://www.youtube.com/embed/caCJAJC41Rk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center></p>
 
 <h3>Components and Mechanisms</h3>
 
@@ -204,25 +243,9 @@ Resources provided by Spring:
 <p style="text-align: justify;">Other ponints of exploits protection are: <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#headers">Security HTTP Response Headers</a> (defaults, cache, content type, etc), also give support to <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#http">HTTPS</a>.</p>
 
 
-<h3>Viedos</h3>
+<h3>Conclusion</h3>
 
-<table>
-  <tr>
-    <th>What is Spring Security</th>
-    <th>Authentication vs authorization</th>
-  </tr>
-  <tr>
-    <td>
-        <iframe width="310" height="215" src="https://www.youtube.com/embed/sm-8qfMWEV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </td>
-    <td>
-      <iframe width="310" height="215" src="https://www.youtube.com/embed/I0poT4UxFxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </td>
-  </tr>
-</table>
-
-
-<p>All the play list you will find <a href="https://www.youtube.com/watch?v=sm-8qfMWEV8&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE">here</a>.</p>
+<p>All the play list of the videos shown in this post you will find <a href="https://www.youtube.com/watch?v=sm-8qfMWEV8&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE">here</a>.</p>
 
 <h3>References</h3>
 
