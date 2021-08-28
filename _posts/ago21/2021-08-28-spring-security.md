@@ -206,10 +206,21 @@ Resources provided by Spring:
 
 <h3>Viedos</h3>
 
-<p><center>
-  <iframe width="460" height="315" src="https://www.youtube.com/embed/sm-8qfMWEV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-</p>
+<table>
+  <tr>
+    <th>What is Spring Security</th>
+    <th>Authentication vs authorization</th>
+  </tr>
+  <tr>
+    <td>
+        <iframe width="310" height="215" src="https://www.youtube.com/embed/sm-8qfMWEV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+    <td>
+      <iframe width="310" height="215" src="https://www.youtube.com/embed/I0poT4UxFxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
 
 <p>All the play list you will find <a href="https://www.youtube.com/watch?v=sm-8qfMWEV8&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE">here</a>.</p>
 
