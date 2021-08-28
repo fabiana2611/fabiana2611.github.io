@@ -94,7 +94,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 }
 {% endhighlight %}
 
-<p style="text-align: justify;">This post will use in-memory authentication to test, that's why we also override the second configure method. After that you can run the app and do your first test.</p>
+<p style="text-align: justify;">The example use in-memory authentication to test, that's why we also override the second configure method. After that you can run the app and do your first test.</p>
 
 <p>
   <table>
@@ -121,6 +121,23 @@ public void configure(final HttpSecurity http) throws Exception {
   .anyRequest().authenticated().and().httpBasic();
 }
 {% endhighlight %}
+
+<table>
+  <tr>
+    <th>Config Authentication - AuthenticationManagerBuilder</th>
+    <th>Config Authorization - HttpSecurity</th>
+  </tr>
+  <tr>
+    <td>
+        <iframe width="310" height="215" src="https://www.youtube.com/embed/iyXne7dIn7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+    <td>
+      <iframe width="310" height="215" src="https://www.youtube.com/embed/payxWrmF_0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
+<h3>Improve the Configs</h3>
 
 <p style="text-align: justify;">In case to use JDBC, one example of how to authenticate the use is below, where you inform the datasource, some encoder and you queries.</p>
 
@@ -175,15 +192,19 @@ public class MyUserDetailsService implements UserDetailsService{
 
 <table>
   <tr>
-    <th>Config Authentication - AuthenticationManagerBuilder</th>
-    <th>Config Authorization - HttpSecurity</th>
+    <th>JDBC</th>
+    <th>JPA</th>
+    <th>LDAP</th>
   </tr>
   <tr>
     <td>
-        <iframe width="310" height="215" src="https://www.youtube.com/embed/iyXne7dIn7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="215" src="https://www.youtube.com/embed/LKvrFltAgCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </td>
     <td>
-      <iframe width="310" height="215" src="https://www.youtube.com/embed/payxWrmF_0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/TNt3GHuayXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <td>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/-wDUChgvYgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </td>
     </td>
   </tr>
 </table>
