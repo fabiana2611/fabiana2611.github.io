@@ -27,6 +27,7 @@ permalink: /:categories/spring-security
   </tr>
 </table>
 
+<br />
 <h3>Dependencies</h3>
 
 <p style="text-align: justify;"><b>spring-security-core</b> gives support to authentication and access control. It supports non-web applications, method level security and JDBC. Web security infrastructure is available using <b>spring-security-web</b> dependency. The <b> spring-security-config</b> dependency is necessary to use Spring Security XML namespace and annotations. The different ways to guarantee the secirity have their own dependencies: <b>spring-security-ldap, spring-security-acl, spring-security-cas, spring-security-oauth, spring-security-openid</b>.</p>
@@ -67,6 +68,7 @@ permalink: /:categories/spring-security
   <iframe width="100%" height="215" src="https://www.youtube.com/embed/PhG5p_yv0zs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
+<br />
 <h3>Initial Config</h3>
 
 <p style="text-align: justify;">The first step is to create a class that extends from WebSecurityConfigurerAdapter and with annotation @EnableWebSecurity in case you need integration with MVC. After that we can override the method to use the HttpSecurity instance. </p>
@@ -137,6 +139,7 @@ public void configure(final HttpSecurity http) throws Exception {
   </tr>
 </table>
 
+<br />
 <h3>Improve the Configs</h3>
 
 <p style="text-align: justify;">In case to use JDBC, one example of how to authenticate the use is below, where you inform the datasource, some encoder and you queries.</p>
@@ -209,6 +212,7 @@ public class MyUserDetailsService implements UserDetailsService{
   </tr>
 </table>
 
+<br />
 <h3>Architecture</h3>
 
 <p style="text-align: justify;">The Spring <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture">architecture</a> is based on <a href="">Servlet Filters</a>.</p>
@@ -225,6 +229,7 @@ The client sends a request to the application, and the container creates a Filte
   <iframe width="100%" height="215" src="https://www.youtube.com/embed/caCJAJC41Rk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
+<br />
 <h3>Components and Mechanisms</h3>
 
 <p style="text-align: justify;">The support to authentication on Spring is possible by many <b>components</b> as <u>SecurityContextHolder, Authentication, ProviderManager</u>. </p>
@@ -247,8 +252,7 @@ The client sends a request to the application, and the container creates a Filte
 <p style="text-align: justify;">The Spring Security can be integrated with all the other parts os Spring as Spring Data and Spring MVC. More detail about the integration you can see <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#integrations">here</a>. If you need to test methods based security you can find more information <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#test">here</a></p>
 
 
-<p style="text-align: justify;"></p>
-
+<br />
 <h2>Protection agains CSRF</h2>
 
 <p style="text-align: justify;">Sprint give supports to protect your application agains the common exploits as <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#csrf">CSRF</a> (Cross Site Request Forgery). You will see in one of my previous post about <a href="https://fabiana2611.github.io/java/vulnerability#csrf">vulnerability</a> that CSRF is a vulnerability which permits an attacker to force another logged-in user of the app to perform actions.</p>
@@ -263,7 +267,7 @@ Resources provided by Spring:
 
 <p style="text-align: justify;">Other ponints of exploits protection are: <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#headers">Security HTTP Response Headers</a> (defaults, cache, content type, etc), also give support to <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#http">HTTPS</a>.</p>
 
-
+<br />
 <h3>Conclusion</h3>
 
 <p>All the play list of the videos shown in this post you will find <a href="https://www.youtube.com/watch?v=sm-8qfMWEV8&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE">here</a>.</p>
