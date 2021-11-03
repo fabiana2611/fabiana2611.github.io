@@ -73,4 +73,5 @@ Spring Integration extends the Spring programming model into the messaging domai
 <ul>
 	<li><a href="https://docs.spring.io/spring-integration/docs/current/reference/html/overview.html#overview" >Overview of Spring Integration Framework</a></li>
   <li><a href="https://www.enterpriseintegrationpatterns.com/docs/jaoo_hohpeg_enterpriseintegrationpatterns.pdf" >Enterprise Integration Patterns</a></li>
+	<li><a href="https://www.baeldung.com/spring-integration" >Introduction to Spring Integration</a></li>
 </ul>
