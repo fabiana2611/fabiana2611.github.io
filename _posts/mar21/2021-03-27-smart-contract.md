@@ -2,7 +2,7 @@
 layout: post
 title:  "Smart Contract"
 date:   2021-03-27
-categories: blockchain
+categories: beyond
 permalink: /:categories/smart-contract
 ---
 
