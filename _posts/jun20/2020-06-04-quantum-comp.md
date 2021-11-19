@@ -62,7 +62,7 @@ permalink: /:categories/quantum-programming
 
 <tr><td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/cOUrzxyng04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 
-<td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/doNNClTTYwE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr></tbody></table></figure>
+<td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/jTDnGox0c9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr></tbody></table></figure>
 
 <h2 class="p12"><span class="s1"><b>REFERENCES</b></span></h2>
 
