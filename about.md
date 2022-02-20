@@ -15,35 +15,6 @@ pagination:
 <p style="text-align: justify;">In the current moment, I'm working in Porto, Portugal, where I have great moments. And I post about that in another [blog](https://biaintech.wordpress.com/category/portugal/) to share my experience in this wonderful place.</p>
 
 
-<button onclick="myFunction()">In Franch</button>
-
-<div id="myDIV">
-  <blockquote>
-    <p style="text-align: justify;">Je suis développeur avec presque 10 ans d'expérience en Java et plus de 4 ans d'utilisation de mode agile. J'ai une licence et un master en science informatique.</p>
-
-    <p style="text-align: justify;">Je suis passionnée por la création d'application qui ont un impact positif dans la vie des personnés et peuvent faire le différence.</p>
-
-    <p style="text-align: justify;">De plus, je suis motivé pour apprendre de nouvelles technologies et portager des connaissances. Je crais que l'échange nous fait grandir beaucoup plus.</p>
-
-    <p style="text-align: justify;">Actuellement, je travaille chez Aubay pour le client Natixis, dans un projet de maintenance et d'amélioraton des application.</p>
-
-    <p style="text-align: justify;">Une grande partie de mon expérience profissionalle a été á DATAPREV, entreeprise publique de sécurité sociale.</p>
-
-    <p style="text-align: justify;">J'ai travaillé avec le développement Web aì j'ai été responsable de la mise en oeuvre des user stories, front-end et back-end, intervenant dans différents étapes du cycle de vie du developpement du logiciel, tels que les tests, le débogage, la mise en oeuvre et la maintenance d'un environnment agile.</p>
-  </blockquote>
-</div>
-
-<script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
-
 <h3>Skills and Soft-skills</h3>
 
 <br/><b>Tech</b>
