@@ -279,12 +279,12 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 <p style="text-align: justify;">In case happen changes in the same file in both branches the console will the the conflict's message. You just need to open your file, fix that and commit again. The <b>git diff</b> show in the console all the changes in the files.</p>
 
-<h2>Working with Remote Repositories/h2>
+<h2>Working with Remote Repositories</h2>
 
 <p style="text-align: justify;">When you create the repository remotely the GitHub show you all the directions to synchronize it with a local repository. You just need follow it. For example used in this post you should follow the second option. </p>
 
 <p><center>
-  <img src="/img/infra/git/remoteguide.png" width="50%" height="50%"/>
+  <img src="/img/infra/git/remoteguide.png" width="70%" height="70%"/>
 </center></p>
 
 <p style="text-align: justify;">However, if you have more then one branches and want push all of them you can use <b>git push --all origin</b>. In case you want let the master branch default you can write <b>git push -u origin master</b> and the last time you just need to write <b>git push</b>. </p>
@@ -293,8 +293,8 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 <p>
   <center>
-    <img src="/img/infra/git/stepsremote1.png" width="50%" height="50%"/>
-    <img src="/img/infra/git/stepsremote2.png" width="50%" height="50%"/>
+    <img src="/img/infra/git/stepsremote1.png" width="100%" height="100%"/>
+    <img src="/img/infra/git/stepsremote2.png" width="100%" height="100%"/>
   </center>
 </p>
 
