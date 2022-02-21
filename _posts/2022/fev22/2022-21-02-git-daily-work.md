@@ -82,7 +82,7 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 <p>And here is how supposed to be the tree.</p>
 
 <p><center>
-  <img src="/img/infra/git/secondcommit.png" />
+  <img src="/img/infra/git/secondcommit.png" width="60%" height="60%" />
 </center></p>
 
 <p>Now, let's change both files (adding any text inside the files) and commit them.</p>
