@@ -42,7 +42,7 @@ $ git status
 
 # History in the console
 commit 20d9288c202376bc7230f1e08becfa60ac1d0f7c (HEAD -> master)
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:20:40 2022 +0100
     First Commit
 
@@ -66,13 +66,13 @@ $ git log
 
 # History in the console
 commit 79fc79530ecf44809d0aaeb93830ec23a5254d66 (HEAD -> master)
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:49:30 2022 +0100
 
     Second Commit
 
 commit 20d9288c202376bc7230f1e08becfa60ac1d0f7c
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:20:40 2022 +0100
 
     First Commit
@@ -116,31 +116,31 @@ $ git log
 
 # History in console
 commit 457f13d5b8649f59587979d30af20f0a72590118 (HEAD -> master)
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 10:18:21 2022 +0100
 
     Reverting the revert
 
 commit 12c4fda1950c7730c82d5b2dac873bc278d9d3e5
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 10:15:14 2022 +0100
 
     Reverting the third commit
 
 commit d75b40a8f1be78ba3abbb6d206ac82283ca9bc65
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 10:01:18 2022 +0100
 
     Third Commit
 
 commit 79fc79530ecf44809d0aaeb93830ec23a5254d66
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:49:30 2022 +0100
 
     Second Commit
 
 commit 20d9288c202376bc7230f1e08becfa60ac1d0f7c
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:20:40 2022 +0100
 
     First Commit
@@ -162,19 +162,19 @@ $git log
 
 # History in console
 commit d75b40a8f1be78ba3abbb6d206ac82283ca9bc65 (HEAD -> master)
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 10:01:18 2022 +0100
 
     Third Commit
 
 commit 79fc79530ecf44809d0aaeb93830ec23a5254d66
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:49:30 2022 +0100
 
     Second Commit
 
 commit 20d9288c202376bc7230f1e08becfa60ac1d0f7c
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:20:40 2022 +0100
 
     First Commit
@@ -232,25 +232,25 @@ $ git log
 
 #History in Console
 commit 803023ed0a9f3d2fb9f6ce398e73e7e8cf95e1b2 (HEAD -> master, motivation)
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 13:13:17 2022 +0100
 
     adding new file
 
 commit d75b40a8f1be78ba3abbb6d206ac82283ca9bc65
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 10:01:18 2022 +0100
 
     Third Commit
 
 commit 79fc79530ecf44809d0aaeb93830ec23a5254d66
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:49:30 2022 +0100
 
     Second Commit
 
 commit 20d9288c202376bc7230f1e08becfa60ac1d0f7c
-Author: Bia Freire <fabiana2611@hotmail.com>
+Author: Name Last  <example@example>
 Date:   Mon Feb 21 09:20:40 2022 +0100
 
     First Commit
