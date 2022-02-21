@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Devop Category"
-permalink: /devop/
+title: "Infra Category"
+permalink: /infra/
 ---
 {% include postsByCategory.html categoryName=site.categories.devop %}
