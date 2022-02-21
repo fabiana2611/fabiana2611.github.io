@@ -289,7 +289,9 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 <p style="text-align: justify;">However, if you have more then one branches and want push all of them you can use <b>git push --all origin</b>. In case you want let the master branch default you can write <b>git push -u origin master</b> and the last time you just need to write <b>git push</b>. </p>
 
-<p>Here some steps to show how it happens.</p>
+<h2>Example of the Tree</h2>
+
+<p>Here are the steps regarding an example of using remote repository. Below you will see commits, merges and push to remote repository.</p>
 
 <p>
   <center>
