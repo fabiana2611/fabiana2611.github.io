@@ -6,7 +6,7 @@ categories: infra
 permalink: /:categories/git-daily-work
 ---
 
-<p style="text-align: justify;">This post will give a summary about the git commands and a parallel view of the tree. It is not another tutorial. There many really good.</p>
+<p style="text-align: justify;">This post will give a summary about the git commands and a parallel view of the tree. It is not another tutorial. There are many really good.</p>
 
 <h2>First of all...</h2>
 
@@ -20,7 +20,7 @@ $ git config —global user.email “example@example”
 
 <h2>Starting by Local works</h2>
 
-<p>Here is a summary about the first steps. After the Step 4 you will have the folde '.git'. </p>
+<p>Here is a summary about the first steps. After the Step 4 you will have the folder '.git'. </p>
 
 {% highlight ruby %}
 # 1 Create your project folder
@@ -48,10 +48,8 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 {% endhighlight %}
 
-<p>And here is how supposed to be the tree.</p>
-
 <p><center>
-  <img src="/img/infra/git/firstcommit.png" />
+  <img src="/img/infra/git/firstcommit.png" width="60%" height="60%"/>
 </center></p>
 
 <p>Now, let's improve the scenario adding a new file.</p>
@@ -96,10 +94,8 @@ $git add .
 % git commit -m "Third Commit"
 {% endhighlight %}
 
-<p>And here is how supposed to be the tree.</p>
-
 <p><center>
-  <img src="/img/infra/git/thirdcommit.png" />
+  <img src="/img/infra/git/thirdcommit.png" width="60%" height="60%"/>
 </center></p>
 
 <p>Next level ... let's <a href="https://git-scm.com/docs/git-revert">revert</a> the commits. </p>
@@ -190,6 +186,7 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
   <img src="/img/infra/git/revert.png" />
 </center></p>
 
+<br />
 <h2>Change the branch</h2>
 
 <p style="text-align: justify;">Until now, all the works is happening using the master branch. Now, let's create a new one.</p>
@@ -216,12 +213,11 @@ $ git add newfile.txt
 $ git commit -m "Adding new file"
 {% endhighlight ruby %}
 
-<p>And here is the tree.</p>
-
 <p><center>
   <img src="/img/infra/git/fourthcommit.png" />
 </center></p>
 
+<br />
 <h2>Merge branches</h2>
 
 <p>You need to be on your branch target. Here, we will merge from the newbranch to the master. So, checkout to the master and let's go.</p>
