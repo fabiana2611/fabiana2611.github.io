@@ -6,7 +6,9 @@ categories: infra
 permalink: /:categories/git-daily-work
 ---
 
-<p style="text-align: justify;">This post will give a summary about the git commands and a parallel view of the tree. It is not another tutorial. There are many really good.</p>
+<p style="text-align: justify;">This post will give a summary of the git commands and a parallel view of the tree. It is not another tutorial. There are many really good ones.</p>
+
+<p>PS: The trees created here was done by <a href="https://git-school.github.io/visualizing-git/#free">gitHub School</a>.</p>
 
 <h2>First of all...</h2>
 
@@ -276,6 +278,25 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 </center></p>
 
 <p style="text-align: justify;">In case happen changes in the same file in both branches the console will the the conflict's message. You just need to open your file, fix that and commit again. The <b>git diff</b> show in the console all the changes in the files.</p>
+
+<h2>Working with Remote Repositories/h2>
+
+<p style="text-align: justify;">When you create the repository remotely the GitHub show you all the directions to synchronize it with a local repository. You just need follow it. For example used in this post you should follow the second option. </p>
+
+<p><center>
+  <img src="/img/infra/git/remoteguide.png" width="50%" height="50%"/>
+</center></p>
+
+<p style="text-align: justify;">However, if you have more then one branches and want push all of them you can use <b>git push --all origin</b>. In case you want let the master branch default you can write <b>git push -u origin master</b> and the last time you just need to write <b>git push</b>. </p>
+
+<p>Here some steps to show how it happens.</p>
+
+<p>
+  <center>
+    <img src="/img/infra/git/stepsremote1.png" width="50%" height="50%"/>
+    <img src="/img/infra/git/stepsremote2.png" width="50%" height="50%"/>
+  </center>
+</p>
 
 <h2>Reference</h2>
 
