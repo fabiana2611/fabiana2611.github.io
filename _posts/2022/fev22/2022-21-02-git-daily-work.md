@@ -291,7 +291,7 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 <h2>Example of the Tree</h2>
 
-<p>Here are the steps regarding an example of using remote repository. Below you will see commits, merges and push to remote repository.</p>
+<p>Here are the steps regarding an example of using remote repository. Below you will see commits, merges and push to remote repository. Pay attention: The HEAD in remote repository is changed only after the merger.</p>
 
 <p>
   <center>
