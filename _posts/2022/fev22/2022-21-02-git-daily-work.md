@@ -300,7 +300,7 @@ $ git pull
 $ git push
 {% endhighlight ruby %}
 
-<p style="text-align: justify;">Before the <b>pull</b>, you can use <b>stash</b> to store locally the changes you are not prepared to commit yet. And put back the code using <b>git stash pop</b>.</p>
+<p style="text-align: justify;">Before the <b>pull</b>, you can use <b>stash</b> to store locally the changes you are not prepared to commit yet. And put back the code using <b>git stash pop</b>. If you want do a clean commit you can use <a href="https://www.git-tower.com/learn/git/faq/git-squash">git squash</a>.</p>
 
 <p style="text-align: justify;">Probably will be necessary configure the key ssh to use the remote repository. One possibility is you have to <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">generate new SSH key</a> locally and copy in the github repository. Other case you can create in your repository (Settings/Developer Settings/Personal access tokens) and copy locally when try to be logged. </p>
 
