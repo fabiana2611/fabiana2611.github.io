@@ -321,4 +321,5 @@ $ git push
 <ul>
   <li>Git-school.github.io/visualizing-git/#free</li>
   <li>Udemy: Learn Git by Doing: A step-by-step guide to version control (Codingdojo, Inc)</li>
+  <li>Video Fabia Akita: https://youtu.be/6Czd1Yetaac</a>
 </ul>
