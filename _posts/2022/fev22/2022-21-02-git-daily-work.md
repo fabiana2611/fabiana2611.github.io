@@ -289,6 +289,22 @@ Date:   Mon Feb 21 09:20:40 2022 +0100
 
 <p style="text-align: justify;">However, if you have more then one branches and want push all of them you can use <b>git push --all origin</b>. In case you want let the master branch default you can write <b>git push -u origin master</b> and the last time you just need to write <b>git push</b>. </p>
 
+Other case is when exist the project in the remote repository and you want just use it. For that you have to clone the repository.
+
+{% highlight ruby %}
+# 30 Clone the repository - copy the url from git repository
+$ git clone https://github.com/fabiana2611/api-java.git
+# 31 Downloads the changes from remote before push your changes
+$ git pull
+# 32 Upload your changes to remote
+$ git push
+{% endhighlight ruby %}
+
+<p style="text-align: justify;">Before the <b>pull</b>, you can use <b>stash</b> to store locally the changes you are not prepared to commit yet. And put back the code using <b>git stash pop</b>.</p>
+
+<p style="text-align: justify;">Probably will be necessary configure the key ssh to use the remote repository. One possibility is you have to <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">generate new SSH key</a> locally and copy in the github repository. Other case you can create in your repository (Settings/Developer Settings/Personal access tokens) and copy locally when try to be logged. </p>
+
+
 <h2>Example of the Tree</h2>
 
 <p>Here are the steps regarding an example of using remote repository. Below you will see commits, merges and push to remote repository. Pay attention: The HEAD in remote repository is changed only after the merger.</p>
