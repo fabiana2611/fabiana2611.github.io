@@ -32,7 +32,9 @@ permalink: /:categories/git-rebase
   <img src="/img/infra/git/rebase1.png"/>
 </center></p>
 
-<p><em>When you run <b>git rebase</b>, Git takes each commit in the branch and moves them, one-by-one, onto the new base. If any of these commits alter the same line(s) of code as the upstream commits, it will result in a conflict. The <b>git merge</b> command lets you resolve all of the branch's conflicts at the end of the merge. In rebase, the process will stop the rebase procedure and display a warning.</em>[2] After solve the conflicts you just need continue the process (<b>git rebase --continue</b>). The rebase can be done in an iterative way, selecting which commit you want. It's a way to have a clean commit.</p>
+<p style="text-align: justify;"><em>When you run <b>git rebase</b>, Git takes each commit in the branch and moves them, one-by-one, onto the new base. If any of these commits alter the same line(s) of code as the upstream commits, it will result in a conflict. The <b>git merge</b> command lets you resolve all of the branch's conflicts at the end of the merge. In rebase, the process will stop the rebase procedure and display a warning.</em>[2] </p>
+
+<p style="text-align: justify;">After solve the conflicts you just need continue the process (<b>git rebase --continue</b>). The rebase can be done in an iterative way, selecting which commit you want. It's a way to have a clean commit.</p>
 
 
 <h2>The Trick</h2>
@@ -40,13 +42,13 @@ permalink: /:categories/git-rebase
 <p style="text-align: justify;">As we saw in the definition, the rebase command changes the original base commit of a branch. It makes the new commits in the target branch have no context of where those commits come from. Howsoever, pay attention that the rebase will not delete the commits or reposition them. The rebase will rewritten the history. Here is the trick. It is the risk to lose code when you are working with other developers, They are using a part of the tree not used anymore. It seems the code was deleted, but it's just the main part of the tree that was changed. For sure you can rescue the commit, but it's a hard work to do.</p>
 
 <p><center>
-  <img src="/img/infra/git/rebase2.png" width="60%" height="60%"/>
+  <img src="/img/infra/git/rebase2.png"/>
 </center></p>
 
 <p style="text-align: justify;">The image shows an example where we can fall into a trap. It has a feature branch created from master. The branches and commits are a mirror of remote repository. Then is done a rebase locally and a push. You can see the feature branch is there yet.</p>
 
 <p><center>
-  <img src="/img/infra/git/rebase3.png" width="60%" height="60%"/>
+  <img src="/img/infra/git/rebase3.png" />
 </center></p>
 
 <p style="text-align: justify;">Now is an example where the tree can be a messy even use rebase. The example use a shared feature branch, do a rebase locally and push it. In this case, the rebase was possible doing a pull first (implicit merge). The example continue doing commit in master, rebase again and push.</p>
