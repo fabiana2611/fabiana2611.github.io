@@ -58,7 +58,7 @@ permalink: /:categories/git-rebase
 
 <h2>Use or not to use? That's the question</h2>
 
-<p style="text-align: justify;">The rebase create new commits and let the old parts lost in the limbo. It is the issue if you are sharing the work with other developers. The others can use that tree in the limbo.</p>
+<p style="text-align: justify;">The rebase create new commits and let the old parts lost in the limbo. It is the issue if you are sharing the work with other developers. The others can use that tree in the limbo. So, how to decide?</p>
 
 <ul>
   <li>Avoid use rebase in public branches unless you are sure that anyone is working on that branch.</li>
@@ -66,13 +66,13 @@ permalink: /:categories/git-rebase
   <li>You can rebase onto a remote branch instead of master to help your collaboration with another developer and incorporate their changes into your repository.</li>
   <li>Avoid rebase shared branches</li>
   <li>Prioritize rebase locally</li>
-  <li>Verify the priority of the work: simplicity (rebase) or traceability (merge). However, rebase requires more work when dealing with conflicts</li>
-  <li>Verify if you are in a big project and if everyone knows how to use it in the right way</li>
+  <li>Verify the priority of the work: simplicity (rebase) or traceability (merge). Pay attention rebase requires more work when dealing with conflicts</li>
+  <li>Verify if you are in a big project and if everyone knows how to use it in the right way.</li>
 </ul>
 
 <h2>Conclusion</h2>
 
-<p style="text-align: justify;">The rebase is an excellent resource to work with. However, it requires a lot of attention at some points to avoid unnecessary headaches. The decision should be made based on the type of collaboration with other developers and level of expertise.</p>
+<p style="text-align: justify;">The rebase is an excellent resource to work with. However, it requires attention at some points to avoid unnecessary headaches. The decision should be made based on the type of collaboration with other developers and the level of expertise.</p>
 
 <h2>Reference</h2>
 
