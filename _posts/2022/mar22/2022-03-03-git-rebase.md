@@ -58,7 +58,7 @@ permalink: /:categories/git-rebase
 
 <h2>Use or not to use? That's the question</h2>
 
-<p style="text-align: justify;">As you saw, the rebase create new commits and let the old parts lost in the limbo. It is the issue if you are sharing the work with other developers. The others can use that tree in the limbo.</p>
+<p style="text-align: justify;">The rebase create new commits and let the old parts lost in the limbo. It is the issue if you are sharing the work with other developers. The others can use that tree in the limbo.</p>
 
 <ul>
   <li>Avoid use rebase in public branches unless you are sure that anyone is working on that branch.</li>
