@@ -12,14 +12,14 @@ permalink: /:categories/git-rebase
 
 <p style="text-align: justify;">That part is ok. I believe all of us is aware about that. My concerns is the WARNING after the definition:</p>
 
-<li><em>Warning: Because changing your commit history can make things difficult for everyone else using the repository... It's considered bad practice to rebase commits when you've already pushed to a repository. </em></li>
+<p><em>Warning: Because changing your commit history can make things difficult for everyone else using the repository... It's considered bad practice to rebase commits when you've already pushed to a repository. </em></p>
 
-<p style="text-align: justify;">That alert brings up the risk to lose code. It is a painful part in the developers work.</p>
+<p style="text-align: justify;">The alert brings up the risk to lose code. It is a painful part in the developers work.</p>
 
 <p style="text-align: justify;">The fundamental Git workflow use the merge command which brings your work from some feature branch to your target branch. The image below illustrates a merge command. Note that there is a last commit regarding the merge.</p>
 
 <p><center>
-  <img src="/img/infra/git/merge3.png" width="60%" height="60%"/>
+  <img src="/img/infra/git/merge3.png"/>
 </center></p>
 
 <p style="text-align: justify;">The merges preserves the entire history of your repository (even the chronological order). It makes the merges a traceable command. However, they can make a mess on the tree and can be painful to review because of a lot of irrelevant commits. It is one reason to use the rebase. It makes the tree cleaner and reviewer-friendly.</p>
@@ -29,7 +29,7 @@ permalink: /:categories/git-rebase
 <p style="text-align: justify;">In other words, the rebase identify the base of the feature branch and commit again all the commits after the last commit in your main branch (eg. master).</p>
 
 <p><center>
-  <img src="/img/infra/git/rebase1.png" width="60%" height="60%"/>
+  <img src="/img/infra/git/rebase1.png"/>
 </center></p>
 
 <p><em>When you run <b>git rebase</b>, Git takes each commit in the branch and moves them, one-by-one, onto the new base. If any of these commits alter the same line(s) of code as the upstream commits, it will result in a conflict. The <b>git merge</b> command lets you resolve all of the branch's conflicts at the end of the merge. In rebase, the process will stop the rebase procedure and display a warning.</em>[2] After solve the conflicts you just need continue the process (<b>git rebase --continue</b>). The rebase can be done in an iterative way, selecting which commit you want. It's a way to have a clean commit.</p>
