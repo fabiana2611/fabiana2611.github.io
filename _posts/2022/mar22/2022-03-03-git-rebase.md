@@ -49,7 +49,7 @@ permalink: /:categories/git-rebase
   <img src="/img/infra/git/rebase2.png"/>
 </center></p>
 
-<p style="text-align: justify;">Now is an example where the tree can be a messy even use rebase. The example use a shared feature branch, do a rebase locally and push it. In this case, the rebase was possible doing a pull first (implicit merge). The example continue doing commit in master, rebase again and push.</p>
+<p style="text-align: justify;">Now the next image show an example where the tree can be a messy even use rebase. The example use a shared feature branch, do a rebase locally and push it. In this case, the rebase was possible doing a pull first (implicit merge). The example continue doing commit in master, rebase again and push.</p>
 
 <p><center>
   <img src="/img/infra/git/rebase3.png" />
