@@ -86,4 +86,5 @@ permalink: /:categories/git-rebase
   <li>[7] <a href="https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase">Git team workflows: merge or rebase?</a></li>
   <li>[8] <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">3.6 Git Branching - Rebasing</a></li>
   <li>[9] <a href="https://git.logikum.hu/tutorials/merge-rebase/golden-rule">The golden rule of rebasing</a></li>
+  <li>[10] <a href="https://git-school.github.io/visualizing-git/#free">visualizing-git</a></li>
 </ul>
