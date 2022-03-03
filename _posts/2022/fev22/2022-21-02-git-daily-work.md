@@ -20,6 +20,8 @@ $ git config —global user.email “example@example”
 
 - Each commit is uniquely identified (SHA1 hash): 79fc79530ecf44809d0aaeb93830ec23a5254d66
 
+- You just need the first seven values in hash code to give as reference in git commands. For example, you just need 79fc795 to do some reference to the previous commit.
+
 <h2>Starting by Local works</h2>
 
 <p>Here is a summary about the first steps. After the Step 4 you will have the folder '.git'. </p>
