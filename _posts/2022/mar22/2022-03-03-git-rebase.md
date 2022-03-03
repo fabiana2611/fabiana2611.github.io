@@ -43,17 +43,18 @@ permalink: /:categories/git-rebase
 
 <p style="text-align: justify;">The rebase will not delete the commits or reposition them. The rebase will rewritten the history. Here is the trick: the risk to lose code when you are working with other developers because they are using a part of the tree not used anymore. It seems the code was deleted, but it's just the main part of the tree that was changed. For sure you can rescue the commit, but it's a hard work to do.</p>
 
+<p style="text-align: justify;">The image shows an example where we can fall into a trap. It has a feature branch created from master. The branches and commits are a mirror of remote repository. Then is done a rebase locally and a push. You can see the feature branch is there yet.</p>
+
 <p><center>
   <img src="/img/infra/git/rebase2.png"/>
 </center></p>
 
-<p style="text-align: justify;">The image shows an example where we can fall into a trap. It has a feature branch created from master. The branches and commits are a mirror of remote repository. Then is done a rebase locally and a push. You can see the feature branch is there yet.</p>
+<p style="text-align: justify;">Now is an example where the tree can be a messy even use rebase. The example use a shared feature branch, do a rebase locally and push it. In this case, the rebase was possible doing a pull first (implicit merge). The example continue doing commit in master, rebase again and push.</p>
 
 <p><center>
   <img src="/img/infra/git/rebase3.png" />
 </center></p>
 
-<p style="text-align: justify;">Now is an example where the tree can be a messy even use rebase. The example use a shared feature branch, do a rebase locally and push it. In this case, the rebase was possible doing a pull first (implicit merge). The example continue doing commit in master, rebase again and push.</p>
 
 <h2>Use or not to use? That's the question</h2>
 
