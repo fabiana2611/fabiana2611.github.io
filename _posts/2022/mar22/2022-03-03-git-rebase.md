@@ -39,7 +39,9 @@ permalink: /:categories/git-rebase
 
 <h2>The Trick</h2>
 
-<p style="text-align: justify;">As we saw in the definition, the rebase command changes the original base commit of a branch. It makes the new commits in the target branch have no context of where those commits come from. Howsoever, pay attention that the rebase will not delete the commits or reposition them. The rebase will rewritten the history. Here is the trick. It is the risk to lose code when you are working with other developers, They are using a part of the tree not used anymore. It seems the code was deleted, but it's just the main part of the tree that was changed. For sure you can rescue the commit, but it's a hard work to do.</p>
+<p style="text-align: justify;">As we saw in the definition, the rebase command changes the original base commit of a branch. It makes the new commits in the target branch without no context of where those commits come from. </p>
+
+<p style="text-align: justify;">The rebase will not delete the commits or reposition them. The rebase will rewritten the history. Here is the trick: the risk to lose code when you are working with other developers because they are using a part of the tree not used anymore. It seems the code was deleted, but it's just the main part of the tree that was changed. For sure you can rescue the commit, but it's a hard work to do.</p>
 
 <p><center>
   <img src="/img/infra/git/rebase2.png"/>
