@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Architecture"
+title:  "Architecture Patterns"
 date:   2021-03-26
-categories: foundation
+categories: arch
 permalink: /:categories/architecture
 ---
 

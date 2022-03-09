@@ -2,7 +2,7 @@
 layout: post
 title:  "Hexagonal Architecture - Hands On"
 date:   2021-04-01
-categories: foundation
+categories: arch
 permalink: /:categories/hexa-arch-handson
 ---
 
