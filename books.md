@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Links
-permalink: /links/
+title: Books
+permalink: /books/
 pagination:
   enabled: false
 ---
