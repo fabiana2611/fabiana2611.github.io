@@ -142,12 +142,12 @@ permalink: /:categories/sw-arch
 
 <p><u>2 Dynamic</u></p>
 - Types:
-<ul>
-  <li>Execution: the order of execution of multiple components is important.</li>
-  <li>Timing: the timing of the execution of multiple components is important.</li>
-  <li>Values: several values must change together.</li>
-  <li>Identity: multiple components must reference the entity.  </li>
-</ul>
+  <ol>
+    <li>Execution: the order of execution of multiple components is important.</li>
+    <li>Timing: the timing of the execution of multiple components is important.</li>
+    <li>Values: several values must change together.</li>
+    <li>Identity: multiple components must reference the entity.  </li>
+  </ol>
 - Properties: strength (how can be refactored), locality, degree
 
 <br/><br/><br/><br/>
