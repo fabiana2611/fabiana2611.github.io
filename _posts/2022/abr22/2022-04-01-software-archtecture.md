@@ -14,16 +14,19 @@ permalink: /:categories/sw-arch
 
 <h2>The Architect</h2>
 
-<p style="text-align: justify;">The authors give to us a guideline how to become an architect. The figure and video below were done by Mark Rechards who explain it. You have to be aware of what is it, develop yourself with technical and soft skills, you will have to have domain over some technologies and at least a good understanding about others to be capable to make decisions, you have to be aware you can not solve all the problems (sometimes you have to decide what win and what lose).</p>
+<p style="text-align: justify;">The authors give to us a guideline how to become an architect. The figures and videos below were done by Mark Rechards who explain it. You have to be aware of what is it, develop yourself with technical and soft skills, you will have to have domain over some technologies and at least a good understanding about others to be capable to make decisions, you have to be aware you can not solve all the problems (sometimes you have to decide what win and what lose).</p>
 
 <table>
   <tr>
-    <td><img src="/img/architecture/becomearch.png"/></td>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td colspan="2"><img src="/img/architecture/becomearch.png"/></td>
   </tr>
 
   <tr>
-    <td><img src="/img/architecture/roadmap.png"/></td>
+    <td colspan="2"><img src="/img/architecture/roadmap.png"/></td>
+  </tr>
+
+  <tr>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/olMSYbBP4y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
