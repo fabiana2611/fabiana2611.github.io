@@ -18,11 +18,11 @@ permalink: /:categories/sw-arch
 
 <table>
   <tr>
-    <td colspan="2"><img src="/img/architecture/becomearch.png" width="80%" height="80%"/></td>
+    <td colspan="2"><img src="/img/architecture/becomearch.png" width="70%" height="70%"/></td>
   </tr>
 
   <tr>
-    <td colspan="2"><img src="/img/architecture/roadmap.png" width="80%" height="80%"/></td>
+    <td colspan="2"><img src="/img/architecture/roadmap.png" width="70%" height="70%"/></td>
   </tr>
 
   <tr>
@@ -36,7 +36,7 @@ permalink: /:categories/sw-arch
   </tr>
 
   <tr>
-    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/G6TBHYPGTls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/G6TBHYPGTls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/2MeAxl2skpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
