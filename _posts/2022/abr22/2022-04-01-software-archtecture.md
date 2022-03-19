@@ -97,7 +97,7 @@ permalink: /:categories/sw-arch
 - Procedural Cohesion: <em>parts of a module are grouped because they always follow a certain sequence of execution </em>
 - Sequential Cohesion:<em>parts of a module are grouped because the output from one part is the input to another part like an assembly line</em>
 
-<p><u>3 Weak Cohesion</u>:
+<p><u>3 Weak Cohesion</u></p>:
 - Coincidental Cohesion: <em>parts of a module are grouped arbitrarily; the only relationship between the parts is that they have been grouped together </em>
 - Temporal Cohesion: <em> parts of a module are grouped by when they are processed - the parts are processed at a particular time in program execution</em>
 - Logical Cohesion: <em>parts of a module are grouped because they are logically categorized to do the same thing even though they are different by nature</em>
