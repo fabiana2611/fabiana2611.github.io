@@ -18,23 +18,23 @@ permalink: /:categories/sw-arch
 
 <table>
   <tr>
-    <td><img src="/img/architecture/becomearch.png" width="60%" height="60%"/></td>
+    <td><img src="/img/architecture/becomearch.png"/></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
   <tr>
-    <td><img src="/img/architecture/roadmap.png" width="60%" height="60%"/></td>
+    <td><img src="/img/architecture/roadmap.png"/></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/olMSYbBP4y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
   <tr>
-    <td>https://youtu.be/KyaU47XJNIk</td>
-    <td>https://youtu.be/fS8Ejg3qsJI</td>
+    <td><iframe src="https://www.youtube.com/embed/KyaU47XJNIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/fS8Ejg3qsJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
   <tr>
-    <td>https://youtu.be/G6TBHYPGTls</td>
-    <td>https://youtu.be/2MeAxl2skpI</td>
+    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/G6TBHYPGTls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/2MeAxl2skpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
 </table>
@@ -80,7 +80,7 @@ permalink: /:categories/sw-arch
 
 <h2>The Measures</h2>
 
-<p style="text-align: justify;">The modularity is the a key point in the architecture. The architect try to make the architecture more modular to facilitate the maintainability and reuse. Three concepts guide to it: <a href="https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/>cohesion, coupling</a> and <a href="https://connascence.io/>connascence</a>.</p>
+<p style="text-align: justify;">The modularity is the a key point in the architecture. The architect try to make the architecture more modular to facilitate the maintainability and reuse. Three concepts guide to it: <a href="https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/">cohesion, coupling</a> and <a href="https://connascence.io/">connascence</a>.</p>
 
 <h3>Cohesion</h3>
 
@@ -128,7 +128,7 @@ permalink: /:categories/sw-arch
 
 <h3>Connascence</h3>
 
-<p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/Connascence>Definition:</a>two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system.</p>
+<p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/Connascence">Definition:</a>two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system.</p>
 
 <p><u>1 Static</u>: source-code-level coupling</p>  
 - Name: multiple components must agree on the name of an entity.
@@ -147,7 +147,7 @@ permalink: /:categories/sw-arch
 </ul>
 - Properties: strength (how can be refactored), locality, degree
 
-<br /><br />
+<br/><br/><br/><br/>
 <h1 style="font-size: 24px; color: SlateBlue;"><b><em> Be continued ... </em></b></h1>
 <br /><br />
 
