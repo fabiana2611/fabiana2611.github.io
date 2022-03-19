@@ -42,7 +42,7 @@ permalink: /:categories/sw-arch
 
 </table>
 
-<p>All those videos can be summarized by the expectations cited in the <a href="https://fundamentalsofsoftwarearchitecture.com/">book</a>:</p>
+<p>Here is what is expecting from an architect:</p>
 
 - Make architecture Decisions
 - Continually analyze the Architecture
