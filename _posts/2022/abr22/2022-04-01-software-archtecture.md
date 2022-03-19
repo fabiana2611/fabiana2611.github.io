@@ -114,7 +114,7 @@ permalink: /:categories/sw-arch
 
 <p><u>2 Medium Coupling</u>: medium dependence</p>
 - Control Coupling: <em>data is passed that influences the internal logic of another module</em>
-- Data Structure Coupling: <em>multiple modules share the same data-structure</em>
+- Data Structure Coupling: <em>multiple modules share the same data-structure</em>.
 
 <p><u>3 Loose Coupling</u>: low level</p>  
 - Data Coupling: <em>two modules share the same data</em>
