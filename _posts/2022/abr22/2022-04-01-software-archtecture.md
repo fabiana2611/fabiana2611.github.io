@@ -26,7 +26,7 @@ permalink: /:categories/sw-arch
   </tr>
 
   <tr>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/olMSYbBP4y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
@@ -36,7 +36,7 @@ permalink: /:categories/sw-arch
   </tr>
 
   <tr>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/G6TBHYPGTls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/G6TBHYPGTls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/2MeAxl2skpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
