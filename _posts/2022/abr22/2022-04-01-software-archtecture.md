@@ -18,16 +18,16 @@ permalink: /:categories/sw-arch
 
 <table>
   <tr>
-    <td colspan="2"><img src="/img/architecture/becomearch.png" width="70%" height="70%"/></td>
+    <td colspan="2"><img src="/img/architecture/becomearch.png" /></td>
   </tr>
 
   <tr>
-    <td colspan="2"><img src="/img/architecture/roadmap.png" width="70%" height="70%"/></td>
+    <td colspan="2"><img src="/img/architecture/roadmap.png"/></td>
   </tr>
 
   <tr>
     <td><iframe src="https://www.youtube.com/embed/FKYKeqWfyIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/olMSYbBP4y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/olMSYbBP4y8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
   <tr>
