@@ -18,11 +18,11 @@ permalink: /:categories/sw-arch
 
 <table>
   <tr>
-    <td colspan="2"><img src="/img/architecture/becomearch.png"/></td>
+    <td colspan="2"><img src="/img/architecture/becomearch.png" width="80%" height="80%"/></td>
   </tr>
 
   <tr>
-    <td colspan="2"><img src="/img/architecture/roadmap.png"/></td>
+    <td colspan="2"><img src="/img/architecture/roadmap.png" width="80%" height="80%"/></td>
   </tr>
 
   <tr>
