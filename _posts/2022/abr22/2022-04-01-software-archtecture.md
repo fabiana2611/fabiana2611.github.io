@@ -89,15 +89,15 @@ permalink: /:categories/sw-arch
 
 <p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)">Definition</a>: the degree to which the elements inside a module belong together. Or how focused the module is on a single scope.</p>
 
-<p><u> 1 Strong Cohesion</u>:</p>
+<p><u> 1 Strong Cohesion</u></p>
 - Functional Cohesion: <em>parts of a module are grouped because they all contribute to a single well-defined task of the module</em>
 
-<p><u>2 Medium Cohesion</u>:</p>
+<p><u>2 Medium Cohesion</u></p>
 - Communicational Cohesion:<em>parts of a module are grouped because they operate on the same data</em>
 - Procedural Cohesion: <em>parts of a module are grouped because they always follow a certain sequence of execution </em>
 - Sequential Cohesion:<em>parts of a module are grouped because the output from one part is the input to another part like an assembly line</em>
 
-<p><u>3 Weak Cohesion</u></p>:
+<p><u>3 Weak Cohesion</u></p>
 - Coincidental Cohesion: <em>parts of a module are grouped arbitrarily; the only relationship between the parts is that they have been grouped together </em>
 - Temporal Cohesion: <em> parts of a module are grouped by when they are processed - the parts are processed at a particular time in program execution</em>
 - Logical Cohesion: <em>parts of a module are grouped because they are logically categorized to do the same thing even though they are different by nature</em>
@@ -140,7 +140,7 @@ permalink: /:categories/sw-arch
 - Position: multiple components must agree on the order of values.
 - Algorithm: multiple components must agree on a particular algorithm.
 
-<p><u>2 Dynamic</u>:
+<p><u>2 Dynamic</u></p>
 - Types:
 <ul>
   <li>Execution: the order of execution of multiple components is important.</li>
