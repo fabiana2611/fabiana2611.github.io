@@ -23,7 +23,7 @@ permalink: /:categories/sw-arch-p2
 
 <p style="text-align: justify;">The Distributed version has benefits such as performance, scalability, availability. However, there are some points in distributed architecture that should be raising at the moment of the choice: (1) <a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">Fallacies of distributed computing</a> and (2) the trade-off. The distributed solution comes together with some points of attention: network reliability, latency, bandwidth, security, topology, the admins are necessary to be in touch to make it works, the infrastructure cost.</p>
 
-<p style="text-align: justify;">As challenges to the distributed solution are: service granularity, shared functionality, workflow management, communication protocol, monolithic decomposition, contract management, distributed transaction, database style, architecture style.
+<p style="text-align: justify;">As challenges to the distributed solution are: service granularity, shared functionality, workflow management, communication protocol, monolithic decomposition, contract management, distributed transaction, database style, architecture style.</p>
 
 <p>None of both approaches is the bad guy. The decision has to be guided by the business.</p>
 
