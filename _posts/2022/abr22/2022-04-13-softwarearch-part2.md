@@ -14,9 +14,9 @@ permalink: /:categories/sw-arch-p2
 
 <blockquote>Architecture patterns are lower-level design structures that help form specific solutions within an architecture style. </blockquote>
 
-<center>
+<p><center>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/I-yBv72RCeA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+</center></p>
 
 <p style="text-align: justify;">The book classified the styles in two main types: <a href="https://fabiana2611.github.io/arch/architecture#Monolithic">monolithic</a> (e.g Layer, Pipeline, <a href="https://fabiana2611.github.io/arch/architecture#Microkernel">Microkernel</a>) and distributed (e.g. SBA, <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a>, EDA, <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservice</a>).</p>
 
@@ -81,7 +81,7 @@ permalink: /:categories/sw-arch-p2
 </ul>
 
 <p><center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="360" height="215" src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
 
@@ -97,7 +97,7 @@ permalink: /:categories/sw-arch-p2
 
 <table>
   <tr>
-    <td><img src="/img/architecture/pipeline.png" width="50%" height="50%" /></td>
+    <td><img src="/img/architecture/pipeline.png" width="70%" height="70%" /></td>
     <td><iframe src="https://www.youtube.com/embed/l9AGpQSc4s8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
@@ -126,11 +126,12 @@ permalink: /:categories/sw-arch-p2
   <li>Trade-off: increased complexity and cost, service contracts, choosing the remote-access protocol, availability of services, security (authenticated and authorized), distributed transactions (ACID), etc.</li>
 </ul>
 
-<p>center>
+<p><center>
   <iframe src="https://www.youtube.com/embed/xkr5nGJYx_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
 
+<br/>
 <h3>Event-Driven Architecture</h3>
 
 <blockquote>An event-driven architecture consists of event producers that generate a stream of events, and event consumers that listen for the events.<a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven">[2]</a></blockquote>
@@ -150,8 +151,8 @@ permalink: /:categories/sw-arch-p2
 <p style="text-align: justify;">It can be Request-based and event-based. The first one has more control over the workflow (request/response). The second one has high level of responsiveness and scalability.<a href="https://www.techtalksbyanvita.com/post/event-driven-vs-request-driven-rest-architecture">[3]</a></p>
 
 
-<p>In terms of topology it can be:</p>
-<p><b><u>1 Mediator</u></b></p>
+<p>In terms of <b>topology</b> it can be:</p>
+<p><u>1 Mediator</u></p>
 <ul>
   <li>It has a central part, the mediator to coordinate the workflow</li>
   <li>Can maintain event state and manage error handling, recoverability, and restart capability</li>
@@ -160,7 +161,7 @@ permalink: /:categories/sw-arch-p2
   <li>Example: Apache Camel</li>
 </ul>
 
-<p><b><u>2 Broker</u></b></p>
+<p><u>2 Broker</u></p>
 <ul>
   <li>No central event Mediator</li>
   <li>Distributed flow - like a broadcast</li>
@@ -171,7 +172,7 @@ permalink: /:categories/sw-arch-p2
   <li>easy to add a new event processor</li>
 </ul>
 
-<p><b>Characteristic:</b></p>
+<p>Some <b>Characteristic</b> are:</p>
 <ul>
   <li>Asynchronous Capabilities: increasing responsiveness but is hard address error condition</li>
   <li>Error Handling: workflow event pattern used in asynchronous workflow to help in the weakness from this style.  When a error happens the event delegate it to the workflow processor and go to the next message in the queue</li>
