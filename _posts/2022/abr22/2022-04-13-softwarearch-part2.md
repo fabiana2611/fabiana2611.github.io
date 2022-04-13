@@ -62,7 +62,7 @@ permalink: /:categories/sw-arch-p2
   <iframe width="360" height="215" src="https://www.youtube.com/embed/L5BlpPU_muY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
-
+<br/>
 <h3>Layered</h3>
 
 <p>The <a href="https://fabiana2611.github.io/arch/architecture#Layered">Layered</a> style is a classical monolithic style.</p>
@@ -84,7 +84,7 @@ permalink: /:categories/sw-arch-p2
   <iframe width="360" height="215" src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
-
+<br/>
 <h3>Pipeline</h3>
 
 <blockquote>Pipe and Filter is a simple architectural style that connects a number of components that process a stream of data, each connected to the next component in the processing pipeline via a Pipe.<a href="https://www.oreilly.com/library/view/software-architecture-with/9781786468529/ch08s04.html">[2]</a><a href="https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/ch11.xhtml">[3]</a></blockquote>
@@ -102,7 +102,7 @@ permalink: /:categories/sw-arch-p2
   </tr>
 </table>
 
-
+<br/>
 <h3>Microkernel</h3>
 
 <p style="text-align: justify;">The <a href="https://fabiana2611.github.io/arch/architecture#Microkernel">Microkernel</a> style has the idea of a core component with the minimal necessary to work and external parts (plugins) with extra functionalities.</p>
@@ -113,7 +113,7 @@ permalink: /:categories/sw-arch-p2
   <iframe width="360" height="215" src="https://www.youtube.com/embed/h3icQDMRLd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
-
+<br/>
 <h3>Service-based Architecture</h3>
 
 <p><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a></p>
@@ -203,6 +203,7 @@ permalink: /:categories/sw-arch-p2
   </tr>
 </table>
 
+<br/>
 <h3>Be continued...</h3>
 <p>Space-based Architecture...</p>
 <p>Orchestration-Driven Service-Oriented Architecture...</p>
