@@ -6,6 +6,28 @@ categories: arch
 permalink: /:categories/sw-arch-p2
 ---
 
+
+<table>
+<tr>
+  <td><a href="#ClientServer">Client/Server</a></td>
+  <td><a href="#Layered">Layered</a></td>
+  <td><a href="#Pipeline">Pipeline</a></td>
+</tr>
+<tr>
+  <td><a href="#Microkernel">Microkernel</a></td>
+  <td><a href="#ServiceBased">ServiceBased</a></td>
+  <td><a href="#EDA">EDA</a></td>
+</tr>
+<tr>
+  <td><a href="#">Space-based</a></td>
+  <td><a href="#">Orchestration-Driven</a></td>
+  <td><a href="#">Microservice</a></td>
+</tr>
+<tr>
+  <td cal="3"><a href="#all">All Together</a></td>
+</tr>
+</table>
+
 <p style="text-align: justify;">Continuing the study of Architecture's fundamentals started in last <a href="https://fabiana2611.github.io/arch/sw-arch">post (Part I)</a>... Here I'll list some styles covered by the <a href="https://fundamentalsofsoftwarearchitecture.com/">book</a>.</p>
 
 <p style="text-align: justify;">The book defines the difference between style and pattern. The style is a kind of the big picture while the <a href="https://fabiana2611.github.io/arch/architecture">patterns</a> are solutions that can be used inside the style. Sometimes it's confusing because many patterns have the name of the styles.</p>
@@ -44,7 +66,7 @@ permalink: /:categories/sw-arch-p2
 <h2>Styles</h2>
 
 
-<h3>Client/Server</h3>
+<h3><u id="ClientServer">Client/Server</u></h3>
 
 <p style="text-align: justify;">One of the fundamental style is Client/server which has two tiers.</p>
 
@@ -55,7 +77,7 @@ permalink: /:categories/sw-arch-p2
 </center></p>
 
 <br/>
-<h3>Layered</h3>
+<h3><u id="Layered">Layered</u></h3>
 
 <p>The <a href="https://fabiana2611.github.io/arch/architecture#Layered">Layered</a> style is a classical monolithic style.</p>
 <ul>
@@ -77,7 +99,7 @@ permalink: /:categories/sw-arch-p2
 </center></p>
 
 <br/>
-<h3>Pipeline</h3>
+<h3><u id="Pipeline">Pipeline</u></h3>
 
 <blockquote>Pipe and Filter is a simple architectural style that connects a number of components that process a stream of data, each connected to the next component in the processing pipeline via a Pipe.<a href="https://www.oreilly.com/library/view/software-architecture-with/9781786468529/ch08s04.html">[2]</a><a href="https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/ch11.xhtml">[3]</a></blockquote>
 
@@ -95,7 +117,7 @@ permalink: /:categories/sw-arch-p2
 </table>
 
 <br/>
-<h3>Microkernel</h3>
+<h3><u id="Microkernel">Microkernel</u></h3>
 
 <p style="text-align: justify;">The <a href="https://fabiana2611.github.io/arch/architecture#Microkernel">Microkernel</a> style has the idea of a core component with the minimal necessary to work and external parts (plugins) with extra functionalities.</p>
 
@@ -106,7 +128,7 @@ permalink: /:categories/sw-arch-p2
 </center></p>
 
 <br/>
-<h3>Service-based Architecture</h3>
+<h3><u id="ServiceBased">Service-based Architecture</u></h3>
 
 <p><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a></p>
 
@@ -124,7 +146,7 @@ permalink: /:categories/sw-arch-p2
 
 
 <br/>
-<h3>Event-Driven Architecture</h3>
+<h3><u id="EDA">Event-Driven Architecture</u></h3>
 
 <blockquote>An event-driven architecture consists of event producers that generate a stream of events, and event consumers that listen for the events.<a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven">[2]</a></blockquote>
 
@@ -202,7 +224,7 @@ permalink: /:categories/sw-arch-p2
 <p>Microservice Architecture...</p>
 <p>Microservice Architecture...</p>
 
-<h2>All together</h2>
+<h2><u id="all">All together</u></h2>
 
 <p><center>
   <img src="/img/architecture/alltogether1.png" />
