@@ -37,14 +37,6 @@ permalink: /:categories/sw-arch-p2
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/sv-3lmrJ2M8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 
-  <tr>
-    <td>When Should You Replace Your Architecture?</td>
-    <td>03 Architecture Refactoring</td>
-  </tr>
-  <tr>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/nxmxp4_pdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/aQlQ3hTB1TU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-  </tr>
 </table>
 
 
@@ -227,7 +219,7 @@ permalink: /:categories/sw-arch-p2
 
 <table>
   <tr>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/aQlQ3hTB1TU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/nxmxp4_pdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/es25987MTzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
