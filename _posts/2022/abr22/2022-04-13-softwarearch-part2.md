@@ -16,12 +16,12 @@ permalink: /:categories/sw-arch-p2
 <tr>
   <td><a href="#Microkernel">Microkernel</a></td>
   <td><a href="#ServiceBased">ServiceBased</a></td>
-  <td><a href="#EDA">EDA</a></td>
+  <td><a href="#EDA">Event-Driven</a></td>
 </tr>
 <tr>
-  <td><a href="#">Space-based</a></td>
-  <td><a href="#">Orchestration-Driven</a></td>
-  <td><a href="#">Microservice</a></td>
+  <td>Space-based</td>
+  <td>Orchestration-Driven</td>
+  <td>Microservice</td>
 </tr>
 <tr>
   <td col="3"><a href="#all">All Together</a></td>
