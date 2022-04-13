@@ -29,8 +29,8 @@ permalink: /:categories/sw-arch-p2
 
 <table>
   <tr>
-    <th>Fallacies of distributed computing</th>
-    <th>Challenges of Distributed Architectures</th>
+    <td>Fallacies of distributed computing</td>
+    <td>Challenges of Distributed Architectures</td>
   </tr>
   <tr>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/UZxLYv5RFyI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
@@ -38,8 +38,8 @@ permalink: /:categories/sw-arch-p2
   </tr>
 
   <tr>
-    <th>When Should You Replace Your Architecture?</th>
-    <th>03 Architecture Refactoring</th>
+    <td>When Should You Replace Your Architecture?</td>
+    <td>03 Architecture Refactoring</td>
   </tr>
   <tr>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/nxmxp4_pdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td
@@ -171,16 +171,16 @@ Some notes about this style:
 
 <table>
   <tr>
-    <th>Request/Reply Pattern</th>
-    <th>Importance of Event Driven Architecture</th>
+    <td>Request/Reply Pattern</td>
+    <td>Importance of Event Driven Architecture</td>
   </tr>
   <tr>
     <td><iframe src="https://www.youtube.com/embed/3bxAm3XIFmk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/WCoLXZkc33Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
   <tr>
-    <th>The Pros and Cons</th>
-    <th>Microservices vs Event-Driven Architecture</th>
+    <td>The Pros and Cons</td>
+    <td>Microservices vs Event-Driven Architecture</td>
   </tr>
   <tr>
     <td><iframe src="https://www.youtube.com/embed/M6CDaZ1cxIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
