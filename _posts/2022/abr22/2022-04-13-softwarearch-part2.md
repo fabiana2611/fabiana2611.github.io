@@ -42,7 +42,7 @@ permalink: /:categories/sw-arch-p2
     <td>03 Architecture Refactoring</td>
   </tr>
   <tr>
-    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/nxmxp4_pdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/nxmxp4_pdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/aQlQ3hTB1TU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
