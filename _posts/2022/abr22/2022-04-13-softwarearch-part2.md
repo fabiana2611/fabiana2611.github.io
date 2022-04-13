@@ -24,7 +24,7 @@ permalink: /:categories/sw-arch-p2
   <td>Microservice</td>
 </tr>
 <tr>
-  <td col="3"><a href="#all">All Together</a></td>
+  <td colspan="3"><a href="#all">All Together</a></td>
 </tr>
 </table>
 
