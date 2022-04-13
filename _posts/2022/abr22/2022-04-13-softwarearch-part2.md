@@ -66,15 +66,19 @@ permalink: /:categories/sw-arch-p2
 <h3>Layered</h3>
 
 <p>The <a href="https://fabiana2611.github.io/arch/architecture#Layered">Layered</a> style is a classical monolithic style.</p>
+<ul>
+  <li>Good choice of small and simple applications or websites</li>
+  <li>can be a starting point when don't know how the arch will be.</li>
+  <li>It has highlights regarding over cost and simplicity but it's not very good with deployability, fault tolerance, modularity, and scalability.</li>
+</ul>
 
-- Good choice of small and simple applications or websites
-- can be a starting point when don't know how the arch will be.
-- It has highlights regarding over cost and simplicity but it's not very good with deployability, fault tolerance, modularity, and scalability.
 
 <p>Some rules:</p>
-- Closed layer: requests moves top-down
-- Separation of concerns: effective roles and responsibility models
-- Concepts of isolation: changes made one layer should not impact other layer.
+<ul>
+  <li>Closed layer: requests moves top-down</li>
+  <li>Separation of concerns: effective roles and responsibility models</li>
+  <li>Concepts of isolation: changes made one layer should not impact other layer.</li>
+</ul>
 
 <p><center>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -114,11 +118,13 @@ permalink: /:categories/sw-arch-p2
 
 <p><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a></p>
 
-- distributed architectures
-- service components accessed remotely
-- highlights: scalability, decoupling, and control over development, testing, and deployment
-- It is a distributed architecture so it allows change control and easier maintenance, loosely coupled and modular applications
-- Trade-off: increased complexity and cost, service contracts, choosing the remote-access protocol, availability of services, security (authenticated and authorized), distributed transactions (ACID), etc.
+<ul>
+  <li>distributed architectures</li>
+  <li>service components accessed remotely</li>
+  <li>highlights: scalability, decoupling, and control over development, testing, and deployment</li>
+  <li>It is a distributed architecture so it allows change control and easier maintenance, loosely coupled and modular applications</li>
+  <li>Trade-off: increased complexity and cost, service contracts, choosing the remote-access protocol, availability of services, security (authenticated and authorized), distributed transactions (ACID), etc.</li>
+</ul>
 
 <p>center>
   <iframe src="https://www.youtube.com/embed/xkr5nGJYx_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -129,42 +135,50 @@ permalink: /:categories/sw-arch-p2
 
 <blockquote>An event-driven architecture consists of event producers that generate a stream of events, and event consumers that listen for the events.<a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven">[2]</a></blockquote>
 
-Some notes about this style:
-- Popular to distributed asynchronous architectures
-- Good performance and scalability
-- Can be adapted to small or big applications
-- Can be implemented using request-based model where an orchestrator manage the requests
-- Can be used inside other style (e.g. microservice)
-- Good response to a dynamic user content
-- It's hard to have the control of the workflow or error handling
-- Hard to test
+<p>Some notes about this style:</p>
+<ul>
+  <li>Popular to distributed asynchronous architectures</li>
+  <li>Good performance and scalability</li>
+  <li>Can be adapted to small or big applications</li>
+  <li>Can be implemented using request-based model where an orchestrator manage the requests</li>
+  <li>Can be used inside other style (e.g. microservice)</li>
+  <li>Good response to a dynamic user content</li>
+  <li>It's hard to have the control of the workflow or error handling</li>
+  <li>Hard to test</li>
+</ul>
 
 <p style="text-align: justify;">It can be Request-based and event-based. The first one has more control over the workflow (request/response). The second one has high level of responsiveness and scalability.<a href="https://www.techtalksbyanvita.com/post/event-driven-vs-request-driven-rest-architecture">[3]</a></p>
 
 
 <p>In terms of topology it can be:</p>
-<b><u>1 Mediator</u></b>
-- It has a central part, the mediator to coordinate the workflow
-- Can maintain event state and manage error handling, recoverability, and restart capability
-- Components: an initiating event, an event queue, an event mediator, event channels, and event processors
-- The implementation can have more than one mediator
-- Example: Apache Camel
-<b><u>2 Broker</u></b>
-- No central event Mediator
-- Distributed flow - like a broadcast
-- Example: RabbitMQ, ActiveMQ,
-- Useful when you have a relatively simple event processing flow and don't need an orchestration
-- Components: initiating event, event broker, event processor, and processing event
-- The event broker has all of the event channels used within the event flow
-- easy to add a new event processor
+<p><b><u>1 Mediator</u></b></p>
+<ul>
+  <li>It has a central part, the mediator to coordinate the workflow</li>
+  <li>Can maintain event state and manage error handling, recoverability, and restart capability</li>
+  <li>Components: an initiating event, an event queue, an event mediator, event channels, and event processors</li>
+  <li>The implementation can have more than one mediator</li>
+  <li>Example: Apache Camel</li>
+</ul>
 
+<p><b><u>2 Broker</u></b></p>
+<ul>
+  <li>No central event Mediator</li>
+  <li>Distributed flow - like a broadcast</li>
+  <li>Example: RabbitMQ, ActiveMQ,</li>
+  <li>Useful when you have a relatively simple event processing flow and don't need an orchestration</li>
+  <li>Components: initiating event, event broker, event processor, and processing event</li>
+  <li>The event broker has all of the event channels used within the event flow</li>
+  <li>easy to add a new event processor</li>
+</ul>
 
 <p><b>Characteristic:</b></p>
-- Asynchronous Capabilities: increasing responsiveness but is hard address error condition
-- Error Handling: workflow event pattern used in asynchronous workflow to help in the weakness from this style.  When a error happens the event delegate it to the workflow processor and go to the next message in the queue
-- Preventing Data Loss: out-of-box technics to prevent data loss (broker can storage the message, keep messages in the queue with client ID)
-- Broadcast Capabilities
-- Request-Reply
+<ul>
+  <li>Asynchronous Capabilities: increasing responsiveness but is hard address error condition</li>
+  <li>Error Handling: workflow event pattern used in asynchronous workflow to help in the weakness from this style.  When a error happens the event delegate it to the workflow processor and go to the next message in the queue</li>
+  <li>Preventing Data Loss: out-of-box technics to prevent data loss (broker can storage the message, keep messages in the queue with client ID)</li>
+  <li>Broadcast Capabilities</li>
+  <li>Request-Reply</li>
+</ul>
 
 <p><b>Highlights:</b> evolutionary, fault tolerance, performance, scalability</p>
 <p><b>Bad points:</b> simplicity, testability, deployability, reliability </p>
