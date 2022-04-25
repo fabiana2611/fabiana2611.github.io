@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Component"
 date:   2019-08-20
-category: frontend node
+category: frontend
 permalink: /:categories/angular-component
 ---
 <h2>Introduction</h2>

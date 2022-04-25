@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Data Binding"
 date:   2019-08-25
-category: frontend node
+category: frontend
 permalink: /:categories/angular-databinding
 ---
 

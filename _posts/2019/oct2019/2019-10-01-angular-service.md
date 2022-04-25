@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Service"
 date:   "2019-10-01"
-category: frontend node
+category: frontend
 permalink: /:categories/angular-service
 ---
 
