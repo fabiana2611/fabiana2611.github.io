@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Pipes"
 date:   "2019-09-04"
-category: "frontend"
+category: frontend node
 permalink: /:categories/angular-pipes
 ---
 

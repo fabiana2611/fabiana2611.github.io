@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Observable"
 date:   "2019-10-24"
-category: "frontend"
+category: frontend node
 permalink: /:categories/angular-observable
 ---
 
