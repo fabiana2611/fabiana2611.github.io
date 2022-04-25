@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Start"
 date:   2019-08-15
-category: frontend node
+category: "frontend node"
 permalink: /:categories/angular-start
 ---
 <h2>Introduction</h2>
