@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Angular Category"
+title: "Frontend Category"
 permalink: /frontend/
 ---
 
