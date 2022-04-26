@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Best Practices"
 date:   2020-01-30
-categories: frontend
+categories: node frontend 
 permalink: /:categories/angular-best-practices
 ---
 
