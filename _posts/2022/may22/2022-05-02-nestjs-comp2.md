@@ -23,7 +23,7 @@ permalink: /:categories/nestjs-advanced
 
 <p><b><u>Standard / useClass</u></b></p>
 
-<p>Use the class name inside the provider is the short way make the Nest IoC container handler the instance. </p>.
+<p>Use the class name inside the provider is the short way make the Nest IoC container handler the instance. </p>
 
 {% highlight ruby %}
 # Complete way - same result of the short way
@@ -49,7 +49,7 @@ providers: [{
 
 <p><b><u>useValue</u></b></p>
 
-<p>It can be used when you want give the instance. In this case you created the instance.</p>
+<p>It can be used when you want give the instance. In this, the instance was created.</p>
 
 {% highlight ruby %}
 # 'provide' attribute is the token
@@ -76,7 +76,7 @@ constructor(@Inject('CONNECTION') connection: Connection) {}
 
 <p><b><u>useFactory</u></b></p>
 
-<p>It allows for creating providers dynamically. The function that define the useFactory can be an <a href="https://docs.nestjs.com/fundamentals/async-providers">asynchronous function</a>.</p>
+<p>It can be used to create providers dynamically. The function that define the useFactory can be an <a href="https://docs.nestjs.com/fundamentals/async-providers">asynchronous function</a>.</p>
 
 {% highlight ruby %}
 providers: [
@@ -183,7 +183,7 @@ export class MessagesModule {...}
 
 <h3><u id="session">Session</u></h3>
 
-<p style="text-align: justify;">You can use the < href="https://docs.nestjs.com/techniques/session">session</a> object to storage information across multiple requests. In a simple example is necessary to have the express-session installed and the main.js configurated.</p>
+<p style="text-align: justify;">You can use the <a href="https://docs.nestjs.com/techniques/session">session</a> object to storage information across multiple requests. In a simple example is necessary to have the express-session installed and the main.js configurated.</p>
 
 {% highlight ruby %}
 # Command line
@@ -305,7 +305,7 @@ app.use(
 
 <p style="text-align: justify;">Here is an example of how to choose between two services and use some attributes injected to do the processing. Here is using <a href="https://docs.nestjs.com/fundamentals/dynamic-modules#:~:text=Config%20module%20example-,%23,-We%27ll%20be%20using">config</a> example by environment. </p>
 
-<p style="text-align: justify;">Inside the module you want to use it (here will me be the message module) is added the ConfigModule passing the attribute will be used to do the decision. The static method 'register' is used to the logic.<p>
+<p style="text-align: justify;">The ConfigureModule is added inside the module will use it. In the example will be MessagesModule. The static method 'register' is created inside the ConfigureModule and pass a parameter to be used in the decisions.<p>
 
 {% highlight ruby %}
 @Module({
@@ -316,7 +316,7 @@ app.use(
 export class MessagesModule {
 {% endhighlight %}
 
-<p style="text-align: justify;">Inside the ConfigModule is done the decision about which class will be used and provide the attribute to be used for some class. In this example, production class will use it.</p>
+<p style="text-align: justify;">Inside the ConfigModule is done the decision about which class will be used. Also, it's create the provide 'fileProvide' be used for some class. In this example, production class will use it.</p>
 
 {% highlight ruby %}
 #config.module
