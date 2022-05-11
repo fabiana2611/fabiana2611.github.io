@@ -137,7 +137,7 @@ findAll() {
 <br />
 <h3><u id="encryptation">Encryption and Hashing</u></h3>
 
-<p><em>Encryption is the process of encoding information. Hashing is the process of converting a given key into another value. <a href="https://docs.nestjs.com/security/encryption-and-hashing">[1]</a></em></p>
+<p style="text-align: justify;"><em>Encryption is the process of encoding information. Hashing is the process of converting a given key into another value. <a href="https://docs.nestjs.com/security/encryption-and-hashing">[1]</a></em></p>
 
 <p style="text-align: justify;">One example is <a href="https://github.com/fabiana2611/nestjs2/blob/master/messages-level-3/src/auth/auth.controller.ts">signup a new user</a>. The codes to create the new password are below.</p>
 
