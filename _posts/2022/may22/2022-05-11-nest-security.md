@@ -23,9 +23,7 @@ permalink: /:categories/nestjs-security
 <br />
 <h3><u id="authentication">Authentication</u></h3>
 
-<p>The <a href="https://docs.nestjs.com/security/authentication">Authentication</a> is the guarantee you really are who you say you are. </p>
-
-<p>One way to make it safe is not only user and password but use token as well. It returns a token to be used in the next requests to validate the user.</p>
+<p style="text-align: justify;">The <a href="https://docs.nestjs.com/security/authentication">Authentication</a> is the guarantee you really are who you say you are. One way to make it safe is not only user and password but use token as well. It returns a token to be used in the next requests to validate the user.</p>
 
 <p><em>Authentication (username/password) -> returning a JWTRequest -> JWT (token) -> protected route</em></p>
 
@@ -39,9 +37,10 @@ $ npm install --save @types/passport-jwt
 
 {% endhighlight %}
 
-<p>The token can helps to protect the available routes to an authenticated user. It can be done using the @AuthGuar, it's necessary to create a Strategy class to config the process to handle the token,  use the guard over the endpoint. The <a href="https://docs.nestjs.com/security/authentication">NestJS page</a> shows the complete example to use it.</p>
+<p style="text-align: justify;">The token can helps to protect the available routes to an authenticated user. The process can be done using the @AuthGuard, creating a Strategy class to config the process to handle the token, and using the guard over the endpoint. The <a href="https://docs.nestjs.com/security/authentication">NestJS page</a> shows the complete example to use it.</p>
 
 {% highlight ruby %}
+# PS: Code from NestJS page
 # Strategy
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -87,6 +86,7 @@ getProfile(@Request() req) {
 <p style="text-align: justify;">However, it's possible make it global to all endpoints. For that, it's necessary define on the main module, improve the guard and create a decorator to be used in the endpoints that should skip the authentication.</p>
 
 {% highlight ruby %}
+# PS Code from NestJS page
 # Main module. Make it global.
 {
    provide: APP_GUARD,
@@ -127,9 +127,9 @@ findAll() {
 
 
 <br />
-<h3><u id="authorization">authorization</u></h3>
+<h3><u id="authorization">Authorization</u></h3>
 
-<p><em><a href="https://docs.nestjs.com/security/authorization">Authorization</p> refers to the process that determines what a user is able to do.</em></p>
+<p style="text-align: justify;"><em><a href="https://docs.nestjs.com/security/authorization">Authorization</a> refers to the process that determines what a user is able to do.</em></p>
 
 <p>The authorization is regarding define roles to filter what can be access or not. The complete example you can see in the <a href="https://docs.nestjs.com/security/authorization">NestJS page</a>.</p>
 
