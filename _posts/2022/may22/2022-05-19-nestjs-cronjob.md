@@ -6,6 +6,8 @@ categories: node
 permalink: /:categories/nestjs-cronjob
 ---
 
+
+
 <p style="text-align: justify;">This post has some notes and the code I did while studying nestjs. I started those notes in my <a href="https://fabiana2611.github.io/node/nestjs">first post</a> about nestjs with simple use of the components, the <a href="https://fabiana2611.github.io/node/nestjs-advanced">second post</a> about how to use the components and the third post regarding <a href="https://fabiana2611.github.io/node/nestjs-security">security</a> with nestjs. Now, I am going a step forward to use scheduled tasks with nestjs. More detail about it you can see in the <a href="https://docs.nestjs.com/techniques/task-scheduling/">nestjs page</a>. The code used in this post you can find inside the <a href="https://github.com/fabiana2611/nestjs2/tree/master/tasks">tasks project</a>.</p>
 
 <p>If you want some tips to calculate the time here is the <a href="https://crontab.guru/#0_18,20,22_*_*_*">crontab guru</a>.</p>
