@@ -58,7 +58,7 @@ fourthCron() {}
 (second | minutes | hours | day of month | months | day of week)
 {% endhighlight %}
 
-Dynamic cron job
+<h3>Dynamic cron job</h3>
 
 <p style="text-align: justify;">It's possible handle the cron jobs dynamically using the SchedulerRegistry which will use the name define inside the annotation of the the task.</p>
 
