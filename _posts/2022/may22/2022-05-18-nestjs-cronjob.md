@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "NestJS - Cron Job"
-date:   2022-05-19
+date:   2022-05-18
 categories: node
 permalink: /:categories/nestjs-cronjob
 ---
