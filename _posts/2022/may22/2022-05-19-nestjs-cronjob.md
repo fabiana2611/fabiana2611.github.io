@@ -19,6 +19,9 @@ permalink: /:categories/nestjs-cronjob
 - cron: from linux
 - Schedule: from Nestjs
 - node-cron: from Node.js
+- Agenda, Node-Schedule: MIT-licensed scheduler for Node
+
+<p>A comparing between some of them you can see <a href="https://blog.logrocket.com/comparing-best-node-js-schedulers/">here</a>.</p>
 
 {% highlight ruby %}
 $ npm install --save @nestjs/schedule
@@ -154,4 +157,5 @@ threeTimesTimeout() {
   <li><a href="https://docs.nestjs.com/techniques/task-scheduling/">Nestjs page</a></li>
   <li><a href="https://github.com/fabiana2611/nestjs2/tree/master/tasks">GitHub - tasks project</a></li>
   <li><a href="https://crontab.guru/#0_18,20,22_*_*_*">crontab guru</a></li>
+  <li><a href="https://github.com/agenda/agenda#readme">Agenda</a></li>
 </ul>
