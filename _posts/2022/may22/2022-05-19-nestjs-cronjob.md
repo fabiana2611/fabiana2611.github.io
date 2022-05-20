@@ -90,7 +90,13 @@ addCronJob(name: string, seconds: string) {
 
 <h3>Stackoverflow Scenarios</h3>
 
-<p>One scenario how to use the cron job is how to execute only three times and finish it.</p>
+<h4><u>Scenario One</u></h4>
+
+<p>The first scenario is: how to execute a job only three times and finish it.</p>
+
+<p>The solution used here is using the timeout. You have to take the period the job has to execute and multiply by how many rounds you want to execute. Also, the example is using the dynamic mode to have the values as parameters. </p>
+
+<p>So, considering the intervals of execution is each 2 seconds and you want this job execute 3 times, the limit of time used will be 2 * 3 * 1000. The job will stop after 6 seconds after the start.</p>
 
 <p>That scenario was get in <a href="https://stackoverflow.com/questions/70077725/add-counter-to-nestjs-cron-job/72310582#72310582">stackoverflow</a>.<p>
 
@@ -100,6 +106,16 @@ private static quantity = 3;
 private static limit = TaskService.time * TaskService.quantity;
 private nameTask = '### TESTE  3 Times ###';
 
+# Should be called when the job process is started
+threeTimes() {
+  this.addCronJon(
+    this.nameTask,
+    TaskService.time.toString(),
+    TaskService.quantity,
+  );
+}
+
+# Create job dynamically
 addCronJon(name: string, seconds: string, limit?: number) {
     const job = new CronJob(`*/${seconds} * * * * *`, () => {
       this.logger.warn(`time (${seconds} for job ${name} to run!`);
@@ -113,19 +129,21 @@ addCronJon(name: string, seconds: string, limit?: number) {
     );
   }
 
-  threeTimes() {
-    this.addCronJon(
-      this.nameTask,
-      TaskService.time.toString(),
-      TaskService.quantity,
-    );
-  }
-
-  @Timeout(TaskService.limit * 1000)
-  threeTimesTimeout() {
+# The method will handle when the job should be interrupted
+@Timeout(TaskService.limit * 1000 + 1000)
+threeTimesTimeout() {
     this.schedulerRegistry.deleteCronJob(this.nameTask);
     this.logger.warn(`job ${this.nameTask} deleted!`);
-  }
+}
+
+# console
+[Nest] 9:08:29 AM     LOG [NestApplication] Nest application successfully started +2ms
+[Nest] 9:08:30 AM    WARN [TaskService] job MY_TASK added for each minute at 2 seconds!
+[Nest] 9:08:32 AM    WARN [TaskService] time (2 for job MY_TASK to run!
+[Nest] 9:08:34 AM    WARN [TaskService] time (2 for job MY_TASK to run!
+[Nest] 9:08:36 AM    WARN [TaskService] time (2 for job MY_TASK to run!
+[Nest] 9:08:36 AM    WARN [TaskService] job MY_TASK deleted!
+
 {% endhighlight %}
 
 <h3>References</h3>
