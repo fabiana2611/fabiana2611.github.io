@@ -1,12 +1,10 @@
 ---
 layout: post
 title:  "NestJS - Cron Job"
-date:   2022-05-18
+date:   2022-05-19
 categories: node
 permalink: /:categories/nestjs-cronjob
 ---
-
-
 
 <p style="text-align: justify;">This post has some notes and the code I did while studying nestjs. I started those notes in my <a href="https://fabiana2611.github.io/node/nestjs">first post</a> about nestjs with simple use of the components, the <a href="https://fabiana2611.github.io/node/nestjs-advanced">second post</a> about how to use the components and the third post regarding <a href="https://fabiana2611.github.io/node/nestjs-security">security</a> with nestjs. Now, I am going a step forward to use scheduled tasks with nestjs. More detail about it you can see in the <a href="https://docs.nestjs.com/techniques/task-scheduling/">nestjs page</a>. The code used in this post you can find inside the <a href="https://github.com/fabiana2611/nestjs2/tree/master/tasks">tasks project</a>.</p>
 
@@ -27,7 +25,7 @@ $ npm install --save @nestjs/schedule
 $ npm install --save-dev @types/cron
 {% endhighlight %}
 
-<p style="text-align: justify;">It's necessary to declare it inside your module and add the annotation inside your task to define when it should be executed. The annotation can be done using a value or a enum. Alternativaly you can add parameters such as name and time zone. Also it's possible attribute intervals of execution or timeouts.</p>
+<p style="text-align: justify;">It's necessary to declare it inside your module and add the annotation inside your task to define when it should be executed. The annotation can be done using a value or a enum. Alternatively you can add parameters such as name and time zone. Also it's possible attribute intervals of execution or timeouts.</p>
 
 {% highlight ruby %}
 # Declaring the module
@@ -129,3 +127,13 @@ addCronJon(name: string, seconds: string, limit?: number) {
     this.logger.warn(`job ${this.nameTask} deleted!`);
   }
 {% endhighlight %}
+
+<h3>References</h3>
+<ul>
+  <li><a href="https://fabiana2611.github.io/node/nestjs">NestJS - using the main components</a></li>
+  <li><a href="https://fabiana2611.github.io/node/nestjs-advanced">NestJS - components part II</a></li>
+  <li><a href="https://fabiana2611.github.io/node/nestjs-security">NestJs - Security</a></li>
+  <li><a href="https://docs.nestjs.com/techniques/task-scheduling/">Nestjs page</a></li>
+  <li><a href="https://github.com/fabiana2611/nestjs2/tree/master/tasks">GitHub - tasks project</a></li>
+  <li><a href="https://crontab.guru/#0_18,20,22_*_*_*">crontab guru</a></li>
+</ul>
