@@ -84,7 +84,7 @@ addCronJob(name: string, seconds: string) {
   job.start();
   this.logger.warn(`job ${name} added for each minute at ${seconds} seconds!`,);
 }
-{% endhighlight
+{% endhighlight %}
 
 <p style="text-align: justify;">The cron allow delete and list all the jobs.  </p>
 
