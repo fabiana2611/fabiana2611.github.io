@@ -125,7 +125,12 @@ https://httpbin.org/uuid
 
 <p><em>Filters are components responsible for transform data and process the input they receive. Pipes are connectors for the stream of data being transformed, each connected to the next component in the pipeline.</em><a href="https://syedhasan010.medium.com/pipe-and-filter-architecture-bd7babdb908">[4]</a>. Types of filters are: Producer, Transformer, Tester and Consumer.</p>
 
-<p>One example where it is using is in <a href="https://fabiana2611.github.io/java/stream">Stream from Java</a>.</p>
+<p>One example where it is using is in <a href="https://fabiana2611.github.io/java/stream">Stream from Java</a>. That has the start point, a set opf operation and the last point to return the result.</p>
+
+{% highlight ruby %}
+List list = Arrays.asList("Toby", "Anna", "Leroy", "Alex");
+list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out::println);
+{% endhighlight %}
 
 <p>The highlights of this style is the cost and simplicity. Not good to scalability or fault tolerance.</p>
 
