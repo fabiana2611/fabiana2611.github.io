@@ -76,6 +76,20 @@ permalink: /:categories/sw-arch-p2
   <iframe width="360" height="215" src="https://www.youtube.com/embed/L5BlpPU_muY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
+<h4>Example</h4>
+
+<p>One example is when you access by the browser an <a href="https://en.wikipedia.org/wiki/API">API</a> to return a JSON. The browser is the client and the server is in somewhere to answer the request.</p>
+
+{% highlights ruby %}
+# Access API via browser
+https://httpbin.org/uuid
+
+# Response
+{
+  "uuid": "cb918584-2211-4cbd-91c0-ac9bd2cae551"
+}
+{% end %}
+
 <br/>
 <h3><u id="Layered">Layered</u></h3>
 
