@@ -80,7 +80,7 @@ permalink: /:categories/sw-arch-p2
 
 <p>One example is when you access by the browser an <a href="https://en.wikipedia.org/wiki/API">API</a> to return a JSON. The browser is the client and the server is in somewhere to answer the request.</p>
 
-{% highlights ruby %}
+{% highlight ruby %}
 # Access API via browser
 https://httpbin.org/uuid
 
