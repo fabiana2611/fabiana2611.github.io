@@ -110,8 +110,12 @@ https://httpbin.org/uuid
 
 <table>
   <tr>
-    <td><img src="/img/architecture/layerexample.png" /><br /><a href="https://www.thinktocode.com/2018/07/12/layered-architecture-skeleton-example/">Reference</a></td>
-    <td><iframe src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><center><a href="https://www.thinktocode.com/2018/07/12/layered-architecture-skeleton-example/">Example</a></center></td>
+    <td>Video</td>
+  </tr>
+  <tr>
+    <td><center><img src="/img/architecture/layerexample.png" /></center></td>
+    <td><center><iframe src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></td>
   </tr>
 </table>
 
