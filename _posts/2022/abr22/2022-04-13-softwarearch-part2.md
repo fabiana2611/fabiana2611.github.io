@@ -111,7 +111,7 @@ https://httpbin.org/uuid
 <table>
   <tr>
     <td><center><a href="https://www.thinktocode.com/2018/07/12/layered-architecture-skeleton-example/">Example</a></center></td>
-    <td>Video</td>
+    <td><center>Video</center></td>
   </tr>
   <tr>
     <td><center><img src="/img/architecture/layerexample.png" /></center></td>
