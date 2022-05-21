@@ -108,9 +108,13 @@ https://httpbin.org/uuid
   <li>Concepts of isolation: changes made one layer should not impact other layer.</li>
 </ul>
 
-<p><center>
-  <iframe width="360" height="215" src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center></p>
+<table>
+  <tr>
+    <td><img src="/img/architecture/layerexample.png" /><br /><a href="https://www.thinktocode.com/2018/07/12/layered-architecture-skeleton-example/">Reference</a></td>
+    <td><iframe src="https://www.youtube.com/embed/BCXcIllT7Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+</table>
+
 
 <br/>
 <h3><u id="Pipeline">Pipeline</u></h3>

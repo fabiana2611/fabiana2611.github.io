@@ -181,7 +181,7 @@ The P2P architecture is a commonly used computer networking architecture where:
 
 <p style="text-align: justify;">The application can have many layers and each one has a distinct responsibility, having as a feature the separation of concerns. Also, the requests go through layers from the direction up to down. The idea is that the layer can go down in the sequence of the layer, but not to call a super layer.  It is easy to organize but needs to write lots of code. </p>
 
-<p style="text-align: justify;"> Generically, there ate five layers, not mandatory. You will decide the best choice for your application.</p>
+<p style="text-align: justify;"> Generically, there are five layers, not mandatory. You will decide the best choice for your application.</p>
 
 <center><img src="/img/architecture/layer.png" width="130" height="300"/></center>
 
