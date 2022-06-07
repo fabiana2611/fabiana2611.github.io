@@ -245,6 +245,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   </tr>
 </table>
 
+<p>Here are examples to apply those concepts: <a href="https://codeopinion.com/real-world-event-driven-architecture-4-practical-examples/">Real-World Event Driven Architecture! 4 Practical Examples</a>.</p>
+
 <br/>
 <h3>Be continued...</h3>
 <p>Space-based Architecture...</p>
