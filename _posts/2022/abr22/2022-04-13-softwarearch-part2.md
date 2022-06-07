@@ -171,6 +171,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   <iframe src="https://www.youtube.com/embed/xkr5nGJYx_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
+<p>Here is an example of application using this architecture, <a href="https://devopedia.org/5g-service-based-architecture">5G Service-Based Architecture<a>.</p>
 
 <br/>
 <h3><u id="EDA">Event-Driven Architecture</u></h3>
@@ -248,7 +249,6 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 <h3>Be continued...</h3>
 <p>Space-based Architecture...</p>
 <p>Orchestration-Driven Service-Oriented Architecture...</p>
-<p>Microservice Architecture...</p>
 <p>Microservice Architecture...</p>
 
 <h2><u id="all">All together</u></h2>
