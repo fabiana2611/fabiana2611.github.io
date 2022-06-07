@@ -152,7 +152,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   <iframe width="360" height="215" src="https://www.youtube.com/embed/h3icQDMRLd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
-<p style="text-align: justify;">Here is an example using the Microkernel idea. The <a href="https://github.com/rse/microkernel">Microkernel library</a> is a for Node.js <em>to structure and manage server applications with the help of modules, a stateful life-cycle, hooks, events, services and resources</em>.</p>
+<p style="text-align: justify;">Here is an example using the Microkernel idea. The <a href="https://github.com/rse/microkernel">Microkernel library</a> is a library for Node.js <em>to structure and manage server applications with the help of modules, a stateful life-cycle, hooks, events, services and resources</em>.</p>
 
 <br/>
 <h3><u id="ServiceBased">Service-based Architecture</u></h3>
