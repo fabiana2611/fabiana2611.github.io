@@ -20,7 +20,7 @@ permalink: /:categories/sw-arch-p2
 </tr>
 <tr>
   <td><a href="#Space-based">Space-based</a></td>
-  <td>Orchestration-Driven</td>
+  <td>Orchestration-Driven Service-Oriented Architecture</td>
   <td>Microservice</td>
 </tr>
 <tr>
@@ -253,12 +253,12 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <blockquote>The space-based architecture pattern is specifically designed to address and solve scalability and concurrency issues. It is also a useful architecture pattern for applications that have variable and unpredictable concurrent user volumes.  </blockquote>
 
-<p style="text-align: justify;">The <a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch05.html">space-based</a> style has as main idea to have a distributed shared memory. It decrease the necessity to have a big central database. The data is kept in-memory and replicated throught all processing units.</p>
+<p style="text-align: justify;">The <a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch05.html">space-based</a> style has as main idea to have a distributed shared memory.  It decreases the necessity to have a big central database. The data is kept in memory and replicated through all processing units.</p>
 
 <p><b>The components:</b></p>
 
 - Processing-Unit: web-based components + backend business logic + in-memory data grid + replication engine
-- Virtualized-middleware component: handles data synchronization and requests. It has the messaging grid, data grid, processing grid, and deployment manager.   
+- Virtualized-middleware: handles data synchronization and requests. It has the messaging grid, data grid, processing grid, and deployment manager.   
 - Messaging grid: manages input request and session information to redirect the request to the available Process Unit.
 - Data grid: interacts with the data-replication engine to maintain the data consistence between processing units (data replication).
 - Processing grid: manages distributed request processing when there are multiple processing units.
@@ -266,7 +266,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <table>
   <tr>
-    <td><img src="/img/architecture/space-based.png" width="70%" height="70%" /></td>
+    <td><img src="/img/architecture/space-based.png" width="80%" height="80%" /></td>
     <td><iframe src="https://www.youtube.com/embed/EghajVYv1Ok" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
@@ -284,10 +284,10 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 - Data writers: accepts messages from data pump and update the database.
 - Data readers: reads data from database and send it to data pump.
 
-<p style="text-align: justify;">One point to pay attention is the collision, which can happen during the process to keep the information update for each Process Unit.</p>
+<p style="text-align: justify;">One point to pay attention to is the collision, which can happen during the process to keep the information updated for each Process Unit..</p>
 
 
-<p style="text-align: justify;">Another point is to decide what strategy to use about the cache: in-momory cache, distributed cache, replicated cache or near cache hybrid. Here are some videos that talk about the possibilities.</p>
+<p style="text-align: justify;">Another point is to decide what strategy to use for the cache: in-memory cache, distributed cache, replicated cache, or near cache hybrid. Here are some videos that talk about the possibilities.</p>
 
 
 <table>
@@ -300,16 +300,9 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
     <td><iframe src="https://www.youtube.com/embed/uBqysgyyquk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
   <tr>
-    <td colspan="3"><iframe src="https://www.youtube.com/embed/bAU4BvZNhiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td colspan="3"><center><iframe src="https://www.youtube.com/embed/bAU4BvZNhiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></td>
   </tr>
 </table>
-
-
-<p style="text-align: justify;"></p>
-
-<p style="text-align: justify;"></p>
-
-<p style="text-align: justify;"></p>
 
 
 <br/>
