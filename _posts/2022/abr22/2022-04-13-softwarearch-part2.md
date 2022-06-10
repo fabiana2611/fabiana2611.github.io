@@ -19,7 +19,7 @@ permalink: /:categories/sw-arch-p2
   <td><a href="#EDA">Event-Driven</a></td>
 </tr>
 <tr>
-  <td>Space-based</td>
+  <td><a href="#Space-based">Space-based</a></td>
   <td>Orchestration-Driven</td>
   <td>Microservice</td>
 </tr>
@@ -247,9 +247,70 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <p>Here are examples to apply those concepts: <a href="https://codeopinion.com/real-world-event-driven-architecture-4-practical-examples/">Real-World Event Driven Architecture! 4 Practical Examples</a>.</p>
 
+
+<br/>
+<h3>Space-based Architecture</h3>
+
+<blockquote>The space-based architecture pattern is specifically designed to address and solve scalability and concurrency issues. It is also a useful architecture pattern for applications that have variable and unpredictable concurrent user volumes.  </blockquote>
+
+<p style="text-align: justify;">The <a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch05.html">space-based</a> style has as main idea to have a distributed shared memory. It decrease the necessity to have a big central database. The data is kept in-memory and replicated throught all processing units.</p>
+
+<p>The components:</p>
+
+- Processing-Unit: web-based components + backend business logic + in-memory data grid + replication engine
+- Virtualized-middleware component: handles data synchronization and requests. It has the messaging grid, data grid, processing grid, and deployment manager.   
+- Messaging grid: manages input request and session information to redirect the request to the available Process Unit.
+- Data grid: interacts with the data-replication engine to maintain the data consistence between processing units (data replication).
+- Processing grid: manages distributed request processing when there are multiple processing units.
+- The deployment manager: manages the dynamic startup and shutdown of processing units based on load conditions.
+
+<table>
+  <tr>
+    <td><img src="/img/architecture/space-based.png" width="70%" height="70%" /></td>
+    <td><iframe src="https://www.youtube.com/embed/EghajVYv1Ok" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+</table>
+
+<p style="text-align: justify;">Analysis:</p>
+
+- The space-based architecture pattern is a complex and expensive pattern to implement.
+- It is a good architecture choice for smaller web-based applications with variable load.
+- it is not well suited for traditional large-scale relational database applications with large amounts of operational data.
+- Overall agility (High), Ease of deployment(High), Testability(Low), Performance (high), Scalability (high), Ease of development (Low)
+
+<p style="text-align: justify;">Other important concepts around this style are: </p>
+
+- Data pumps: send data to another processor which then updates data in database. It is important because Process Unit doesn't read or write from/to database directly.
+- Data writers: accepts messages from data pump and update the database.
+- Data readers: reads data from database and send it to data pump.
+
+<p style="text-align: justify;">One point to pay attention is the collision, which can happen during the process to keep the information update for each Process Unit.</p>
+
+
+<p style="text-align: justify;">Another point is to decide what strategy to use about the cache: in-momory cache, distributed cache, replicated cache or near cache hybrid. Here are some videos that talk about the possibilities.</p>
+
+
+<table>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/kz5D6gToUck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/tHO2groauZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr
+</table>
+
+
+<p style="text-align: justify;"></p>
+
+<p style="text-align: justify;"></p>
+
+<p style="text-align: justify;"></p>
+
+
 <br/>
 <h3>Be continued...</h3>
-<p>Space-based Architecture...</p>
 <p>Orchestration-Driven Service-Oriented Architecture...</p>
 <p>Microservice Architecture...</p>
 
@@ -284,4 +345,5 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   <li><a href="https://www.techtalksbyanvita.com/post/event-driven-vs-request-driven-rest-architecture">Event-Driven vs Request-Driven (RESTful) Architecture in Microservices</a></li>
   <li><a href="https://dev.to/desi109/architectural-styles-by-examples-387b">Architectural Styles (by examples)</a></li>
   <li><a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters">Pipes and Filters pattern</a></li>
+  <li><a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch05.html">Chapter 5. Space-Based Architecture</a></li>
 </ul>
