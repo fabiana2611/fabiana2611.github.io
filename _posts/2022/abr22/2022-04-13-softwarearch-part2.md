@@ -249,13 +249,13 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 
 <br/>
-<h3>Space-based Architecture</h3>
+<h3><u id="Space-based">Space-based Architecture</u></h3>
 
 <blockquote>The space-based architecture pattern is specifically designed to address and solve scalability and concurrency issues. It is also a useful architecture pattern for applications that have variable and unpredictable concurrent user volumes.  </blockquote>
 
 <p style="text-align: justify;">The <a href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch05.html">space-based</a> style has as main idea to have a distributed shared memory. It decrease the necessity to have a big central database. The data is kept in-memory and replicated throught all processing units.</p>
 
-<p>The components:</p>
+<p><b>The components:</b></p>
 
 - Processing-Unit: web-based components + backend business logic + in-memory data grid + replication engine
 - Virtualized-middleware component: handles data synchronization and requests. It has the messaging grid, data grid, processing grid, and deployment manager.   
@@ -271,7 +271,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   </tr>
 </table>
 
-<p style="text-align: justify;">Analysis:</p>
+<p style="text-align: justify;"><b>Analysis:</b></p>
 
 - The space-based architecture pattern is a complex and expensive pattern to implement.
 - It is a good architecture choice for smaller web-based applications with variable load.
@@ -296,9 +296,9 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
     <td><iframe src="https://www.youtube.com/embed/tHO2groauZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
   <tr>
+    <td><iframe src="https://www.youtube.com/embed/Ov2q8VdyrM0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td></td>
-    <td></td>
-  </tr
+  </tr>
 </table>
 
 
