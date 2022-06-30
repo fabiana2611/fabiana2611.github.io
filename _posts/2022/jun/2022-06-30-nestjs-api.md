@@ -17,7 +17,7 @@ $ npm i --save @nestjs/axios
 $ npm i axios
 {% endhighlight %}
 
-<p style="text-align: justify;">After the installation is necessary to import the module where it is necessary to use. If you need <a href="https://docs.nestjs.com/techniques/http-module#configuration">configure</p> specific sets you can add when declare the HttpModule or create a external file.</p>
+<p style="text-align: justify;">After the installation is necessary to import the module where it is necessary to use. If you need <a href="https://docs.nestjs.com/techniques/http-module#configuration">configure</a> specific sets you can add when declare the HttpModule or create a external file.</p>
 
 {% highlight ruby %}
 // Sync
