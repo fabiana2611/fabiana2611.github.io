@@ -82,9 +82,11 @@ $ npm install --save opt-in
 
 <p style="text-align: justify;">Here is an example of configuring main file. The security lines are commented to show different ways to do it. </p>
 
-- The DocumentBuilder helps to structure a base document
-- Document (returned by the SwaggerModule#createDocument() method) is a serializable object
-- The SwaggerModule automatically reflects all of your endpoints.
+<ul>
+  <li>The DocumentBuilder helps to structure a base document</li>
+  <li>Document (returned by the SwaggerModule#createDocument() method) is a serializable object</li>
+  <li>The SwaggerModule automatically reflects all of your endpoints.</li>
+</ul>
 
 
 {% highlight ruby %}
