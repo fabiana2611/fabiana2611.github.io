@@ -56,11 +56,11 @@ HttpModule.registerAsync({
 
 <p>In the first example below the result is printed in the console. </p>
 
-<p><center><img src="/img/nestjs/axiosobs.png" width="70%" high="70%" ></center></p>
+<p><center><img src="/img/nestjs/axiosobs.png" ></center></p>
 
 <p>The second example shows the return from data printed on the browser.</p>
 
-<p><center><img src="/img/nestjs/axiosref.png" width="70%" high="70%" ></center></p>
+<p><center><img src="/img/nestjs/axiosref.png" ></center></p>
 
 <h3>Swagger</h3>
 
