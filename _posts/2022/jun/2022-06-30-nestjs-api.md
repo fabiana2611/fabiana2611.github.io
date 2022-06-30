@@ -80,9 +80,10 @@ $ npm install --save opt-in
 
 <p style="text-align: justify;">The configuration is done in two files: the main.js and nest-cli.json. Inside the main file you can add generic information such as description, version, tag, security and cookie. The nest-cli will let available other configurations as the use of pluglin <a href="https://docs.nestjs.com/openapi/cli-plugin">opt-in</a> to avoid boilerplate as use of the comments to create the documentation instead add new annotations.</p>
 
-<p style="text-align: justify;">Here is an example of configuring main file. The security lines are commented to show different ways to do it. </p>
+<p style="text-align: justify;">Here is an example of configuring main file. </p>
 
 <ul>
+  <li>The security lines are commented to show different ways to do it. </li>
   <li>The DocumentBuilder helps to structure a base document</li>
   <li>Document (returned by the SwaggerModule#createDocument() method) is a serializable object</li>
   <li>The SwaggerModule automatically reflects all of your endpoints.</li>
@@ -145,7 +146,11 @@ bootstrap();
 {% endhighlight %}
 
 
-<p style="text-align: justify;">Now we have a simple example of how to use the annotations from swagger which will be used to create the documentation. The tag upside the class will be used to group the documentation, for example. The consume and produces annotation indicate the type of data that will be manipulated by that endpoint. The body describes what is necessary to that endpoint and you can add examples. </p>
+<h4>Example</h4>
+
+<p style="text-align: justify;">Now we have a simple example of how to use the annotations from swagger which will be used to create the documentation. </p>
+
+<p style="text-align: justify;">The tag upside the class will be used to group the documentation, for example. The consume and produces annotation indicate the type of data that will be manipulated by that endpoint. The body describes what is necessary to that endpoint and you can add examples. </p>
 
 {% highlight ruby %}
 @ApiTags('messages-api')
@@ -154,7 +159,6 @@ export class AppController {
 
   /**
    * Test plugin
-   * @example {id: 1, content: 'test'}
    * @param body
    */
   @Post('messages2')
@@ -166,20 +170,23 @@ export class AppController {
   @ApiUnauthorizedResponse({ description: 'Unauthorized Error.' })
   @ApiNotFoundResponse({ description: 'The entity was not found.' })
   @ApiInternalServerErrorResponse({ description: 'Generic error.' })
-  @ApiBody({
-    description: 'Description my body',
-    type: MessageEntity,
-    examples: {
-      id: { value: '1' },
-      content: { value: 'my message' },
-    },
-  })
 createMessage2(@Body() body: MessageEntity) {
   return this.messagesService.create(body.content);
 }
 {% endhighlight %}
 
-<p style="text-align: justify;">Thanks to the plugin, the comments will be used for documentation and you don't need to add more annotations. In the same way, all the descriptions you add inside the MessageEntity will be recognized and added to the documentation.</p>
+<p style="text-align: justify;">Thanks to the plugin, the comments will be used for documentation and you don't need to add more annotations. In the same way, all the descriptions you add inside the MessageEntity will be recognized and added to the documentation. Pay attention in the next image. The example Value is created from information inside the MessageEntity.</p>
+
+<p><center><img src="/img/nestjs/messagedoc.png" ></center></p>
+
+<p>If you use the body annotation. It will be changed.</p>
+
+<table>
+  <tr>
+    <td><img src="/img/nestjs/body1.png" ></td>
+    <td><img src="/img/nestjs/body2.png" ></td>
+  </tr>
+</table>
 
 <p style="text-align: justify;">The plugin will identify all the files with *entity.ts and .dto.ts to do the annotations. Then, those entities don't need the @ApiProperty() annotations anymore. However, if you need to override them you just need to start to use the annotation where you want.</p>
 
@@ -209,7 +216,11 @@ export class MessageEntity {
 }
 {% endhighlight %}
 
+<p> And the doc will be created like that:</p>
 
+<p><center><img src="/img/nestjs/schema.png" ></center></p>
+
+<p>PS: Always change the documentation you have to build again the project. It's not enough only to save and see the app restarting.</p>
 
 <h3>References</h3>
 <ul>
