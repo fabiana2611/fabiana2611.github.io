@@ -64,7 +64,7 @@ HttpModule.registerAsync({
 
 <h3>Swagger</h3>
 
-<p style="text-align: justify;">I already written about swagger in this <a href="https://fabiana2611.github.io/webservice/swagger">post</p>. It was focused on Java but it's the same idea. Here it's focused on using it with nestjs.</p>
+<p style="text-align: justify;">I already written about swagger in this <a href="https://fabiana2611.github.io/webservice/swagger">post</a>. It was focused on Java but it's the same idea. Here it's focused on using it with nestjs.</p>
 
 <blockquote>The <OpenAPI specification is a language-agnostic definition format used to describe RESTful APIs.</blockquote>
 
