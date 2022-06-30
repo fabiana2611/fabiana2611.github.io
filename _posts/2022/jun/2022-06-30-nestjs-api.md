@@ -181,6 +181,17 @@ createMessage2(@Body() body: MessageEntity) {
 
 <p>If you use the body annotation. It will be changed.</p>
 
+{% highlight ruby %}
+@ApiBody({
+   description: 'Description my body',
+   type: MessageEntity,
+   examples: {
+     id: { value: '1' },
+     content: { value: 'my message' },
+   },
+ })
+{% endhighlight %}
+
 <table>
   <tr>
     <td><img src="/img/nestjs/body1.png" ></td>
@@ -188,7 +199,7 @@ createMessage2(@Body() body: MessageEntity) {
   </tr>
 </table>
 
-<p style="text-align: justify;">The plugin will identify all the files with *entity.ts and .dto.ts to do the annotations. Then, those entities don't need the @ApiProperty() annotations anymore. However, if you need to override them you just need to start to use the annotation where you want.</p>
+<p style="text-align: justify;">Plugin will identify all the files with *entity.ts and .dto.ts to do the annotations. Then, those entities don't need the @ApiProperty() annotations anymore. However, if you need to override them you just need to start to use the annotation where you want. Also, the annotation from 'class-validator' (@Max) will be used to create the documentation.</p>
 
 {% highlight ruby %}
 export class MessageEntity {
