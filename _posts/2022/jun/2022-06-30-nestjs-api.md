@@ -52,15 +52,15 @@ HttpModule.registerAsync({
 
 <p style="text-align: justify;">In your service, the HttpService should be declared inside the constructor then use it. The return is a observable. </p>
 
-<p style="text-align: justify;">There are two possibilities to use that response: using the observable or using the axios reference to manipulate the data, for example. In the first example below the result is printed in the console. The second example shows the return from data printed on the browser.</p>
+<p style="text-align: justify;">There are two possibilities to use that response: using the observable or using the axios reference to manipulate the data, for example.</p>
 
-<table>
-  <tr>
-    <td><img src="/img/nestjs/axiosobs.png" ></td>
-    <td><img src="/img/nestjs/axiosref.png" ></td>
-  </tr>
-</table>
+<p>In the first example below the result is printed in the console. </p>
 
+<p><center><img src="/img/nestjs/axiosobs.png" width="70%" high="70%" ></center></p>
+
+<p>The second example shows the return from data printed on the browser.</p>
+
+<p><center><img src="/img/nestjs/axiosref.png" width="70%" high="70%" ></center></p>
 
 <h3>Swagger</h3>
 
