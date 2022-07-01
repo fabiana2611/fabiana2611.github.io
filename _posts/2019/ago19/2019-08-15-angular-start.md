@@ -2,7 +2,7 @@
 layout: post
 title:  "Angular - Start"
 date:   2019-08-15
-categories: node frontend 
+categories: node frontend
 permalink: /:categories/angular-start
 ---
 <h2>Introduction</h2>
@@ -70,14 +70,23 @@ To start to work with <a href="https://angular.io/guide/setup-local" >Angular</a
 </ul>
 </li>
 </ul>
+
 <p style="text-align: justify;">The line commands you can need is below. If the <span style="color: #993366;">CLI</span> is old you should uninstall that, clean the cache and install another one.</p>
 
-<pre class="p1"><span class="s2">[sudo] npm install -g npm</span>
-<span class="s2">sudo npm uninstall -g angular-cli @angular/cli</span>
-<span class="s2">npm cache clean --force</span>
-<span class="s2">[sudo] npm install -g @angular/cli</span></pre>
+{% highlight ruby %}
+$ [sudo] npm install -g npm
+$ sudo npm uninstall -g angular-cli @angular/cli
+$ npm cache clean --force
+$ [sudo] npm install -g @angular/cli
+
+// If you are using yarn
+$ yarn global add @angular/cli
+$ ng set --global packageManager=yarn
+{% endhighlight %}
+
 After that, you are ready to create your first project.
 <pre>ng new my-project</pre>
+
 Now, go inside the project you created and start the server.
 <pre>cd my-project
 <span class="s3">ng serve</span>
@@ -139,4 +148,5 @@ PS: As the studies progress, I will add the code in the <a href="https://github.
 	<li class="p1"><span class="s1"><a href="https://github.com/angular/angular-cli/wiki">https://github.com/angular/angular-cli/wiki</a></span></li>
 	<li class="p1"><span class="s1"><a href="https://www.tutorialspoint.com/angular7/angular7_quick_guide.htm">https://www.tutorialspoint.com/angular7/angular7_quick_guide.htm</a></span></li>
 	<li>https://www.udemy.com/the-complete-guide-to-angular-2/</li>
+	<li>https://blog.angular-university.io/getting-started-with-angular-setup-a-development-environment-with-yarn-the-angular-cli-setup-an-ide/</li>
 </ul>
