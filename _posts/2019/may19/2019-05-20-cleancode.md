@@ -14,7 +14,7 @@ Who works programming should understand how it is important and how it impacts o
 [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), the Uncle Bob, wrote a book about [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) and it will be my reference to this post.
 
 <center>
-  <p><img src="/img/legacycode/cleancode.png" width="20%" height="20%"/></p>
+  <p><img src="/img/books/cleancode.png" width="20%" height="20%"/></p>
 </center>
 
 <h3>Bad Code</h3>
