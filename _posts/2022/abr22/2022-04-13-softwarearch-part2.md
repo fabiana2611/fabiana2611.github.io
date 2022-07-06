@@ -2,7 +2,7 @@
 layout: post
 title:  "Fundamentals of Software Architecture - Part II"
 date:   2022-04-13
-categories: arch
+categories: arch books
 permalink: /:categories/sw-arch-p2
 ---
 
@@ -20,7 +20,7 @@ permalink: /:categories/sw-arch-p2
 </tr>
 <tr>
   <td><a href="#Space-based">Space-based</a></td>
-  <td>Orchestration-Driven Service-Oriented Architecture</td>
+  <td><a href="#SOA">Orchestration-Driven Service-Oriented Architecture</a></td>
   <td>Microservice</td>
 </tr>
 <tr>
@@ -307,8 +307,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <br/>
 <h3>Be continued...</h3>
-<p>Orchestration-Driven Service-Oriented Architecture...</p>
 <p>Microservice Architecture...</p>
+<p><u id="SOA">Orchestration-Driven Service-Oriented Architecture</u>...</p>
 
 <h2><u id="all">All together</u></h2>
 
