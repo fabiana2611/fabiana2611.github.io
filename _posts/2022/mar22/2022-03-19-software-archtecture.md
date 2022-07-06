@@ -2,7 +2,7 @@
 layout: post
 title:  "Fundamentals of Software Architecture - Part I"
 date:   2022-03-19
-categories: arch
+categories: arch books
 permalink: /:categories/sw-arch
 ---
 

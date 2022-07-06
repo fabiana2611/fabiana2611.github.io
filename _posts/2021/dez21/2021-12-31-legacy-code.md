@@ -2,7 +2,7 @@
 layout: post
 title:  "Working with legacy code"
 date:   2021-12-31
-categories: java foundation
+categories: foundation books
 permalink: /:categories/legacy-code
 ---
 
