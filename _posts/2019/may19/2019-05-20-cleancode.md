@@ -2,7 +2,7 @@
 layout: post
 title:  "Clean Code"
 date:   2019-05-20
-categories: foundation
+categories: foundation books
 permalink: /:categories/cleancode
 ---
 Hello World!!!
@@ -12,6 +12,10 @@ It is a great pleasure to talk to you about this subject: Clean Code.
 Who works programming should understand how it is important and how it impacts on productivity. A messed code can be a demotivator and make the programming duties pretty boring. I believe that a good programmer should be worried about it.
 
 [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), the Uncle Bob, wrote a book about [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) and it will be my reference to this post.
+
+<center>
+  <p><img src="/img/legacycode/cleancode.png" width="20%" height="20%"/></p>
+</center>
 
 <h3>Bad Code</h3>
 
