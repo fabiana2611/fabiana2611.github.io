@@ -11,11 +11,11 @@ permalink: /:categories/clean-architecture
   <p><img src="/img/books/cleanarch.jpg" width="20%" height="20%"/></p>
 </center>
 
-<p style="text-align: justify;">The clean architecture, term used by uncle Bob, wish to achieve the separation of responsibilities  dividing the software into layers. In this direction, each internal layer cannot depends of the over layer an the outer cycle.</p>
+<p style="text-align: justify;">The clean architecture, term used by uncle Bob, wish to achieve the separation of responsibilities  dividing the software into layers. In this direction, each internal layer cannot depends of the over layer on the outer cycle.</p>
 
-<center>
+<p><center>
   <p><img src="/img/books/cleanarchdiagram.png" width="80%" height="80%"/></p>
-</center>
+</center></p>
 
 <p>Here are the definition around the clean architecture:</p>
 <ul>
