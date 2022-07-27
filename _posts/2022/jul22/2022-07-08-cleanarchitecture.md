@@ -2,7 +2,7 @@
 layout: post
 title:  "Clean Architecture"
 date:   2022-07-08
-categories: books foundation
+categories: books arch
 permalink: /:categories/clean-architecture
 ---
 
