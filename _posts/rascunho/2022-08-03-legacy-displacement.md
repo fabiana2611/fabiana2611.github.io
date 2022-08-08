@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Legacy Displacement"
+date:   2022-08-08
+categories: foundation
+permalink: /:categories/legacy-displacement
+---
+
+<p>This post is a small review of the post written by Ian Cartwright, Ron Horn and James Lewis. Their post is not only a description of good practices but also you can hear a good podcast where they discuss the subject: <a href="https://martinfowler.com/articles/patterns-legacy-displacement/">Patterns Legacy Displacement.</a></p>
+
+<p>They prepared a set of patterns (pr suggestions) to help to make decisions when we are working with legacy code. I'll not go deeply here because their explanation is very complete and helpful. More details you can go directly to the original post. Here, I want to take some notes to make my life easier when I need to review the concepts. Maybe it can help you too.</p>
+
+<h3>init()</h3>
+
+<blockequote>The technology is at most only 50% of the legacy problem, ways of working, organization structure and leadership are just as important to success.</blockequote>
+
+<p>Some points that can lead to failures:<p>
+
+1. Change the technology but not change the other parts involved (structure, way to work, leadership).
+2. The gap between what the business actually needed and what was actually signed off at the start of the plans.
+3. What exist should continues working in the same way. It is the "as-is" functionality, The challenge here can be in the definition and agreements.
+
+<p>The last one is the Feature Parity where you delivery the exactly same functionality but with different technology. It can be very useful, for sure. However, the team can be loosing opportunity to improve the system and cut not useful features.<p>
+
+
+<p>The authors give as alternative approaches:</p>
+<ul>
+  <li>Extract Product Lines or Extract Value Streams: <em>give strategies for identifying thin slices through an existing system. By splitting by product we are taking advantage of the fact that changes to multiple products can be made simultaneously, and reducing risk by avoiding the combinatorial explosion of changes that may introduce defects in unwanted places.</em></li>
+  <ul>
+    How It Works:
+    <li>Identify the product or product lines within the system.</li>
+    <li>Identify shared capabilities.</li>
+    <li>Choose who goes first.</li>
+    <li>Identify your target software architecture</li>
+    <li>Identify your technical migration strategy.</li>
+  </ul>
+  <li><em>Looking at the business value and making sure that is represented in any architectural decisions can often highlight issues with Feature Parity driven approaches.</em></li>
+  <li><em>Treating technology and business process as part of the same problem. Just replacing the tech will leave at least half the problem unsolved.</em></li>
+</ul>
+
+
+<h3>logger.info("Starting....")</h3>
+
+<p>Categories of direction to identify the priority:</p>
+<ul>
+  <li>Reducing the cost of change, </li>
+  <li>Improving the business process, </li>
+  <li>Retire an old system,</li>
+  <li>Imminent Disruption (external event)
+  <li>Newer technology </li>
+  <li>Decide how to break the problem up into smaller parts</li>
+  <li>Successfully deliver the parts</li>
+  <li>Change the organization to allow this to happen on an ongoing basis</li>
+</ul>
+
+<p>Resources to break the problem in smaller parts and which will help to understand it:</p>
+
+- Event Storming
+- Wardley Mapping
+- Business Capability Mapping
+- Domain Mapping
+
+
+<h3>The patterns</h3>
+
+<p>Here I just print the patterns discussed in the article by the authors.</p>
+
+<p><center>
+  <img src="/img/legacycode/patterns.png" />
+  <br />
+  <em>Ref: <a href="https://martinfowler.com/articles/patterns-legacy-displacement/">Patterns of Legacy Displacement</a></em>
+</center></p>
+
+<h3>exit()</h3>
+
+
+<p> The article has two podcasts about the subject. Take a look at those links.</p>
+
+<h3>REFERENCE</h3>
+
+<ul>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/">Patterns of Legacy Displacement</a></li>
+  <li><a href="https://gotoaarhus.com/2022/sessions/2070/patterns-of-legacy-displacement">goto - presentation</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/feature-parity.html">Feature Parity</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/extract-product-lines.html">Extract Product Lines</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/extract-value-streams.html">Extract Value Streams</a></li>
+  <li><a href="https://fabiana2611.github.io/foundation/books/legacy-code">Working with legacy code</a></li>
+</ul>
