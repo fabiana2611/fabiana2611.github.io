@@ -104,13 +104,13 @@ permalink: /:categories/legacy-displacement
   <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/extract-value-streams.html">Extract Value Streams</a></li>
   <li><a href="https://fabiana2611.github.io/foundation/books/legacy-code">Working with legacy code</a></li>
   <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html">Versioned Value</a></li>
-  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/wal.html">Write-Ahead Log</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/log-segmentation.html">Segmented Log</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/low-watermark.html">Low-Water Mark</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/singular-update-queue.html">Singular Update Queue</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/state-watch.html">State Watch</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/divert-the-flow.html">Divert the Flow</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/transitional-architecture.html">Transitional Architecture</a><li>
-  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/revert-to-source.html">Revert to Source</a><li>
-  <li><a href="https://martinfowler.com/bliki/BranchByAbstraction.html">BranchByAbstraction</a><li>
+  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/wal.html">Write-Ahead Log</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/log-segmentation.html">Segmented Log</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/low-watermark.html">Low-Water Mark</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/singular-update-queue.html">Singular Update Queue</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-of-distributed-systems/state-watch.html">State Watch</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/divert-the-flow.html">Divert the Flow</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/transitional-architecture.html">Transitional Architecture</a></li>
+  <li><a href="https://martinfowler.com/articles/patterns-legacy-displacement/revert-to-source.html">Revert to Source</a></li>
+  <li><a href="https://martinfowler.com/bliki/BranchByAbstraction.html">BranchByAbstraction</a></li>
 </ul>
