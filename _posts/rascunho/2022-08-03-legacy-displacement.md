@@ -69,7 +69,7 @@ permalink: /:categories/legacy-displacement
 <p>Here I just print the patterns discussed in the article by the authors.</p>
 
 <p><center>
-  <img src="/img/legacycode/patterns.png" />
+  <img src="/img/legacycode/pattern.png" />
   <br />
   <em>Ref: <a href="https://martinfowler.com/articles/patterns-legacy-displacement/">Patterns of Legacy Displacement</a></em>
 </center></p>
