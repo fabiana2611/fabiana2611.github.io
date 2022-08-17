@@ -333,4 +333,6 @@ Stream.of ("a","b","c").count(); // 3
 	<li><a href="https://github.com/java8/Java8InAction" >Java In Action – Github</a></li>
 	<li><a href="https://howtodoinjava.com/java-collections/" >HowToDoInJava</a></li>
 	<li><a href="http://www.java2s.com/Tutorials/Java/Java_Collection/index.htm" >java2s.com</a></li>
+	<li><a href="https://www.scaler.com/topics/java/collections-in-java/" >Scaler Topics</a></li>
+	
 </ul>
