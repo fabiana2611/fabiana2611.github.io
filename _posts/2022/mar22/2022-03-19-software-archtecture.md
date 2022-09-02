@@ -151,7 +151,7 @@ permalink: /:categories/sw-arch
 - Properties: strength (how can be refactored), locality, degree
 
 <br/><br/><br/><br/>
-<h1 style="font-size: 24px; color: SlateBlue;"><b><em> Be continued ... </em></b></h1>
+<h1 style="font-size: 24px; color: SlateBlue;"><b><em> Be continued in <a href="https://fabiana2611.github.io/arch/books/sw-arch-p2">Part 2</a>... </em></b></h1>
 <br /><br />
 
 <h2>Reference</h2>

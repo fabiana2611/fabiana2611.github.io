@@ -158,4 +158,6 @@ threeTimesTimeout() {
   <li><a href="https://github.com/fabiana2611/nestjs2/tree/master/tasks">GitHub - tasks project</a></li>
   <li><a href="https://crontab.guru/#0_18,20,22_*_*_*">crontab guru</a></li>
   <li><a href="https://github.com/agenda/agenda#readme">Agenda</a></li>
+  <li><a href="https://github.com/harrisiirak/cron-parser#supported-format">cron parser</a></li>
+  <li><a href="https://github.com/kelektiv/node-cron#available-cron-patterns">node cron</a></li>
 </ul>
