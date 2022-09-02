@@ -28,7 +28,7 @@ permalink: /:categories/sw-arch-p2
 </tr>
 </table>
 
-<p style="text-align: justify;">Continuing the study of Architecture's fundamentals started in last <a href="https://fabiana2611.github.io/arch/sw-arch">post (Part I)</a>... Here I'll list some styles covered by the <a href="https://fundamentalsofsoftwarearchitecture.com/">book</a>.</p>
+<p style="text-align: justify;">Continuing the study of Architecture's fundamentals started in last <a href="https://fabiana2611.github.io/arch/books/sw-arch">post (Part I)</a>... Here I'll list some styles covered by the <a href="https://fundamentalsofsoftwarearchitecture.com/">book</a>.</p>
 
 <p style="text-align: justify;">The book defines the difference between style and pattern. The style is a kind of the big picture while the <a href="https://fabiana2611.github.io/arch/architecture">patterns</a> are solutions that can be used inside the style. Sometimes it's confusing because many patterns have the name of the styles.</p>
 
