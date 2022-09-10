@@ -163,7 +163,6 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
     <td><iframe src="https://www.youtube.com/embed/AHMlV_Y80Zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
-<p><center>
 
 
 <h4><u id="ServiceBased">Service-based Architecture</u></h4>
