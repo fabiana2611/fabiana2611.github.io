@@ -155,9 +155,20 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 <p style="text-align: justify;">Here is an example using the Microkernel idea. The <a href="https://github.com/rse/microkernel">Microkernel library</a> is a library for Node.js <em>to structure and manage server applications with the help of modules, a stateful life-cycle, hooks, events, services and resources</em>.</p>
 
 <br/>
-<h3><u id="ServiceBased">Service-based Architecture</u></h3>
+<h3>Distributed Architecture</h3>
 
-<p><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a></p>
+<table>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/sv-3lmrJ2M8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/AHMlV_Y80Zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+</table>
+<p><center>
+
+
+<h4><u id="ServiceBased">Service-based Architecture</u></h4>
+
+<p style="text-align: justify;><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a></p>
 
 <ul>
   <li>distributed architectures</li>
@@ -173,8 +184,31 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <p>Here is an example of application using this architecture, <a href="https://devopedia.org/5g-service-based-architecture">5G Service-Based Architecture</a>.</p>
 
+
+<h4><u id="SOA">Orchestration-Driven Service-Oriented Architecture (SOA)</u></h4>
+
+<p style="text-align: justify;><em>SOA, or service-oriented architecture, defines a way to make software components reusable and interoperable via service interfaces. Services use common interface standards and an architectural pattern so they can be rapidly incorporated into new applications. </em><a href="https://www.ibm.com/cloud/learn/soa">[6]</a></p>
+
+<ul>
+  <li><b>Business services:</b> the entry point on the top of architecture</li>
+  <li><b>Enterprise Service:</b> shared component and where is the orchestrator</li>
+  <li><b>Application Service:</b> single implementation service</li>
+  <li><b>Orchestration Engine:</b> coordinate the communications between business service and enterprise service. All requests go through it.</li>
+</ul>
+
+<p style="text-align: justify;>As good points for this architecture are scalability, modularity and fault tolerance. However, it has a low advantages in terms of deployability, evolutionary, overall cost, simplicity and testability.</p>
+
+<table>
+  <tr>
+    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/Tut6Z0bHxVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/_dFJOSR-aFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
+
 <br/>
-<h3><u id="EDA">Event-Driven Architecture</u></h3>
+<h4><u id="EDA">Event-Driven Architecture</u></h4>
 
 <blockquote>An event-driven architecture consists of event producers that generate a stream of events, and event consumers that listen for the events.<a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven">[2]</a></blockquote>
 
@@ -249,7 +283,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 
 <br/>
-<h3><u id="Space-based">Space-based Architecture</u></h3>
+<h4><u id="Space-based">Space-based Architecture</u></h4>
 
 <blockquote>The space-based architecture pattern is specifically designed to address and solve scalability and concurrency issues. It is also a useful architecture pattern for applications that have variable and unpredictable concurrent user volumes.  </blockquote>
 
@@ -307,9 +341,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <br/>
 <h3>Be continued...</h3>
-<p>Microservice Architecture...</p>
-<p><u id="SOA">Orchestration-Driven Service-Oriented Architecture</u>...</p>
 
+<br />
 <h2><u id="all">All together</u></h2>
 
 <p><center>
