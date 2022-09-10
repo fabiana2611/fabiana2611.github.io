@@ -63,7 +63,7 @@ permalink: /:categories/sw-arch-p2
 
 
 
-<h2>Styles</h2>
+<h2>1 Styles</h2>
 
 
 <h3><u id="ClientServer">Client/Server</u></h3>
@@ -187,7 +187,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <h4><u id="SOA">Orchestration-Driven Service-Oriented Architecture (SOA)</u></h4>
 
-<p style="text-align: justify;><em>SOA, or service-oriented architecture, defines a way to make software components reusable and interoperable via service interfaces. Services use common interface standards and an architectural pattern so they can be rapidly incorporated into new applications. </em><a href="https://www.ibm.com/cloud/learn/soa">[6]</a></p>
+<p style="text-align: justify;"><em>SOA, or service-oriented architecture, defines a way to make software components reusable and interoperable via service interfaces. Services use common interface standards and an architectural pattern so they can be rapidly incorporated into new applications. </em><a href="https://www.ibm.com/cloud/learn/soa">[6]</a></p>
 
 <ul>
   <li><b>Business services:</b> the entry point on the top of architecture</li>
@@ -356,7 +356,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   <em>From: <a href="https://youtu.be/nxmxp4_pdm8">Mark's videos</a></em>
 </center></p>
 
-<h2>Interesting Videos</h2>
+<br />
+<h2>2 Interesting Videos</h2>
 
 <table>
   <tr>
@@ -365,7 +366,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   </tr>
 </table>
 
-<h2>References</h2>
+<br />
+<h2>3 References</h2>
 <ul>
   <li><a href="https://fundamentalsofsoftwarearchitecture.com/">Fundamentals of Software Architecture - Mark Richards & Neal Ford</a></li>
   <li><a href="https://developertoarchitect.com/">Developer to Architect</a></li>
