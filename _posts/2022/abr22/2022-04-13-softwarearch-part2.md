@@ -195,7 +195,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
   <li><b>Orchestration Engine:</b> coordinate the communications between business service and enterprise service. All requests go through it.</li>
 </ul>
 
-<p style="text-align: justify;>As good points for this architecture are scalability, modularity and fault tolerance. However, it has a low advantages in terms of deployability, evolutionary, overall cost, simplicity and testability.</p>
+<p style="text-align: justify;">As good points for this architecture are scalability, modularity and fault tolerance. However, it has a low advantages in terms of deployability, evolutionary, overall cost, simplicity and testability.</p>
 
 <table>
   <tr>
