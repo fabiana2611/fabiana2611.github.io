@@ -199,8 +199,8 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <table>
   <tr>
-    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/Tut6Z0bHxVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/_dFJOSR-aFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <td><iframe src="https://www.youtube.com/embed/Tut6Z0bHxVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/_dFJOSR-aFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </td>
   </tr>
 </table>
