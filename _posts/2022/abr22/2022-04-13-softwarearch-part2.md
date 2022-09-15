@@ -226,10 +226,6 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <table>
   <tr>
-    <td><iframe src="https://www.youtube.com/embed/U7s7Hb6GZCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><iframe src="https://www.youtube.com/embed/7SKX9gVjDzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-  </tr>
-  <tr>
     <td><iframe src="https://www.youtube.com/embed/UP4Yo0K7aUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/PKIypT8vmIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
@@ -303,7 +299,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
     <td>Importance of Event Driven Architecture</td>
   </tr>
   <tr>
-    <td><iframe src="https://www.youtube.com/embed/3bxAm3XIFmk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/U7s7Hb6GZCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/WCoLXZkc33Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
   <tr>
