@@ -21,7 +21,7 @@ permalink: /:categories/sw-arch-p2
 <tr>
   <td><a href="#Space-based">Space-based</a></td>
   <td><a href="#SOA">Orchestration-Driven Service-Oriented Architecture</a></td>
-  <td>Microservice</td>
+  <td><a href="#Microservice">Microservice</a></td>
 </tr>
 <tr>
   <td colspan="3"><center><a href="#all">All Together</a></center></td>
@@ -202,6 +202,44 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
     <td><iframe src="https://www.youtube.com/embed/Tut6Z0bHxVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
     <td><iframe src="https://www.youtube.com/embed/_dFJOSR-aFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </td>
+  </tr>
+</table>
+
+
+<h4><u id="Microservice">Microservice</u></h4>
+
+<p>It is a distributed architecture used to design a software application with a set of independent services, deployable and enable communication with each other.</p>
+
+<p>Characteristics: <a href="https://martinfowler.com/articles/microservices.html">[7]</a></p>
+<ul>
+  <li>Componentization via service</li>
+  <li>Organized around Business Capabilities</li>
+  <li>Products not Projects</li>
+  <li>Smart endpoints and dumb pipes</li>
+  <li>Decentralized Governance</li>
+  <li>Decentralized Data Management</li>
+  <li>Infrastructure Automation</li>
+  <li>Design for failure</li>
+  <li>Evolutionary Design</li>
+</ul>
+
+
+<table>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/U7s7Hb6GZCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/7SKX9gVjDzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/UP4Yo0K7aUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/PKIypT8vmIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/R0gSwuS8zTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/fZkMxA_TKS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  </tr>
+  <tr>
+    <td><iframe src="https://www.youtube.com/embed/dkLriZLXpU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><iframe src="https://www.youtube.com/embed/S511BgBs_3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
   </tr>
 </table>
 
