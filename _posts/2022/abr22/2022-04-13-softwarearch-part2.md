@@ -167,7 +167,7 @@ list.stream().filter(n -> n.length() == 4).sorted().limit(2).forEach(System.out:
 
 <h4><u id="ServiceBased">Service-based Architecture</u></h4>
 
-<p style="text-align: justify;"><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a>. However, comparing with microservice, it is larger and the database tend to be similar to monolith</p>
+<p style="text-align: justify;"><em>Both <a href="https://fabiana2611.github.io/arch/architecture#Microservice">microservices</a> architecture and <a href="https://fabiana2611.github.io/arch/architecture#SOA">SOA</a> are considered service-based architectures, meaning that they are architecture patterns that place a heavy emphasis on services as the primary architecture component used to implement and perform business and nonbusiness functionality. "</em><a href="https://www.oreilly.com/library/view/microservices-vs-service-oriented/9781491975657/ch01.html">[5]</a>. However, comparing with microservice, it is larger and the database tend to be similar to monolith.</p>
 
 <p></p>
 
