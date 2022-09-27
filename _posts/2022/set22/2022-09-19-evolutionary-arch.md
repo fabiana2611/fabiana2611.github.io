@@ -64,6 +64,6 @@ permalink: /:categories/evolutionary
   <li><a href="https://www.infoq.com/articles/evolutionary-architecture-organizational/">Evolutionary Architecture Organizational</a></li>
   <li><a href="https://www.sqli.nl/en/blog/evolutionary-architecture">Evolutionary Architecture</a></li>
   <li><a href="https://github.com/Netflix/chaosmonkey">ChaosMonkey</a></li>
-  <li><a href="https://github.com/Netflix/SimianArmy"></a>SimiaArmy</li>
+  <li><a href="https://github.com/Netflix/SimianArmy">SimiaArmy</a></li>
   <li><a href="https://github.blog/2015-12-15-move-fast/">Movie Fast</a></li>
 </ul>
