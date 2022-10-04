@@ -6,13 +6,13 @@ pagination:
   enabled: false
 ---
 
-<p style="text-align: justify;">I am a Java Developer with over 9 years of experience in Java and over 4 years of experience using Scrum. I did my undergraduate and Master's degrees in Computer Science.</p>
+<p style="text-align: justify;">I am a Developer since 2010. I did my undergraduate and Master's degrees in Computer Science.</p>
 
-<p style="text-align: justify;">I work in a WEB DEVELOPMENT team using Web Service where I am responsible for implementing user stories, fix bugs, from pages to business rules.</p>
+<p style="text-align: justify;">I work with agile teams as FullStack developer where I am responsible for implementing user stories and fix bugs.</p>
 
 <p style="text-align: justify;">I am very motivated about working in dynamic, fast-paced and continuously-evolving environments, where I might be able to explore, learn and develop new technologies and their applications.</p>
 
-<p style="text-align: justify;">In the current moment, I'm working in Porto, Portugal, where I have great moments. And I post about that in another [blog](https://biaintech.wordpress.com/category/portugal/) to share my experience in this wonderful place.</p>
+<p style="text-align: justify;">I worked in Brazil, <a href="https://biafreireporai.wordpress.com/category/portugal/">Portugal</a> and now <a href="https://biafreireporai.wordpress.com/category/sem-categoria/espanha/">Spain</a>.</p>
 
 
 <h3>Skills and Soft-skills</h3>
@@ -25,6 +25,7 @@ pagination:
 | Ajax | JavaScript  | [Angular](https://fabiana2611.github.io/angular/) | EJB |
 | JUnit  | [JPA](https://biaintech.wordpress.com/2018/09/04/jpa/)   | SQL  | JSON  |
 |  XML | [SOAP](https://biaintech.wordpress.com/2019/05/01/ws-soap/)  | [REST](https://fabiana2611.github.io/webservice/rest)  | [Spring Batch](https://fabiana2611.github.io/spring/springbatch)  |
+|  Node.js | TypeScript  | NestJS  | Jest  |
 
 <br/><b>Tools</b>
 {:class="table table-bordered"}
@@ -32,6 +33,7 @@ pagination:
 |-------------- |----------------   |------------------ |
 | Eclipse | iReport  | Mantis | Jira | Sql Developer |
 | [Maven](https://biaintech.wordpress.com/2018/11/14/maven/)| Git | WebLogic | JBoss | SoapUI     |
+| InteliJ| Flyway | Heroku | TravisCI | Postman     |
 
 <br/><b>Best Practices</b>
 {:class="table table-bordered"}
