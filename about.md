@@ -62,7 +62,6 @@ pagination:
 </center>  
 <br/>
 
-<p style="text-align: justify;">I also have a blog talking about Portugal, my new place. If you want to know some curiosities about that you can access <a href="https://bianoporto.wordpress.com/">here</a>.</p>
 
 <b>My Links</b>
 
