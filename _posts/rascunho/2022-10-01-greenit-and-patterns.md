@@ -45,26 +45,26 @@ permalink: /:categories/patterns-energy-and-measure
   <li><b>EnerJ</b> [16][17][18][19][20][5]: Computations, Data Storage, and Algorithmica: <em> By declaring variables and objects as approximate,
   EnerJ maps them to approximate memory and generates low-cost energy code by using approximate operations and algorithms</em></li>
   <li><b>GreenAdvisor</b> [22][23][5]: (Android) <em>is a profiler system calls that predicts behavior, run-time performance, and energy-related modifications of an application. To predict energy-related changes, GreenAdvisor compares the number of system calls on a current version of a software and its previous one. GreenAdvisor compares the energy consumption of different versions of a product and points out the system calls that caused the change</em>.</li>
-  <li>eLens [24][25][26][5]: <em>estimates energy consumption via program analysis and per-instruction power modeling. The authors use program analysis to obtain execution-related information such as bytecode or API calls from various smart-phone components (e.g., CPU, RAM, GPS, 3G). eLens provides energy measurements at various levels of granularity: application, method, class, path, and source code lines. </em></li>
-  <li>Jalen [27][28][29][5]: <em>Java-based agent for software energy monitoring at the source code level. Jalen measures selected methods and classes. Additionally, it provides measurements on explicit hardware components (e.g., CPU and HDD) and estimates the energy consumption of software by analyzing executed Java instructions.</em></li>
-  <li>PEEK [30][31][32][33][34][5]: <em>PEEK fully automates energy measurement tasks and suggests program-code improvements at development time by providing automatically generated energy optimization hints. Our approach is based on a combined software and hardware infrastructure to automatically determine energy demand of program code and pinpoint energy faults, thereby integrating seamlessly into existing software development environments. PEEK’s energy-associated hints are related to power management mechanisms (e.g.,  sleep state, idle state, program-code logic, libraries, and compiler). PEEK analyzes source code at function granularity</em></li>
-  <li>SEEDS [35][36][37][5]: <em>a decision support framework that create instances of an application under development using different queue data structures, to find the most energy efficient ones. SEEDS’ suggestions are limited to Java Collection Libraries (JCL), algorithms, or refactoring parts of the source code. SEEDS offers to developers the possibility to set a code block range for analysis. </em></li>
+  <li><b>eLens [24][25][26][5]</b>: <em>estimates energy consumption via program analysis and per-instruction power modeling. The authors use program analysis to obtain execution-related information such as bytecode or API calls from various smart-phone components (e.g., CPU, RAM, GPS, 3G). eLens provides energy measurements at various levels of granularity: application, method, class, path, and source code lines. </em></li>
+  <li><b>Jalen</b> [27][28][29][5]: <em>Java-based agent for software energy monitoring at the source code level. Jalen measures selected methods and classes. Additionally, it provides measurements on explicit hardware components (e.g., CPU and HDD) and estimates the energy consumption of software by analyzing executed Java instructions.</em></li>
+  <li><b>PEEK</b> [30][31][32][33][34][5]: <em>PEEK fully automates energy measurement tasks and suggests program-code improvements at development time by providing automatically generated energy optimization hints. Our approach is based on a combined software and hardware infrastructure to automatically determine energy demand of program code and pinpoint energy faults, thereby integrating seamlessly into existing software development environments. PEEK’s energy-associated hints are related to power management mechanisms (e.g.,  sleep state, idle state, program-code logic, libraries, and compiler). PEEK analyzes source code at function granularity</em></li>
+  <li><b>SEEDS</b> [35][36][37][5]: <em>a decision support framework that create instances of an application under development using different queue data structures, to find the most energy efficient ones. SEEDS’ suggestions are limited to Java Collection Libraries (JCL), algorithms, or refactoring parts of the source code. SEEDS offers to developers the possibility to set a code block range for analysis. </em></li>
 </ul>
 
 <h4>Testable:</h4>
 <ul>
-  <li>PowerAPI [38][39][5]: <em>real-time monitor in process-level energy consumption. Jalen has PowerAPI as the core component for extracting energy measurements.</em></li>
-  <li>Running Average Power Limit (RAPL/jRAPL) [40][41][42][5]: monitors and controls energy consumption via performance counters by exposing kernel subsystems, hardware devices, and device driver information. jRAPL use Java. Some tools use this RAPL as a core to measure the energy.
-  <li>top[43][44]: it is a command line tool that list all running processes on the system doing a periodic measurements. Similar to <a href="https://support.apple.com/en-au/guide/activity-monitor/welcome/mac">Activity Monitor</a>, a tool with graphical interface to MACOS, you can see data as CPU, memory and power.</li>
-  <li>ioreg [45][46]: <em>The I/O Registry is a dynamic database that describes a collection of “live” objects (nubs or drivers) and tracks the provider-client relationships between them.</em> With this native tool is possible collect information about energy consumption.</li>
-  <li>EcoAndroid [47]: IntelliJ plugin for android aplication. <em>EcoAndroid suggests automated refactorings for reducing the energy consumption of Java Android applications. It is based on the idea of <a href="https://tqrg.github.io/energy-patterns/#/">energy pattern</a> (Dynamic Retry Delay, Push Over Poll, Reduce Size, Cache, Avoid Graphics Animations)</em></li>
+  <li><b>PowerAPI</b> [38][39][5]: <em>real-time monitor in process-level energy consumption. Jalen has PowerAPI as the core component for extracting energy measurements.</em></li>
+  <li><b>Running Average Power Limit (RAPL/jRAPL)</b> [40][41][42][5]: monitors and controls energy consumption via performance counters by exposing kernel subsystems, hardware devices, and device driver information. jRAPL use Java. Some tools use this RAPL as a core to measure the energy.</li>
+  <li><b>top</b>[43][44]: it is a command line tool that list all running processes on the system doing a periodic measurements. Similar to <a href="https://support.apple.com/en-au/guide/activity-monitor/welcome/mac">Activity Monitor</a>, a tool with graphical interface to MACOS, you can see data as CPU, memory and power.</li>
+  <li><b>ioreg</b> [45][46]: <em>The I/O Registry is a dynamic database that describes a collection of “live” objects (nubs or drivers) and tracks the provider-client relationships between them.</em> With this native tool is possible collect information about energy consumption.</li>
+  <li><b>EcoAndroid</b> [47]: IntelliJ plugin for android aplication. <em>EcoAndroid suggests automated refactorings for reducing the energy consumption of Java Android applications. It is based on the idea of <a href="https://tqrg.github.io/energy-patterns/#/">energy pattern</a> (Dynamic Retry Delay, Push Over Poll, Reduce Size, Cache, Avoid Graphics Animations).</em></li>
 </ul>
 
 
 <br />
 <h3>Hands-On</h3>
 
-<p style="text-align: justify;">A good starting point is to explore the project <a href="https://sites.google.com/view/energy-efficiency-languages">Energy Efficiency in Programming Languages</a> done by <a href="https://greenlab.di.uminho.pt/">Green Software Lab</a>. It is a good project to compare the energy efficiency between programming languagesthat. The <a href="https://github.com/greensoftwarelab/Energy-Languages">code</a> is available and give the possibilitiy to test and compare 28 different languages in different scenarios.  It uses the <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/running-average-power-limit-energy-reporting.html?wapkw=RAPL">Intel’s Running Average Power Limit (RAPL) tool as the core to estimate the energy consumption.</p>
+<p style="text-align: justify;">A good starting point is to explore the project <a href="https://sites.google.com/view/energy-efficiency-languages">Energy Efficiency in Programming Languages</a> done by <a href="https://greenlab.di.uminho.pt/">Green Software Lab</a>. It is a good project to compare the energy efficiency between programming languagesthat. The <a href="https://github.com/greensoftwarelab/Energy-Languages">code</a> is available and give the possibilitiy to test and compare 28 different languages in different scenarios.  It uses the <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/running-average-power-limit-energy-reporting.html?wapkw=RAPL">Intel’s Running Average Power Limit (RAPL) tool</a> as the core to estimate the energy consumption.</p>
 
 <p style="text-align: justify;">If you have an Intel you just need to do a simple configuration and it's ready to test locally. But if you are using a MAC like me you need other steps to do.</p>
 
@@ -72,7 +72,7 @@ permalink: /:categories/patterns-energy-and-measure
 
 <p style="text-align: justify;">A second alternative or complementary is the <a href="https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/TheRegistry/TheRegistry.html">ioreg</a> (I/O Registry). This <a hreh="https://www.rdegges.com/2022/how-to-calculate-the-energy-consumption-of-a-mac/">post</a> has a good discussion about how to measure the energy consumption using ioreg in MAC.</p>
 
-<p style="text-align: justify;">The commands are calls from the application. However, it's using a <a href="//https://github.com/rogerbf/ioreg">lib of ioreg</a>. It's necessary install it.</p>
+<p style="text-align: justify;">In my test using that repository I tested use ioreg and top calling command line by app. installed a <a href="//https://github.com/rogerbf/ioreg">lib of ioreg</a> to facilitate my work.</p>
 
 <pre>
 $npm install ioreg
@@ -82,9 +82,9 @@ $npm install ioreg
 
 <h4>Doing a simple test</h4>
 
-<p style="text-align: justify;">For a simple test, a portion of the the project "Energy Efficiency in Programming Languages" was extracted. The goal is not test the language but see how to measure the energy considering a MACOS. So, for this test was used ontly four Benchmark from TypeScript.</p>
+<p style="text-align: justify;">For a simple test, a portion of the the project "Energy Efficiency in Programming Languages" was extracted. The goal is not test the language or the DP but see how to measure the energy considering a MACOS. So, for this test was used ontly four Benchmark from TypeScript.</p>
 
-<p style="text-align: justify;">For that, I extracted the code for another project using NestJS, and my calls are done by a controller. Furthermore, I do my tests using <b>top</b> and <b>ioreg</b>. As I said before, my idea is just to run the tools to catch the values and have my first experience doing that activity. Even so, the logic is the same: have a starting point to make it step 0 and start to count the values and have a step where the count stops to be done and exposes the values.</p>
+<p style="text-align: justify;">For that, I extracted the code for another project using NestJS, and my calls are done by a controller. Furthermore, I did my tests using <b>top</b> and <b>ioreg</b>. As I said before, my idea is just to run the tools to catch the values and have my first experience doing that activity. Even so, the logic is the same: have a starting point to make it step 0 and start to count the values and have a final step to exposes the values.</p>
 
 <p style="text-align: justify;">Here is the core to catch the values. It's not the best solution but it works to the goal. The complete code you can see <a href="https://github.com/fabiana2611/energy-consumption-poc/tree/master/energy-measure-js">here</a>.</p>
 
@@ -94,7 +94,7 @@ $npm install ioreg
 
 <h4>Result</h4>
 
-<p style="text-align: justify;">The values get in the end of the process was the average from top and one execution of the ioreg. The image is regarding the execution of the binarytrees but you can do the same with the others benchmarcks implemented.</p>
+<p style="text-align: justify;">The values got in the end of the process was the average from top and one execution of the ioreg. The image is regarding the execution of the binarytrees but you can do the same with the others benchmarcks implemented.</p>
 
 <p><center>
   <img src="/img/green/result_poc.png" />
@@ -136,7 +136,7 @@ Programming using Controlled Approximation</a></li>
   <li>[18] <a href="https://github.com/sampsyo/enerj">EnerJ - Github</a></li>
   <li>[19] <a href="https://github.com/pminervini/EnerJ">EnerJ - Github 2</a></li>
   <li>[20] <a href="https://github.com/sjalander/approximate-enerj">EnerJ - Github 3</a></li>
-  <li>[21] K. Aggarwal, A. Hindle, and E. Stroulia. 2015. GreenAdvisor: A tool for analyzing the impact of software evolution on energy consumption. In 2015 IEEE International Conference on Software Maintenance and Evolution (ICSME). 311–320. DOI:http://dx.doi.org/10.1109/ICSM.2015.7332477<li>
+  <li>[21] K. Aggarwal, A. Hindle, and E. Stroulia. 2015. GreenAdvisor: A tool for analyzing the impact of software evolution on energy consumption. In 2015 IEEE International Conference on Software Maintenance and Evolution (ICSME). 311–320. DOI:http://dx.doi.org/10.1109/ICSM.2015.7332477</li>
   <li>[22] <a href="https://softwareprocess.es/homepage/papers/2015-karan2015icsme2015gatfatioseoec/">GreenAdvisor: A Tool for Analyzing the Impact of Software Evolution on Energy Consumption</a></li>
   <li>[23] <a href="https://github.com/kaggarwal/GreenAdvisor">GreenAdvisor - Github</a></li>
   <li>[24] S. Hao, D. Li, W. G. J. Halfond, and R. Govindan. 2013. Estimating mobile application energy consumption using program analysis. In 2013 35th International Conference on Software Engineering (ICSE). 92–101. DOI:http://dx.doi.org/10.1109/ICSE.2013.6606555</li>
