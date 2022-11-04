@@ -32,7 +32,7 @@ Benefits of IoC:
 <ul>
   <li>Less code</li>
   <li>Low coupling</li>
-  <li>Make the tests and maintain easier</li>
+  <li>Make the tests and maintenance easier</li>
 </ul>
 
 
@@ -44,7 +44,7 @@ Benefits of IoC:
 
 <blockquote>The interface org.springframework.context.ApplicationContext represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the aforementioned beans. The ApplicationContext is the interface for an advanced factory capable of maintaining a registry of different beans and their dependencies. <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#beans-basics">[2]</a> <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#beans-factory-client">[3]</a></blockquote>
 
-<p style="text-align: justify">Spring separate application configuration from application objects (beans), then the context manage the beans.</p>
+<p style="text-align: justify">Spring separates the application's configuration from the application's objects (beans). The context manages the beans.</p>
 
 {% highlight ruby %}
 // create and configure beans from XML
@@ -62,7 +62,7 @@ MyService service = context.getBean("myService", MyService.class);
 
 <strong>POM</strong>
 
-The dependencies necessary to use those resource is here:
+<p>The dependencies required to use these features are here:</p>
 
 {% highlight ruby %}
 <properties>
@@ -87,7 +87,7 @@ The dependencies necessary to use those resource is here:
 
 <strong>Multiple Configurations</strong>
 
-<p style="text-align: justify">The definition or configuration of the beans is done by Spring in separate classes with @Configuration annotation. Also, spring allows create more than one configuration class to support the best practices to separates application and infrastructure configs. The SpringApplication will use the config class which import all the configs. </p>
+<p style="text-align: justify">The definition or configuration of the beans is done by Spring in separate classes with @Configuration annotation. The framework allows create more than one configuration class to support the best practices to separates application and infrastructure configs. The SpringApplication will use the config class which import all the configs. </p>
 
 {% highlight ruby %}
 @Configuration
@@ -122,7 +122,7 @@ public class InfrastructureConfig {
 
 <strong>Environment</strong>
 
-<p style="text-align: justify">Other import resource given by framework is the possibility to use properties files to the configuration. Environment bean represents that properties. Additional properties can be declared using @PropertySource annotation.</p>
+<p style="text-align: justify">Other import resource given by framework is the possibility to use properties files to the configuration. Additional properties can be declared using @PropertySource annotation.</p>
 
 {% highlight ruby %}
 // Ex 1
@@ -251,7 +251,7 @@ private String isDevelopment;
 <p><li>Constructor Injection </li>
 <li>Setter Injection</li>
 <li>PostConstructor method. </li>
-<li>PreDestroy method is called when ConfigurableApplicationContext is closed.</li></p>
+<li>PreDestroy method - called when ConfigurableApplicationContext is closed.</li></p>
 
 <h3>Bean</h3>
 
@@ -299,7 +299,7 @@ public class MyClass {
 
 <strong>The bean lifecycle</strong>
 
-<p>The understanding of the <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#beans-factory-lifecycle">lifecycle</a> helps to define your strategy to develop your application.<p>
+<p>Understanding the <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#beans-factory-lifecycle">lifecycle</a> helps to define your strategy to develop your application.<p>
 
 Spring Bean container runs through three phases:
 <ul>
