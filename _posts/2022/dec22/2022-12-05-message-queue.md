@@ -127,4 +127,5 @@ jmsTemplate.send(queue, new MessageCreator() {
   <li><a href="https://www.udemy.com/course/java-messaging-service-spring-mvc-spring-boot-activemq/">Udemy - Java Messaging Service - Spring MVC, Spring Boot, ActiveMQ</a></li>
   <li><a href="https://activemq.apache.org/using-activemq">Using Apache ActiveMQ</a></li>
   <li><a href="https://activemq.apache.org/connectivity">Connectivity</a></li>
+  <li><a href="https://howtodoinjava.com/spring-boot/spring-boot-jmstemplate-activemq/">Spring Boot JMSTemplate with Embedded ActiveMQ</a></li>
 </ul>
