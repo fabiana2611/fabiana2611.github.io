@@ -78,11 +78,45 @@ permalink: /:categories/message-queue
   </li>
 </ol>
 
-<p>The figure shows the first moment produced one message (right side) and then value '0' to message after to be consumed.</p>
+<p>The figure shows the first moment with the produced message (right side) and then value '0' to message after to be consumed.</p>
 
 <p><center>
   <img src="/img/infra/activemq.png" />
 </center></p>
+
+<h1>Example</h1>
+
+<p>Here is an <a href="https://activemq.apache.org/hello-world">example</p> of an implementation how to produce and consume a message to and from queue.</p>
+
+<p><center>
+  <img src="/img/infra/activemq_example.png" />
+</center></p>
+
+<p>An alternative is to use jmsTemplate. Here is an example for Producer.</p>
+
+{% highlight ruby %}
+JmsTemplate jmsTemplate = new JmsTemplate();
+		jmsTemplate.setConnectionFactory(connectionFactory);
+
+jmsTemplate.send(queue, new MessageCreator() {    			
+  @Override
+  public Message createMessage(Session session) throws JMSException {
+    ObjectMessage message = session.createObjectMessage(messageStr);
+      return message;
+    }
+});    
+{% endhighlight %}
+
+<p>Attention the URI used as parameter to ActiveMQConnectionFactory. It is beginning by "vm". It is the <a href="https://activemq.apache.org/topologies">topology</a> that can be:</p>
+
+<ul>
+  <li>VM (vm://localhost/foo): manage different JMS groups inside the same JVM</li>
+  <li>Client-Server (tcp://somehost:port): connect the message Broker using TCP, SSL, NIO, etc.</li>
+  <li>Embedded Broker: <em>communcation between the client and server (broker) are all within the same JVM and so do not use real networking</em></li>
+  <li>Peer to Peer: <em>This allows peer based clusters to be created where there is no server - just clients connecting together.</em></li>
+  <li>JXTA (jxta://hostname:port): <em>use the full JXTA stack for negotiating NAT and across firewalls and so forth for creating a true peer based JMS network.</em></li>
+</ul>
+
 
 <br />
 <h3>REFERENCE</h3>
