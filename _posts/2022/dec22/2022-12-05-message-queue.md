@@ -6,6 +6,8 @@ categories: java infra
 permalink: /:categories/message-queue
 ---
 
+<p>The Message brokers intermediate  the communication between different sides of the system. The message queue is the resource to support that. Examples of Message Queue is Java Message Queue, ActiveMQ, RabbitMQ.</p>
+
 <h1>JMS</h1>
 
 <p><a href="https://www.oracle.com/technical-resources/articles/java/intro-java-message-service.html">Java Messaging Service (JMS)</a>: is a enterprise messaging API to handle asynchronous requests or events that will be consumed by an application. <em>JMS falls under middleware, and specifically Message-Oriented Middleware (MOM), which is a relatively low-level of abstraction that runs underneath complementary layers such as database and application adapters, event processing, and business process automation.</em></p>
@@ -128,4 +130,7 @@ jmsTemplate.send(queue, new MessageCreator() {
   <li><a href="https://activemq.apache.org/using-activemq">Using Apache ActiveMQ</a></li>
   <li><a href="https://activemq.apache.org/connectivity">Connectivity</a></li>
   <li><a href="https://howtodoinjava.com/spring-boot/spring-boot-jmstemplate-activemq/">Spring Boot JMSTemplate with Embedded ActiveMQ</a></li>
+  <li><a href="https://hevodata.com/learn/java-message-queue/">An Easy Guide to Java Message Queue: Compared With Kafka & RabbitMQ</a></li>
+  <li><a href="https://docs.oracle.com/cd/E26576_01/doc.312/e24949/brokers.htm#GMTOV00062">GlassFish - Broker Services</a></li>
+  <li><a href="https://geekflare.com/top-message-brokers/">6 Top Message Brokers for Modern Applications</a></li>
 </ul>
