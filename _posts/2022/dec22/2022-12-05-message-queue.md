@@ -86,7 +86,7 @@ permalink: /:categories/message-queue
 
 <h1>Example</h1>
 
-<p>Here is an <a href="https://activemq.apache.org/hello-world">example</p> of an implementation how to produce and consume a message to and from queue.</p>
+<p>Here is an <a href="https://activemq.apache.org/hello-world">example</a> of an implementation how to produce and consume a message to and from queue.</p>
 
 <p><center>
   <img src="/img/infra/activemq_example.png" />
