@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Message Queue (AMQ, RabbitMQ)"
+title:  "Message Queue"
 date:   2022-12-05
 categories: java infra
 permalink: /:categories/message-queue
 ---
 
-<h1>JMS</h2>
+<h1>JMS</h1>
 
 <p><a href="https://www.oracle.com/technical-resources/articles/java/intro-java-message-service.html">Java Messaging Service (JMS)</a>: is a enterprise messaging API to handle asynchronous requests or events that will be consumed by an application. <em>JMS falls under middleware, and specifically Message-Oriented Middleware (MOM), which is a relatively low-level of abstraction that runs underneath complementary layers such as database and application adapters, event processing, and business process automation.</em></p>
 
@@ -37,31 +37,48 @@ permalink: /:categories/message-queue
 
 
 <br />
-<h1>ActiveMQ</h2>
+<h1>ActiveMQ</h1>
 
 <blockquote>Apache ActiveMQ® is the most popular open source, multi-protocol, Java-based message broker.</blockquote>
 
 <p>A summary of <a href="https://activemq.apache.org/getting-started">how to start</a> the activeMQ is:</p>
 
-<pre>
-1. Install
-- https://activemq.apache.org/getting-started#Pre-InstallationRequirements
-- Ex MAC: $brew install apache-activemq
-2. Run
-- Ex MAC: $/opt/homebrew/opt/activemq/bin/activemq console
-3. Access: http://127.0.0.1:8161/admin/
-- Login: admin; PWD: admin
-4. Test produce a message:
-- https://activemq.apache.org/rest
-- $curl -u admin:admin -d "body=message" http://localhost:8161/api/message/TEST?type=queue
-- Alternative: $curl -XPOST -d "body=message" http://admin:admin@localhost:8161/api/message?destination=queue://orders.input
-5. Test consume:
-- https://activemq.apache.org/rest
-- wget --user admin --password admin --save-cookies cookies.txt --load-cookies cookies.txt --keep-session-cookies  http://localhost:8161/api/message/TEST\?type\=queue
-- Alternative: $curl -XGET http://admin:admin@localhost:8161/api/message?destination=queue://orders.input
-6. Stop
-Ex MAC: $/opt/homebrew/opt/activemq/bin/activemq stop
-</pre>
+<ol>
+  <li><a href="https://activemq.apache.org/getting-started#Pre-InstallationRequirements">Install</a>
+    <ul>
+      <li>Ex MAC: $brew install apache-activemq</li>
+    </ul>
+  </li>
+  <li>Run
+    <ul>
+      <li>Ex MAC: $/opt/homebrew/opt/activemq/bin/activemq console</li>
+    </ul>
+  </li>
+  <li>Access: http://127.0.0.1:8161/admin/
+    <ul>
+      <li>Login: admin; PWD: admin</li>
+    </ul>
+  </li>
+  <li><a href="https://activemq.apache.org/rest">Test produce a message</a>
+    <ul>
+      <li>$curl -u admin:admin -d "body=message" http://localhost:8161/api/message/TEST?type=queue</li>
+      <li>Alternative: $curl -XPOST -d "body=message" http://admin:admin@localhost:8161/api/message?destination=queue://orders.input</li>
+    </ul>
+  </li>
+  <li><a href="https://activemq.apache.org/rest">Test consume a message</a>
+    <ul>
+      <li>wget --user admin --password admin --save-cookies cookies.txt --load-cookies cookies.txt --keep-session-cookies  http://localhost:8161/api/message/TEST\?type\=queue</li>
+      <li>Alternative: $curl -XGET http://admin:admin@localhost:8161/api/message?destination=queue://orders.input</li>
+    </ul>
+  </li>
+  <li>Stop
+    <ul>
+      <li>Ex MAC: $/opt/homebrew/opt/activemq/bin/activemq stop</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The figure shows the first moment produced one message (right side) and then value '0' to message after to be consumed.</p>
 
 <p><center>
   <img src="/img/infra/activemq.png" />
