@@ -6,11 +6,11 @@ categories: java infra
 permalink: /:categories/message-queue
 ---
 
-<p>The Message brokers intermediate  the communication between different sides of the system. The message queue is the resource to support that. Examples of Message Queue is Java Message Queue, ActiveMQ, RabbitMQ.</p>
+<p style="text-align: justify;">The Message brokers intermediate  the communication between different sides of the system. The message queue is the resource to support that. Examples of Message Queue are Java Message Queue, ActiveMQ, RabbitMQ.</p>
 
-<h1>JMS</h1>
+<h1>Java Message Service (JMS)</h1>
 
-<p><a href="https://www.oracle.com/technical-resources/articles/java/intro-java-message-service.html">Java Messaging Service (JMS)</a>: is a enterprise messaging API to handle asynchronous requests or events that will be consumed by an application. <em>JMS falls under middleware, and specifically Message-Oriented Middleware (MOM), which is a relatively low-level of abstraction that runs underneath complementary layers such as database and application adapters, event processing, and business process automation.</em></p>
+<p style="text-align: justify;">The <a href="https://www.oracle.com/technical-resources/articles/java/intro-java-message-service.html">JMS</a> is a enterprise messaging API to handle asynchronous requests or events that will be consumed by an application. <em>JMS falls under middleware, and specifically Message-Oriented Middleware (MOM), which is a relatively low-level of abstraction that runs underneath complementary layers such as database and application adapters, event processing, and business process automation.</em></p>
 
 <p><b>Architecture</b></p>
 <ul>
@@ -33,9 +33,9 @@ permalink: /:categories/message-queue
   <li>Body: <em>contains the actual data to be exchanged</em></li>
 </ul>
 
-<p><b>Sun Java System Message Queue</b>: Sun's implementation to the queue supporting point-to-point and publish/subscribe messaging models and synchronous and asynchronous messaging.</p>
+<p style="text-align: justify;"><b>Sun Java System Message Queue</b>: Sun's implementation to the queue supporting point-to-point and publish/subscribe messaging models and synchronous and asynchronous messaging.</p>
 
-<p><b>Reliable Messaging</b>: JMS can use a <u>persistent messages</u> mode, which guarantees the message is not lost and consumed only once; or <u>non-persistent messages</u> mode, which can the message can be deliverd more then once and can be lost. The second one has better performance.</p>
+<p style="text-align: justify;"><b>Reliable Messaging</b>: JMS can use a <u>persistent messages</u> mode, which guarantees the message is not lost and consumed only once; or <u>non-persistent messages</u> mode, which can the message can be deliverd more then once and can be lost. The second one has better performance.</p>
 
 
 <br />
@@ -80,7 +80,7 @@ permalink: /:categories/message-queue
   </li>
 </ol>
 
-<p>The figure shows the first moment with the produced message (right side) and then value '0' to message after to be consumed.</p>
+<p style="text-align: justify;">The figure below shows the first moment with the produced message (right side) and then values '0' to the message after it is consumed.</p>
 
 <p><center>
   <img src="/img/infra/activemq.png" />
@@ -88,13 +88,13 @@ permalink: /:categories/message-queue
 
 <h1>Example</h1>
 
-<p>Here is an <a href="https://activemq.apache.org/hello-world">example</a> of an implementation how to produce and consume a message to and from queue.</p>
+<p style="text-align: justify;">Here is an <a href="https://activemq.apache.org/hello-world">example</a> of an implementation how to produce and consume a message to and from queue.</p>
 
 <p><center>
   <img src="/img/infra/activemq_example.png" />
 </center></p>
 
-<p>An alternative is to use jmsTemplate. Here is an example for Producer.</p>
+<p style="text-align: justify;">An alternative is to use jmsTemplate. Here is an example for Producer.</p>
 
 {% highlight ruby %}
 JmsTemplate jmsTemplate = new JmsTemplate();
@@ -109,7 +109,7 @@ jmsTemplate.send(queue, new MessageCreator() {
 });    
 {% endhighlight %}
 
-<p>Attention the URI used as parameter to ActiveMQConnectionFactory. It is beginning by "vm". It is the <a href="https://activemq.apache.org/topologies">topology</a> that can be:</p>
+<p style="text-align: justify;">Attention the URI used as parameter to ActiveMQConnectionFactory. It is beginning by "vm". It is the <a href="https://activemq.apache.org/topologies">topology</a> that can be:</p>
 
 <ul>
   <li>VM (vm://localhost/foo): manage different JMS groups inside the same JVM</li>
