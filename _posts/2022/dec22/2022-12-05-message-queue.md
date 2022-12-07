@@ -35,7 +35,7 @@ permalink: /:categories/message-queue
 
 <p style="text-align: justify;"><b>Sun Java System Message Queue</b>: Sun's implementation to the queue supporting point-to-point and publish/subscribe messaging models and synchronous and asynchronous messaging.</p>
 
-<p style="text-align: justify;"><b>Reliable Messaging</b>: JMS can use a <u>persistent messages</u> mode, which guarantees the message is not lost and consumed only once; or <u>non-persistent messages</u> mode, which can the message can be deliverd more then once and can be lost. The second one has better performance.</p>
+<p style="text-align: justify;"><b>Reliable Messaging</b>: JMS can use a <u>persistent messages</u> mode, which guarantees the message is not lost and consumed only once; or <u>non-persistent messages</u> mode, in which the message can be delivered more than once and can be lost. The second one has better performance..</p>
 
 
 <br />
@@ -88,7 +88,7 @@ permalink: /:categories/message-queue
 
 <h1>Example</h1>
 
-<p style="text-align: justify;">Here is an <a href="https://activemq.apache.org/hello-world">example</a> of an implementation how to produce and consume a message to and from queue.</p>
+<p style="text-align: justify;">Here is an <a href="https://activemq.apache.org/hello-world">example</a> of an implementation how to produce and consume a message to/from queue.</p>
 
 <p><center>
   <img src="/img/infra/activemq_example.png" />
