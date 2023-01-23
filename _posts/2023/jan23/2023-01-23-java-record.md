@@ -20,7 +20,7 @@ permalink: /:categories/java-record
   <li>ToString method.</li>
 </ul>
 
-<p style="text-align: justify;">The responsibility to create all these methods is from Java Compiler. All these methods can be override.</p>
+<p style="text-align: justify;">The responsibility for creating all these methods lies with Java Compiler. All these methods can be override.</p>
 
 <br/>
 <h2>How to use the record</h2>
@@ -69,7 +69,7 @@ record FirstRecord (int att1, String att2, double att3, Object att4){
 }
 {% endhighlight %}
 
-<p style="text-align: justify;"> The record support generics and annotations. The record support instance methods and static methods as well.</a>.
+<p style="text-align: justify;"> The record support generics and annotations. It also support instance methods and static methods.</p>.
 
 {% highlight ruby %}
 record FirstRecord<T> (@Transient Long att1, String att2, T att){
@@ -98,14 +98,14 @@ FirstRecord.test(fr);
 
 <p style="text-align: justify;">However, it can be painful in cases where you have many attributes and most of then are null.</p>
 
-<p style="text-align: justify;">The record is flexible to be customized. However, if you need to this a lot, maybe the record is not the best option for you.</p>
+<p style="text-align: justify;">The record is flexible to be customized. However, if you need to do this a lot, maybe the record is not the best option for you.</p>
 
 <br/>
 <h2>Record vc Lombok</h2>
 
-<p style="text-align: justify;"><a href="https://projectlombok.org/">Lombok</a> is a external library to auto-generate some common patterns avoiding boilerplate. It helps to create immutable objects with @Value annotation. Lombok is more mature and is more flexible. Also, lombok can add some validations to validate fields, also has @Data annotation if is necessary change data, and allow the use of the @Builder to facilitate the object creation.</p>
+<p style="text-align: justify;"><a href="https://projectlombok.org/">Lombok</a> is a external library to auto-generate some common patterns avoiding boilerplate. It helps to create immutable objects with @Value annotation. Lombok is more mature and is more flexible. Also, lombok can add some validations to validate fields. Beside,it has @Data annotation if is necessary change data. Another good point is the fact that Lombok can use the @Builder annotation to facilitate the object creation.</p>
 
-<p>Analysis by <a href="https://www.baeldung.com/java-record-vs-lombok">cases</a>:>/p>
+<p>Analysis by <a href="https://www.baeldung.com/java-record-vs-lombok">cases</a>:</p>
 <ol>
   <li>Classes with many fields
     <ul>
@@ -116,13 +116,13 @@ FirstRecord.test(fr);
   <li>Mutable Data
     <ul>
       <li>Record is exclusively for immutable data. Not inficate for frameworks that require Setters methods (as hibernate)</li>
-      <li>Lombok can use @Data to be mutable. When creating an @Entity, Lombok can be a better choice.
+      <li>Lombok can use @Data to be mutable. When creating an @Entity, Lombok can be a better choice.</li>
     </ul>
   </li>
   <li>Inheritance
     <ul>
       <li>Record do not support inheritance.</li>
-      <li>Lombok can use @Data objects that can both extend other classes and be extended.
+      <li>Lombok can use @Data objects that can both extend other classes and be extended.</li>
     </ul>
   </li>
 </ol>
@@ -131,7 +131,7 @@ FirstRecord.test(fr);
 <br/>
 <h2>Conclusion</h2>
 
-<p style="text-align: justify;">Lombok is the best option for many scenarios. However, the idea is record can override that being improved. So, when is possible, choice record is better to avoid external library.</p>
+<p style="text-align: justify;">Lombok is the best option for many scenarios. However, it's good override it as soon as possible. The plans are to improve the record for each version.</p>
 
 <br />
 <h3>References</h3>
@@ -139,5 +139,5 @@ FirstRecord.test(fr);
   <li><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html">Java Record - Java Doc</a></li>
   <li><a href="https://howtodoinjava.com/java14/java-14-record-type/">Java record Type with Examples</a></li>
   <li><a href="https://www.baeldung.com/java-record-vs-lombok">Java 14 Record vs. Lombok</a></li>
-  <li><a href="https://blogs.oracle.com/javamagazine/post/records-come-to-java"></a></li>
+  <li><a href="https://blogs.oracle.com/javamagazine/post/records-come-to-java">Records Come to Java</a></li>
 </ul>  
