@@ -56,9 +56,10 @@ null
 FirstRecord[att1=1, att2=abc, att3=0.0, att4=null]
 {% endhighlight %}
 
-<p style="text-align: justify;">Even though the record gives the constructor, it can be explicit for some validation purposes. In the same way, it's possible to create a non-arg constructor (not recommended). For non-arg constructor, you have to call explicitly the arg-constructor anyway. In case of add new attribute, it should be static.</p>
+<p style="text-align: justify;">Even though the record gives the constructor, it can be explicit for some validation purposes. In the same way, it's possible to create a non-arg constructor (not recommended). For non-arg constructor, you have to call explicitly the arg-constructor anyway. To a canonical contructor is not necessary call the arg-constructor. In case of add new attribute, it should be static.</p>
 
 {% highlight ruby %}
+// With non-args
 record FirstRecord (int att1, String att2, double att3, Object att4){
 
   static String newAtt;
@@ -67,6 +68,17 @@ record FirstRecord (int att1, String att2, double att3, Object att4){
     this (0, "", 0, null);
   }
 }
+
+// #With canonical
+record FirstRecord (int att1, String att2, double att3, Object att4){
+
+  public FirstRecord {
+    if (att2 == null) {
+       throw new IllegalArgumentException("attr2 cannot be null");
+    }
+  }
+}
+
 {% endhighlight %}
 
 <p style="text-align: justify;"> The record support generics and annotations. It also support instance methods and static methods.</p>.
