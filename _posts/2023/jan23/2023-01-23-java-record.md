@@ -81,7 +81,7 @@ record FirstRecord (int att1, String att2, double att3, Object att4){
 
 {% endhighlight %}
 
-<p style="text-align: justify;"> The record support generics and annotations. It also support instance methods and static methods.</p>.
+<p style="text-align: justify;"> The record support generics and annotations. It also support instance methods and static methods.</p>
 
 {% highlight ruby %}
 record FirstRecord<T> (@Transient Long att1, String att2, T att){
