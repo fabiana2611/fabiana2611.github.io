@@ -6,16 +6,16 @@ categories: java
 permalink: /:categories/garbage-collectors
 ---
 
-<p><b>Garbage collector (GC):</b> the component risponsable to manage the application heap, removing the unused objects.</p>
-<p><b>Summary:</b> Allocate memory to the application, detect memory not used anymore by the application, provides more memory to the application.</p>
-<p><b>Simple steps:</b> (1) Mark: identify pieces of memory are in use and not; (2) Sweep: Remove objects identified in the previous step.</p>
+<p style="text-align: justify;"><b>Garbage collector (GC):</b> the component responsable to manage the application heap, removing the unused objects.</p>
+<p style="text-align: justify;"><b>Summary:</b> Allocate memory to the application, detect memory not used anymore by the application, provides more memory to the application.</p>
+<p style="text-align: justify;"><b>Simple steps:</b> (1) Mark: identify pieces of memory are in use and not; (2) Sweep: Remove objects identified in the previous step.</p>
 
-<p style="text-align: justify;">JDK provides different garbage collection algorithms to be used the one that fit better with the application. The metrics to pay attention to the choice are throughput, latency andm emory footprint.</p>
+<p style="text-align: justify;">JDK provides different garbage collection algorithms to be used the one that fit better with the application. The metrics to pay attention to the choice are:</p>
 
 <ul>
-  <li>Throughput: collection work per time unit</li>
-  <li>Latency: duration of a single operation</li>
-  <li>Memory footprint: extra memory necessary to GC operation</li>
+  <li><b>Throughput:</b> collection work per time unit</li>
+  <li><b>Latency:</b> duration of a single operation</li>
+  <li><b>Memory footprint:</b> extra memory necessary to GC operation</li>
 </ul>  
 
 
@@ -42,7 +42,6 @@ java -XX:+UseSerialGC -jar Application.java
 {% endhighlight %}
 
 
-<br />
 <h2>Parallel</h2>
 
 <p><b>Focus: </b>Throughput</p>
@@ -69,17 +68,16 @@ java -XX:+UseSerialGC -jar Application.java
 java -XX:+UseParallelGC -jar Application.java  
 {% endhighlight %}
 
-<br />
+
 <h2>Garbage First (G1)</h2>
 
 <p><b>Focus:</b> Balanced Performance between throughput and latency.</p>
 
 <ul>
-  <li>Introduced in JDK 6 and fully supported in JDK 7</li>
   <li>Default since JDK 9</li>
   <li>Key technique: generational garbage collection</li>
   <li>Partition heap with the same size</li>
-  <li>G1 splits the work in old-generation section into two phases: (1) identify live objects concurrently with the application (remove this kind of operation from FC pauses), reducing the latency; (2) G1 incrementally reclaims memory from the old generation. Reclaiming the old generation incrementally reduce the pause times. it partitions the heap into a set of equal-sized heap regions The default value for the pause time is 200 ms</li>
+  <li>G1 splits the work in old-generation section into two phases: (1) identify live objects concurrently with the application, reducing the latency; (2) G1 incrementally reclaims memory from the old generation. Reclaiming the old generation incrementally reduce the pause times. it partitions the heap into a set of equal-sized heap regions The default value for the pause time is 200 ms</li>
   <li>Similar to Parallel but avoid lengthy operations in the pauses</li>
   <li>The work is concurrent of the application: decreases the times of the pauses but impact in the throughput.</li>
   <li>Indicated to applications running on multi-processor machines with large memory space.</li>
@@ -97,7 +95,6 @@ java -XX:+UseG1GC -jar Application.java
 </p>
 
 
-<br />
 <h2>Z Garbage Collector (ZGC)</h2>
 
 <p><b>Focus: </b>Latency</p>
