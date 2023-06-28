@@ -41,7 +41,7 @@ permalink: /:categories/aws-foundational
   <tr>
     <td><a href="#machinelearning">Machine Learning</a></td>
     <td><a href="#pricing">Billing and Pricing</a></td>
-    <td><a href="architect">AWS Well-Architected</a></td>
+    <td><a href="#architect">AWS Well-Architected</a></td>
   </tr>
   <tr>
     <td><a href="#support">Support</a></td>
@@ -58,7 +58,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="concept">Cloud Concepts</h2>
 
-<p style="text-align: justify;"><b>Definition</b>: <a href="https://aws.amazon.com/what-is-cloud-computing/">Cloud computing</a> is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. <a href="https://digitalcloud.training/aws-cloud-computing-concepts/">[DigitalCloudSummary]</a></p>
+<p style="text-align: justify;"><b>Definition</b>: <a href="https://aws.amazon.com/what-is-cloud-computing/">Cloud computing</a> is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. </p>
 
 <p style="text-align: justify;"><b>Cloud vs Traditional</b>:</p>
 <ul>
@@ -122,6 +122,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b><a href="https://aws.amazon.com/serverless/">Serverless</a>:</b> <em>technologies for running code, managing data, and integrating applications, all without managing servers. Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. It eliminates infrastructure management tasks like capacity provisioning, patching and OS maintenance.</em> It not mean no server.</p>  
 
 <p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">DigitalCloudSummary</a></li>
 <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">(DigitalCloud) Auto Scaling and Elastic Load Balancing</a></li>
 <li><a href="https://aws.amazon.com/what-is-cloud-computing/?nc2=h_ql_le_int_cc">AWS - What is cloud computing?</a></li>
 
@@ -792,7 +793,7 @@ permalink: /:categories/aws-foundational
 </ul>  
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/compliance/shared-responsibility-model/"><b>Shared Responsibility</b></a> has the customer responsible for security IN the cloud (data, access, authentication, configuration, encryptation, network traffic protection). AWS is responsible for the security OF the cloud, protecting/mnaging all AWS Global infrastructure (Software [compute, storage, database, networking], and hardware [regions, AZ, Edge Locations])</p>
-<ul>Ex:
+<ul>
   <li>EC2 Storage:
     <ul>
       <li>AWS: Infrastructure, Replication for data for EBS volumes and EFS drives, replacing faulty hardware, Ensuring their emploees cannot access your data.</li>
@@ -841,7 +842,6 @@ permalink: /:categories/aws-foundational
   <li>Amazon <b>S3 Managed Keys</b> (SSE-S3) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
   <li>Server-side encryption with AWS Key Management Service (AWS KMS) keys <b>(SSE-KMS)</b> is similar to SSE-S3, but using this service. It provides audit trail.</li>
   <li><b><a href="https://aws.amazon.com/cloudhsm/">CloudHSM</a></b>: Hardware Security Module. Encryptation for Hardware; The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
-  <li></li>
 </ul>
 
 <p style="text-align: justify;"><b>CMK</b> - Customer Master Keys</p>
@@ -912,7 +912,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">AWS <b>IAM Identify Center</b>: One loging like <a href="https://aws.amazon.com/single-sign-on/">SSO</a>.</p>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM <b>Access Analyzer</b>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</a>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
 
 
 <p><b>Aditional References:</b></p>
@@ -927,20 +927,21 @@ permalink: /:categories/aws-foundational
 
 <h2 id="machinelearning">Machine Learning</h2>
 
-<ul>
-  <li>Amazon <b>Rekognition</b>: find objects, people, text in images and videos. Create "familiar faces" database or compare against celebrities.</li>
-  <li><a href="ttps://aws.amazon.com/transcribe/">Amazon <b>Transcribe</b></a>: Convert speech to text.(deep learning process. Automatically remove Personal Identifiable Information (PII)</li>
-  <li><a href="https://aws.amazon.com/polly/">Amazon <b>Polly</b></a>: Turn text into lifelike speech. Deep learning.</li>
-  <li>Amazon <b>Translate</b>: Natural and accurate language translation</li>
-  <li>Amazon <b>Lex</b>: Automatic Speech Recognition (ASR) - speech to text (chatbots, call center bots)</li>
-  <li>Amazon <b>Connect</b>: receive calls, create contact flows</li>
-  <li>Amazon <b>Comprehend</b>: Natural Language Processing (NLP), serverless service; analyses and organize text; identify positive/negative experience </li>
-  <li>Amazon <b>SageMaker</b>: service for build, train and deploy machine models.</li>
-  <li>Amazon <b>Forecast</b>: predict future sales, reduce forecasting time. Ex. Financial planning.</li>
-  <li>Amazon <b>Kendra</b>: document search service. Extract answers from docs. Natural Language search.</li>
-  <li>Amazon <b>Personalize</b>: build apps with real-time personalized recommendation</li>
-  <li>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</li>
-</ul>
+<p>Amazon <b>Rekognition</b>: find objects, people, text in images and videos. Create "familiar faces" database or compare against celebrities.</p>
+
+<p><a href="ttps://aws.amazon.com/transcribe/">Amazon <b>Transcribe</b></a>: Convert speech to text.(deep learning process. Automatically remove Personal Identifiable Information (PII)</p>
+
+<p><a href="https://aws.amazon.com/polly/">Amazon <b>Polly</b></a>: Turn text into lifelike speech. Deep learning.</p>
+<p>Amazon <b>Translate</b>: Natural and accurate language translation</p>
+<p>Amazon <b>Lex</b>: Automatic Speech Recognition (ASR) - speech to text (chatbots, call center bots)</p>
+<p>Amazon <b>Connect</b>: receive calls, create contact flows</p>
+<p>Amazon <b>Comprehend</b>: Natural Language Processing (NLP), serverless service; analyses and organize text; identify positive/negative experience </p>
+<p>Amazon <b>SageMaker</b>: service for build, train and deploy machine models.</p>
+<p>Amazon <b>Forecast</b>: predict future sales, reduce forecasting time. Ex. Financial planning.</p>
+<p>Amazon <b>Kendra</b>: document search service. Extract answers from docs. Natural Language search.</p>
+<p>Amazon <b>Personalize</b>: build apps with real-time personalized recommendation</p>
+<p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
+
 
 <br />
 <hr>
@@ -948,7 +949,8 @@ permalink: /:categories/aws-foundational
 
 <h2 id="pricing">Billing and <a href="https://aws.amazon.com/ec2/pricing/">Pricing</a></h2>
 
-<ul>Notes:
+<p>Notes:</p>
+<ul>
   <li>AWS: Operational expenses (OpEx): Pay as you go, tax deductible in same year</li>
   <li>Traditional: capital expenses (CapEx): Purchase server, tax deductible over depreciation lifetime</li>
   <li>Cloud: Trade CapEx for OpEx</li>
@@ -1111,7 +1113,6 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><a href="https://aws.amazon.com/partners/">APN Consulting Partner</a>: The AWS Partner Network (APN) is the global partner program for technology and consulting businesses that leverage Amazon Web Services to build solutions and services for customers. So, if a company does not have expertise in-house and need to design and build a new workload on AWS Cloud, this program can be the ideal.</p>
 
 <p style="text-align: justify;"><b>APN Technology Partner</b> provide hardware, connectivity services, or software solutions that are either hosted on or integrated with, the AWS Cloud. It does not help a migration process.</p>
-</ul>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/professional-services/"><b>AWS Professional Services</b></a> assistis customers with accelerating cloud adoption through paid engagements in any speciality area. It can help on migration.</p>
 
@@ -1121,13 +1122,13 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><a href="https://aws.amazon.com/partners/aws-marketplace/">AWS Marketplace</a> is a digital catalog list of software that runs on AWS. It can be sell as Image (AMI) or SaaS.</p>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/plans/">AWS Support Plans</a></p>
-<ul>AWS Basic Support
+<ul><u><b>AWS Basic Support</b></u>
   <li>Customer Service & Communities - 24x7</li>
   <li>Documentation, Whitepapers, Support Forums</li>
   <li>Core checks from the AWS Trusted Advisor Best Practice Checks</li>
   <li>AWS Personal Health Dashboard</li>
 </ul>
-<ul>AWS Developer Support
+<ul><u><b>AWS Developer Support</b></u>
   <li>The same of the Basic</li>
   <li>Email access to customer Support: 24 hour response time on any question and 12 hours if the customer system is impaired</li>
   <li>When: testing or doing early development on AWS</li>
@@ -1135,7 +1136,7 @@ permalink: /:categories/aws-foundational
   <li>Building-block architecture support</li>
   <li>Client side diagnotic tool</li>
 </ul>
-<ul>AWS Business Support
+<ul><u><b>AWS Business Support</b></u>
   <li>The same of the Basic and Developer</li>
   <li>When: you have production workloads on AWS</li>
   <li>24x7 phone, email, and chat access to Cloud Support Engineers</li>
@@ -1145,7 +1146,7 @@ permalink: /:categories/aws-foundational
   <li><a href="https://docs.aws.amazon.com/health/latest/ug/health-api.html">AWS Health API</a></li>
   <li>Guidance, configuration and troubleshooting of AWS interoperability with third-party software</li>
 </ul>
-<ul>AWS <a href=" https://aws.amazon.com/premiumsupport/plans/enterprise/">Enterprise</a> Support
+<ul><u><b>AWS <a href=" https://aws.amazon.com/premiumsupport/plans/enterprise/">Enterprise</a> Support</b></u>
   <li>The same of Basic, Developer and Business</li>
   <li>Technical Account Manager (TAM)</li>
   <li>Concierge Support Team for billing and account best practices. Experts that specialize in working with enterprise accounts. Focus on help customer achieve their outcomes.</li>
@@ -1154,7 +1155,7 @@ permalink: /:categories/aws-foundational
   <li>24/7 technical support</li>
   <li>Consultative Architectural guidance</li>
 </ul>
-<ul>AWS Enterprise On-Ramp Support
+<ul><u><b>AWS Enterprise On-Ramp Support</b></u>
   <li>When: you have production/business critical workloads in AWS</li>
   <li>Business-critical system down: < 30 minutes</li>
   <li>Expert guidance to grow and optimize in the Cloud.</li>
@@ -1165,7 +1166,7 @@ permalink: /:categories/aws-foundational
 <hr>
 <br />
 
-<h2><u id="support">Some Shots</u></h2>
+<h2 id="shots">Some Shots</h2>
 
 <p style="text-align: justify;"><b>Computing Service</b>: Batch, EC2, EC2 Image Builder, Elastic Beanstalk, Lambda, Lightsail, AWS Outspots, Serverless Application Repository, AWS SimSpace Weaver, AWS App Runner</p>
 
@@ -1199,3 +1200,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">The courses I added here I consider complementary, so I recommend doing both. After that, do a lot of simulations. The simulation will help you understand what the exam is really trying to test you on.</p>
 
 <p style="text-align: justify;">Good luck!</p>
+
+<p><center>
+  <img src="/img/infra/AWSPractioner.png" />
+</center></center>
