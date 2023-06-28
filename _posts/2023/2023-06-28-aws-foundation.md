@@ -7,7 +7,7 @@ permalink: /:categories/aws-foundational
 ---
 
 
-<p style="text-align: justify;">The AWS has a lot of certification and a set of them together characterized a Role. You can see all the journey <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are prepared you can schedule your exame <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not native english speaker and 50% in your next test. </p>
+<p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
 <p style="text-align: justify;">The first test must be the <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and this post is regarding that one.</p>
 
@@ -29,13 +29,13 @@ permalink: /:categories/aws-foundational
     <td><a href="#network">AWS networking services</a></td>
   </tr>
   <tr>
-    <td><a href="#compute">AWS compute services</td>
+    <td><a href="#compute">AWS compute services</a></td>
     <td><a href="#storage">AWS Storage Services</a></td>
     <td><a href="#database">AWS database services</a></td>
   </tr>
   <tr>
-    <td><a href="#migration">Migration</a></td>
     <td><a href="#others">Others Services</a></td>
+    <td><a href="#migration">Migration</a></td>
     <td><a href="#security">Security</a></td>
   </tr>
   <tr>
@@ -45,8 +45,8 @@ permalink: /:categories/aws-foundational
   </tr>
   <tr>
     <td><a href="#support">Support</a></td>
-    <td><a href="#">Certification</a></td>
-    <td><a href="#references">References</a></td>
+    <td><a href="#shots">Some Shots</a></td>
+    <td><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
@@ -54,8 +54,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="concept">Cloud Concepts</u></h2>
+<h2 id="concept">Cloud Concepts</h2>
 
 <p style="text-align: justify;"><b>Definition</b>: <a href="https://aws.amazon.com/what-is-cloud-computing/">Cloud computing</a> is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. <a href="https://digitalcloud.training/aws-cloud-computing-concepts/">[DigitalCloudSummary]</a></p>
 
@@ -64,8 +65,6 @@ permalink: /:categories/aws-foundational
   <li><b>Cloud:</b> On-demand, Broad network access, Resource pooling, Rapid elasticity, Measured Service.</li>
   <li><b>Traditional:</b> Requires human involvement, Internal accessibility, limited public presence, Single-tenant, can be virtualized, Limited scalability, Usage is not typically measured</li>
 </ul>
-
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/serverless/">Serverless</a>:</b> <em>technologies for running code, managing data, and integrating applications, all without managing servers. Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. It eliminates infrastructure management tasks like capacity provisioning, patching and OS maintenance.</em> It not mean no server.</p>
 
 <p style="text-align: justify;"><b>Problems solved:</b> Flexibility; Cost-Effectiveness, Scalability, Elasticity, Agility, High-availability and fault-tolerance</p>
 
@@ -119,7 +118,8 @@ permalink: /:categories/aws-foundational
   <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
   <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">DigitalCloud Summary</a></li>
 </ul> 
-  
+
+<p style="text-align: justify;"><b><a href="https://aws.amazon.com/serverless/">Serverless</a>:</b> <em>technologies for running code, managing data, and integrating applications, all without managing servers. Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. It eliminates infrastructure management tasks like capacity provisioning, patching and OS maintenance.</em> It not mean no server.</p>  
 
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">(DigitalCloud) Auto Scaling and Elastic Load Balancing</a></li>
@@ -127,12 +127,13 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="globalinfra">AWS Global Infrastructure</u></h2>
+<h2 id="globalinfra">AWS Global Infrastructure</h2>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection) <a href="https://digitalcloud.training/aws-global-infrastructure/">[DigitalCloud Summary]</a></p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
 <ul>
-  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</em>
+  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</em></li>
   <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
   <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
   <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
@@ -201,13 +202,15 @@ permalink: /:categories/aws-foundational
 </ul>  
 
 <p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-global-infrastructure/">[DigitalCloud Summary]</a></li>
 <li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
 <li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
 
 <br />
 <hr>
+<br />
 
-<h2><u id="network">AWS networking services</u></h2>
+<h2 id="network">AWS networking services</h2>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/vpc"><b>VPC</b></a> (Virtual Private Cloud): your own isolated network in AWS cloud</p>
 <ul>
@@ -245,8 +248,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="compute">AWS compute services</u></h2>
+<h2 id="compute">AWS compute services</h2>
 
 <p style="text-align: justify;">Amazon <li><a href="https://aws.amazon.com/ec2/"><b>EC2</b></a></li> (Elastic Compute Cloud): </p>
 <ul>
@@ -366,8 +370,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="storage">AWS Storage Services</u></h2>
+<h2 id="storage">AWS Storage Services</h2>
 
 <p style="text-align: justify;">There are three categories to storage services:</p>
 <ul>
@@ -449,8 +454,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="database">AWS <a href="https://aws.amazon.com/products/databases/">database</a> services</u></h2>
+<h2 id="database">AWS <a href="https://aws.amazon.com/products/databases/">database</a> services</h2>
 
 <p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine</p>
 
@@ -554,8 +560,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="others">Others Services</u></h2>
+<h2 id="others">Others Services</h2>
 
 <p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
 <ul>
@@ -674,8 +681,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="migration">Migration</u></h2>
+<h2 id="migration">Migration</h2>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/cloud-adoption-framework/">AWS Cloud Adoption Framework (AWS CAF)</a> AWS experience and best practices to help migrate your business outcomes through innovative use of AWS. Perspective: Business, People, Governance, Platform, Security and Operations.</p>
 <ul><a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">Strategy</a>
@@ -714,8 +722,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="security">Security</u></h2>
+<h2 id="security">Security</h2>
 
 <p style="text-align: justify;"><b>Users</b> are accounts without permissions by default. They are create with NO access to any AWS services, only login to the AWS console. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account.</p>
 
@@ -912,8 +921,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="machinelearning">Machine Learning</u></h2>
+<h2 id="machinelearning">Machine Learning</h2>
 
 <ul>
   <li>Amazon <b>Rekognition</b>: find objects, people, text in images and videos. Create "familiar faces" database or compare against celebrities.</li>
@@ -932,8 +942,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h3><u id="pricing">Billing and <a href="https://aws.amazon.com/ec2/pricing/">Pricing</a></u></h3>
+<h2 id="pricing">Billing and <a href="https://aws.amazon.com/ec2/pricing/">Pricing</a></h2>
 
 <ul>Notes:
   <li>AWS: Operational expenses (OpEx): Pay as you go, tax deductible in same year</li>
@@ -1008,8 +1019,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="architect">AWS Architecture and Ecosystem</u></h2>
+<h2 id="architect">AWS Architecture and Ecosystem</h2>
 
 <p style="text-align: justify;"><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">AWS Well-Architectured Framework</a> helps to build secure, high-performing, resilient, and efficient infrastructure</p>
 
@@ -1082,8 +1094,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="support">Supports</u></h2>
+<h2 id="support">Supports</h2>
 
 <p style="text-align: justify;">Security-related actions are available at no cost:</p>
 <ul>
@@ -1148,6 +1161,7 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
 <h2><u id="support">Some Shots</u></h2>
 
@@ -1174,8 +1188,9 @@ permalink: /:categories/aws-foundational
 
 <br />
 <hr>
+<br />
 
-<h2><u id="conclusion">Conclusion</u></h2>
+<h2 id="conclusion">Conclusion</h2>
 
 <p style="text-align: justify;">The exam is not a big deal; however, there are a lot of services to remember what they mean. Generally, the exam will test you not so deeply but to see if you know what the services are and have a basic idea of where to use them.</p>
 
