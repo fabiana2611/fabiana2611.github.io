@@ -133,7 +133,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
 <ul>
-  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</em></li>
+  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
   <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
   <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
   <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
@@ -194,15 +194,14 @@ permalink: /:categories/aws-foundational
   <li><a href="https://aws.amazon.com/cloudwatch/"><b>CloudWatch</b></a> (Metrics, Logs, Alarms, Events): It is a  monitoring and observability service. Provide <b>metrics</b> and <b>insights</b> (interactively search and analyze log data). The alarms trigger notifications for metric. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
   <li><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</li>
   <li><a href="https://aws.amazon.com/cloudtrail/"><b>CloudTrail</b></a>: track events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). Governance, compliance, audit for AWS account. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically unusual API activities in the customer account. </li>
-  <li>AWS <b><a href="https://aws.amazon.com/xray/">X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
+  <li><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
   <li><b>CodeGuru</b>: automated code review and application performance recommendations</li>
-  <li>AWS <b><a href="https://status.aws.amazon.com/">Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</li>
+  <li><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</li>
   <li><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</li>
-  <li></li>
 </ul>  
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-global-infrastructure/">[DigitalCloud Summary]</a></li>
+<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
 <li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
 <li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
 
@@ -252,7 +251,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="compute">AWS compute services</h2>
 
-<p style="text-align: justify;">Amazon <li><a href="https://aws.amazon.com/ec2/"><b>EC2</b></a></li> (Elastic Compute Cloud): </p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/ec2/"><b>Amazon EC2</b></a> (Elastic Compute Cloud): </p>
 <ul>
   <li><b>IaaS</b> (Infrastructure as a service)</li>
   <li>It can run virtual server instances in the cloud</li>
@@ -382,7 +381,6 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/s3/"><b>S3</b></a> - Amazon Simple Storage Service</p>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-bucket-user-policy-specifying-principal-intro.html"></a></li>
 <ul>
   <li>Object store and global file system.</li>
   <li>Used to store any files until 5TB without limits in buckets (directories/containers)</li>
@@ -392,18 +390,18 @@ permalink: /:categories/aws-foundational
   <li>Each <b>bucket</b> is inside of a region</li>
   <li><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a>: 
     <ul>
-      <li>Standard: frequently accessed</li> 
-      <li>Standard-IA: infrequently accessed but require rapid access. Low per GB storage price and per GB retrieval fee</li>
-      <li>Intelligent-Tiering: optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. One tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. More expensive than Standard-IA.</li>
-      <li>One Zone-IA: lower cost</li> 
-      <li>Glacier: archived data; <b>pay for what you need</b>. Read and write</li>
-      <li>Glacier Deep Archive: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
+      <li><b>Standard</b>: frequently accessed</li> 
+      <li><b>Standard-IA</b>: infrequently accessed but require rapid access. Low per GB storage price and per GB retrieval fee</li>
+      <li><b>Intelligent-Tiering</b>: optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. One tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. More expensive than Standard-IA.</li>
+      <li><b>One Zone-IA</b>: lower cost</li> 
+      <li><b>Glacier</b>: archived data; <b>pay for what you need</b>. Read and write</li>
+      <li><b>Glacier Deep Archive</b>: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
     </ul>
   </li> 
-  <li>Features: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</li>
-  <li>Write-once-read-many (WORM) - prevention of deletion or overwritten</li>
+  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</li>
+  <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
   <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
-  <li>Security: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
+  <li><b>Security</b>: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
   <li><b>Shared Responsibility</b>
     <ul>
       <li>AWS: Infrastructure (global security, durability, availability), Configuration and vulnerability analysis, Compliance validation, AWS employees can't not access the customer data, separation between customers</li>
@@ -451,12 +449,13 @@ permalink: /:categories/aws-foundational
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
 <li><a href="https://docs.aws.amazon.com/opsworks/latest/userguide/best-practices-storage.html">Best Practices: Root Device Storage for Instances</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 <br />
 <hr>
 <br />
 
-<h2 id="database">AWS <a href="https://aws.amazon.com/products/databases/">database</a> services</h2>
+<h2 id="database">AWS database services</h2>
 
 <p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine</p>
 
@@ -557,6 +556,7 @@ permalink: /:categories/aws-foundational
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-database-services/">DigitalCloud Summary</a></li>
 <li><a href="https://aws.amazon.com/emr/features/">Amazon EMR features</a></li>
+<li><a href="https://aws.amazon.com/products/databases/">AwS Database</a></li>
 
 <br />
 <hr>
@@ -674,7 +674,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">Amazon Elastic Container Service for Kubernetes (<a href="https://aws.amazon.com/eks/">EKS</a>)</p>
 
 <p><b>Aditional References:</b></p>
-<p style="text-align: justify;"><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></p>
+<li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
 <li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
 <li><a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></li>
 <li><a href="https://aws.amazon.com/elasticsearch-service/features/">Amazon OpenSearch Service Features</a></li>
@@ -686,13 +686,15 @@ permalink: /:categories/aws-foundational
 <h2 id="migration">Migration</h2>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/cloud-adoption-framework/">AWS Cloud Adoption Framework (AWS CAF)</a> AWS experience and best practices to help migrate your business outcomes through innovative use of AWS. Perspective: Business, People, Governance, Platform, Security and Operations.</p>
-<ul><a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">Strategy</a>
-  <li>Rehosting: moving applications without changes (lift-and-shift)</li>
-  <li>Replatforming: few cloud optimizations to realize a tangible benefit(lift, tinker, and shift)</li>
-  <li>Refactoring/re-architecting: reimagining how an application is architected and developed by using cloud-native features</li>
-  <li>Repurchasing: moving from a traditional license to a software-as-a-service model</li>
-  <li>Retaining:  keeping applications that are critical for the business in the source environment</li>
-  <li>Retiring: removing applications that are no longer needed</li>
+
+<p><a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">Strategy</a>:</p>
+<ul>
+  <li><b>Rehosting</b>: moving applications without changes (lift-and-shift)</li>
+  <li><b>Replatforming</b>: few cloud optimizations to realize a tangible benefit(lift, tinker, and shift)</li>
+  <li><b>Refactoring/re-architecting</b>: reimagining how an application is architected and developed by using cloud-native features</li>
+  <li><b>Repurchasing</b>: moving from a traditional license to a software-as-a-service model</li>
+  <li><b>Retaining</b>:  keeping applications that are critical for the business in the source environment</li>
+  <li><b>Retiring</b>: removing applications that are no longer needed</li>
 </ul>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/dms/"><b>DMS</b></a> (Database Migration Service): Migrate to AWS. With this is possible do continuous replication (ex: send to data warehouse)</p>
@@ -818,7 +820,7 @@ permalink: /:categories/aws-foundational
   <li><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">Mitigate</a></li>
 </ul>
 
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></p>
+<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
 <ul>
   <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
   <li>It cannot: Dos, Port flooding, etc</li>
