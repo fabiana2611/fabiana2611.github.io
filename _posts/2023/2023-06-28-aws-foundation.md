@@ -1075,7 +1075,7 @@ permalink: /:categories/aws-foundational
   <li>Performance Efficiency: use compute resources efficiently 
     <ul>
       <li>Design Principles: democratize advanced technology; go global in minutes; experiment more often; Mechanical sympathy</li>
-      <li>Best practices: Data-driven approach; review the choices;make trade-offs;
+      <li>Best practices: Data-driven approach; review the choices;make trade-offs;</li>
     </ul> 
   </li>
   <li>Cost Optimization: run system to delivery value at the loest price 
@@ -1203,4 +1203,4 @@ permalink: /:categories/aws-foundational
 
 <p><center>
   <img src="/img/infra/AWSPractioner.png" />
-</center></center>
+</center></p>
