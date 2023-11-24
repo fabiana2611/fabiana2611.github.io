@@ -10,7 +10,7 @@ permalink: /:categories/monolith-to-microservices
   <a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/"><img src="/img/books/monolith-to-microservices.png" /></a>
 </center></p>
 
-<p style="text-align: justify;">The book presents some strategies to migrate from a monolithic architecture to microservices. It gives an introduction to both and discusses how to make the migration work in the company and patterns that can support this goal. It mentions the fact that the view and strategy should be shared with the company and that people should embrace. Also, the book raised the question of whether migration is really necessary and used the concepts of DDD to find the Bounded Context.</p>
+<p style="text-align: justify;">The book presents some strategies to migrate from a monolithic architecture to microservices. It gives an introduction to both and discusses how to make the migration work in the company and patterns that can support this goal. It mentions the fact that the view and strategy should be shared with the company and that people should embrace it. Also, the book raised the question of whether migration is really necessary and used the concepts of DDD to find the Bounded Context.</p>
 
 <p>Some <a href="https://microservices.io/post/refactoring/2020/08/21/ten-principles-for-refactoring-to-microservices.html">principles</a> can resume the first part:</p>
 <ul>
@@ -58,7 +58,7 @@ permalink: /:categories/monolith-to-microservices
 <h3><b><u>Brach by Abstraction</u></b></h3>
 
 <ul>
-  <li>Alternative when the code in monoloth is being improved yet.</li>
+  <li>Alternative when the code in monolith is being improved yet.</li>
   <li>Summary: it creates an abstraction of an existent functionality and change the clienti to use it. Then a new implementation should be created to use the microservice and then change the client to use the microservice. When the process is finished should do the clenup to use only the microservice. </li>
   <li>Links:
     <ul>
@@ -105,10 +105,6 @@ permalink: /:categories/monolith-to-microservices
 
 <p><b><u>Shared Database</u></b>: It is better to read-only static reference data and Database-as-a-Service <a href="https://www.linkedin.com/pulse/shared-database-pattern-microservices-arpit-bhayani/">[1]</a><a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/SharedDataBaseIntegration.html">[2]</a><a href="https://www.baeldung.com/cs/microservices-db-design#shared-db">[3]</a></p>
 
-<p><center>
-  <iframe width="360" height="215" src="https://www.youtube.com/embed/ARWNnnDGPag?si=WhJ02EAvwDp3U6MJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</center></p>
-
 <p><b><u>Database View</u></b>: (1) Create View to legacy; (2) Useful to read-only <a href="https://overcoded.dev/posts/BC-34">[1]</a><a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/ch04.html#ch05c-materialized-view">[2]</a></p>
 
 <table>
@@ -118,7 +114,7 @@ permalink: /:categories/monolith-to-microservices
   </tr>
 </table>
 
-<p><b><u>Database Wrapping Service</u></b><a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/ch04.html#ch05-schema-as-a-service-pattern">[1]</a><a href="https://overcoded.dev/posts/BC-35">[2]</p>
+<p><b><u>Database Wrapping Service</u></b><a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/ch04.html#ch05-schema-as-a-service-pattern">[1]</a><a href="https://overcoded.dev/posts/BC-35">[2]</a></p>
 <ul>
   <li>Allow control what can be shared what should be hidden</li>
   <li>Use in a complex schema, </li>
@@ -211,20 +207,20 @@ permalink: /:categories/monolith-to-microservices
 </ul>
 
 
-<h3><b><u>Transaction</u></b></h3>
+<h3><b>Transaction</u></h3>
 
-<p><b>Two-Phase</b> commits algorithm: transactionla changes in distributed system where many process need to be executed as part of a bigger operation.</p>
+<p><b><u>Two-Phase</u></b> commits algorithm: transactionla changes in distributed system where many process need to be executed as part of a bigger operation.</p>
 <ul>
   <li>1. Voting phase: exist a coordenator to contact the parts and ask for confirmation</li>
   <li>2. commit phase: if all the parts agreed about change the state then go to commit. If at least one fail all the operation is aborted.</li>
 </ul>
 
 <p><em>cannot guarantee those commits happen exactly in the same time</em></p>
-<p><em>Used in short-lived operations to avoid block system with big operations<em></p>
+<p><em>Used in short-lived operations to avoid block system with big operations</em></p>
   
-<p><b>Distributed transactions - Just say No</b>: Let the satate in a single database and mange the stage by a single service</p>
+<p><b><u>Distributed transactions - Just say No</u></b>: Let the satate in a single database and mange the stage by a single service</p>
 
-<p><b><u>Saga</u></b> <a href="https://www.baeldung.com/cs/microservices-db-design#1-saga-pattern">[1]</p>
+<p><b><u>Saga</u></b> <a href="https://www.baeldung.com/cs/microservices-db-design#1-saga-pattern">[1]</a></p>
 <ul>
   <li>It is used when you need break the data but don't want to mange distributed transaction and to manage multiple operation without lock the system</li>
   <li>Long Lived Transactions (LLT): transactions can spend long time and persist in database.</li>
