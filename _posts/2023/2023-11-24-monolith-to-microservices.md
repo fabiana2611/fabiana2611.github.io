@@ -133,7 +133,7 @@ permalink: /:categories/monolith-to-microservices
 </center></p>
 
 
-<p><b><u><a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/ch04.html#pattern-aggregate-exposing-monolith">Aggregate Exposing Monolith</a></u></b></p>
+<p><b><u>Aggregate Exposing Monolith</u></b> <a href="https://www.oreilly.com/library/view/monolith-to-microservices/9781492047834/ch04.html#pattern-aggregate-exposing-monolith">[1]</a></p>
 <ul>
   <li>Microservice needs to interact with agregated data that is in monolith yet</li>
   <li>Access those data by an API</li>
@@ -207,7 +207,7 @@ permalink: /:categories/monolith-to-microservices
 </ul>
 
 
-<h3><b>Transaction</u></h3>
+<h3><b>Transaction</b></h3>
 
 <p><b><u>Two-Phase</u></b> commits algorithm: transactionla changes in distributed system where many process need to be executed as part of a bigger operation.</p>
 <ul>
