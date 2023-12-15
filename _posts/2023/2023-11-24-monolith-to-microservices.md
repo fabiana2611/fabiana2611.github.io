@@ -231,10 +231,10 @@ permalink: /:categories/monolith-to-microservices
       <li><b>forward recovery</b>: continue the transaction from the point of the failure</li>
     </ul>
   </li>
-  <li>Implementation <a href="https://www.linkedin.com/advice/1/how-do-you-choose-between-choreography-orchestration">[5]</a>
+  <li>Implementation: <a href="https://www.linkedin.com/advice/1/how-do-you-choose-between-choreography-orchestration">[5]</a>
     <ul>
-      <li>Orchestrated Saga<a href="https://ibm-cloud-architecture.github.io/eda-saga-orchestration/">[6]</a><a href="https://www.infoq.com/articles/saga-orchestration-outbox/">[7]</a>: centralized coordination and tracking</li>
-      <li>Choreographed Saga<a href="https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question">[8]</a>: not centralized; loosely coupled model; tracking more complicated.</li>
+      <li><b>Orchestrated Saga</b><a href="https://ibm-cloud-architecture.github.io/eda-saga-orchestration/">[6]</a><a href="https://www.infoq.com/articles/saga-orchestration-outbox/">[7]</a>: centralized coordination and tracking. A tool to support it is BPM Tool<a href="https://kissflow.com/workflow/bpm/bpm-tools-comparison-features/">[8]</a></li>
+      <li><b>Choreographed Saga</b><a href="https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question">[9]</a>: not centralized; loosely coupled model; tracking more complicated.</li>
     </ul>
   </li>
 </ul>
