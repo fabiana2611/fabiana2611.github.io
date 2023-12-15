@@ -220,7 +220,7 @@ permalink: /:categories/monolith-to-microservices
   
 <p><b><u>Distributed transactions - Just say No</u></b>: Let the satate in a single database and mange the stage by a single service</p>
 
-<p><b><u>Saga</u></b> <a href="https://www.baeldung.com/cs/microservices-db-design#1-saga-pattern">[1]</a></p>
+<p><b><u>Saga</u></b> <a href="https://www.baeldung.com/cs/microservices-db-design#1-saga-pattern">[1]</a><a href="https://medium.com/design-microservices-architecture-with-patterns/saga-pattern-for-microservices-distributed-transactions-7e95d0613345">[2]</a><a href="https://www.baeldung.com/cs/saga-pattern-microservices">[3]</a><a href="https://youtu.be/-GvM78pisR0?si=HpjytBpn0hvv_vKq">[4]</a></p>
 <ul>
   <li>It is used when you need break the data but don't want to mange distributed transaction and to manage multiple operation without lock the system</li>
   <li>Long Lived Transactions (LLT): transactions can spend long time and persist in database.</li>
@@ -229,6 +229,12 @@ permalink: /:categories/monolith-to-microservices
     <ul>
       <li><b>backward recovery</b>: rollback / clean up / undo previous commits / it is new transaction to revert</li>
       <li><b>forward recovery</b>: continue the transaction from the point of the failure</li>
+    </ul>
+  </li>
+  <li>Implementation <a href="https://www.linkedin.com/advice/1/how-do-you-choose-between-choreography-orchestration">[5]</a>
+    <ul>
+      <li>Orchestrated Saga<a href="https://ibm-cloud-architecture.github.io/eda-saga-orchestration/">[6]</a><a href="https://www.infoq.com/articles/saga-orchestration-outbox/">[7]</a>: centralized coordination and tracking</li>
+      <li>Choreographed Saga<a href="https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question">[8]</a>: not centralized; loosely coupled model; tracking more complicated.</li>
     </ul>
   </li>
 </ul>
