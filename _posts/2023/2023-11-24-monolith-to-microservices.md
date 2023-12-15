@@ -235,6 +235,8 @@ permalink: /:categories/monolith-to-microservices
     <ul>
       <li><b>Orchestrated Saga</b><a href="https://ibm-cloud-architecture.github.io/eda-saga-orchestration/">[6]</a><a href="https://www.infoq.com/articles/saga-orchestration-outbox/">[7]</a>: centralized coordination and tracking. A tool to support it is BPM Tool<a href="https://kissflow.com/workflow/bpm/bpm-tools-comparison-features/">[8]</a></li>
       <li><b>Choreographed Saga</b><a href="https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question">[9]</a>: not centralized; loosely coupled model; tracking more complicated.</li>
+      <li>It's possible to mix the strategies.</li>
+      <li>Choreograph strategy can be better when working with multiple teams.</li>
     </ul>
   </li>
 </ul>
