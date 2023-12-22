@@ -52,9 +52,6 @@ permalink: /:categories/evolutionary
 
 
 <br />
-<h3>Be continued...</h3>
-
-<br />
 <h3>Reference</h3>
 
 <ul>
