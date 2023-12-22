@@ -60,9 +60,13 @@ permalink: /:categories/evolutionary
 <ul>
   <li><a href="https://www.thoughtworks.com/insights/books/building-evolutionary-architectures">The Book</a></li>
   <li><a href="https://evolutionaryarchitecture.com/">Official Page</a></li>
-  <li><a href="https://www.infoq.com/articles/implementing-evolutionary-architecture/">implementing Evolutionary Architecture</a></li>
+  <li><a href="https://www.infoq.com/articles/implementing-evolutionary-architecture/">Implementing Evolutionary Architecture</a></li>
   <li><a href="https://www.infoq.com/articles/evolutionary-architecture-organizational/">Evolutionary Architecture Organizational</a></li>
   <li><a href="https://www.sqli.nl/en/blog/evolutionary-architecture">Evolutionary Architecture</a></li>
+  <li><a href="https://lethain.com/building-evolutionary-architectures/">Notes on Building Evolutionary Architectures</a></li>
+  <li><a href="https://www.infoq.com/articles/evolutionary-architecture-organizational/">Evolutionary Architecture from an Organizational Perspective
+</a></li>
+  <li><a href="https://www.sqli.com/nl-en/insights/blog/evolutionary-architecture-supporting-constant-change">EA - Supporting constant change</a></li>
   <li><a href="https://github.com/Netflix/chaosmonkey">ChaosMonkey</a></li>
   <li><a href="https://github.com/Netflix/SimianArmy">SimiaArmy</a></li>
   <li><a href="https://github.blog/2015-12-15-move-fast/">Movie Fast</a></li>
