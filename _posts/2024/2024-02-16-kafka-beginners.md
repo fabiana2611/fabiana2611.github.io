@@ -223,8 +223,8 @@ It helps register data schemas in Apache Kafka and ensure that producers and con
 </ul>
 
 <p style="text-align: justify;"><u><b>Example in Java</b></u></p>
-<li>Producer: send a message to the topic to your kafka playground<a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ProducerDemo.java">ProducerDemo</a></li>
-<li>Consumer: retrieve a message from the topic in your kafka playground<a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ConsumerDemo.java">ConsumerDemo</a></li>
+<li>Producer: send a message to the topic to your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ProducerDemo.java">[ProducerDemo]</a></li>
+<li>Consumer: retrieve a message from the topic in your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ConsumerDemo.java">[ConsumerDemo]</a></li>
 
 <p style="text-align: justify;"><u><b>Summary which use</b></u></p>
 <ul>
