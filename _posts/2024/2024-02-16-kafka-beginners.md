@@ -38,10 +38,7 @@ $ kafka-server-start /opt/homebrew/Cellar/kafka/3.6.1/libexec/config/server.prop
 
 <p>
   <center>
-    <a href="https://www.conduktor.io/kafka/kafka-fundamentals/">
       <img src="/img/kafka/kafka-components.png" width="70%" height="70%"/><br />
-      <em>Source: Conduktor</em>
-    </a>
   </center>
 </p>
 
