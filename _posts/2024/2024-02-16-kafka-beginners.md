@@ -36,6 +36,14 @@ $ kafka-server-start /opt/homebrew/Cellar/kafka/3.6.1/libexec/config/server.prop
 
 <blockquote>Kafka is an open-source distributed event streaming platform consisting of servers and clients. Event streaming is the practice of capturing data in real-time from event sources. Apache Kafka is used primarily to build real-time data streaming pipelines.  <a href="https://www.conduktor.io/kafka/what-is-apache-kafka/">[Conduktor]</a><a href="https://kafka.apache.org/">[Apache Kafka]</a></blockquote>
 
+<p>
+  <center>
+    <a href="https://www.conduktor.io/kafka/kafka-fundamentals/">
+      <img src="/img/kafka/kafka-components.png" width="70%" height="70%"/><br />
+      <em>Source: Conduktor</em>
+    </a>
+  </center>
+</p>
 
 <br />
 <h2>Fundamentals</h2>
@@ -223,10 +231,12 @@ It helps register data schemas in Apache Kafka and ensure that producers and con
 </ul>
 
 <p style="text-align: justify;"><u><b>Example in Java</b></u></p>
-<li>Producer: send a message to the topic to your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ProducerDemo.java">[ProducerDemo]</a></li>
-<li>Consumer: retrieve a message from the topic in your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ConsumerDemo.java">[ConsumerDemo]</a></li>
+<ul>
+  <li>Producer: send a message to the topic to your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ProducerDemo.java">[ProducerDemo]</a></li>
+  <li>Consumer: retrieve a message from the topic in your kafka playground <a href="https://github.com/conduktor/kafka-beginners-course/blob/main/kafka-basics/src/main/java/io/conduktor/demos/kafka/ConsumerDemo.java">[ConsumerDemo]</a></li>
+</ul>
 
-<p style="text-align: justify;"><u><b>Summary which use</b></u></p>
+<p style="text-align: justify;"><u><b>Summary - which use</b></u></p>
 <ul>
   <li>From Source database to kafka: Kafca Connect Source</li>
   <li>Produce data directly to kafka: Kafka Producer</li>
