@@ -36,16 +36,17 @@ $ kafka-server-start /opt/homebrew/Cellar/kafka/3.6.1/libexec/config/server.prop
 
 <blockquote>Kafka is an open-source distributed event streaming platform consisting of servers and clients. Event streaming is the practice of capturing data in real-time from event sources. Apache Kafka is used primarily to build real-time data streaming pipelines.  <a href="https://www.conduktor.io/kafka/what-is-apache-kafka/">[Conduktor]</a><a href="https://kafka.apache.org/">[Apache Kafka]</a></blockquote>
 
-<p>
-  <center>
-      <img src="/img/kafka/kafka-components.png" width="70%" height="70%"/><br />
-  </center>
-</p>
 
 <br />
 <h2>Fundamentals</h2>
 
 <p style="text-align: justify;"><em>The fundamentals concepts was collected from <a href="https://www.conduktor.io/kafka/what-is-apache-kafka/#Part-2:-Definition-of-Core-Apache-Kafka-Concepts-9">[1]</a><a href="https://www.conduktor.io/kafka/kafka-fundamentals/">[2]</a></em></p>
+
+<p>
+  <center>
+      <img src="/img/kafka/kafka-components.png" width="70%" height="70%"/><br />
+  </center>
+</p>
 
 <p style="text-align: justify;"><u><b>Event</b></u><br />
 Fact that happened in the business and recorded (read/write) in Kafka. An event has key, value (message content), timestamp, metadata, compression type, headers, partition and offset.</p>
