@@ -21,8 +21,7 @@ permalink: /:categories/github-actions
 
 <p style="text-align: justify;"><b>Workflow automation service</b> in Github automate all kinds of repository-related process and actions around the code inside the repositories</p>
 <ul>
-  <li>Code Deployment: CI (code changes are automatically built, tested and merged with existent code) and CD (publicshing new version of App after the integration)
-  automate code testing, building, deployment</li>
+  <li>Code Deployment: CI (code changes are automatically built, tested and merged with existent code) and CD (publishing new version of App after the integration - automate code testing, building, deployment)</li>
   <li>Code and repository Management: Automate code reviews, issue management, etc</li>
 </ul>
 
@@ -54,7 +53,7 @@ permalink: /:categories/github-actions
   <li>The jobs are executed in parallel as default, or can configure to sequencial order.</li>
   <li>Also is possible add condicional to run a job. </li>
   <li>Jobs have steps that will be executed in the order of their definition</li>
-  <li>Job Artifacts (output files, etc): used for sharing log file, app binary, etc) <a href="https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts">[2.2]</a></li>
+  <li>Job Artifacts (output files, etc): used for sharing log file, app binary, etc <a href="https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts">[2.2]</a></li>
 </ul>
 
 <p><b>Step: </b></p>
@@ -67,15 +66,14 @@ permalink: /:categories/github-actions
 <p><b>Action: </b><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions">[3]</a></p>
 <ul>  
   <li>It is a predefined script that perform a task. </li>
-  <li>a typically complex frequently repeated task</li>
-  <li>You use your, can use third party actions</li>
-  <li>Marketplace is where you can find common actions (https://github.com/marketplace?type=actions)</li>
+  <li>A typically complex frequently repeated task</li>
+  <li>You can use your own or can use a third party actions</li>
+  <li>Marketplace is where you can find common actions <a href="https://github.com/marketplace?type=actions">[3.1]</a></li>
 </ul>
    
-https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 <p><b>Event: </b> (Workflow Triggers) <a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#events">[4]</a></p>
 <ul>  
-  <li>The events define when a given workflow will be executed</li>
+  <li>The events define when a given workflow will be executed <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[4.1]</a></li>
   <li>Repository-related: push, PR, create, fork, issues, issue_comment, watch, discussion</li>
   <li>Otther: workflow_dispatch, repository_dispach, schedule, workflow_call</li>
   <li>By default, PRs based on forks do NOT trigger a workflow for sacirity reasons
@@ -86,7 +84,7 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 
 <p>
   <center>
-      <img src="/img/git/actions-sequence.png" width="70%" height="70%"/><br />
+      <img src="/img/git/actions-sequence.png" width="100%" height="100%"/><br />
   </center>
 </p>
 
@@ -96,31 +94,28 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 <br />
 <h2>More</h2>
 
-> Activity type
-> Filter
-
-<p style="text-align: justify;"><b>Contexts</b> are a way to access information about workflow runs, variables, runner environments, jobs, and steps. <a href="https://docs.github.com/en/actions/learn-github-actions/contexts">[Context]</a></p>
+<p style="text-align: justify;"><b>Contexts:</b> are a way to access information about workflow runs, variables, runner environments, jobs, and steps. <a href="https://docs.github.com/en/actions/learn-github-actions/contexts">[Context]</a></p>
 
 
-<p style="text-align: justify;">You can use <b>expressions</b> to programmatically set environment variables in workflow files and access contexts. <a href="https://docs.github.com/en/actions/learn-github-actions/expressions">[Expressions]</a></p>
+<p style="text-align: justify;"><b>Expressions:</b> use it to programmatically set environment variables in workflow files and access contexts. <a href="https://docs.github.com/en/actions/learn-github-actions/expressions">[Expressions]</a></p>
 
-<p style="text-align: justify;">The <b>default environment variables</b> that GitHub sets are available to every step in a workflow <a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">[Default Variables]</a>.</p>
+<p style="text-align: justify;"><b>Default environment variables:</b> are available to every step in a workflow <a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">[Default Variables]</a>.</p>
 
 
-<p>You can <b>customize</b> your own actions using different approaches <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[Custom Action]</a>: </p>
+<p><b>Custom Action: </b> You can customize your own actions using different approaches <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[Custom Action]</a></p>
 <ul>
   <li>JavaScriptActions (node_module us bit ignired but pushed)</li>
   <li>Docker Actions</li>
   <li>Composite Actions</li>
 </ul>
 
-<p style="text-align: justify;">The workflows can be <b>reused</b> to avoid duplication <a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">[Reuse]</a>.</p>
+<p style="text-align: justify;"><b>Reuse:</b> The workflows can be reused to avoid duplication <a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">[Reuse]</a>.</p>
 
-<p style="text-align: justify;">It's possible to use <b>cache</b> to use something already done and avoid do the same process again <a href="https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows">[Cache]</a>.</p>
+<p style="text-align: justify;"><b>Cache:</b>It's possible to use cache to use something already done and avoid do the same process again <a href="https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows">[Cache]</a>.</p>
 
-<p style="text-align: justify;">It allows to have <b>secrets</b> that can be the same or change by environment <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions">[Secrets]</a>.</p>
+<p style="text-align: justify;"><b>Secrets: </b>It allows to have secrets that can be the same or change by environment <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions">[Secrets]</a>.</p>
 
-<p style="text-align: justify;">Matrix strategy: run same job in different configuration. Jobs are executed in parallel <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">[Matrix]</a>.</p>
+<p style="text-align: justify;"><b>Matrix strategy:</b> run same job in different configuration. Jobs are executed in parallel <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">[Matrix]</a>.</p>
 
 
 <p>Security and Permissions</p>
@@ -132,7 +127,6 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
   <li><a href="https://docs.github.com/en/actions/security-guides/automatic-token-authentication">Using GITHUB_TOKEN</a></li>
   <li><a href="https://securitylab.github.com/research/github-actions-preventing-pwn-requests/">Preventing Fork Pull Requests Attacks</a></li>
   <li><a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect">Security Hardening with OpenID Connect</a></li>
-  <li><a href=""></a></li>
 </ul>  
 
 
