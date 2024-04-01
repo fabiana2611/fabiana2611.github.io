@@ -76,7 +76,7 @@ permalink: /:categories/github-actions
   <li>The events define when a given workflow will be executed <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[4.1]</a></li>
   <li>Repository-related: push, PR, create, fork, issues, issue_comment, watch, discussion</li>
   <li>Otther: workflow_dispatch, repository_dispach, schedule, workflow_call</li>
-  <li>By default, PRs based on forks do NOT trigger a workflow for sacirity reasons
+  <li>By default, PRs based on forks do NOT trigger a workflow for sacirity reasons</li>
 </ul>
 
 
@@ -102,7 +102,7 @@ permalink: /:categories/github-actions
 <p style="text-align: justify;"><b>Default environment variables:</b> are available to every step in a workflow <a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">[Default Variables]</a>.</p>
 
 
-<p><b>Custom Action: </b> You can customize your own actions using different approaches <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[Custom Action]</a></p>
+<p style="text-align: justify;"><b>Custom Action: </b> You can customize your own actions using different approaches <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[Custom Action]</a></p>
 <ul>
   <li>JavaScriptActions (node_module us bit ignired but pushed)</li>
   <li>Docker Actions</li>
