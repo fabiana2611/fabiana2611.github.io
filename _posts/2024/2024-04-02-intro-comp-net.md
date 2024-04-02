@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A list of fundamental concepts of Network"
-date:   2023-04-02
+date:   2024-04-02
 categories: foundation
 permalink: /:categories/intro-network
 ---
