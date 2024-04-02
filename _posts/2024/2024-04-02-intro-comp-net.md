@@ -10,7 +10,7 @@ permalink: /:categories/intro-network
 <p>Here we have only brief concepts as introduction of network.</p>
 
 <br />
-<h2>Shot notes of networ</h2>
+<h2>Short notes of network</h2>
 
 <p>
   <center>
