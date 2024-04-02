@@ -7,14 +7,14 @@ permalink: /:categories/intro-network
 ---
 
 
-<p>Here we have only breaf concepts as introduction of network.</p>
+<p>Here we have only brief concepts as introduction of network.</p>
 
 <br />
 <h2>Shot notes of networ</h2>
 
 <p>
   <center>
-      <img src="/img/kafka/kafka-components.png" width="70%" height="70%"/><br />
+      <img src="/img/architecture/networkcomponent.png" width="70%" height="70%"/><br />
       <em>Source: <a href="https://digitalthinkerhelp.com/what-is-basic-hardware-components-devices-of-computer-network/?utm_content=cmp-true">digitalthinkerhelp.com</a></em>
   </center>
 </p>
@@ -64,49 +64,50 @@ permalink: /:categories/intro-network
 <table>
   <tr>
     <td>
-      - 10.1.1.0/24 > 10.1 is the subnet. 24 first bits are the network address (10.1.1 or 10.1.2) and the last one will be used for the IP address
-      - 10.1.0.0/16 means 10.1 or 10.2 is the network. So, can use 10.1.255.255 as IPs
-      - Network Address: 10.1.1.0
-      - Default Gateway: 10.1.1.1
-      - Broadcast Address: 10.1.1.255
+      10.1.1.0/24 > 10.1 is the subnet. 24 first bits are the network address (10.1.1 or 10.1.2) and the last one will be used for the IP address<br />
+      10.1.0.0/16 means 10.1 or 10.2 is the network. So, can use 10.1.255.255 as IPs<br />
+      Network Address: 10.1.1.0<br />
+      Default Gateway: 10.1.1.1<br />
+      Broadcast Address: 10.1.1.255<br />
       </td>
     <td>
-      - Network Address: 172.16.0.0
-      - Mask: 255.255.0.0
-      - IP: 72.16.10.4
-      - Broadcast Address: 172.16.255.
+      Network Address: 172.16.0.0<br />
+      Mask: 255.255.0.0<br />
+      IP: 72.16.10.4<br />
+      Broadcast Address: 172.16.255.<br />
     </td>
   </tr>
   <tr>
     <td>
-      97.122.14.233/25
-      11111111.11111111.11111111.10000000
-      Network Address: 97.122.14.128/25
-      Briadcast Address: 97.122.14.255
-      (25)
-      Octet 2: 128 64 32 16 8 4 2 1
-                1   -  -  - - - - - > only this but is part of the net. The other are host
+      97.122.14.233/25<br />
+      11111111.11111111.11111111.10000000<br />
+      Network Address: 97.122.14.128/25<br />
+      Briadcast Address: 97.122.14.255<br />
+      (25)<br />
+      Octet 2: 128(1) 64 32 16 8 4 2 1<br />
+      only the position 128 but is part of the net. The other are host<br />
     </td>
     <td>
-      - 14.25.98.12/14
-      - 11111111.11111100.00000000.00000000
-      - Network Address: 14.24.0.0/14
-      - Briadcast Address: 14.27.255.255
-      (25)
-      Octet 2: 128 64 32 16 8 4 2 1
-                0   0  0  1 1 0 - -  -> 16 + 8 = 24
-                0   0  0  1 1 0 1 1  -> 16 + 8 = 27
+      14.25.98.12/14<br />
+      11111111.11111100.00000000.00000000<br />
+      Network Address: 14.24.0.0/14<br />
+      Briadcast Address: 14.27.255.255<br />
+      (25)<br />
+      Octet 2: 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1<br />
+                0  | 0 | 0 | 1 | 1 | 0 - -  -> 16 + 8 = 24<br />
+                0  | 0 | 0 | 1 |1 |0 |1 | 1  -> 16 + 8 = 27<br />
     </td>
   </tr>
   <tr>
-    <td>https://www.subnet-calculator.com/
-      https://www.calculator.net/ip-subnet-calculator.html
-      https://www.site24x7.com/tools/ipv4-subnetcalculator.html
+    <td>
+      <li>https://www.subnet-calculator.com/</li>
+      <li>https://www.calculator.net/ip-subnet-calculator.html</li>
+      <li>https://www.site24x7.com/tools/ipv4-subnetcalculator.html</li>
     </td>
     <td>
-      https://www.tunnelsup.com/subnet-calculator/
-      https://www.solarwinds.com/free-tools/advanced-subnet-calculator
-      https://appuals.com/what-is-a-subnet-calculator-how-to-use-it/
+      <li>https://www.tunnelsup.com/subnet-calculator/</li>
+      <li>https://www.solarwinds.com/free-tools/advanced-subnet-calculator</li>
+      <li>https://appuals.com/what-is-a-subnet-calculator-how-to-use-it/</li>
     </td>
   </tr>
 </table>
