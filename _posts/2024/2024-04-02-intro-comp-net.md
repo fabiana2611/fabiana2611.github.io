@@ -14,7 +14,7 @@ permalink: /:categories/intro-network
 
 <p>
   <center>
-      <img src="/img/architecture/networkcomponent.png" width="70%" height="70%"/><br />
+      <img src="/img/architecture/networkcomponent.png" width="50%" height="50%"/><br />
       <em>Source: <a href="https://digitalthinkerhelp.com/what-is-basic-hardware-components-devices-of-computer-network/?utm_content=cmp-true">digitalthinkerhelp.com</a></em>
   </center>
 </p>
