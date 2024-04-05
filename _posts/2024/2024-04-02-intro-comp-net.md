@@ -19,24 +19,27 @@ permalink: /:categories/intro-network
   </center>
 </p>
 
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/switches/what-is-a-lan-local-area-network.html"><b>[LAN]</b></a>A local area network (LAN) is a collection of devices connected together in one physical location, such as a building, office, or home.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/MAC_address">MAC:</a> physical address (Unique Layer 2 address given to every network interface on an Ethernet network)</p>
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/switches/what-is-an-ethernet-switch.html"><b>[Ethernet switch]</b></a> is a type of network hardware that is foundational to networking and the internet. It avoid collision problems. It is a hub + bridge. It has MAC table.</p>
 
-<p>Communication between two machines:</p>
-<ul>
-  <li>Ethernet frame: source mac + mac destiny + payload</li>
-  <li>Ethernet is used to connect LAN device</li>
-  <li>NIC: has unique MAC address (a hardware in a computer that provides an Ethernet port)</li>
-  <li>Hub: connect devices but it is dumb. Send the frame to everyone. Open to colision</li>
-  <li>Bridge: decide for who avoiding colision. </li>
-  <li>Switch: hub + bridge. MAC table</li>
-  <li>Unicast: one-to-one</li>
-  <li>Routers break up broadcast segments </li>
-  <li>ARP requests are L2 broadcasts: network message used to query a device's MAC address when its IP address is known</li>
-  <li>Multicast: A destination MAC address is not recognized by the switch and is therefore sent out to all ports in the same VLAN except the source port, in order to discover the correct destination</li>
-</ul>
+<p style="text-align: justify;"><a href="https://geek-university.com/what-is-a-network-bridge/">[Bridge]</a> decide for who avoiding colision. </p>
 
-<p>Layers</p>
+<p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/MAC_address"><b>[MAC]</b></a> is the physical address (Unique Layer 2 address given to every network interface on an Ethernet network). Commands: ifconfig or ipconfig.</p>
+
+<p style="text-align: justify;"><a href=""><b>[NIC]</b></a> Network Interface Cards is a hardware in a computer that provides an Ethernet port. It has unique MAC address.</p>
+
+<p><a href="https://www.cbtnuggets.com/blog/technology/networking/what-is-ethernet-frame-format"><b>[Ethernet frame]</b></a> is involved in the communication between two machines. It is source mac + mac destiny + payload</p>
+
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/what-is-network-hub-and-how-it-works/"><b>[Hub]</b></a> connect devices but it is dumb. Send the frame to everyone. Open to colision</p>
+
+<p>Unicast: one-to-one</p>
+<p>Routers break up broadcast segments </p>
+<p>ARP requests are L2 broadcasts: network message used to query a device's MAC address when its IP address is known</p>
+<p>Multicast: A destination MAC address is not recognized by the switch and is therefore sent out to all ports in the same VLAN except the source port, in order to discover the correct destination</p>
+
+
+<p>Layers <a href="https://www.fortinet.com/resources/cyberglossary/tcp-ip-model-vs-osi-model">[OSI vs TCP Model]</a></p>
 <table>
   <tr>
     <td>L5,6,7: Application (Session, Presentation)</td>
@@ -56,7 +59,12 @@ permalink: /:categories/intro-network
   </tr>
   <tr>
     <td>L1: Physical</td>
-    <td>physical characteristics for transmitting data > phisical address > connect to a cable > NIC, Ethernet, Hub, repeater > sends bits of data</td>
+    <td>
+      <li>physical characteristics for transmitting data</li>
+      <li>phisical address</li>
+      <li>connect to a cable</li>
+      <li>NIC (Network Interface Cards - connect devices to LAN), Ethernet, Hub, repeater</li>
+      <li>sends bits of data</li></td>
   </tr>
 </table>
  
@@ -64,8 +72,8 @@ permalink: /:categories/intro-network
 <table>
   <tr>
     <td>
-      10.1.1.0/24 > 10.1 is the subnet. 24 first bits are the network address (10.1.1 or 10.1.2) and the last one will be used for the IP address<br />
-      10.1.0.0/16 means 10.1 or 10.2 is the network. So, can use 10.1.255.255 as IPs<br />
+      10.1.1.0/24 > 10.1 is the subnet. 24 first bits are the network address (10.1.1 or 10.1.2) and the last one will be used for the IP address<br /><br />
+      10.1.0.0/16 means 10.1 or 10.2 is the network. So, can use 10.1.255.255 as IPs<br /><br />
       Network Address: 10.1.1.0<br />
       Default Gateway: 10.1.1.1<br />
       Broadcast Address: 10.1.1.255<br />
