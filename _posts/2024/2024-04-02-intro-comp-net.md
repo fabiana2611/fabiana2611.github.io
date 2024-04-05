@@ -9,9 +9,6 @@ permalink: /:categories/intro-network
 
 <p>Here we have only brief concepts as introduction of network.</p>
 
-<br />
-<h2>Short notes of network</h2>
-
 <p>
   <center>
       <img src="/img/architecture/networkcomponent.png" width="50%" height="50%"/><br />
@@ -19,11 +16,12 @@ permalink: /:categories/intro-network
   </center>
 </p>
 
+<br />
+<h2>Short notes of network</h2>
+
 <p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/switches/what-is-a-lan-local-area-network.html"><b>[LAN]</b></a>A local area network (LAN) is a collection of devices connected together in one physical location, such as a building, office, or home.</p>
 
 <p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/switches/what-is-an-ethernet-switch.html"><b>[Ethernet switch]</b></a> is a type of network hardware that is foundational to networking and the internet. It avoid collision problems. It is a hub + bridge. It has MAC table.</p>
-
-<p style="text-align: justify;"><a href="https://geek-university.com/what-is-a-network-bridge/">[Bridge]</a> decide for who avoiding colision. </p>
 
 <p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/MAC_address"><b>[MAC]</b></a> is the physical address (Unique Layer 2 address given to every network interface on an Ethernet network). Commands: ifconfig or ipconfig.</p>
 
@@ -31,15 +29,45 @@ permalink: /:categories/intro-network
 
 <p><a href="https://www.cbtnuggets.com/blog/technology/networking/what-is-ethernet-frame-format"><b>[Ethernet frame]</b></a> is involved in the communication between two machines. It is source mac + mac destiny + payload</p>
 
-<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/what-is-network-hub-and-how-it-works/"><b>[Hub]</b></a> connect devices but it is dumb. Send the frame to everyone. Open to colision</p>
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/what-is-network-hub-and-how-it-works/"><b>[Hub]</b></a> device to connect ports but it is dumb. Send the frame to everyone. Open to collision</p>
 
-<p>Unicast: one-to-one</p>
-<p>Routers break up broadcast segments </p>
-<p>ARP requests are L2 broadcasts: network message used to query a device's MAC address when its IP address is known</p>
-<p>Multicast: A destination MAC address is not recognized by the switch and is therefore sent out to all ports in the same VLAN except the source port, in order to discover the correct destination</p>
+<p style="text-align: justify;"><a href="https://geek-university.com/what-is-a-network-bridge/">[Bridge]</a> decide for who avoiding colision. It use MAC tables</p>
 
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/difference-between-unicast-broadcast-and-multicast-in-computer-network/">[Unicast vs Multicast vs Broadcast]</a> is the way of transmition of data.</p>
 
-<p>Layers <a href="https://www.fortinet.com/resources/cyberglossary/tcp-ip-model-vs-osi-model">[OSI vs TCP Model]</a></p>
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html"><b>[Router]</b></a> guide and direct network data. It is connected to a switch on a trunk port. Trunk port is a network port on a switch that can carry traffic for multiple VLANs. I break up broadcast segments.</p>
+
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/routing-tables-in-computer-network/"><b>[Route Table]</b></a> is a set of rules used to identify the direction to send the data packets over network.</p>
+
+<p style="text-align: justify;"><a href="https://networklessons.com/cisco/ccna-routing-switching-icnd1-100-105/what-is-subnetting"><b>[Subnet]</b></a> is a sub-network of a network.</p>
+
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/routers/what-is-a-network-gateway.html"><b>[Network gateway]</b></a> is a device or node that connects disparate networks by translating communications from one protocol to another. Routers are default gateways for devices within their segments.</p>
+
+<p style="text-align: justify;"><a href="https://www.guru99.com/vlan-definition-types-advantages.html"><b>[VLAN]</b></a> is a custom network which is created from one or more local area networks. It avoid many physical switches. Logical segmentation. Each LAN has a subnet. VLANs are inside to swiche. Use router to communicate among the VLANs.</p>
+
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/products/switches/what-is-a-wan-wide-area-network.html"><b>[WAN]</b></a> (wide-area network) is a collection of local-area networks (LANs) or other networks that communicate with one another.  Connect router of different and distant network. Router use WAN interface and send message to neighbors or sent to internet (0.0.0.0/0 -> data centers).</p>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/what-is/border-gateway-protocol/"><b>[BGP]</b></a> (Border Gateway Protocol) is a set of rules that determine the best network routes for data transmission on the internet.</p>
+
+<p style="text-align: justify;"><a href="https://docs.paloaltonetworks.com/network-security/ipsec-vpn/administration/ipsec-vpn-basics/ipsec-vpn"><b>[IPSEC VPN]</b></a> provides a private and secure IP communication over a public network. Public IP using securely tunnel with secrets.</p>
+
+<p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/l2vpn/75x/b-l2vpn-cg-cisco8000-75x/m-introduction-to-layer-2-vpns.pdf"><b>[Layer 2 VPN]</b></a> emulates a physical sub-network in an IP or MPLS network, by creating private connections between two points. It extends Layer 2 network segments over geographic distance. It establish a secure VPN tunnel</p>
+
+<p style="text-align: justify;"><a href="https://www.trgdatacenters.com/resource/what-is-network-redundancy/"><b>[Redundancy]</b></a> ensure the continuous operation. Multiple router. It should eliminate the SPOF (single point of failure). Strategy: Redundant Component, Redundant Path, Protocols as <a href="https://www.cisco.com/c/en/us/support/docs/ip/hot-standby-router-protocol-hsrp/9234-hsrpguidetoc.html">HSRP</a> or <a href="https://www.geeksforgeeks.org/introduction-of-virtual-router-redundancy-protocol-vrrp-and-its-configuration/">VRRP</a>, Dybamic Routing such as <a href="https://www.geeksforgeeks.org/open-shortest-path-first-ospf-protocol-states/">OSPF</a> or BGP.</p>
+
+<p style="text-align: justify;"><a href="https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top"><b>[DHCP]</b></a>: Dynamic Host Protocol. When a machine issues a DHCP (Dynamic Host Configuration Protocol) request, it typically sends an Ethernet broadcast message on the local network. This broadcast is used to discover and contact a DHCP server within the network, requesting an IP address assignment and other network configuration information.</p>
+
+<p style="text-align: justify;"><a href="https://www.youtube.com/watch?v=QTu7yDnR_58&list=PLTk5ZYSbd9MhMmOiPhfRJNW7bhxHo4q-K&index=2">[DNS]</a> Domain Name System (nslookup www.google.com -> DNS query to find the IP address)</p>
+
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/network-address-translation-nat/"><b>[NAT]</b></a> (Network Address Translation) has the idea that multiple devices access the Internet through a single public address. It is a networking technique that modifies network address information in data packets as they pass through a router or firewall, allowing multiple devices within a local network to share a single public IP address for communication with external networks like the internet. This process helps conserve public IP addresses and adds a layer of security by hiding internal network structures from external sources.</p>
+
+<p><a href="https://www.meridianoutpost.com/resources/articles/IP-classes.php"><b>[NTP]</b></a>: Network Time Protocol </p>
+
+<p style="text-align: justify;"><a href="https://www.networkacademy.io/ccna/ip-subnetting/what-is-vlsm"><b>[VLSM]</b></a>: (Variable Length Subnet Masking) the primary puerpose if to allocate IP address more efficiently by allowing for different subnet sizes within the same network.</p>
+
+<br />
+<h2>Layer <a href="https://www.fortinet.com/resources/cyberglossary/tcp-ip-model-vs-osi-model">[OSI vs TCP Model]</a></h2>
+
 <table>
   <tr>
     <td>L5,6,7: Application (Session, Presentation)</td>
@@ -68,6 +96,9 @@ permalink: /:categories/intro-network
   </tr>
 </table>
  
+<br />
+<h2>IP Adress</h2>
+
 <p>Calculate the subnet (CIDR NOTATION) <a href="https://matt-rickard.com/how-to-calculate-a-cidr">[1]</a><a href="https://networkcalc.com/articles/cidr-notation/">[2]</a><a href="https://dev.to/rishitashaw/cidr-a-brief-overview-subnet-calculation-pfc">[3]</a></p>
 <table>
   <tr>
@@ -119,29 +150,6 @@ permalink: /:categories/intro-network
     </td>
   </tr>
 </table>
-
-
-<p>VLAN avoid many physical switches. Logical segmentation. Each LAN has a subnet. VLANs are inside to swiche. Use router to communicate among the VLANs.</p>
-
-<p>Router is connected to a switch on a trunk port. Trunk port is a network port on a switch that can carry traffic for multiple VLANs.</p>
-
-<p>WAN: Wide Area Networks. Connect router of different and distant network. Router use WAN interface
-Router send message to neibors or sent to internet (0.0.0.0/0 -> data centers).</p>
-
-<p>IPSEC VPN. Router configure VPN. Public IP using securely tunnel using secrets.</p>
-
-<p>Redundancy. Multiple router. SPOF  - single point of failure.</p>
-
-<p>DHCP: Dynamic Host Protocol. When a machine issues a DHCP (Dynamic Host Configuration Protocol) request, it typically sends an Ethernet broadcast message on the local network. This broadcast is used to discover and contact a DHCP server within the network, requesting an IP address assignment and other network configuration information. (Layer 2 - Ethernet broadcast is sent).</p>
-
-<p>DNS: Domain Name System (nslookup www.google.com -> DNS query to find the IP address)<a href="https://www.youtube.com/watch?v=QTu7yDnR_58&list=PLTk5ZYSbd9MhMmOiPhfRJNW7bhxHo4q-K&index=2">[4]</a></p>
-
-<p>NAT (Network Address Translation) is a networking technique that modifies network address information in data packets as they pass through a router or firewall, allowing multiple devices within a local network to share a single public IP address for communication with external networks like the internet. This process helps conserve public IP addresses and adds a layer of security by hiding internal network structures from external sources.</p>
-
-<p>NTP: Network Time Protocol <a href="https://www.meridianoutpost.com/resources/articles/IP-classes.php">[5]</a></p>
-
-
-<p>Variable Length Subnet Masking (VLSM): the primary puerpose if to allocate IP address more efficiently by allowing for different subnet sizes within the same network.</p>
 
 
 <br />
