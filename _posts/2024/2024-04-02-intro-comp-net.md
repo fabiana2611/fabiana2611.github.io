@@ -71,7 +71,7 @@ permalink: /:categories/intro-network
 <p>
   <center>
       <img src="https://media.licdn.com/dms/image/D4E10AQF8qqvFHXovtg/image-shrink_1280/0/1712502036148?e=1713204000&v=beta&t=M7ocM36wmwFheIZlgJfCU9QJlCkUDvk15gR42lmlWWM" width="60%" height="60%"/><br />
-      <em>Source: <a href="https://www.linkedin.com/posts/letsdefend_what-is-osi-model-activity-7182754235418083328-O4RO/?utm_source=share&utm_medium=member_desktop">Post publish in Linkedin by LetsDefend</a></em>
+      <em>Source: <a href="https://www.linkedin.com/posts/letsdefend_what-is-osi-model-activity-7182754235418083328-O4RO/?utm_source=share&utm_medium=member_desktop">Post published in Linkedin by LetsDefend</a></em>
   </center>
 </p>
 
