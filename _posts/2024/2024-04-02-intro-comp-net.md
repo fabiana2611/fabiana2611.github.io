@@ -31,9 +31,9 @@ permalink: /:categories/intro-network
 
 <p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/what-is-network-hub-and-how-it-works/"><b>[Hub]</b></a> device to connect ports but it is dumb. Send the frame to everyone. Open to collision</p>
 
-<p style="text-align: justify;"><a href="https://geek-university.com/what-is-a-network-bridge/">[Bridge]</a> decide for who avoiding colision. It use MAC tables</p>
+<p style="text-align: justify;"><a href="https://geek-university.com/what-is-a-network-bridge/"><b>[Bridge]</b></a> decide for who avoiding colision. It use MAC tables</p>
 
-<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/difference-between-unicast-broadcast-and-multicast-in-computer-network/">[Unicast vs Multicast vs Broadcast]</a> is the way of transmition of data.</p>
+<p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/difference-between-unicast-broadcast-and-multicast-in-computer-network/"><b>[Unicast vs Multicast vs Broadcast]</b></a> is the way of transmition of data.</p>
 
 <p style="text-align: justify;"><a href="https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html"><b>[Router]</b></a> guide and direct network data. It is connected to a switch on a trunk port. Trunk port is a network port on a switch that can carry traffic for multiple VLANs. I break up broadcast segments.</p>
 
@@ -57,7 +57,7 @@ permalink: /:categories/intro-network
 
 <p style="text-align: justify;"><a href="https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top"><b>[DHCP]</b></a>: Dynamic Host Protocol. When a machine issues a DHCP (Dynamic Host Configuration Protocol) request, it typically sends an Ethernet broadcast message on the local network. This broadcast is used to discover and contact a DHCP server within the network, requesting an IP address assignment and other network configuration information.</p>
 
-<p style="text-align: justify;"><a href="https://www.youtube.com/watch?v=QTu7yDnR_58&list=PLTk5ZYSbd9MhMmOiPhfRJNW7bhxHo4q-K&index=2">[DNS]</a> Domain Name System (nslookup www.google.com -> DNS query to find the IP address)</p>
+<p style="text-align: justify;"><a href="https://www.youtube.com/watch?v=QTu7yDnR_58&list=PLTk5ZYSbd9MhMmOiPhfRJNW7bhxHo4q-K&index=2"><b>[DNS]</b></a> Domain Name System (nslookup www.google.com -> DNS query to find the IP address)</p>
 
 <p style="text-align: justify;"><a href="https://www.geeksforgeeks.org/network-address-translation-nat/"><b>[NAT]</b></a> (Network Address Translation) has the idea that multiple devices access the Internet through a single public address. It is a networking technique that modifies network address information in data packets as they pass through a router or firewall, allowing multiple devices within a local network to share a single public IP address for communication with external networks like the internet. This process helps conserve public IP addresses and adds a layer of security by hiding internal network structures from external sources.</p>
 
@@ -67,6 +67,13 @@ permalink: /:categories/intro-network
 
 <br />
 <h2>Layer <a href="https://www.fortinet.com/resources/cyberglossary/tcp-ip-model-vs-osi-model">[OSI vs TCP Model]</a></h2>
+
+<p>
+  <center>
+      <img src="https://media.licdn.com/dms/image/D4E10AQF8qqvFHXovtg/image-shrink_1280/0/1712502036148?e=1713204000&v=beta&t=M7ocM36wmwFheIZlgJfCU9QJlCkUDvk15gR42lmlWWM" width="60%" height="60%"/><br />
+      <em>Source: <a href="https://www.linkedin.com/posts/letsdefend_what-is-osi-model-activity-7182754235418083328-O4RO/?utm_source=share&utm_medium=member_desktop">LetsDefend</a></em>
+  </center>
+</p>
 
 <table>
   <tr>
