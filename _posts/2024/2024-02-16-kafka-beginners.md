@@ -242,3 +242,13 @@ It helps register data schemas in Apache Kafka and ensure that producers and con
   <li>From kafka to a database: Kafka Connect Sink</li>
   <li>To use direct the mesage: Kafka Consumer</li>
 </ul>
+
+<br />
+<h2>Videos</h2>
+
+<table>
+  <tr>
+    <td><iframe width="360" height="315" src="https://www.youtube.com/embed/yIAcHMJzqJc?si=RPkLnsDq1tUdiIgy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="315" src="https://www.youtube.com/embed/UNUz1-msbOM?si=Y-IvArBAOBnvRi78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+  </tr>
+</table>
