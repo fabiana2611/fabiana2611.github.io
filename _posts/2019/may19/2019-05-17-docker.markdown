@@ -35,13 +35,16 @@ permalink: /:categories/docker
 <h3>Terminology</h3>
 
 <ul>
+  <li><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</li>
+  <li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</li>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#cmd">CMD</a>: instruction in Dockerfile that set the command to be executed when running a container from an image</li>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#entrypoint">ENTRYPOINT</a>: instruction that allow to configure a container that will run as an executable</li>
+  <li><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">CMD vs ENTRYPOINT</a>: both are instructions to run when the container start, but ENTRYPOINT sets the process to run, while CMD supplies default arguments to that process</li>
+  <li><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image</li>
+  <li><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</li>
+  <li><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope.</li>
   <li>Daemon: a portion of the server where there is container management</li>
   <li>CLI: commands and communicates with the docker daemon</li>
-  <li>Image: a repository for the images, is the basis for the containers.</li>
-  <li>Containers: application directories created from the docker image and where the application runs</li>
-  <li>Images: instant images of containers. They can be official and maintained by a specialized team, and users, which are created by users like you and me.</li>
-  <li>Dockerfiles: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</li>
-  <li>Docker Hub: Register of images</li>
   <li>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</li>
   <li>Docker compose: a tool for defining and executing multi-container applications</li>
   <li>Docker Swarm: native clustering solution for docker;</li>
@@ -59,6 +62,34 @@ permalink: /:categories/docker
  <li>Do not install unnecessary things</li>
  <li>Each container must have a goal</li>
 </ul>
+
+<h3>Some commands</h3>
+
+{% highlight ruby %}
+
+$ docker build -t MY_IMG .
+
+$ docker run MY_IMG
+
+$ docker inspect MY_IMG
+
+$ docker login 
+
+$ docker push MY_HUB_PATH
+
+$ docker volume create MY_VOL
+
+$ docker volume ls
+
+$ docker volume inspect MY_VOLUME
+
+$ docker container stop MY_CONTAINER
+
+$ docker container rm MY_CONTAINER
+
+$ docker volume rm MY_VOLUME
+
+{% endhighlight %}
 
 <br/>
 <h3>Summary</h3>
