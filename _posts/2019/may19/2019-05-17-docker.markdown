@@ -43,6 +43,7 @@ permalink: /:categories/docker
   <li><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image</li>
   <li><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</li>
   <li><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope.</li>
+  <li><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. The drivers are bridge (the container is launcheed in this network) and overlay. Networks are natural ways to isolate containers. More example you can see <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">here</a>.</li>
   <li>Daemon: a portion of the server where there is container management</li>
   <li>CLI: commands and communicates with the docker daemon</li>
   <li>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</li>
@@ -88,6 +89,18 @@ $ docker container stop MY_CONTAINER
 $ docker container rm MY_CONTAINER
 
 $ docker volume rm MY_VOLUME
+
+$ docker network ls
+
+$ docker run -itd --name=MY_IMG ubuntu
+
+$ docker network inspect bridge
+
+$ docker network disconnect bridge MY_IMG
+
+$ docker network create -d bridge MY_BRIDGE
+
+$ docker network connect MY_BRIDGE MY_IMG
 
 {% endhighlight %}
 
