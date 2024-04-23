@@ -44,14 +44,32 @@ permalink: /:categories/docker
   <li><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</li>
   <li><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope.</li>
   <li><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. The drivers are bridge (the container is launcheed in this network) and overlay. Networks are natural ways to isolate containers. More example you can see <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">here</a>.</li>
+  <li><a href="https://docs.docker.com/network/">docker networking</a></li>
+  <li><a href="https://docs.docker.com/get-started/07_multi_container/">Multi container apps</a>: you can have many containers and make the communication by networking.</li>
   <li>Daemon: a portion of the server where there is container management</li>
   <li>CLI: commands and communicates with the docker daemon</li>
   <li>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</li>
-  <li>Docker compose: a tool for defining and executing multi-container applications</li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/compose/up/">Docker compose</a>: a tool for defining and executing multi-container applications</li>
   <li>Docker Swarm: native clustering solution for docker;</li>
 </ul>
 
 <p style="text-align: justify;">Each built container can be stored and made available in a repository, which works similarly to GitHub.</p>
+
+
+<h3>Commands</h3>
+
+<ul>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#cmd">CMD</a>: instruction in Dockerfile that set the command to be executed when running a container from an image</li>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#entrypoint">ENTRYPOINT</a>: instruction that allow to configure a container that will run as an executable</li>
+  <li><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">CMD vs ENTRYPOINT</a>: both are instructions to run when the container start, but ENTRYPOINT sets the process to run, while CMD supplies default arguments to that process</li>
+  <li><a href="https://docs.docker.com/develop/develop-images/instructions/#expose">EXPOSE</a>: indicates the ports on which a container listens for connections. Ports exposed from the container.</li>
+  <li><a href="https://www.baeldung.com/ops/docker-compose-expose-vs-ports#:~:text=The%20expose%20section%20allows%20us,exposes%20specified%20ports%20from%20containers.">Port Mapping</a>: defined ports internally and published on the host machine.</li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/ls/">docker ls</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/run/">docker run</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/stop/">docker stop</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/exec/">docker exec</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/kill/#description">docker kill</a></li>
+</ul>
 
 <h3>Best Practices</h3>
 
@@ -67,6 +85,12 @@ permalink: /:categories/docker
 <h3>Some commands</h3>
 
 {% highlight ruby %}
+
+// x86/amd64 based images on Apple M1/M2 Macs
+$ colima start --cpu 2 --memory 4 --arch x86_64
+
+// Apple M1/M2 Macs
+$ colima start --cpu 2 --memory 4 --arch aarch64
 
 $ docker build -t MY_IMG .
 
@@ -101,6 +125,19 @@ $ docker network disconnect bridge MY_IMG
 $ docker network create -d bridge MY_BRIDGE
 
 $ docker network connect MY_BRIDGE MY_IMG
+
+$ docker exec -it MY_SQL mysql -u root -p
+
+$ docker logs -f CONTAINER_ID
+
+$ docker ps // list containers running
+$ docker ps -p // list containers id
+$ docker kill $(docker ps -q) // fill all containers
+$ docker rm $(docker ps -a -q)
+$ docker rmi $(docker images -q)
+$ docker ps --size // dis usage
+
+$ docker compose up --detach // starts the containers in the background and leaves them running
 
 {% endhighlight %}
 
