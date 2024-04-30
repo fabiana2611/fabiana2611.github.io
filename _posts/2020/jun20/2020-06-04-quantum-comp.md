@@ -6,13 +6,13 @@ categories: beyond
 permalink: /:categories/quantum-programming
 ---
 
-<p class="has-text-align-justify">The <a href="https://en.wikipedia.org/wiki/Quantum_computing">quantum computing </a>is the new revolution. It is going to put the current IT such a prehistoric era. This new technology comes from quantum mechanical (or <a href="https://www.newscientist.com/term/quantum-physics/">quantum-physics</a>) regarding how atoms work (electrons, protons, neutrons, quarks, gluons.). It includes, for exemple, the interactions between the particles. The general concepts you can find <a href="https://qt.eu/understand/introduction-to-quantum-physics/"  rel="noreferrer noopener">here</a>.</p>
+<p class="has-text-align-justify">The <a href="https://en.wikipedia.org/wiki/Quantum_computing">quantum computing </a>is the new revolution. It is going to put the current IT such a prehistoric era. This new technology comes from quantum mechanical (or <a href="https://www.newscientist.com/term/quantum-physics/">quantum-physics</a>) regarding how atoms work (electrons, protons, neutrons, quarks, gluons). It includes, for exemple, the interactions between the particles.</p>
 
 <h2>Quantic Theory</h2>
 
 <table><tbody><tr><td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/8HkPAE_9Q1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td><td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/7u_UQG1La1o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr></tbody></table>
 
-<p style="text-align: justify;">We have a good understanding about to have one state by time, such as bit, with '0' or '1'. From the quantum theory, we have the concept that one unit can have more then one possibilities of different states. One unit (<em>quantum bit</em>) can be '0' <strong>and</strong> '1', the quantum superposition. The determinism is changed by probabilities. New algorithms are created to use the potencial power of processing.</p>
+<p style="text-align: justify;">We have a good understanding about to have one state by time, such as bit, with '0' or '1'. In the quantum theory, we have the concept that one unit can have more than one possibilities of different states. One unit (<em>quantum bit</em>) can be '0' <strong>and</strong> '1', the quantum superposition. The determinism is changed by probabilities. New algorithms are created to use the potencial power of processing.</p>
 
 <p style="text-align: justify;">Bellow, there are two good short videos about the pathway of the quantic theory (left) and a good explanation with a simple example comparing the traditional bit unit and the quantum you can see at the next video (right).</p>
 
@@ -25,16 +25,16 @@ permalink: /:categories/quantum-programming
 <p style="text-align: justify;">This kind of machine has about 50-100 qubits which can overcome the classical computer problems. The limit of these machines regard to noise, but the works are towards to surpass this issue.</p>
 
 
-<p style="text-align: justify;">Some companies such as IBM, Microsoft, Google and D-wave, and other groups are working to improve the use of these machines. The works are around the hardware and software with different algorithms to use all the powerful processing. Each one has its own implementations of qubits, which makes us to abstract the hardware part and be focus to learn the quantum programming.</p>
+<p style="text-align: justify;">Some companies such as IBM, Microsoft, Google and D-wave, and other groups are working to improve the use of these machines. The works are around the hardware and software with different algorithms to use all the powerful processing. Each one has its own implementations of qubits, which makes us to abstract the hardware part and be focus on learning the quantum programming.</p>
 
-<p style="text-align: justify;">To start to learn this new concept is to follow a Zen story "<a href="https://youtu.be/O-uSQvsC6x4">A cup of tea</a>". You need to empty your mind and be available to different way to solve problems.</p>
+<p style="text-align: justify;">To start to learn this new concept is necessary to follow a Zen story "<a href="https://youtu.be/O-uSQvsC6x4">A cup of tea</a>". You need to empty your mind and be available to different way to solve problems.</p>
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/u1XXjWr5frE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br/>
 
-<p>You can find a list of companies that already is working on this scope here: [<a href="https://quantumcomputingreport.com/privatestartup/">1</a>][<a href="https://tracxn.com/explore/Quantum-Computing-Startups-in-Canada">2</a>].</p>
+<p>You can find a list of companies that already is working on this scope here: [<a href="https://quantumcomputingreport.com/privatestartup/">1</a>].</p>
 
 <h2 class="p2"><span class="s1"><b>SDK</b></span></h2>
 
