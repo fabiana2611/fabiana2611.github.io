@@ -40,11 +40,17 @@ permalink: /:categories/docker
   <li><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</li>
   <li>Container: A standardized unit of software. A package of code and dependencies to run that code. The same container always have the same application and execution behavior.</li>
   <li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</li>
-
   <li><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image</li>
   <li><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</li>
   <li><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope. Volumes are folders on the host machine mounted into containers. It is mmanaged by docker and can be anonynous or named. Anonymous volumes are removed automatically when the container is removed when you use '--rm' to start the container. If nor, the volume will not be removed but a new anonmous volume is attached to the container when it starts again. </li>
   <li>Bind Mounts: A similar concept of volume, but it is managed by the developer. The developer define the folder ot oath on the host machine. It is better to persistent and editable data.</li>
+    <li>Data:
+    <ul>
+      <li>Application (code + env) [anonymous]: the data in image is read-only</li>
+      <li>Temporary App Data (e.g user input) [named]: the data in container is read/write and temporary</li>
+      <li>Permanent App Data (e.g user accounts)[Bind Mounts]: the data in volumes is read/write and permanent</li>
+    </ul>
+  </li>
   <li><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. The drivers are bridge (the container is launcheed in this network) and overlay. Networks are natural ways to isolate containers. More example you can see <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">here</a>.</li>
   <li><a href="https://docs.docker.com/network/">docker networking</a></li>
   <li><a href="https://docs.docker.com/get-started/07_multi_container/">Multi container apps</a>: you can have many containers and make the communication by networking.</li>
@@ -55,13 +61,6 @@ permalink: /:categories/docker
   <li>Docker Swarm: native clustering solution for docker;</li>
   <li><a href="https://docs.docker.com/build/guide/layers/">Image Layers</a>: are the instructions in a Dockerfile translated to the image. The order of the instructions is omportant. Each layer can be reuse in a nre build</li>
   <li><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</li>
-  <li>Data:
-    <ul>
-      <li>Application (code + env) [anonymous]: the data in image is read-only</li>
-      <li>Temporary App Data (e.g user input) [named]: the data in container is read/write and temporary</li>
-      <li>Permanent App Data (e.g user accounts)[Bind Mounts]: the data in volumes is read/write and permanent</li>
-    </ul>
-  </li>
 </ul>
 
 
@@ -80,7 +79,7 @@ permalink: /:categories/docker
   <li><a href="https://docs.docker.com/reference/cli/docker/container/kill/#description">docker kill</a></li>
 </ul>
 
-<p style="text-align: justify;">If you don't want to install the docker but would like to test ir, you can use this <a href="https://labs.play-with-docker.com/">playground</a></p>
+<p style="text-align: justify;">If you don't want to install the docker but would like to test it, you can use this <a href="https://labs.play-with-docker.com/">playground</a></p>
 
 
 <h3>Best Practices</h3>
@@ -120,7 +119,8 @@ $ docker run -d MY_IMG_ID
 // back to attache mode
 $ docker attache MY_IMG_ID 
 
-// local port 3000, docker port 80, detached, remove container when it is stopped, give a specific name
+// local port 3000, docker port 80, detached, 
+// remove container when it is stopped, give a specific name
 $ docker run -p 3000:80 -d --rm --name MYNAME IMAGE_ID 
 
 // execute in background (detache mode)
@@ -128,7 +128,8 @@ $ docker start MY_IMG_NAME
 
 $ docker logs -f CONTAINER_ID
 
-// see the logs, useful to detache mode than you cannot see the result in the terminal
+// see the logs, useful to detache mode then 
+// you cannot see the result in the terminal
 $ docker logs MY_IMG_NAME 
 
 $ docker inspect MY_IMG
@@ -148,13 +149,14 @@ $ docker volume rm MY_VOLUME
 $ docker volume prune 
 
 // usea name of the volume
-$  docker run -d -p 3000:80 --rm --name feedback-app -v myfeedback:/app/feedback feedback-node:volumes 
+$  docker run -d -p 3000:80 --rm --name feedback-app \
+-v myfeedback:/app/feedback feedback-node:volumes 
 
 // use the path in your host machine. (Bind Mounts)
 // The second volume (anonynous) avoid override the volumes. 
 // Useful to change code and don't need re-build the images
 $  docker run -d -p 3000:80 --rm --name feedback-app \
--v "/Users/fabiana.araujo/Development/studies/docker/data-volumes-02-added-dockerfile:/app" \
+-v "MY_LOCAL_PATH:/app" \
 -v /app/node_modules feedback-node:volumes 
 
 $ docker network ls
@@ -165,15 +167,15 @@ $ docker network connect MY_BRIDGE MY_IMG
 
 $ docker exec -it MY_SQL mysql -u root -p // iterative
 
-$ docker ps // list containers running
-$ docker ps -p // list containers id
+$ docker ps                   // list containers running
+$ docker ps -p                // list containers id
 $ docker kill $(docker ps -q) // fill all containers
 $ docker rm MY_MAGE_NAME
 $ docker rm $(docker ps -a -q)
 $ docker rmi IMAGE_ID
 $ docker rmi $(docker images -q)
-$ docker rmi prune // remove all images
-$ docker ps --size // dis usage
+$ docker rmi prune            // remove all images
+$ docker ps --size            // disk usage
 
 // starts the containers in the background and leaves them running
 $ docker compose up --detach 
