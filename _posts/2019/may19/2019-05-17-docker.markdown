@@ -32,88 +32,74 @@ permalink: /:categories/docker
 
 <p style="text-align: justify;">In a simplistic way, we can consider that docker is something to manage an easy, small portion of the infrastructure needed to run an application. It is possible to have more than one such structure in communication, but this detail I leave for who will need to go deep according to their needs.</p>
 
+
+<br />
 <h3>Terminology</h3>
 
-<ul>
-  <li><a href="https://docs.docker.com/engine/">Docker Engine: </a> is an open source containerization technology for building and containerizing your applications.</li>
-  <li><a href="https://docs.docker.com/desktop/">Doker Desktop </a> (Daemon and CLI) is a simple application to build, share and run containerized applications and microservices. However, the terms of use was changed and now is necessary a license to use. As alternative, you can use, for instance, <a href="https://smallsharpsoftwaretools.com/tutorials/use-colima-to-run-docker-containers-on-macos/">Colima</a>.</li>
-  <li><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</li>
-  <li>Container: A standardized unit of software. A package of code and dependencies to run that code. The same container always have the same application and execution behavior.</li>
-  <li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</li>
-  <li><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image</li>
-  <li><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</li>
-  <li><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope. Volumes are folders on the host machine mounted into containers. It is mmanaged by docker and can be anonynous or named. Anonymous volumes are removed automatically when the container is removed when you use '--rm' to start the container. If nor, the volume will not be removed but a new anonmous volume is attached to the container when it starts again. </li>
-  <li>Bind Mounts: A similar concept of volume, but it is managed by the developer. The developer define the folder ot oath on the host machine. It is better to persistent and editable data.</li>
-    <li>Data:
-    <ul>
-      <li>Application (code + env) [anonymous]: the data in image is read-only</li>
-      <li>Temporary App Data (e.g user input) [named]: the data in container is read/write and temporary</li>
-      <li>Permanent App Data (e.g user accounts)[Bind Mounts]: the data in volumes is read/write and permanent</li>
-    </ul>
-  </li>
-  <li><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. The drivers are bridge (the container is launcheed in this network) and overlay. Networks are natural ways to isolate containers. More example you can see <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">here</a>.</li>
-  <li><a href="https://docs.docker.com/network/">docker networking</a></li>
-  <li><a href="https://docs.docker.com/get-started/07_multi_container/">Multi container apps</a>: you can have many containers and make the communication by networking.</li>
-  <li>Daemon: a portion of the server where there is container management</li>
-  <li>CLI: commands and communicates with the docker daemon</li>
-  <li>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/compose/up/">Docker compose</a>: a tool for defining and executing multi-container applications</li>
-  <li>Docker Swarm: native clustering solution for docker;</li>
-  <li><a href="https://docs.docker.com/build/guide/layers/">Image Layers</a>: are the instructions in a Dockerfile translated to the image. The order of the instructions is omportant. Each layer can be reuse in a nre build</li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</li>
-</ul>
+<p><a href="https://docs.docker.com/engine/">Docker Engine: </a> is an open source containerization technology for building and containerizing your applications.</p>
+<p>Docker Swarm: native clustering solution for docker;</p>
+<p>Daemon: a portion of the server where there is container management</p>
+<p>CLI: commands and communicates with the docker daemon</p>
+<p>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</p>
 
-
-<h3>Commands</h3>
-
-<ul>
-  <li><a href="https://docs.docker.com/reference/dockerfile/#cmd">CMD</a>: instruction in Dockerfile that set the command to be executed when running a container from an image</li>
-  <li><a href="https://docs.docker.com/reference/dockerfile/#entrypoint">ENTRYPOINT</a>: instruction that allow to configure a container that will run as an executable</li>
-  <li><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">CMD vs ENTRYPOINT</a>: both are instructions to run when the container start, but ENTRYPOINT sets the process to run, while CMD supplies default arguments to that process</li>
-  <li><a href="https://docs.docker.com/develop/develop-images/instructions/#expose">EXPOSE</a>: indicates the ports on which a container listens for connections. Ports exposed from the container.</li>
-  <li><a href="https://www.baeldung.com/ops/docker-compose-expose-vs-ports#:~:text=The%20expose%20section%20allows%20us,exposes%20specified%20ports%20from%20containers.">Port Mapping</a>: defined ports internally and published on the host machine.</li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/ls/">docker ls</a></li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/run/">docker run</a></li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/stop/">docker stop</a></li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/exec/">docker exec</a></li>
-  <li><a href="https://docs.docker.com/reference/cli/docker/container/kill/#description">docker kill</a></li>
-</ul>
-
-<p style="text-align: justify;">If you don't want to install the docker but would like to test it, you can use this <a href="https://labs.play-with-docker.com/">playground</a></p>
-
-
-<h3>Best Practices</h3>
-
-<ul>
- <li>Have small images</li>
- <li>Use swarm whenever possible</li>
- <li>Use continuous integration for application testing and deployment</li>
- <li>Create ephemeral containers, that is, containers that can be simply replaced.</li>
- <li>Do not install unnecessary things</li>
- <li>Each container must have a goal</li>
-</ul>
-
-<h3>Some commands</h3>
+<p><a href="https://docs.docker.com/desktop/">Docker Desktop </a> (Daemon and CLI) is a simple application to build, share and run containerized applications and microservices. However, the terms of use was changed and now is necessary a license to use. As alternative, you can use, for instance, <a href="https://smallsharpsoftwaretools.com/tutorials/use-colima-to-run-docker-containers-on-macos/">Colima</a>.</p>
 
 {% highlight ruby %}
-
 // x86/amd64 based images on Apple M1/M2 Macs
 $ colima start --cpu 2 --memory 4 --arch x86_64
 
 // Apple M1/M2 Macs
 $ colima start --cpu 2 --memory 4 --arch aarch64
+{% endhighlight %}
+  
+<p><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</p>
+ 
+{% highlight ruby %}
+$ docker build -t NAME:TAG .     // build the image with a group/name and a tag 
 
-$ docker build -t NAME:TAG . // build the image with a group and a tag 
+$ docker inspect MY_IMG.         // To see the details of the image
 
-// change the name (clone) to push Must be logged (doker login)
-$ docker tag OLD_NAME:OLD_TAG DOCKER_HUB_REPO/REMOCE_BUILD_NAME:TAG 
+$ docker rmi IMAGE_ID.           // remove the image (the containers must be removed before)
+$ docker rmi $(docker images -q) // remove all images
+$ docker rmi prune               // remove all images not used
+{% endhighlight %}
 
+
+<p><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</p>
+
+{% highlight ruby %}
+FROM node
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD [ "npm", "start" ]
+{% endhighlight %}
+
+<p><a href="https://docs.docker.com/build/guide/layers/">Image Layers</a>: are the instructions in a Dockerfile translated to the image. The order of the instructions is omportant. Each layer can be reuse in a nre build</p>
+  
+<p><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image. A standardized unit of software. A package of code and dependencies to run that code. The same container always have the same application and execution behavior.</p>
+
+{% highlight ruby %}
 // execute in foreground (block the terminal - attached)
 $ docker run MY_IMG_ID 
 
+// Iterative
 $ docker run -itd --name=MY_IMG ubuntu
 
-// execute in detache mode
+$ docker ps                   // list containers running
+$ docker ps -p                // list containers id
+$ docker kill $(docker ps -q) // fill all containers
+$ docker rm MY_MAGE_NAME
+$ docker rm $(docker ps -a -q)
+
+$ docker exec -it MY_SQL mysql -u root -p 2017:2017 // iterative
+{% endhighlight %}
+
+<p><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</p>
+
+// execute in detache mode (background)
 $ docker run -d MY_IMG_ID 
 
 // back to attache mode
@@ -132,12 +118,30 @@ $ docker logs -f CONTAINER_ID
 // you cannot see the result in the terminal
 $ docker logs MY_IMG_NAME 
 
-$ docker inspect MY_IMG
-
+  
+<p><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</p>
+{% highlight ruby %}
 // connect to Docker Hub
 $ docker login 
 $ docker push MY_HUB_PATH
 
+// change the local name (clone) to the name used in Docker Hub to push
+// Must be logged 
+$ doker login
+$ docker tag OLD_NAME:OLD_TAG DOCKER_HUB_REPO/REMOCE_BUILD_NAME:TAG 
+{% endhighlight %}
+ 
+
+<p><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope. Volumes are folders on the host machine mounted into containers. It is mmanaged by docker and can be anonynous or named. Anonymous volumes are removed automatically when the container is removed when you use '--rm' to start the container. If nor, the volume will not be removed but a new anonmous volume is attached to the container when it starts again. </p>
+<p>Bind Mounts: A similar concept of volume, but it is managed by the developer. The developer define the folder ot oath on the host machine. It is better to persistent and editable data.</p>
+<p>Data:</p>
+  <ul>
+    <li>Application (code + env) [anonymous]: the data in image is read-only</li>
+    <li>Temporary App Data (e.g user input) [named]: the data in container is read/write and temporary</li>
+    <li>Permanent App Data (e.g user accounts)[Bind Mounts]: the data in volumes is read/write and permanent</li>
+  </ul>
+
+{% highlight ruby %}
 $ docker volume create MY_VOL
 $ docker volume ls
 $ docker volume inspect MY_VOLUME
@@ -158,29 +162,78 @@ $  docker run -d -p 3000:80 --rm --name feedback-app \
 $  docker run -d -p 3000:80 --rm --name feedback-app \
 -v "MY_LOCAL_PATH:/app" \
 -v /app/node_modules feedback-node:volumes 
+{% endhighlight %}
 
+
+<p><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. It means the communication with outside. <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">[1]</a><a href="https://docs.docker.com/network/">[2]</a><a href="https://docs.docker.com/get-started/07_multi_container/">[3]</a></p>
+  <ul>The communication can be:
+    <li>container to WWW: container can send request to outside</li>
+    <li>container to localhost: e.g, use the database in localhost. It's necessary to use the reference used by docker that will find it (mongodb://host.docker.internal:27017/mydatabase)</li>
+    <li>container to container: manually by IPAdress retrieved by inspect command (mongodb://172.17.0.2:27017/mydatabase); or using netowrk resource and add both container in the same network</li>
+  </ul>
+  <ul>Drivers:
+    <li>bridge: Containers can find each other by name if they are in the same Network (default)</li>
+    <li>host: For standalone containers, isolation between container and host system is removed</li>
+    <li>overlay: Multiple Docker daemons (i.e. Docker running on different machines) are able to connect with each other.</li>
+    <li>macvlan: Set a custom MAC address to a container</li>
+    <li>none: All networking is disabled.</li>
+    <li>Third-party plugins</li>
+  </ul>
+
+{% highlight ruby %}
 $ docker network ls
 $ docker network inspect bridge
 $ docker network disconnect bridge MY_IMG
 $ docker network create -d bridge MY_BRIDGE
 $ docker network connect MY_BRIDGE MY_IMG
 
-$ docker exec -it MY_SQL mysql -u root -p // iterative
+$ docker network create favorites-net
+$ docker run -d --name mongodb --network favorites-net mongo
+$ docker run --name favorites-net --network favorites-net -d --rm -p 3000:3000 network:dbnet
 
-$ docker ps                   // list containers running
-$ docker ps -p                // list containers id
-$ docker kill $(docker ps -q) // fill all containers
-$ docker rm MY_MAGE_NAME
-$ docker rm $(docker ps -a -q)
-$ docker rmi IMAGE_ID
-$ docker rmi $(docker images -q)
-$ docker rmi prune            // remove all images
-$ docker ps --size            // disk usage
+// run mongo in container to be found by app that is localhost
+$ docker run -d --name mongodb -d --rm -p 2017:2017 mongo
+{% endhighlight %}
 
+
+<p><a href="https://docs.docker.com/reference/cli/docker/compose/up/">Docker compose</a>: a tool for defining and executing multi-container applications</p>
+{% highlight ruby %}
 // starts the containers in the background and leaves them running
 $ docker compose up --detach 
+{% endhighlight %}  
 
-{% endhighlight %}
+  
+
+<br />
+<h3>Commands</h3>
+
+<ul>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#cmd">CMD</a>: instruction in Dockerfile that set the command to be executed when running a container from an image</li>
+  <li><a href="https://docs.docker.com/reference/dockerfile/#entrypoint">ENTRYPOINT</a>: instruction that allow to configure a container that will run as an executable</li>
+  <li><a href="https://spacelift.io/blog/docker-entrypoint-vs-cmd">CMD vs ENTRYPOINT</a>: both are instructions to run when the container start, but ENTRYPOINT sets the process to run, while CMD supplies default arguments to that process</li>
+  <li><a href="https://docs.docker.com/develop/develop-images/instructions/#expose">EXPOSE</a>: indicates the ports on which a container listens for connections. Ports exposed from the container.</li>
+  <li><a href="https://www.baeldung.com/ops/docker-compose-expose-vs-ports#:~:text=The%20expose%20section%20allows%20us,exposes%20specified%20ports%20from%20containers.">Port Mapping</a>: defined ports internally and published on the host machine.</li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/ls/">docker ls</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/run/">docker run</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/stop/">docker stop</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/exec/">docker exec</a></li>
+  <li><a href="https://docs.docker.com/reference/cli/docker/container/kill/#description">docker kill</a></li>
+</ul>
+
+<p style="text-align: justify;">If you don't want to install the docker but would like to test it, you can use this <a href="https://labs.play-with-docker.com/">playground</a></p>
+
+
+<br />
+<h3>Best Practices</h3>
+
+<ul>
+ <li>Have small images</li>
+ <li>Use swarm whenever possible</li>
+ <li>Use continuous integration for application testing and deployment</li>
+ <li>Create ephemeral containers, that is, containers that can be simply replaced.</li>
+ <li>Do not install unnecessary things</li>
+ <li>Each container must have a goal</li>
+</ul>
 
 <br/>
 <h3>Summary</h3>
