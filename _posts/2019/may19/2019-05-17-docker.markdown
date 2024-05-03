@@ -98,7 +98,7 @@ $ docker exec -it MY_SQL mysql -u root -p 2017:2017 // iterative
 {% endhighlight %}
 
 <p><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</p>
-
+{% highlight ruby %}
 // execute in detache mode (background)
 $ docker run -d MY_IMG_ID 
 
@@ -117,7 +117,7 @@ $ docker logs -f CONTAINER_ID
 // see the logs, useful to detache mode then 
 // you cannot see the result in the terminal
 $ docker logs MY_IMG_NAME 
-
+{% endhighlight %}
   
 <p><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</p>
 {% highlight ruby %}
@@ -166,12 +166,12 @@ $  docker run -d -p 3000:80 --rm --name feedback-app \
 
 
 <p><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. It means the communication with outside. <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">[1]</a><a href="https://docs.docker.com/network/">[2]</a><a href="https://docs.docker.com/get-started/07_multi_container/">[3]</a></p>
-  <ul>The communication can be:
+  <ul><em>communication</em>
     <li>container to WWW: container can send request to outside</li>
     <li>container to localhost: e.g, use the database in localhost. It's necessary to use the reference used by docker that will find it (mongodb://host.docker.internal:27017/mydatabase)</li>
     <li>container to container: manually by IPAdress retrieved by inspect command (mongodb://172.17.0.2:27017/mydatabase); or using netowrk resource and add both container in the same network</li>
   </ul>
-  <ul>Drivers:
+  <ul><em>Drivers</em>
     <li>bridge: Containers can find each other by name if they are in the same Network (default)</li>
     <li>host: For standalone containers, isolation between container and host system is removed</li>
     <li>overlay: Multiple Docker daemons (i.e. Docker running on different machines) are able to connect with each other.</li>
