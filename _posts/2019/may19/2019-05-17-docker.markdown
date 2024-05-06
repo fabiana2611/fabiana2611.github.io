@@ -32,6 +32,9 @@ permalink: /:categories/docker
 
 <p style="text-align: justify;">In a simplistic way, we can consider that docker is something to manage an easy, small portion of the infrastructure needed to run an application. It is possible to have more than one such structure in communication, but this detail I leave for who will need to go deep according to their needs.</p>
 
+<p><center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center></p>
 
 <br />
 <h3>Terminology</h3>
@@ -258,12 +261,6 @@ $ docker compose down -v // also remove the volume created
   <iframe width="560" height="315" src="https://www.youtube.com/embed/YDNSItBN15w?si=Yrc2e--jHvEinnkp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center></p>
 
-<br/>
-<h3>Summary</h3>
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
 
 <h3>Course</h3>
 <li><a href="https://www.cod3r.com.br/courses/docker">Docker: Ferramenta essencial para Desenvolvedores</a></li>
