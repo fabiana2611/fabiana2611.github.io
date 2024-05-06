@@ -248,9 +248,9 @@ $ docker compose down -v // also remove the volume created
 <br />
 <h3>Development to Production</h3>
 
-<p style="text-align: justify;">After all the work locally, the idea is to push our image to production. For that, is necessary to have some <a href="https://www.hostingadvice.com/how-to/best-docker-container-hosting/">hosting provider</a> that will receive our image and run the instances.</p>
+<p style="text-align: justify;">After all the local work, the idea is to push our image to production. For that, is necessary to have some <a href="https://www.hostingadvice.com/how-to/best-docker-container-hosting/">hosting provider</a> that will receive our image and run the instances.</p>
 
-<p style="text-align: justify;">One way to do it is manyally going into AWS, for instance, creating EC2 and all necessary structure for it (VPC, subnet, security group), connecting to instance via ssh, <a href="https://stackoverflow.com/questions/53918841/how-to-install-docker-on-amazon-linux2/61708497#61708497">install and run the docker</a>. It is considered manual because the developer has to manage all the steps.</p>
+<p style="text-align: justify;">One way to do it is manually going into AWS, for instance, creating EC2 and all necessary structure for it (VPC, subnet, security group), connecting to instance via ssh, <a href="https://stackoverflow.com/questions/53918841/how-to-install-docker-on-amazon-linux2/61708497#61708497">install and run the docker</a>. It is considered manual because the developer has to manage all the steps.</p>
 
 <p><center>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/qNIniDftAcU?si=4czu8VoH-vGv8hfJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
