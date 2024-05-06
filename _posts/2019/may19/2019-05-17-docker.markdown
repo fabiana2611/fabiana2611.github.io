@@ -33,7 +33,7 @@ permalink: /:categories/docker
 <p style="text-align: justify;">In a simplistic way, we can consider that docker is something to manage an easy, small portion of the infrastructure needed to run an application. It is possible to have more than one such structure in communication, but this detail I leave for who will need to go deep according to their needs.</p>
 
 <p><center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="360" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
 <br />
