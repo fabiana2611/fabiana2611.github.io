@@ -18,6 +18,7 @@ permalink: /:categories/docker
 
 <p style="text-align: justify;">Let’s go!!!.</p>
 
+<br />
 <h3>What is it – An Overview</h3>
 
 <p style="text-align: justify;"><a href="https://docs.docker.com/engine/docker-overview/">Docker</a> is an open source project that aims to leave applications in containers. Docker can be used to develop, deploy, and run applications. It allows you to separate the application from the infrastructure.</p>
@@ -33,7 +34,7 @@ permalink: /:categories/docker
 <p style="text-align: justify;">In a simplistic way, we can consider that docker is something to manage an easy, small portion of the infrastructure needed to run an application. It is possible to have more than one such structure in communication, but this detail I leave for who will need to go deep according to their needs.</p>
 
 <p><center>
-  <iframe width="360" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/8P9NTaE-dLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center></p>
 
 <br />
@@ -252,7 +253,7 @@ $ docker compose down -v // also remove the volume created
 <p style="text-align: justify;">One way to do it is manyally going into AWS, for instance, creating EC2 and all necessary structure for it (VPC, subnet, security group), connecting to instance via ssh, <a href="https://stackoverflow.com/questions/53918841/how-to-install-docker-on-amazon-linux2/61708497#61708497">install and run the docker</a>. It is considered manual because the developer has to manage all the steps.</p>
 
 <p><center>
-  <iframe width="360" height="315" src="https://www.youtube.com/embed/qNIniDftAcU?si=4czu8VoH-vGv8hfJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qNIniDftAcU?si=4czu8VoH-vGv8hfJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center></p>
 
 <p style="text-align: justify;">Automatically management (deploy the app/container) can be done using ECS (Elastic Container Service)</p>
