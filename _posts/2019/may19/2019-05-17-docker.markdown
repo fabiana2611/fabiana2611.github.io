@@ -6,7 +6,7 @@ categories: infra
 permalink: /:categories/docker
 ---
 
-<p><em>Last update: 2024-05-01</em></p>
+<p><em>Last update: 2024-05-06</em></p>
 
 <p style="text-align: justify;">Today I will talk about <a href="https://www.docker.com/">Docker</a>. It is a nice whale that has been appearing in the development environment.</p>
 
@@ -36,13 +36,13 @@ permalink: /:categories/docker
 <br />
 <h3>Terminology</h3>
 
-<p><a href="https://docs.docker.com/engine/">Docker Engine: </a> is an open source containerization technology for building and containerizing your applications.</p>
-<p>Docker Swarm: native clustering solution for docker;</p>
-<p>Daemon: a portion of the server where there is container management</p>
-<p>CLI: commands and communicates with the docker daemon</p>
-<p>Docker Machine: Creates a host on your computer, in the cloud, or in your data center</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/engine/">Docker Engine: </a> is an open source containerization technology for building and containerizing your applications.</p>
+<p style="text-align: justify;">Docker Swarm: native clustering solution for docker;</p>
+<p style="text-align: justify;">Daemon: a portion of the server where there is container management</p>
+<p style="text-align: justify;">CLI: commands and communicates with the docker daemon</p>
+<p style="text-align: justify;">Docker Machine: Creates a host on your computer, in the cloud, or in your data center</p>
 
-<p><a href="https://docs.docker.com/desktop/">Docker Desktop </a> (Daemon and CLI) is a simple application to build, share and run containerized applications and microservices. However, the terms of use was changed and now is necessary a license to use. As alternative, you can use, for instance, <a href="https://smallsharpsoftwaretools.com/tutorials/use-colima-to-run-docker-containers-on-macos/">Colima</a>.</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/desktop/">Docker Desktop </a> (Daemon and CLI) is a simple application to build, share and run containerized applications and microservices. However, the terms of use was changed and now is necessary a license to use. As alternative, you can use, for instance, <a href="https://smallsharpsoftwaretools.com/tutorials/use-colima-to-run-docker-containers-on-macos/">Colima</a>.</p>
 
 {% highlight ruby %}
 // x86/amd64 based images on Apple M1/M2 Macs
@@ -52,7 +52,7 @@ $ colima start --cpu 2 --memory 4 --arch x86_64
 $ colima start --cpu 2 --memory 4 --arch aarch64
 {% endhighlight %}
   
-<p><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/get-started/overview/#images">Image</a>: read-only template with instructions for creating a Docker container.</p>
  
 {% highlight ruby %}
 $ docker build -t NAME:TAG .     // build the image with a group/name and a tag 
@@ -62,10 +62,11 @@ $ docker inspect MY_IMG.         // To see the details of the image
 $ docker rmi IMAGE_ID.           // remove the image (the containers must be removed before)
 $ docker rmi $(docker images -q) // remove all images
 $ docker rmi prune               // remove all images not used
+$ docker rmi prune -a            // remove all images
 {% endhighlight %}
 
 
-<p><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#what-is-a-dockerfile">Dockerfiles</a>: scripts that automate the process of constructing images; they define what will exist inside the containers. It is a simple text file with a list of commands that will indicate to the client docker what should be created in the image.</p>
 
 {% highlight ruby %}
 FROM node
@@ -77,9 +78,9 @@ EXPOSE 3000
 CMD [ "npm", "start" ]
 {% endhighlight %}
 
-<p><a href="https://docs.docker.com/build/guide/layers/">Image Layers</a>: are the instructions in a Dockerfile translated to the image. The order of the instructions is omportant. Each layer can be reuse in a nre build</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/build/guide/layers/">Image Layers</a>: are the instructions in a Dockerfile translated to the image. The order of the instructions is omportant. Each layer can be reuse in a nre build</p>
   
-<p><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image. A standardized unit of software. A package of code and dependencies to run that code. The same container always have the same application and execution behavior.</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/get-started/overview/#containers">Containers</a>: runnable instance of an image. A standardized unit of software. A package of code and dependencies to run that code. The same container always have the same application and execution behavior.</p>
 
 {% highlight ruby %}
 // execute in foreground (block the terminal - attached)
@@ -87,6 +88,9 @@ $ docker run MY_IMG_ID
 
 // Iterative
 $ docker run -itd --name=MY_IMG ubuntu
+
+// Docker in a amd64 platform and Image created in arm64 platform
+$ docker run --platform linux/arm64/v8 -d --rm -p 80:80 MY_IMAGE
 
 $ docker ps                   // list containers running
 $ docker ps -p                // list containers id
@@ -97,7 +101,7 @@ $ docker rm $(docker ps -a -q)
 $ docker exec -it MY_SQL mysql -u root -p 2017:2017 // iterative
 {% endhighlight %}
 
-<p><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/reference/cli/docker/container/attach/">Attached and detached containers</a>: the container run in foreground when is attached and you can see the logs. The terminal is blocked. When it is detached it runs in background and the terminal is free. You can use 'logs' command to see the returns.</p>
 {% highlight ruby %}
 // execute in detache mode (background)
 $ docker run -d MY_IMG_ID 
@@ -119,7 +123,7 @@ $ docker logs -f CONTAINER_ID
 $ docker logs MY_IMG_NAME 
 {% endhighlight %}
   
-<p><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</p>
+<p style="text-align: justify;"><a href="https://hub.docker.com/">Docker Hub</a>: Register of images. You can see how to use <a href="https://docs.docker.com/docker-hub/quickstart/">here</a>.</p>
 {% highlight ruby %}
 // connect to Docker Hub
 $ docker login 
@@ -132,9 +136,9 @@ $ docker tag OLD_NAME:OLD_TAG DOCKER_HUB_REPO/REMOCE_BUILD_NAME:TAG
 {% endhighlight %}
  
 
-<p><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope. Volumes are folders on the host machine mounted into containers. It is mmanaged by docker and can be anonynous or named. Anonymous volumes are removed automatically when the container is removed when you use '--rm' to start the container. If nor, the volume will not be removed but a new anonmous volume is attached to the container when it starts again. </p>
-<p>Bind Mounts: A similar concept of volume, but it is managed by the developer. The developer define the folder ot oath on the host machine. It is better to persistent and editable data.</p>
-<p>Data:</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/storage/volumes/">Volumes</a>: mechanism for persisting data managed by Docker. The contents are outside of the container's scope. Volumes are folders on the host machine mounted into containers. It is mmanaged by docker and can be anonynous or named. Anonymous volumes are removed automatically when the container is removed when you use '--rm' to start the container. If nor, the volume will not be removed but a new anonmous volume is attached to the container when it starts again. </p>
+<p style="text-align: justify;">Bind Mounts: A similar concept of volume, but it is managed by the developer. The developer define the folder ot oath on the host machine. It is better to persistent and editable data.</p>
+<p style="text-align: justify;">Data:</p>
   <ul>
     <li>Application (code + env) [anonymous]: the data in image is read-only</li>
     <li>Temporary App Data (e.g user input) [named]: the data in container is read/write and temporary</li>
@@ -165,8 +169,8 @@ $  docker run -d -p 3000:80 --rm --name feedback-app \
 {% endhighlight %}
 
 
-<p><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. It means the communication with outside. <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">[1]</a><a href="https://docs.docker.com/network/">[2]</a><a href="https://docs.docker.com/get-started/07_multi_container/">[3]</a></p>
-  <ul><em>communication</em>
+<p style="text-align: justify;"><a href="https://docs.docker.com/engine/tutorials/networkingcontainers/">Network containers</a>: it make the app available in network. It means the communication with outside. <a href="https://medium.com/@augustineozor/understanding-docker-bridge-network-6e499da50f65">[1]</a><a href="https://docs.docker.com/network/">[2]</a><a href="https://docs.docker.com/get-started/07_multi_container/">[3]</a></p>
+  <ul><em>Communication</em>
     <li>container to WWW: container can send request to outside</li>
     <li>container to localhost: e.g, use the database in localhost. It's necessary to use the reference used by docker that will find it (mongodb://host.docker.internal:27017/mydatabase)</li>
     <li>container to container: manually by IPAdress retrieved by inspect command (mongodb://172.17.0.2:27017/mydatabase); or using netowrk resource and add both container in the same network</li>
@@ -196,10 +200,12 @@ $ docker run -d --name mongodb -d --rm -p 2017:2017 mongo
 {% endhighlight %}
 
 
-<p><a href="https://docs.docker.com/reference/cli/docker/compose/up/">Docker compose</a>: a tool for defining and executing multi-container applications</p>
+<p style="text-align: justify;"><a href="https://docs.docker.com/reference/cli/docker/compose/up/">Docker compose</a>: a tool for defining and executing multi-container applications. Service are containers and it will support publish ports, manage environment variables, volumes and network. <a href="https://docs.docker.com/compose/compose-file/">[Reference]</a></p>
 {% highlight ruby %}
 // starts the containers in the background and leaves them running
-$ docker compose up --detach 
+$ docker compose up --d
+$ docker compose down    // stop and delete the container and all default networks created
+$ docker compose down -v // also remove the volume created
 {% endhighlight %}  
 
   
@@ -234,6 +240,23 @@ $ docker compose up --detach
  <li>Do not install unnecessary things</li>
  <li>Each container must have a goal</li>
 </ul>
+
+<br />
+<h3>Development to Production</h3>
+
+<p style="text-align: justify;">After all the work locally, the idea is to push our image to production. For that, is necessary to have some <a href="https://www.hostingadvice.com/how-to/best-docker-container-hosting/">hosting provider</a> that will receive our image and run the instances.</p>
+
+<p style="text-align: justify;">One way to do it is manyally going into AWS, for instance, creating EC2 and all necessary structure for it (VPC, subnet, security group), connecting to instance via ssh, <a href="https://stackoverflow.com/questions/53918841/how-to-install-docker-on-amazon-linux2/61708497#61708497">install and run the docker</a>. It is considered manual because the developer has to manage all the steps.</p>
+
+<p><center>
+  <iframe width="360" height="315" src="https://www.youtube.com/embed/qNIniDftAcU?si=4czu8VoH-vGv8hfJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center></p>
+
+<p style="text-align: justify;">Automatically management (deploy the app/container) can be done using ECS (Elastic Container Service)</p>
+
+<p><center>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/YDNSItBN15w?si=Yrc2e--jHvEinnkp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center></p>
 
 <br/>
 <h3>Summary</h3>
