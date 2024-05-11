@@ -274,10 +274,11 @@ $ k get pods // the pod with error doesnot exist
 $ k rollout history deployment/first-app
 $ k rollout history deployment/first-app --revision=3
 $ k rollout undo deployment/first-app --to-revision=1 // If you are using local image is necessary edit again imagePullPolicy attribute
+{% endhighlight %}
 
 
 <br />
-<h3>References</h3>
+<h2>References</h2>
 <ul>
   <li><a href="https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP">Docker & Kubernetes: The Practical Guide [2024 Edition]</a></li>
   <li><a href="https://www.udemy.com/course/certified-kubernetes-application-developer/?couponCode=LETSLEARNNOWPP">Kubernetes Certified Application Developer (CKAD) with Tests</a></li>
