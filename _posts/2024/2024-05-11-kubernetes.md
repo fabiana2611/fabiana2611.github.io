@@ -7,21 +7,7 @@ permalink: /:categories/kubernetes
 ---
 
 
-<li>
-  Intro: <a href="#arch">What is it?</a> > 
-  <a href="#arch">Architecture</a></li> 
-<li>
-  Concepts: <a href="#pod">Pod</a> > 
-  <a href="#rs">ReplicaSet</a> > 
-  <a href="sa">Special Attributes</a> > 
-  <a href="#deploy">Deployment</a> > 
-  <a href="ds">Deployment Strategy</a> > 
-  <a href="svc">Service</a> > <a href="net">Network</a> > 
-  <a href="volume">Volume</a> >
-  <a href="ns">Namespace</a> > 
-  <a href="secret">Secrets</a>
-<li>
-  <a href="hon">Hands-On</a>  </li> 
+<p><a href="#arch">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="ds">Deployment Strategy</a> > <a href="svc">Service</a> > <a href="net">Network</a> > <a href="volume">Volume</a> > <a href="ns">Namespace</a> > <a href="secret">Secrets</a> >  <a href="hon">Hands-On</a> </p>
 
 <br />
 <h2 id="wit">Introduction</h2>
