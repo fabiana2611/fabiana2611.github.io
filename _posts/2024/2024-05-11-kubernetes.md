@@ -70,7 +70,7 @@ $ kubectl get pods
 </center></p>
 
 <h3 id="rs">ReplicaSet</h3>
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a> maintain a stable set of replica Pods running at any given time. As such, it is often used to guarantee the availability of a specified number of identical Pods. Multiple Pods are helpful to ensure high availability and handle loads across the pods (load balancing). Even the Pods created, it's possible to scale that number.</p>
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a> maintain a stable set of replicas running at any given time. it is used to guarantee the availability of a specified number of identical Pods. Then, it ensures high availability and handle loads across the pods (load balancing). Even the Pods already created, it's possible to scale that number.</p>
 
 {% highlight ruby %}
 $ kubectl get replicaset
@@ -81,7 +81,7 @@ $ kubectl scale rs new-replica-set --replicas=6
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/replica.png" height="50%" width="50%">
+  <img src="/img/kubernetes/replicaset.png" height="50%" width="50%">
 </center></p>
 
 <h3 id="sa">Special Attributes</h3>
