@@ -13,22 +13,22 @@ permalink: /:categories/kubernetes
 <h2 id="wit">Introduction</h2>
 <h3 id="wit">What is it?</h3>
 
-<p style="text-align: justify;">The tradicional deployment didn't scale the resource and it impact in the cost. The second alternative is virtualiation, that isolate the apps, a better utilization of resources and scalability but each VM represents a enteire machine. Using containers as the third alternative is possible to the only the solation of the application and share the other resources secondary to the application, and the cycle of deployment is easear to handle. This last solution is considered lightweight.</p>
+<p style="text-align: justify;">The tradicional deployment didn't scale the resource and it impact in the cost. Another alternative of deployment is the virtualiation, that isolate the apps. It is a better utilization of resources and scalability but each VM represents a enteire machine. Using containers as the third alternative is possible to have the isolation of the application and share the other resources secondary to the application. Also, the cycle of deployment is easear to handle. This last solution is considered lightweight.</p>
 
 <p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/overview/">kubernetes</a> or K8s comes as solution for container orchestration that <em>provides a framework to run distributed systems resiliently, takes care of scaling and failover for your application and provides deployment patterns.</em> It is a container orchestration technology. It orchestrates the deplyment and management of containers. The containers can be managed by <a href="https://fabiana2611.github.io/infra/docker">Docker</a>. Some of features available are: Service discovery and load balancing, Storage orchestration, Automated rollouts and rollbacks, Secret and configuration management, Horizontal scaling, IPv4/IPv6 dual-stack, etc. </p>
 
 <h3 id="arch">Architecture</h3>
 
-<p style="text-align: justify;"><b><a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Nodes:</a></b> it is a machine where K8s is intalled. Node is a worker machine where containers are launched by K8s. It node include kubelet, container runtime and kube-proxy. They are managed by the <a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-control-plane">control plane</a>.</p>
+<p style="text-align: justify;"><b><a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Node</a></b> is a machine where K8s is intalled. It includes kubelet, container runtime and kube-proxy. They are managed by the <a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-control-plane">control plane</a>.</p>
 
-<p style="text-align: justify;"><b>Cluster</b> is a group of Nodes managed to keep the application available even if one node fails. That management is done by a node called <b>Master</b>. This node is configured the have the information about the other nodes and manage them. It is responsible for the orchestration of the containers.</p>
+<p style="text-align: justify;"><b>Cluster</b> is a group of Nodes managed to keep the application available even if one node fails. That management is done by a node called <b>Master</b>. This node is configured to have the information about the other nodes and manage them. It is responsible for the orchestration of the containers.</p>
 
 <p style="text-align: justify;">Components in Node Master, the orchestrator <a href="https://kubernetes.io/docs/concepts/overview/components/#control-plane-components">[Control Plane Componenets]</a>:</p>
 <ul>
   <li><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver">kube-apiserver:</a> it is between K8s and external Node communication. It communicates with Worker Node by kubelet.</li>
   <li><a href="https://kubernetes.io/docs/concepts/overview/components/#etcd">etcd:</a> is respnsible to store all data used to manage the cluster to be used by K8s. For instance, it implements locks to avoid conflicts between masters.</li>
-  <li><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler">Scheduler:</a> responsible for distributing work or containers across multiple nodes. It is control plane component.</li>
-  <li>Controller <a href="https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager">[kube-controller-manager]</a><a href="https://kubernetes.io/docs/concepts/overview/components/#cloud-controller-manager">[cloud-controller-manager]</a>: the brain behind the orchastration - noticing and responding when nodes, containers or endpoints goes down. It makes decisions to bring up new containers
+  <li><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler">Scheduler:</a> responsible for distributing work or containers across multiple nodes.</li>
+  <li>Controller <a href="https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager">[kube-controller-manager]</a><a href="https://kubernetes.io/docs/concepts/overview/components/#cloud-controller-manager">[cloud-controller-manager]</a>: the brain behind the orchastration - noticing and responding when nodes, containers or endpoints goes down. It makes decisions to bring up new containers</li>
 </ul>
 
 <p style="text-align: justify;">Components in worker nodes <a href="https://kubernetes.io/docs/concepts/overview/components/#node-components">[Node Components]</a><:/p>
@@ -39,7 +39,7 @@ permalink: /:categories/kubernetes
 </ul>
 
 <p><center>
-  <img src="/img/kubernetes/kube-arch.png" height="50%" width="50%">
+  <img src="/img/kubernetes/kube-arch.png" height="80%" width="80%">
 </center></p>
 
 <br />
