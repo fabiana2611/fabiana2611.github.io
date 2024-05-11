@@ -81,7 +81,7 @@ $ kubectl scale rs new-replica-set --replicas=6
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/replicaset.png" height="100%" width="100%">
+  <img src="/img/kubernetes/replicaset.png" height="70%" width="70%">
 </center></p>
 
 <h3 id="sa">Special Attributes</h3>
@@ -133,15 +133,14 @@ $ kubectl rollout history deployment/myapp-deployment
 <p style="text-align: justify;">When the K8s is configured it creates an internal private network and attache all PODs. The Pods will have an IP when they are deployed.</p>
 
 <h3 id="svc">Service</h3>
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service:</a> <em> Expose an application running in your cluster behind a single outward-facing endpoint.</em> Pods have an internal IP but it cannot be used to access the Pod outside of the cluster. Beside, the IP changes always when a Pod is replaced. The service groups Pods with a shared IP which will not change, and that address can be exposed internally and externally of the custer, what allow the Pods be accessible outside of the cluster. Considering a communication outsise of Node to access the Pod. the service listen the Node port and forward the requests to the port on the POD (NodePort).</p>
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Service:</a> <em> Expose an application running in your cluster behind a single outward-facing endpoint.</em> Pods have an internal IP but it cannot be used to access the Pod outside of the cluster. Beside, the IP changes always when a Pod is replaced. The service groups Pods with a shared IP which will not change, and that address can be exposed internally and externally of the custer, what allow the Pods be accessible outside of the cluster.</p>
 
-<ul>Types of services <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">[1]</a><a href="https://www.densify.com/kubernetes-autoscaling/kubernetes-service-load-balancer/">[2]</a><a href="https://medium.com/@extio/demystifying-kubernetes-service-a-reliable-and-scalable-solution-for-modern-application-deployment-646f078f45a1">[3]</a><a href="https://medium.com/devops-mojo/kubernetes-service-types-overview-introduction-to-k8s-service-types-what-are-types-of-kubernetes-services-ea6db72c3f8c
-">[4]</a>
-  <li>ClusterIP: expose only inside the cluster (defaut). There are virtual IP to allow communication between, e.g, frontend and backend inside the cluster.</li>
+<p>Types of services <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">[1]</a><a href="https://www.densify.com/kubernetes-autoscaling/kubernetes-service-load-balancer/">[2]</a><a href="https://medium.com/@extio/demystifying-kubernetes-service-a-reliable-and-scalable-solution-for-modern-application-deployment-646f078f45a1">[3]</a><a href="https://medium.com/devops-mojo/kubernetes-service-types-overview-introduction-to-k8s-service-types-what-are-types-of-kubernetes-services-ea6db72c3f8c
+">[4]</a></p>
+<ul>
+  <li>ClusterIP: expose only inside the cluster (defaut). There are virtual IP to allow communication between them, e.g, frontend and backend inside the cluster.</li>
   <li>NodePort: Exposes the Service on each Node's IP at a static port (the NodePort). It makes the pod available outside of the node mapping the port on Node (NodePort - 30000 to 32767) to the port on the Pod (TargetPort).</li>
   <li>LoadBalancer: Exposes the Service externally using an external load balancer</li>
-  <li>ExternalName</li>
-  <li></li>
 </ul>
 
 {% highlight ruby %}
@@ -156,12 +155,12 @@ $ kubectl get svc
 
 <h3 id="volume">Storage</h3>
 
-<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/storage/volumes/">volume</a> is a directory which is accessible to the containers in a pod. The volume persists even if container restart. HoweverIn, the volumes are removed when the Pods are destryed. Considering One-Node environment, the hostPath property helps to keep the data visible for that Node.</p>
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/storage/volumes/">volume</a> is a directory which is accessible to the containers in a pod. The volume persists even if container restart. However, the volumes are removed when the Pods are destroyed. Considering One-Node environment, the hostPath property helps to keep the data visible for that Node.</p>
 
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a> is a volume in the cluster with the lifecycle independent of the Pod. Persistent Volume Claim is a request for storage by user.</p>
 
 <p><center>
-  <img src="/img/kubernetes/storage.png" height="100%" width="100%">
+  <img src="/img/kubernetes/storage.png" height="70%" width="70%">
 </center></p>
 
 <h3 id="ns">Namespace</h3>
