@@ -81,7 +81,7 @@ $ kubectl scale rs new-replica-set --replicas=6
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/replicaset.png" height="50%" width="50%">
+  <img src="/img/kubernetes/replicaset.png" height="100%" width="100%">
 </center></p>
 
 <h3 id="sa">Special Attributes</h3>
@@ -92,7 +92,7 @@ $ kubectl scale rs new-replica-set --replicas=6
 </ul>
 
 <h3 id="deploy">Deployment</h3>
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a> build the desired state. A Deployment provides declarative updates for Pods and ReplicaSets. It allow edit any field/property of the POD template. After the change, the deployment will automatically delete and create a new pod with the new changes. The deployment can be <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment">rollback</a> when the deployment is not stable. Also, you can <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment">scale</a> the deployment if you need increase or decrease the replicas. The strategies of the deployments are Recreate and Rolling Update.</p>
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a> build the desired state. A Deployment provides declarative updates for Pods and ReplicaSets. It allow edit any field/property of the POD template. After the change, the deployment will automatically delete and create a new pod with the new changes. The deployment can be <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment">rollback</a> when the deployment is not stable. Also, you can <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment">scale</a> the deployment if you need increase or decrease the replicas. If you delete the deployment object, the others object created by it will be deleted (e.g., pods and replicase).</p>
 
 {% highlight ruby %}
 // CREATE
@@ -115,11 +115,11 @@ $ kubectl rollout history deployment/myapp-deployment
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/deployment.png" height="50%" width="50%">
+  <img src="/img/kubernetes/deployment.png" height="100%" width="100%">
 </center></p>
 
 <h3 id="ds">Deployment Strategy</h3>
-<p style="text-align: justify;">The kubernetes allows to use different <a href="https://spot.io/resources/kubernetes-autoscaling/5-kubernetes-deployment-strategies-roll-out-like-the-pros/">Strategy</a> that define how the application should be updated. The same way, K8s allows the process of rollout, the process of gradually deploying or upgrading your application containers. When you first create a deployment, it triggers a rollout. A new rollout creates a new Deployment revision. A fancy diagrame comparing the strategies you can see <a href="https://www.linkedin.com/pulse/kubernetes-deployment-strategies-ahmad-rahimian-t2lue/">here</a>.</p>
+<p style="text-align: justify;">The kubernetes allows to use different <a href="https://spot.io/resources/kubernetes-autoscaling/5-kubernetes-deployment-strategies-roll-out-like-the-pros/">Strategy</a> that define how the application should be updated. When you create a deployment, it triggers the deployment process. Also, it creates a new Deployment revision. A fancy diagrame comparing the strategies you can see <a href="https://www.linkedin.com/pulse/kubernetes-deployment-strategies-ahmad-rahimian-t2lue/">here</a>.</p>
 
 <ul>
   <li>Rolling deployment: replace the pods one by one</li>
@@ -151,7 +151,7 @@ $ kubectl get svc
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/service.png" height="50%" width="50%">
+  <img src="/img/kubernetes/service.png" height="100%" width="100%">
 </center></p>
 
 <h3 id="volume">Storage</h3>
@@ -161,7 +161,7 @@ $ kubectl get svc
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a> is a volume in the cluster with the lifecycle independent of the Pod. Persistent Volume Claim is a request for storage by user.</p>
 
 <p><center>
-  <img src="/img/kubernetes/storage.png" height="50%" width="50%">
+  <img src="/img/kubernetes/storage.png" height="100%" width="100%">
 </center></p>
 
 <h3 id="ns">Namespace</h3>
