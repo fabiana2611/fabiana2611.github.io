@@ -7,10 +7,10 @@ permalink: /:categories/kubernetes
 ---
 
 
-<p><a href="#arch">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="ds">Deployment Strategy</a> > <a href="svc">Service</a> > <a href="net">Network</a> > <a href="volume">Volume</a> > <a href="ns">Namespace</a> > <a href="secret">Secrets</a> >  <a href="hon">Hands-On</a> </p>
+<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a>  <a href="#hon">Hands-On</a> </p>
 
 <br />
-<h2 id="wit">Introduction</h2>
+<h2>Introduction</h2>
 <h3 id="wit">What is it?</h3>
 
 <p style="text-align: justify;">The tradicional deployment didn't scale the resource and it impact in the cost. Another alternative of deployment is the virtualiation, that isolate the apps. It is a better utilization of resources and scalability but each VM represents a enteire machine. Using containers as the third alternative is possible to have the isolation of the application and share the other resources secondary to the application. Also, the cycle of deployment is easear to handle. This last solution is considered lightweight.</p>
@@ -81,7 +81,7 @@ $ kubectl scale rs new-replica-set --replicas=6
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/replicaset.png" height="70%" width="70%">
+  <img src="/img/kubernetes/replicaset.png" height="50%" width="50%">
 </center></p>
 
 <h3 id="sa">Special Attributes</h3>
@@ -160,7 +160,7 @@ $ kubectl get svc
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volume</a> is a volume in the cluster with the lifecycle independent of the Pod. Persistent Volume Claim is a request for storage by user.</p>
 
 <p><center>
-  <img src="/img/kubernetes/storage.png" height="70%" width="70%">
+  <img src="/img/kubernetes/storage.png" height="50%" width="50%">
 </center></p>
 
 <h3 id="ns">Namespace</h3>
@@ -184,10 +184,9 @@ $ echo –n ‘mysql’ | base64
 $ echo –n ‘bXlzcWw=’ | base64 --decode
 
 // Imperative
-kubectl create secret generic \
-  app-secret --from-literal=DB_Host=mysql --from-literal=DB_User=root \
-  kubectl create secret generic SECRET_NAME --from-file=<path-to-file> kubectl create secret generic \
-  app-secret --from-file=app_secret.properties --from-literal=DB_Password=paswrd
+kubectl create secret generic app-secret \
+  --from-literal=DB_User=root \
+  --from-literal=DB_Password=paswrd
 
 // Declarative 
 $ kubectl create -d secret.yaml
@@ -196,7 +195,7 @@ $ kubectl get secrets
 $ kubectl describe secrets
 {% endhighlight %}
 
-<h3 id="secret">Secret</h3>
+<h3 id="sacc">Service Account</h3>
 <p style="text-align: justify;"><a href="">Service Account</a> is an account to allow the communication machine-to-machine. When it is created, a token is generated inside a secret object. <em>When you create a cluster, Kubernetes automatically creates a ServiceAccount object named default for every namespace in your cluster</em>.</p>
 
 {% highlight ruby %}
