@@ -39,7 +39,7 @@ permalink: /:categories/kubernetes
 </ul>
 
 <p><center>
-  <img src="/img/kubernetes/kube-arch.png" height="80%" width="80%">
+  <img src="/img/kubernetes/kube-arch.png" height="100%" width="100%">
 </center></p>
 
 <br />
@@ -47,15 +47,16 @@ permalink: /:categories/kubernetes
 
 <h3 id="pod" >Pod</h3>
 <p style="text-align: justify;">
-<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod:</a> is a kubernate object that represents a deployable unit of a set of containers. The containers are encapsulated into the Pod that run an instance of the application. If you need to increase the application the POD is replication (scale up). If you need more increase, then you can duplicate the Node. To have an application in a Pod is assumed that the application is already developed and built into an images and it is available in some repository. Also assume that the Kubernetes cluster has set up and working. The Pod can have more than one container (only one instance), but the best practices is to have only one container by Pod. </p>
+<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a> is a kubernate object that represents a deployable unit of a set of containers. The containers are encapsulated into the Pod that run an instance of the application. If you need to increase the application with more Pods then you need increase the replication number (scale up). To have an application in a Pod is assumed that the application is already developed and built into an images and it is available in some repository. Also assume that the Kubernetes cluster has set up and working. The Pod can have more than one container (only one instance), but the best practices is to have only one container by Pod. </p>
 
 {% highlight ruby %}
-$ kubectl create -f pod-definition.yaml // create by a file : declarative
-// you cannot edit a pod. Then you can extract the pod definition and make changes. 
-// Delete the old POD and create a new one:
+$ kubectl create -f pod-definition.yaml // Declarative
+
+// you cannot edit a pod. Extract the pod definition and make changes. 
+// Delete the old POD and create a new one
 $ kubectl get pod webapp -o yaml > pod-definition.yaml // edit
 
-$ kubectl run nginx --image=nginx.      // create imperative command
+$ kubectl run nginx --image=nginx.      // Imperative
 $ kubectl run custom-nginx --image=nginx --port=8080
 $ kubectl run redis --image=redis:alpine --labels="tier=db"
 $ kubectl run hello-minikube
@@ -65,7 +66,7 @@ $ kubectl get pods
 {% endhighlight %}
 
 <p><center>
-  <img src="/img/kubernetes/kube-arch.png" height="50%" width="50%">
+  <img src="/img/kubernetes/pod.png" height="100%" width="100%">
 </center></p>
 
 <h3 id="rs">ReplicaSet</h3>
