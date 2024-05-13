@@ -216,14 +216,14 @@ kubectl describe secret my-sa-token-kbbdm
 
 <ul>
   <li>Authentication (Who can access): static pwd and token file (deprecated 1.19), certification, LDAP, service account</li>
-  <li>Authorization (what they can do): Node, RBAC, ABAC ot Node authorization, Webhook mode</li>
+  <li>Authorization (what they can do): Node, RBAC, ABAC, Node authorization, Webhook mode</li>
 </ul>
 
 <p><center>
   <img src="/img/kubernetes/security.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;">The service account is managed by K8s. nut the other users are managed by a third system like LDAP or Okta. The K8s uses the details or certificate to validate them. </p>
+<p style="text-align: justify;">The service account is managed by K8s but the other users are managed by a third system like LDAP or Okta. The K8s uses the details or certificate to validate them. </p>
 
 <p><u><a href="https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/">1 KubeConfig file</a></u></p>
 
@@ -263,11 +263,11 @@ $ kubectl config use-context colima
 
 <p><u><a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">3 Authorization</a></u></p>
 
-<p style="text-align: justify;">It will happen after the authentication. Then, API server validates if the request is allowed or not base on requests attributes and policies, and eventually some external services. The authorization modes are:</p>
+<p style="text-align: justify;">It will happen after the authentication. Then, API server validates if the request is allowed or not based on requests attributes and policies, and eventually some external services. The authorization modes are:</p>
 
 <ul>
-  <li>Node Authorized: Kublet access kube API to read services, endpoints, Nodes,Pods and Write Node status, Pod status and events</li>
-  <li>ABAC: external access for the API: create API with policies; any changes in those files is necessary to restart the kube-apiserver</li>
+  <li>Node Authorized: Kublet access kube API to read services, endpoints, Nodes,Pods; and Write Node status, Pod status and events</li>
+  <li>ABAC: external access for the API; create API with policies; any changes in those files is necessary to restart the kube-apiserver</li>
   <li>RBAC: Define Roles instead of associate a user or group to a set of permissions.</li>
   <li>Webhook: external policies</li>
   <li>AlwasyAllow is the default.</li>
@@ -287,14 +287,14 @@ $ cat /etc/kubernetes/manifests/kube-apiserver.yaml // ps -aux | grep authorizat
 // roles in all namespaces
 $ kubectl get roles -A --no-headers | wc -l
 
-//  Identify an account is a specific role in a namespace
+//  Identify an account in a specific role in a namespace
 $ kubectl get roles
 $ kubectl describe rolebindings MY_ROLEBINDING -n MY_NS
 
 // A specific user has access to GET pods
 $ kubectl get pods --as dev-user
 
-// Permission to a user user1 to create, list and delete pods in the default namespace.
+// Permission to the user1 to create, list and delete pods in the default namespace.
 $ kubectl create role dev --verb=list,create,delete --resource=pods
 $ kubectl describe role dev
 $ kubectl create rolebinding user-binding --role=dev --user=user1
@@ -307,8 +307,8 @@ $ kubectl describe rolebinding user-binding
 <p style="text-align: justify;">It is used to give permissions in cluster scopes like view, create or delete Nodes. (e.g cluster admin). </p>
 
 {% highlight ruby %}
-$ kubectl create clusterrole pod-reader --verb=get,list,watch --resource=pods
-$ kubectl get clusterroles --no-headers  | wc -l  // quantity
+$ kubectl create clusterrole pod-role --verb=get,list,watch --resource=pods
+$ kubectl get clusterroles
 {% endhighlight %}
 
 <p><u><a href="https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_clusterrolebinding/">4 Clusterrolebinding</a></u></p>
@@ -316,8 +316,8 @@ $ kubectl get clusterroles --no-headers  | wc -l  // quantity
 <p>It links the user to the clusterrole.</p>
 
 {% highlight ruby %}
-$ kubectl create clusterrolebinding cluster-admin --clusterrole=cluster-admin --user=user1 --group=group1
-$ kubectl get clusterrolebindings --no-headers  | wc -l
+$ kubectl create clusterrolebinding cluster-admin --clusterrole=cluster-admin
+$ kubectl get clusterrolebindings
 $ kubectl describe clusterrolebindings cluster-admin
 $ kubectl describe clusterrole cluster-admin
 
@@ -339,11 +339,13 @@ $ kubectl --as user1 get storageclass
 
 <p><u><a href="https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/">5 Admission Controllers</a></u></p>
 
-<p style="text-align: justify;">It intercept the request after the authorization and authentication but before persist the objects. It can modify the object (Mutating). Admission controllers limit requests to create, delete, modify objects; also it can also block custom verbs. However, it cannot block requests to read (get, watch or list) objects.</p>
+<p style="text-align: justify;">It intercept the request after the authorization and authentication but before persist the objects. It can modify the object (Mutating). Admission controllers limit requests to create, delete, modify objects; it can also block custom verbs, however, it cannot block requests to read (get, watch or list) objects.</p>
 
+{% highlight ruby %}
 // View enable admission controllers
 $ kube-apiserver -h | grep enable-admission-plugins
 $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
+{% endhighlight %}
 
 <br />
 <h2 id="hon">Hands On</h2>
