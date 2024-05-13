@@ -7,7 +7,7 @@ permalink: /:categories/kubernetes
 ---
 
 
-<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a>  <a href="#hon">Hands-On</a> </p>
+<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a> > <a href="#security">Security</a> > <a href="#hon">Hands-On</a> </p>
 
 <br />
 <h2>Introduction</h2>
@@ -164,7 +164,7 @@ $ kubectl get svc
 </center></p>
 
 <h3 id="ns">Namespace</h3>
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace:</a> mechanism for isolating groups of resources within a single cluster.</p>
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespace:</a> mechanism for isolating groups of resources (pods, rs, jobs, deployments, svc, secrets, roles, rolebinding, configmaps, PVC) within a single cluster. However, some resources (e.g Node, PV clusterroles, namespaces, clusterbindings) are cluster scope and cannot be grouped.</p>
 
 {% highlight ruby %}
 $ kubectl get namespaces
@@ -174,6 +174,10 @@ $ kubetcl get pods --namespace=dev
 $ kubetcl get pods --all-namespaces kubetcl get pods -A
 $ kubectl delete deploy redis-deploy -n dev-ns
 {% endhighlight %}
+
+<p><center>
+  <img src="/img/kubernetes/namespace.png" height="70%" width="70%">
+</center></p>
 
 <h3 id="secret">Secret</h3>
 
@@ -205,10 +209,144 @@ kubectl describe serviceaccount my-sa
 kubectl describe secret my-sa-token-kbbdm
 {% endhighlight %}
 
+<h3 id="security">Security</h3>
+
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/security/">Security</a> is an important topic in K8s. The kube-apiserver is the first point of defense because it is the point of communication in the cluster. By default, all ports can access all other ports, allowing the communication between Pods inside the custer. It can be restricted by Network Policies.</p>
+</p>
+
+<ul>
+  <li>Authentication (Who can access): static pwd and token file (deprecated 1.19), certification, LDAP, service account</li>
+  <li>Authorization (what they can do): Node, RBAC, ABAC ot Node authorization, Webhook mode</li>
+</ul>
+
+<p><center>
+  <img src="/img/kubernetes/security.png" height="100%" width="100%">
+</center></p>
+
+<p style="text-align: justify;">The service account is managed by K8s. nut the other users are managed by a third system like LDAP or Okta. The K8s uses the details or certificate to validate them. </p>
+
+<p><u><a href="https://kubernetes.io/docs/reference/config-api/kubeconfig.v1/">1 KubeConfig file</a></u></p>
+
+<p style="text-align: justify;">This file has the credentials and there are three section: cluster (it has the server specification), users (it has keys and certification) and context (which user has access to which cluster). Pay attention that is using users that already exist. </p>
+
+{% highlight ruby %}
+// FILE - $HOME/.kube/config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: XXXXXXXXX
+    server: https://127.0.0.1:6443
+  name: colima
+contexts:
+- context:
+    cluster: colima
+    user: colima
+  name: colima
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: colima
+  user:
+    client-certificate-data: YYYYYYYYY
+    client-key-data: LLLLLLLLL
+
+// COMMANDS
+$ kubectl get pods --kubeconfig config
+$ kubectl config view // it will omit the secrets
+$ kubectl config use-context colima
+{% endhighlight %}
+
+<p><u><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#api-groups">2 API Group</a></u></p>
+
+<p style="text-align: justify;">The K8s API has different groups to manipulate the resources. For instace in '/api' endpoint there is the core group where you will find the core funcionalities (pods, namespace, rs, pv, etc). The '/apis'  you will find the named group where you will find extension, apps, networking.k8s.io, storage.k8s.io, etc.</p>
+
+<p><u><a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/">3 Authorization</a></u></p>
+
+<p style="text-align: justify;">It will happen after the authentication. Then, API server validates if the request is allowed or not base on requests attributes and policies, and eventually some external services. The authorization modes are:</p>
+
+<ul>
+  <li>Node Authorized: Kublet access kube API to read services, endpoints, Nodes,Pods and Write Node status, Pod status and events</li>
+  <li>ABAC: external access for the API: create API with policies; any changes in those files is necessary to restart the kube-apiserver</li>
+  <li>RBAC: Define Roles instead of associate a user or group to a set of permissions.</li>
+  <li>Webhook: external policies</li>
+  <li>AlwasyAllow is the default.</li>
+  <li>AlwasyDeny blocks all requests.</li>
+</ul>
+
+{% highlight ruby %}
+// Check acess:
+$ kubectl auth can-i create deployments
+$ kubectl auth can-i delete nodes
+$ kubectl auth can-i create deployments --as dev-user
+$ kubectl auth can-i create deployments --as dev-user --namespace test
+
+// Identify auth mode configured in the cluster
+$ cat /etc/kubernetes/manifests/kube-apiserver.yaml // ps -aux | grep authorization
+
+// roles in all namespaces
+$ kubectl get roles -A --no-headers | wc -l
+
+//  Identify an account is a specific role in a namespace
+$ kubectl get roles
+$ kubectl describe rolebindings MY_ROLEBINDING -n MY_NS
+
+// A specific user has access to GET pods
+$ kubectl get pods --as dev-user
+
+// Permission to a user user1 to create, list and delete pods in the default namespace.
+$ kubectl create role dev --verb=list,create,delete --resource=pods
+$ kubectl describe role dev
+$ kubectl create rolebinding user-binding --role=dev --user=user1
+$ kubectl describe rolebinding user-binding
+{% endhighlight %}
+
+
+<p style="text-align: justify;"><u><a href="https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_clusterrole/">3 Cluster Role</a></u></p>
+
+<p style="text-align: justify;">It is used to give permissions in cluster scopes like view, create or delete Nodes. (e.g cluster admin). </p>
+
+{% highlight ruby %}
+$ kubectl create clusterrole pod-reader --verb=get,list,watch --resource=pods
+$ kubectl get clusterroles --no-headers  | wc -l  // quantity
+{% endhighlight %}
+
+<p><u><a href="https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_clusterrolebinding/">4 Clusterrolebinding</a></u></p>
+ 
+<p>It links the user to the clusterrole.</p>
+
+{% highlight ruby %}
+$ kubectl create clusterrolebinding cluster-admin --clusterrole=cluster-admin --user=user1 --group=group1
+$ kubectl get clusterrolebindings --no-headers  | wc -l
+$ kubectl describe clusterrolebindings cluster-admin
+$ kubectl describe clusterrole cluster-admin
+
+// Add permission to a Node for a new user
+$ kubectl get nodes --as user1
+$ kubectl create clusterrole user1-role --verb=get,list,watch --resource=nodes
+$ kubectl create clusterrolebinding user1-rolebinding --clusterrole=user1-role --user=user1
+$ kubectl describe clusterrole user1-role
+$ kubectl describe clusterrolebindinguser1-rolebinding
+
+// Adding permission to storage
+$ kubectl api-resources // get the names os the storage would you like
+$ kubectl create clusterrole storage-role --resource=persistentvolumes,storageclasses --verb=list,get,watch,create 
+$ kubectl get clusterrole storage-role // you can use '-o yaml' to see in the specific format
+$ kubectl create clusterrolebinding user1-storage-rolebinding --user=user1 --clusterrole=storage-role
+$ kubectl --as user1 get storageclass
+{% endhighlight %}
+
+
+<p><u><a href="https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/">5 Admission Controllers</a></u></p>
+
+<p style="text-align: justify;">It intercept the request after the authorization and authentication but before persist the objects. It can modify the object (Mutating). Admission controllers limit requests to create, delete, modify objects; also it can also block custom verbs. However, it cannot block requests to read (get, watch or list) objects.</p>
+
+// View enable admission controllers
+$ kube-apiserver -h | grep enable-admission-plugins
+$ vi /etc/kubernetes/manisfest/kube-api-server.yaml
 
 <br />
 <h2 id="hon">Hands On</h2>
-
 {% highlight ruby %}
 $ brew install docker
 $ brew install kubectl
