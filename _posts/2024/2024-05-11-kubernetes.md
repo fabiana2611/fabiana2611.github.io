@@ -98,10 +98,15 @@ $ kubectl scale rs new-replica-set --replicas=6
 
 {% highlight ruby %}
 // CREATE
-$ kubectl create -f deployment-definition.yaml                // Declarative
-$ kubectl scale deployment nginx --replicas=4
-$ kubectl create deployment nginx --image=nginx               // Imperative
+// Declarative
+$ kubectl create -f deployment-definition.yaml                
+$ k create deploy mydeploy --image-nginx --dry-run=client -oyaml > deploy-def.yaml
+
+// Imperative
+$ kubectl create deployment nginx --image=nginx               
 $ kubectl create deployment nginx --image=nginx --replicas=4
+
+$ kubectl scale deployment nginx --replicas=4
 $ kubetcl get deployments
 $ kubectl get all
 
