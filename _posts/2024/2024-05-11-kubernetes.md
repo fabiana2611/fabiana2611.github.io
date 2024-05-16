@@ -474,7 +474,7 @@ $ minukube start     // Create a minikube cluster
 $ minikube dashboard // Open the browser
 
 // One step more to expose the service because of menikube
-// User this URL to access the application
+// Use this URL to access the application
 $ minikube service demo-deploy 
 {% endhighlight %}
 
