@@ -232,25 +232,7 @@ kubectl describe secret my-sa-token-kbbdm
 
 {% highlight ruby %}
 // FILE - $HOME/.kube/config
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: XXXXXXXXX
-    server: https://127.0.0.1:6443
-  name: colima
-contexts:
-- context:
-    cluster: colima
-    user: colima
-  name: colima
-current-context: ""
-kind: Config
-preferences: {}
-users:
-- name: colima
-  user:
-    client-certificate-data: YYYYYYYYY
-    client-key-data: LLLLLLLLL
+$ kubectl config view 
 
 // COMMANDS
 $ kubectl get pods --kubeconfig config
@@ -353,17 +335,13 @@ $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
 
 <h3>Step 0 - Prepare local environment</h3>
 
-<p style="text-align: justify;">The first steps are to install the tools necessary to make it works. It means install docker, kubectl and colima. After that you can start colima with kubernetes. Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools. PS: You don't need the minikube to do your tests.</p>
+<p style="text-align: justify;">The first steps are to install the tools necessary to make it works. It means install docker, kubectl and colima. After that you can start colima with kubernetes.</p>
 
 {% highlight ruby %}
 $ brew install docker
 $ brew install kubectl
 $ brew install colima
 $ colima start --kubernetes
-
-// Optional
-$ minukube start     // Create a minikube cluster 
-$ minikube dashboard // Open the browser
 {% endhighlight %}
 
 <h3>Step 1 - prepare the image</h3>
@@ -413,9 +391,10 @@ $ docker push YOUR_PATH/demo-volume
 
 {% highlight ruby %}
 $ kubectl config view
-$ kubectl config set current-context colima
+$ kubectl config set current-context colima // after test, let the original file
 $ kubectl auth can-i create pods —as colima
 
+$ k create namespace dev
 $ kubectl create role dev-role --verb=list,get,watch,create,delete --resource=service,persistentvolumeclaims,pod -n dev 
 $ kubectl create rolebinding dev-rb --role=dev-role --user=colima  -n dev
 
@@ -486,6 +465,26 @@ $ k rollout undo deployment/demo-deploy --to-revision=1
 {% endhighlight %}
 
 
+<h3>Step 4 - Minikube</h3>
+
+<p style="text-align: justify;">Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools.</p>
+
+{% highlight ruby %}
+$ minukube start     // Create a minikube cluster 
+$ minikube dashboard // Open the browser
+{% endhighlight %}
+
+<p style="text-align: justify;">You can repeat all the steps to create the objects in cluster without the namespace and see the results in minikube.</p>
+
+
+<br />
+<h2 id="hon">AWS EKS</h2>
+
+<center>
+  <iframe width="360" height="315" src="https://www.youtube.com/embed/E956xeOt050?si=cRAvoS-MMToNPE-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+
 <br />
 <h2>References</h2>
 <ul>
@@ -493,4 +492,6 @@ $ k rollout undo deployment/demo-deploy --to-revision=1
   <li><a href="https://www.udemy.com/course/certified-kubernetes-application-developer/?couponCode=LETSLEARNNOWPP">Kubernetes Certified Application Developer (CKAD) with Tests</a></li>
   <li><a href="https://kubernetes.io/docs/reference/kubectl/">Command line tool (kubectl)</a></li>
   <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-commands">Command Reference</a></li>
+  <li><a href="https://gist.github.com/rahulkumar-aws/65e6fbe16cc71012cef997957a1530a3">Remove minikube</a></li>
+  
 </ul>  
