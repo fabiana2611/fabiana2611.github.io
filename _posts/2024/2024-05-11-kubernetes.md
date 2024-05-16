@@ -353,7 +353,7 @@ $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
 
 <h3>Step 0 - Prepare local environment</h3>
 
-<p style="text-align: justify;">The first steps are to install the tools becessary to make it works. It means install docker, kubectl and colima. After that you can start colima with kubernetes. Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools. PS: You don't need the minikube to do your tests.</p>
+<p style="text-align: justify;">The first steps are to install the tools necessary to make it works. It means install docker, kubectl and colima. After that you can start colima with kubernetes. Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools. PS: You don't need the minikube to do your tests.</p>
 
 {% highlight ruby %}
 $ brew install docker
@@ -368,7 +368,7 @@ $ minikube dashboard // Open the browser
 
 <h3>Step 1 - prepare the image</h3>
 
-<p style="text-align: justify;">Considering you will create your image, we have to create the image from a project and sent it to the Docker Hub. More details about Docker and commands you can see <a href="https://fabiana2611.github.io/infra/docker">here</a>. For the example we are using this <a href="https://github.com/fabiana2611/demo-kubernetes">github code</a>.</p>
+<p style="text-align: justify;">Considering you will create your image, we have to create the image from a project and send it to the Docker Hub. More details about Docker and commands you can see <a href="https://fabiana2611.github.io/infra/docker">here</a>. For our example we are using this <a href="https://github.com/fabiana2611/demo-kubernetes">github code</a>.</p>
 
 {% highlight ruby %}
 // create the image
@@ -389,10 +389,11 @@ GET http://localhost:3000/users
 POST http://localhost:3000/users -> {"name": "test"}
 {% endhighlight %}
 
-<p style="text-align: justify;">After you've checked everything is ok, sent yout image to your Docker Hub.</p>
+<p style="text-align: justify;">After you've checked everything is ok, you can send your image to your Docker Hub. For our local tests purpose, also is possible to used the local image.</p>
 
 {% highlight ruby %}  
-$ docker tag demo-k8s-vol YOUR_PATH/demo-volume  // It has to be the same created in you hub
+// This remote image has to be the same created in your hub
+$ docker tag demo-k8s-vol YOUR_PATH/demo-volume  
 $ docker login
 $ docker push YOUR_PATH/demo-volume
 {% endhighlight %}
@@ -402,13 +403,13 @@ $ docker push YOUR_PATH/demo-volume
 <p style="text-align: justify;">For this scenario let's create the objects in kubernetes locally and allow to do the same tests we did before. Beside the access, let's create roles to a user 'developer' can create all the objects.</p>
 
 <p><center>
-  <img src="/img/kubernetes/scenario1.png" height="100%" width="100%">
+  <img src="/img/kubernetes/scenario1.png" height="60%" width="60%">
 </center></p>
 
 
 <h3>Step 3 - Action</h3>
 
-<p>Considering the idea to practices the user restriction, let's start for this. Check your '~/.kube/config' file. Then, we will create a role and link it with the colima user.</p>
+<p style="text-align: justify;">Considering the idea to practices the user restriction, let's start for this. Check your '~/.kube/config' file. Then, we will create a role and link it with the colima user.</p>
 
 {% highlight ruby %}
 $ kubectl config view
@@ -426,7 +427,7 @@ $ k delete role dev-role -n dev
 $ k create -f role-definition.yaml
 {% endhighlight %}
 
-<p>Now, let's create the volume that will be used by the Pod. For that, we will create an environment variable to be used to identify the folder name used to store the data. Then, we will create a deployment with the pod duing the reference to the environment and our images created previouslly. If you want to use your local image you have to add the attribute 'imagePullPolicy=Never'. The last step will be create the service to expose the application. All these files are in the Github project. </p>
+<p style="text-align: justify;">Now, let's create the volume that will be used by the Pod. For that, we will create an environment variable to be used to identify the folder name for store data. Then, we will create a deployment with the pod with the reference to the environment and our image. If you want to use your local image you have to add the attribute 'imagePullPolicy=Never'. The last step is to create the service to expose the application. All these files are in the <a href="https://github.com/fabiana2611/demo-kubernetes/tree/main/kubernetes">Github project</a>. </p>
 
 {% highlight ruby %}
 $ k create -f pv-definition.yaml -n dev
@@ -438,7 +439,7 @@ $ k create -f deployment.yaml -n dev
 $ k get deployments -n dev
 $ k get svc -n dev
 
-$ k expose deployment demo-deploy --type=LoadBalancer --port=8080 --target-port=3000 --name demo-service -n dev
+$ k expose deployment demo-deploy --type=LoadBalancer --port=8080 --target-port=8080 --name demo-service -n dev
 {% endhighlight %}
 
 <p style="text-align: justify;">Now you have everything to test again.</p>
@@ -451,7 +452,7 @@ GET http://localhost:8080/users
 
 <h3>Step 3 - Rollout</h3>
 
-<p style="text-align: justify;">Now, let's change anything in the project and create the image again. Pay attention that the images has to have a new tag to be recognized as a different image.</p>
+<p style="text-align: justify;">Now, let's change something in the project and create the image again. Pay attention that the image has to have a new tag to be recognized as a different image.</p>
 
 {% highlight ruby %}  
 $ docker build -t YOUR_PATH/demo-volume:v2 .
