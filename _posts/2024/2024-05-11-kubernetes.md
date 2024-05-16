@@ -472,6 +472,10 @@ $ k rollout undo deployment/demo-deploy --to-revision=1
 {% highlight ruby %}
 $ minukube start     // Create a minikube cluster 
 $ minikube dashboard // Open the browser
+
+// One step more to expose the service because of menikube
+// User this URL to access the application
+$ minikube service demo-deploy 
 {% endhighlight %}
 
 <p style="text-align: justify;">You can repeat all the steps to create the objects in a cluster without the namespace and see the results in minikube.</p>
