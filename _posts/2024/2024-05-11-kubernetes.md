@@ -431,7 +431,7 @@ GET http://localhost:8080/users
 
 <h3>Step 3 - Rollout</h3>
 
-<p style="text-align: justify;">Now, let's change something in the project and create the image again. Pay attention that the image has to have a new tag to be recognized as a different image.</p>
+<p style="text-align: justify;">Now, let's change something in the project and create the image again. Pay attention to the fact that the image has to have a new tag to be recognized as a different image.</p>
 
 {% highlight ruby %}  
 $ docker build -t YOUR_PATH/demo-volume:v2 .
@@ -445,7 +445,7 @@ $ k rollout status deployments/demo-deploy -n dev
 $ k get pods
 {% endhighlight %}
 
-<p style="text-align: justify;">A last step for practices purpose, let's use an image that not exists.</p>
+<p style="text-align: justify;">As a last step for practice purposes, let's use an image that does not exist.</p>
 
 {% highlight ruby %}  
 $ k set image deployment/demo-deploy demo-k8s=test -n dev
@@ -467,14 +467,14 @@ $ k rollout undo deployment/demo-deploy --to-revision=1
 
 <h3>Step 4 - Minikube</h3>
 
-<p style="text-align: justify;">Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools.</p>
+<p style="text-align: justify;">Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because it will help you become familiar with those kinds of tools.</p>
 
 {% highlight ruby %}
 $ minukube start     // Create a minikube cluster 
 $ minikube dashboard // Open the browser
 {% endhighlight %}
 
-<p style="text-align: justify;">You can repeat all the steps to create the objects in cluster without the namespace and see the results in minikube.</p>
+<p style="text-align: justify;">You can repeat all the steps to create the objects in a cluster without the namespace and see the results in minikube.</p>
 
 
 <br />
