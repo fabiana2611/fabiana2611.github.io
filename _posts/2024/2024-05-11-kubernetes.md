@@ -50,13 +50,15 @@ permalink: /:categories/kubernetes
 <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a> is a kubernate object that represents a deployable unit of a set of containers. The containers are encapsulated into the Pod that run an instance of the application. If you need to increase the application with more Pods then you need increase the replication number (scale up). To have an application in a Pod is assumed that the application is already developed and built into an images and it is available in some repository. Also assume that the Kubernetes cluster has set up and working. The Pod can have more than one container (only one instance), but the best practices is to have only one container by Pod. </p>
 
 {% highlight ruby %}
+// Declarative
 $ kubectl create -f pod-definition.yaml // Declarative
-
-// you cannot edit a pod. Extract the pod definition and make changes. 
-// Delete the old POD and create a new one
+// Extract the pod definition
 $ kubectl get pod webapp -o yaml > pod-definition.yaml // edit
+// Create a file from imperative before create
+$ k run mypod --image=nginx:alpine --dry-run=client -o yaml > mypod-definition.yaml
 
-$ kubectl run nginx --image=nginx.      // Imperative
+// Imperative
+$ kubectl run nginx --image=nginx.      
 $ kubectl run custom-nginx --image=nginx --port=8080
 $ kubectl run redis --image=redis:alpine --labels="tier=db"
 $ kubectl run hello-minikube
