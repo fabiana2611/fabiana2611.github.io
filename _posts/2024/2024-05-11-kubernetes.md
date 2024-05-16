@@ -144,6 +144,7 @@ $ kubectl rollout history deployment/myapp-deployment
 </ul>
 
 {% highlight ruby %}
+k create service nodeport jekyll-node-service --tcp=8080:4000 --node-port=30097 -n development
 $ kubectl expose pod redis --port=6379 --name redis-service       // example 1
 $ kubectl run httpd --image=httpd:alpine --port=80 --expose=true  // example 2
 $ kubectl get svc
@@ -349,56 +350,138 @@ $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
 
 <br />
 <h2 id="hon">Hands On</h2>
+
+<h3>Step 0 - Prepare local environment</h3>
+
+<p style="text-align: justify;">The first steps are to install the tools becessary to make it works. It means install docker, kubectl and colima. After that you can start colima with kubernetes. Optionally, you can intall <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a> to try an interface to manage the K8s objects. It is a good option because will help to familiarize with those kind of tools. PS: You don't need the minikube to do your tests.</p>
+
 {% highlight ruby %}
 $ brew install docker
 $ brew install kubectl
 $ brew install colima
 $ colima start --kubernetes
 
-// Create an image by docker 
-$ docker build -t kube-first-app . 
+// Optional
+$ minukube start     // Create a minikube cluster 
+$ minikube dashboard // Open the browser
+{% endhighlight %}
 
-// Imperative Commands
+<h3>Step 1 - prepare the image</h3>
 
-// Create a deployment with the local image
-$ k create deployment first-app --image=kube-first-app // Create the pod with ErrImagePull
-$ k get deployments
-$ k get rs
-$ k edit deployment first-app // imagePullPolicy=Never to use the local image (it is vim editor)
-$ k get pods // The old one is suppose to be removed and a new one Running
-$ k expose deployment first-app --type=LoadBalancer --port=8080 // create the service accessed out of cluster
-$ k get svc
+<p style="text-align: justify;">Considering you will create your image, we have to create the image from a project and sent it to the Docker Hub. More details about Docker and commands you can see <a href="https://fabiana2611.github.io/infra/docker">here</a>. For the example we are using this <a href="XXXXX">github code</a>.</p>
 
-// go to your browser and put http://localhost:8080
-// go to your browser and put http://localhost:8080/error -> the deployment monitor to restart the pod
+{% highlight ruby %}
+// create the image
+$ docker build -t demo-k8s-vol .   
+// run the container with a named volume
+$ docker run -p 3000:8080 -d --name demo-vol --rm -v storage:/app/storage demo-k8s-vol
+// List the resources created
+$ docker images    
+$ docker volume ls 
+$ docker ps 
+{% endhighlight %}
 
-// change replicas 
-$ k edit deployment first-app // k scale remote/first-app --replicas=3 (in case using remote image)
-$ k get pods
+<p style="text-align: justify;">Now you have everything to test. So, do the tests using a browser and a tool for requests (Postman, Insomnia, IntelliJ).</p>
 
-// go to your browser and put http://localhost:8080/error -> one will running (traffic scalling to who is running)
+{% highlight ruby %}  
+http://localhost:3000/
+GET http://localhost:3000/users
+POST http://localhost:3000/users -> {"name": "test"}
+{% endhighlight %}
+
+<p style="text-align: justify;">After you've checked everything is ok, sent yout image to your Docker Hub.</p>
+
+{% highlight ruby %}  
+$ docker tag demo-k8s-vol YOUR_PATH/demo-volume  // It has to be the same created in you hub
+$ docker login
+$ docker push YOUR_PATH/demo-volume
+{% endhighlight %}
+
+<h3>Step 2 - Check the goals and plane your actions</h3>
+
+<p style="text-align: justify;">For this scenario let's create the objects in kubernetes locally and allow to do the same tests we did before. Beside the access, let's create roles to a user 'developer' can create all the objects.</p>
+
+<p><center>
+  <img src="/img/kubernetes/scenario1.png" height="100%" width="100%">
+</center></p>
 
 
-// change the code of the project
-// Rebuild the image. It has to have a different tags or the deployment will not recognize difference
-$ docker build -t kube-first-app:2 . 
+<h3>Step 3 - Action</h3>
+
+<p>Considering the idea to practices the user restriction, let's start for this. Check your '~/.kube/config' file. Then, we will create a role and link it with the colima user.</p>
+
+{% highlight ruby %}
+$ kubectl config view
+$ kubectl config set current-context colima
+$ kubectl auth can-i create pods —as colima
+
+$ kubectl create role dev-role --verb=list,get,watch,create,delete --resource=service,persistentvolumeclaims,pod -n dev 
+$ kubectl create rolebinding dev-rb --role=dev-role --user=colima  -n dev
+
+// Optional steps
+// If you need edit any objects created, you can create a file, edit and create again
+$ k get role dev-role -n dev -o yaml > role-definition.yaml
+$ vi role-definition.yaml 
+$ k delete role dev-role -n dev
+$ k create -f role-definition.yaml
+{% endhighlight %}
+
+<p>Now, let's create the volume that will be used by the Pod. For that, we will create an environment variable to be used to identify the folder name used to store the data. Then, we will create a deployment with the pod duing the reference to the environment and our images created previouslly. If you want to use your local image you have to add the attribute 'imagePullPolicy=Never'. The last step will be create the service to expose the application. </p>
+
+{% highlight ruby %}
+$ k create -f pv-definition.yaml -n dev
+$ k create -f pvc-definition.yaml -n dev
+
+$ k create -f environment.yaml -n dev 
+$ k get configmaps -n dev
+$ k create -f deployment.yaml -n dev
+$ k get deployments -n dev
+$ k get svc -n dev
+
+k expose deployment demo-deploy --type=LoadBalancer --port=8080 --target-port=3000 --name demo-service -n dev
+{% highlight ruby %}
+
+<p style="text-align: justify;">Now you have everything to test again.</p>
+
+{% highlight ruby %}  
+http://localhost:8080/
+POST http://localhost:8080/users -> {"name": "test"}
+GET http://localhost:8080/users
+{% endhighlight %}
+
+<h3>Step 3 - Rollout</h3>
+
+<p style="text-align: justify;">Now, let's change anything in the project and create the image again. Pay attention that the images has to have a new tag to be recognized as a different image.</p>
+
+{% highlight ruby %}  
+$ docker build -t YOUR_PATH/demo-volume:v2 .
+$ docker push YOUR_PATH/demo-volume:v2    // do this if you are using a remote image
+
 // update the deployment
-$ k set image deployment/first-app kube-first-app=kube-first-app:2 // update the image to the deployment first-app that exist
-// check the deployment status
-$ k rollout status deployment/first-app
-$ k get pods
+$ k set image deployment/demo-deploy demo-k8s=fabianafreire/demo-volume:v2 -n dev
 
-// try use an image that does not exist
-$ k set image deployment/first-app kube-first-app=kube-first-app:3
-$ k rollout status deployment/first-app // blocked waiting for the immage (crt+c)
-$ k get pods // thire is an error but none of the other was finished
+// check the deployment status
+$ k rollout status deployments/demo-deploy -n dev
+$ k get pods
+{% endhighlight %}
+
+<p style="text-align: justify;">A last step for practices purpose, let's use an image that not exists.</p>
+
+{% highlight ruby %}  
+$ k set image deployment/demo-deploy demo-k8s=test -n dev
+$ k rollout status deployments/demo-deploy -n dev // blocked waiting for the immage (crt+c)
+$ k get pods -n dev // there is an error but none of the other was finished
+
 // rollback
-$ k rollout undo deployment/first-app
-$ k rollout status deployment/first-app
-$ k get pods // the pod with error doesnot exist
-$ k rollout history deployment/first-app
-$ k rollout history deployment/first-app --revision=3
-$ k rollout undo deployment/first-app --to-revision=1 // If you are using local image is necessary edit again imagePullPolicy attribute
+$ k rollout undo deployment/demo-deploy -n dev
+$ k rollout status deployment/demo-deploy -n dev
+$ k get pods -n dev // the pod with error doesnot exist
+
+$ k rollout history deployment/demo-deploy -n dev
+
+// you can go to any revision
+$ k rollout history deployment/demo-deploy -n dev --revision=3
+$ k rollout undo deployment/demo-deploy --to-revision=1 
 {% endhighlight %}
 
 
@@ -408,4 +491,5 @@ $ k rollout undo deployment/first-app --to-revision=1 // If you are using local 
   <li><a href="https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP">Docker & Kubernetes: The Practical Guide [2024 Edition]</a></li>
   <li><a href="https://www.udemy.com/course/certified-kubernetes-application-developer/?couponCode=LETSLEARNNOWPP">Kubernetes Certified Application Developer (CKAD) with Tests</a></li>
   <li><a href="https://kubernetes.io/docs/reference/kubectl/">Command line tool (kubectl)</a></li>
+  <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-commands">Command Reference</a></li>
 </ul>  
