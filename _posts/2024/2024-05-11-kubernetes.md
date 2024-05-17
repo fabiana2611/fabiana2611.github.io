@@ -257,7 +257,7 @@ $ kubectl config use-context colima
 
 <ul>
   <li>Node Authorized: Kublet access kube API to read services, endpoints, Nodes,Pods; and Write Node status, Pod status and events</li>
-  <li>ABAC: external access for the API; create API with policies; any changes in those files is necessary to restart the kube-apiserver</li>
+  <li>ABAC: external access for the API; create API with policies; any changes in those files is necessary to restart the <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/">kube-apiserver</a></li>
   <li>RBAC: Define Roles instead of associate a user or group to a set of permissions.</li>
   <li>Webhook: external policies</li>
   <li>AlwasyAllow is the default.</li>
