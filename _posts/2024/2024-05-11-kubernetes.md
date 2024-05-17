@@ -151,7 +151,7 @@ $ kubectl rollout history deployment/myapp-deployment
 </ul>
 
 {% highlight ruby %}
-k create service nodeport jekyll-node-service --tcp=8080:4000 --node-port=30097 -n development
+$ kubectl create service nodeport jekyll-node-service --tcp=8080:4000 --node-port=30097 -n development
 $ kubectl expose pod redis --port=6379 --name redis-service       // example 1
 $ kubectl run httpd --image=httpd:alpine --port=80 --expose=true  // example 2
 $ kubectl get svc
@@ -334,7 +334,13 @@ $ kubectl --as user1 get storageclass
 {% highlight ruby %}
 // View enable admission controllers
 $ kube-apiserver -h | grep enable-admission-plugins
+$ ps aux | grep kube-apiserver | grep privileged
 $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
+$ watch crictl ps // kube-apiserver restart after any change ok
+
+// in case of error check logs
+$ ls /var/log/pods/
+$ ls /var/log/containers
 {% endhighlight %}
 
 <br />
