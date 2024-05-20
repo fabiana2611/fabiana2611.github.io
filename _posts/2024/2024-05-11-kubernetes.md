@@ -394,7 +394,7 @@ spec:
 
 <h3 id="cronjob">CronJob</h3>
 
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">ConJob</a> is a resource in K8s that create jobs schedule repeateble actions.</p>
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">ConJob</a> is a resource in K8s that schedule jobs to execute repeateble actions.</p>
 
 <br />
 <h2 id="hon">Hands On</h2>
