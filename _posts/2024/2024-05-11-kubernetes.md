@@ -7,7 +7,7 @@ permalink: /:categories/kubernetes
 ---
 
 
-<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#ingress">Ingress</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a> > <a href="#att">Affinity, Taints and Tolerations</a> > <a href="#security">Security</a> > <a href="#hon">Hands-On</a> </p>
+<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#ingress">Ingress</a> >  <a href="#netpolicy">Network Policy</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a> > <a href="#att">Affinity, Taints and Tolerations</a> > <a href="#security">Security</a> > <a href="#hon">Hands-On</a> </p>
 
 
 
