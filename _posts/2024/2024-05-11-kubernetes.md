@@ -173,9 +173,12 @@ $ kubectl get svc
 
 <h3 id="ingress">Ingress</h3>
 
-
 <p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> <em>is an API object that manages external access to the services in a cluster. Traffic routing is controlled by rules defined on the Ingress resource.</em> The <a href="https://medium.com/@onai.rotich/services-and-ingress-7afc517f2ec6">difference between service and ingress</a>is that service create a single point of access to a group of pods, and ingress expose multiple services using one IP through rules that define the graphic.</p>
 
+
+<h3 id="netpolicy">Network Policy</h3>
+
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">Network Policy</a> can be used to control the traffic.</p>
 
 <h3 id="volume">Storage</h3>
 
