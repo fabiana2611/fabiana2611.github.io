@@ -7,7 +7,9 @@ permalink: /:categories/kubernetes
 ---
 
 
-<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a> > <a href="#security">Security</a> > <a href="#hon">Hands-On</a> </p>
+<p><a href="#wit">What is it?</a> > <a href="#arch">Architecture</a> > <a href="#pod">Pod</a> > <a href="#rs">ReplicaSet</a> > <a href="#sa">Special Attributes</a> > <a href="#deploy">Deployment</a> > <a href="#ds">Deployment Strategy</a> > <a href="#svc">Service</a> > <a href="#ingress">Ingress</a> > <a href="#net">Network</a> > <a href="#volume">Volume</a> > <a href="#ns">Namespace</a> > <a href="#secret">Secrets</a> > <a href="#sacc">Service Account</a> > <a href="#att">Affinity, Taints and Tolerations</a> > <a href="#security">Security</a> > <a href="#hon">Hands-On</a> </p>
+
+
 
 <br />
 <h2>Introduction</h2>
@@ -65,6 +67,9 @@ $ kubectl run hello-minikube
 $ kubectl cluster-info
 $ kubectl get nodes
 $ kubectl get pods
+
+// Copy the logs
+$ k logs mypod > /opt/mypod.logs
 {% endhighlight %}
 
 <p><center>
@@ -90,7 +95,11 @@ $ kubectl scale rs new-replica-set --replicas=6
 <ul>
   <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Labels and selectors:</a> the objects in kubernates have labels to be used to monitor that objects. For selector, the 'matchLabels' are used to filter the objects. The idea of selectors is to have flexibility when it comes to expressing which other resource be connected to or controlled by other resource.</li>
   <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/">Environment Variables:</a> It's possible to use env attributes to add the variables to be used. It can be a direct key-value pair or doing a reference to a external file.</li>
-  <li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap:</a> it is a key-value pair configuration used as more organized way to create the configuration using separated files</li>
+  <li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap:</a> it is a key-value pair configuration used as more organized way to create the configuration using separated files.<br />
+    {% highlight ruby %}
+    $ k create cm myconfigmap --from-literal=DB_NAME=SQLDB --from-literal=DB_HOST=localhost
+    {% endhighlight %}
+  </li>
 </ul>
 
 <h3 id="deploy">Deployment</h3>
@@ -161,6 +170,13 @@ $ kubectl get svc
   <img src="/img/kubernetes/service.png" height="100%" width="100%">
 </center></p>
 
+
+<h3 id="ingress">Ingress</h3>
+
+
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> <em>is an API object that manages external access to the services in a cluster. Traffic routing is controlled by rules defined on the Ingress resource.</em> The <a href="https://medium.com/@onai.rotich/services-and-ingress-7afc517f2ec6">difference between service and ingress</a>is that service create a single point of access to a group of pods, and ingress expose multiple services using one IP through rules that define the graphic.</p>
+
+
 <h3 id="volume">Storage</h3>
 
 <p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/storage/volumes/">volume</a> is a directory which is accessible to the containers in a pod. The volume persists even if container restart. However, the volumes are removed when the Pods are destroyed. Considering One-Node environment, the hostPath property helps to keep the data visible for that Node.</p>
@@ -216,6 +232,16 @@ kubectl get serviceaccount
 kubectl describe serviceaccount my-sa
 kubectl describe secret my-sa-token-kbbdm
 {% endhighlight %}
+
+
+<h3 id="att">Affinity, Taints and Tolerations</h3>
+
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity">Node affinity</a> is applied to Node and allow to constrain which nodes a Pod can be scheduled on based on node labels.</p>
+
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Taints</a> are applied to node and allow a node to repel a set of pods.</p>
+
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Tolerations</a> are applied to pods. Tolerations allow the scheduler to schedule pods with matching taints.</p>
+
 
 <h3 id="security">Security</h3>
 
@@ -333,7 +359,7 @@ $ kubectl --as user1 get storageclass
 
 {% highlight ruby %}
 // View enable admission controllers
-$ kube-apiserver -h | grep enable-admission-plugins
+$ k exec kube-apiserver-controplane -n kube-system --kube-apiserver -h | grep enable-admission-plugins
 $ ps aux | grep kube-apiserver | grep privileged
 $ vi /etc/kubernetes/manisfest/kube-api-server.yaml
 $ watch crictl ps // kube-apiserver restart after any change ok
@@ -341,6 +367,26 @@ $ watch crictl ps // kube-apiserver restart after any change ok
 // in case of error check logs
 $ ls /var/log/pods/
 $ ls /var/log/containers
+{% endhighlight %}
+
+<p><u><a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">6 Security Context</a></u></p>
+
+<p style="text-align: justify;">A security context defines privilege and access control settings for a Pod or Container.</p>
+
+{% highlight ruby %}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+  - ...
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        add: ["SYS_TIME"]
 {% endhighlight %}
 
 <br />
