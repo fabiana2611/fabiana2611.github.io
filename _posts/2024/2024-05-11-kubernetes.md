@@ -546,13 +546,92 @@ $ minikube service demo-deploy
 
 <p style="text-align: justify;">You can repeat all the steps to create the objects in a cluster without the namespace and see the results in minikube.</p>
 
+<p style="text-align: justify;">Also, you can try with this application: <a href="https://github.com/neilpricetw/kubernetes-security-nodejs-mysql">kubernetes-security-nodejs-mysql</a>. It has example of insecure and secury application with the best practices.</p>
+
+
+<h3>Step 5 - Extra practice</h3>
+
+{% highlight ruby %}
+// 1. Deploy + service 
+// Let's create a deployment with the tier:frontend and then a nodePort service 
+$ k create deployment test-webapp --image=nginx --replicas=3 
+
+$ k expose deployment test-webapp --name test-webapp-service --type NodePort --port 80 --dry-run=client -oyaml > service-webapp.yaml
+$ vi service-webapp.yaml // add nodePort: 30083
+$ k create -f service-webapp.yaml
+$ k get svc
+
+// 2. Taint + Toleration
+// let's add taint to a node
+$ k get node colima -o yaml > node.yaml
+$ vi node.yaml  // change the name to my-colima
+$ k create -f node.yaml
+$ k taint node my-colima app_type=alpha:NoSchedule 
+// with toleration to node my-colima
+$ k run my-pod --image=redis --dry-run=client -oyaml > my-pod.yaml
+$ vi my-pod.yaml
+// add tolerations aatt in spec section
+tolerations:
+  - effect: NoSchedule
+    key: app_type
+    value: alpha
+// check if the pod is really in node my-colima    
+$ k get pod -o wide
+
+// 3. Affinity
+// add new label
+$ k label node my-colima app_type=beta
+$ k get node my-colima --show-labels
+// add nodeAffinity configuration in template.spec
+$ k create deployment beta-apps --image=nginx --replicas=3 --dry-run=client -oyaml > deploy-beta-app.yaml
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: app_type
+          operator: In
+          values: ["beta"]
+$ k create -f deploy-beta-app.yaml
+
+// 4. Ingress
+$ k create ingress ingress --rule="www.example.com/users*=test-webapp-service:8080" --dry-run=client -oyaml > ingress.yaml
+$ vi ingress.yaml
+$ k get ingress
+
+// 5. readinessProbe + livenessProbe
+$ vi my-pod.yaml
+// add the atts inside container
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 8080
+livenessProbe:
+  exec:
+    command: ["echo 'Hello World!'"]
+  initialDelaySeconds: 10
+  periodSeconds: 60
+$ k replace -f my-pod.yaml --force
+
+// 6. Job
+$  k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
+$ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c 'Hello!!!'"
+$ k create -f my-job.yaml 
+$ watch kubectl get jobs
+{% endhighlight %}
 
 <br />
-<h2 id="hon">AWS EKS</h2>
+<h2 id="hon">AWS</h2>
 
-<center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/E956xeOt050?si=cRAvoS-MMToNPE-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</center>
+<li><a ="https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html">Creating a VPC for your Amazon EKS cluster</a></li>
+
+<table>
+  <tr>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/E956xeOt050?si=cRAvoS-MMToNPE-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/MTnQW9MxnRI?si=yAZ7JXJkFdqopt0Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+  </tr>
+</table>
+
 
 
 <br />
