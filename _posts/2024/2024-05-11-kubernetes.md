@@ -551,37 +551,38 @@ $ minikube service demo-deploy
 
 <h3>Step 5 - Extra practice</h3>
 
+<p>First of all, let's create a new node to add k8s objects. In localhost is allow only one node. For exercice purpuse, let's pretend it works :D.</p>
+
 {% highlight ruby %}
-// 1. Deploy + service 
-$ k create deployment test-webapp --image=nginx --replicas=3 
+// Create a new node from a JSON file
+{
+  "kind": "Node",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "node01",
+    "labels": {
+      "name": "node01"
+    }
+  }
+}
+$ k create -f node01.json
 
-$ k expose deployment test-webapp --name test-webapp-service --type NodePort --port 80 --dry-run=client -oyaml > service-webapp.yaml
-$ vi service-webapp.yaml // add nodePort: 30083
-$ k create -f service-webapp.yaml
-$ k get svc
+// Add Taint to node 01
+$ k taint node node01 app_type=alpha:NoSchedule 
 
-// 2. Taint + Toleration
-$ k get node colima -o yaml > node.yaml
-$ vi node.yaml  // change the name to my-colima
-$ k create -f node.yaml
-$ k taint node my-colima app_type=alpha:NoSchedule 
-// with toleration to node my-colima
-$ k run my-pod --image=redis --dry-run=client -oyaml > my-pod.yaml
-$ vi my-pod.yaml
-// add tolerations aatt in spec section
+// add new label - be used by affinity
+$ k label node node01 app_type=beta
+{% endhighlight %}
+
+<p>Now we are available to create deployment and service to that node.</p>
+
+{% highlight ruby %}
+$ k create deployment test-app --image=nginx --replicas=1 --dry-run=client -oyaml > test-dep.yaml 
+// add tolerations aatt in template.spec section and nodeAffinity
 tolerations:
   - effect: NoSchedule
     key: app_type
     value: alpha
-// check if the pod is really in node my-colima    
-$ k get pod -o wide
-
-// 3. Affinity
-// add new label
-$ k label node my-colima app_type=beta
-$ k get node my-colima --show-labels
-// add nodeAffinity configuration in template.spec
-$ k create deployment beta-apps --image=nginx --replicas=3 --dry-run=client -oyaml > deploy-beta-app.yaml
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
@@ -590,16 +591,22 @@ affinity:
         - key: app_type
           operator: In
           values: ["beta"]
-$ k create -f deploy-beta-app.yaml
 
-// 4. Ingress
-$ k create ingress ingress --rule="www.example.com/users*=test-webapp-service:8080" --dry-run=client -oyaml > ingress.yaml
-$ vi ingress.yaml
-$ k get ingress
+$ k create -f test-dep.yaml
+$ k get pod -o wide               // check node
+$ k describe pod test-app-XXXXX   // check error in pod
 
-// 5. readinessProbe + livenessProbe
-$ vi my-pod.yaml
-// add the atts inside container
+$ k expose deployment test-app --name test-app-service --type NodePort --port 80 --dry-run=client -oyaml > service-app.yaml
+$ vi service-app.yaml // add nodePort: 30080
+$ k create -f service-app.yaml
+$ k get svc
+{% endhighlight %}
+
+<p>For practices purpose, lets add readiness and liveness attributes to the pods.</p>
+
+{% highlight ruby %}
+// readinessProbe + livenessProbe: add the atts inside container
+$ vi test-dep.yaml
 readinessProbe:
   httpGet:
     path: /ready
@@ -609,9 +616,20 @@ livenessProbe:
     command: ["echo 'Hello World!'"]
   initialDelaySeconds: 10
   periodSeconds: 60
-$ k replace -f my-pod.yaml --force
+$ k replace -f test-dep.yaml --force
+{% endhighlight %}
 
-// 6. Job
+<p>Now let's create an Ingress that will redirect and call to that service.</p>
+
+{% highlight ruby %}
+// Ingress
+$ k create ingress ingress --rule="www.example.com/users*=test-app-service:80" 
+$ k get ingress
+{% endhighlight %}
+
+<p>For the last step let's create a job</p>
+
+{% highlight ruby %}
 $  k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
 $ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c 'Hello!!!'"
 $ k create -f my-job.yaml 
