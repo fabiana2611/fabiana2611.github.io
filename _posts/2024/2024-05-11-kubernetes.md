@@ -546,14 +546,13 @@ $ minikube service demo-deploy
 
 <p style="text-align: justify;">You can repeat all the steps to create the objects in a cluster without the namespace and see the results in minikube.</p>
 
-<p style="text-align: justify;">Also, you can try with this application: <a href="https://github.com/neilpricetw/kubernetes-security-nodejs-mysql">kubernetes-security-nodejs-mysql</a>. It has example of insecure and secury application with the best practices.</p>
+<p style="text-align: justify;">Also, you can try with this application: <a href="https://github.com/neilpricetw/kubernetes-security-nodejs-mysql">kubernetes-security-nodejs-mysql</a>. It has example of insecure and secure application with the best practices.</p>
 
 
 <h3>Step 5 - Extra practice</h3>
 
 {% highlight ruby %}
 // 1. Deploy + service 
-// Let's create a deployment with the tier:frontend and then a nodePort service 
 $ k create deployment test-webapp --image=nginx --replicas=3 
 
 $ k expose deployment test-webapp --name test-webapp-service --type NodePort --port 80 --dry-run=client -oyaml > service-webapp.yaml
@@ -562,7 +561,6 @@ $ k create -f service-webapp.yaml
 $ k get svc
 
 // 2. Taint + Toleration
-// let's add taint to a node
 $ k get node colima -o yaml > node.yaml
 $ vi node.yaml  // change the name to my-colima
 $ k create -f node.yaml
@@ -623,7 +621,7 @@ $ watch kubectl get jobs
 <br />
 <h2 id="hon">AWS</h2>
 
-<li><a ="https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html">Creating a VPC for your Amazon EKS cluster</a></li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html">Creating a VPC for your Amazon EKS cluster</a></li>
 
 <table>
   <tr>
