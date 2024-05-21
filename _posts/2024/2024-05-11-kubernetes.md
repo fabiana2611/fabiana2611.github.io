@@ -621,15 +621,12 @@ $ watch kubectl get jobs
 <br />
 <h2 id="hon">AWS</h2>
 
-<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html">Creating a VPC for your Amazon EKS cluster</a></li>
-
 <table>
   <tr>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/E956xeOt050?si=cRAvoS-MMToNPE-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
     <td><iframe width="360" height="215" src="https://www.youtube.com/embed/MTnQW9MxnRI?si=yAZ7JXJkFdqopt0Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
   </tr>
 </table>
-
 
 
 <br />
@@ -640,5 +637,5 @@ $ watch kubectl get jobs
   <li><a href="https://kubernetes.io/docs/reference/kubectl/">Command line tool (kubectl)</a></li>
   <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-commands">Command Reference</a></li>
   <li><a href="https://gist.github.com/rahulkumar-aws/65e6fbe16cc71012cef997957a1530a3">Remove minikube</a></li>
-  
+  <li><a href="https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html">Creating a VPC for your Amazon EKS cluster</a></li>
 </ul>  
