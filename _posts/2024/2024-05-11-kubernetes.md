@@ -171,6 +171,7 @@ $ kubectl create service nodeport jekyll-node-service --tcp=8080:4000 --node-por
 $ kubectl expose pod redis --port=6379 --name redis-service       // example 1
 $ kubectl run httpd --image=httpd:alpine --port=80 --expose=true  // example 2
 $ kubectl get svc
+$ kubectl cluster-info // get list of URLs of services running in the cluster
 {% endhighlight %}
 
 <p>Any trouble with your service you can <a href="https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/">Debug Service</a>.</p>
@@ -182,7 +183,7 @@ $ kubectl get svc
 
 <h3 id="ingress">Ingress</h3>
 
-<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> <em>is an API object that manages external access to the services in a cluster. Traffic routing is controlled by rules defined on the Ingress resource.</em> The <a href="https://medium.com/@onai.rotich/services-and-ingress-7afc517f2ec6">difference between service and ingress</a>is that service create a single point of access to a group of pods, and ingress expose multiple services using one IP through rules that define the graphic.</p>
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> <em>is an API object that manages external access to the services in a cluster. Traffic routing is controlled by rules defined on the Ingress resource.</em> The <a href="https://medium.com/@onai.rotich/services-and-ingress-7afc517f2ec6">difference between service and ingress</a>is that service create a single point of access to a group of pods, and ingress expose multiple services using one IP through rules that define the graphic. A good example you can see <a href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/">here</a>.</p>
 
 
 <h3 id="netpolicy">Network Policy</h3>
