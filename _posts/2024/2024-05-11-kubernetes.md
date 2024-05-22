@@ -72,11 +72,11 @@ $ kubectl get pods
 $ k logs mypod > /opt/mypod.logs
 {% endhighlight %}
 
-<p style="text-align: justify;">A special feature to Pods is the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/">Pod Initialization</a>. <em>It uses an Init Container to initialize a Pod before an application Container runs.</em></p> 
-
 <p><center>
-  <img src="/img/kubernetes/pod.png" height="100%" width="100%">
+  <img src="/img/kubernetes/pod.png" height="50%" width="50%">
 </center></p>
+
+<p style="text-align: justify;">A special feature to Pods is the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/">Pod Initialization</a>. <em>It uses an Init Container to initialize a Pod before an application Container runs.</em></p> 
 
 <h3 id="rs">ReplicaSet</h3>
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a> maintain a stable set of replicas running at any given time. it is used to guarantee the availability of a specified number of identical Pods. Then, it ensures high availability and handle loads across the pods (load balancing). Even the Pods already created, it's possible to scale that number.</p>
