@@ -72,6 +72,8 @@ $ kubectl get pods
 $ k logs mypod > /opt/mypod.logs
 {% endhighlight %}
 
+<p style="text-align: justify;">A special feature to Pods is the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/">Pod Initialization</a>. <em>It uses an Init Container to initialize a Pod before an application Container runs.</em></p> 
+
 <p><center>
   <img src="/img/kubernetes/pod.png" height="100%" width="100%">
 </center></p>
@@ -399,7 +401,8 @@ spec:
 
 {% highlight ruby %}
 $ k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
-$ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c 'Hello!!!'"
+// add completions: 10 and backoffLimit: 6 in spec, and command "sh -c 'Hello!!!'" in container.
+$ vi my-job.yaml 
 $ k create -f my-job.yaml 
 $ watch kubectl get jobs
 {% endhighlight %}
@@ -587,7 +590,7 @@ $ k taint node node01 app_type=alpha:NoSchedule
 $ k label node node01 app_type=beta
 {% endhighlight %}
 
-<p>Now we are available to create deployment and service to that node.</p>
+<p>Now we are available to create deployment and service to that node by affinity and add rules of telerations. Also, you can <a href="https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/">assign a pod to a node by attribute</a>.</p>
 
 {% highlight ruby %}
 $ k create deployment test-app --image=nginx --replicas=1 --dry-run=client -oyaml > test-dep.yaml 
