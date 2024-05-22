@@ -392,9 +392,10 @@ spec:
         add: ["SYS_TIME"]
 {% endhighlight %}
 
-<h3 id="cronjob">CronJob</h3>
 
-<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">ConJob</a> is a resource in K8s that schedule jobs to execute repeatable actions.</p>
+<h3 id="cronjob">Job</h3>
+
+<p style="text-align: justify;"><em>A <a href="https://kubernetes.io/docs/concepts/workloads/controllers/job/">Job</a> creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate.</em></p>
 
 {% highlight ruby %}
 $ k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
@@ -402,6 +403,11 @@ $ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c
 $ k create -f my-job.yaml 
 $ watch kubectl get jobs
 {% endhighlight %}
+
+<h3 id="cronjob">CronJob</h3>
+
+<p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">ConJob</a> is a resource in K8s that schedule jobs to execute repeatable actions.</p>
+
 
 <br />
 <h2 id="hon">Hands On</h2>
