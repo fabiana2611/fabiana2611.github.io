@@ -396,6 +396,13 @@ spec:
 
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">ConJob</a> is a resource in K8s that schedule jobs to execute repeatable actions.</p>
 
+{% highlight ruby %}
+$ k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
+$ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c 'Hello!!!'"
+$ k create -f my-job.yaml 
+$ watch kubectl get jobs
+{% endhighlight %}
+
 <br />
 <h2 id="hon">Hands On</h2>
 
@@ -602,14 +609,14 @@ $ k create -f service-app.yaml
 $ k get svc
 {% endhighlight %}
 
-<p>For practices purpose, lets add readiness and liveness attributes to the pods.</p>
+<p>For practices purpose, lets add <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">readiness and liveness</a> attributes to the pods. The liveness probes is used to decide when restart a container, and the readiness is used to identify when a container is ready to start accepting traffic.</p>
 
 {% highlight ruby %}
 // readinessProbe + livenessProbe: add the atts inside container
 $ vi test-dep.yaml
 readinessProbe:
   httpGet:
-    path: /ready
+    path: /healthcheck
     port: 8080
 livenessProbe:
   exec:
@@ -627,14 +634,6 @@ $ k create ingress ingress --rule="www.example.com/users*=test-app-service:80"
 $ k get ingress
 {% endhighlight %}
 
-<p>For the last step let's create a job</p>
-
-{% highlight ruby %}
-$  k create job --image=nginx my-job --dry-run=client -oyaml > my-job.yaml
-$ vi my-job.yaml // add   completions: 10 and backoffLimit: 6 and command "sh -c 'Hello!!!'"
-$ k create -f my-job.yaml 
-$ watch kubectl get jobs
-{% endhighlight %}
 
 <br />
 <h2 id="hon">AWS</h2>
