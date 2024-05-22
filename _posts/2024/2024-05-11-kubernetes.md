@@ -47,6 +47,8 @@ permalink: /:categories/kubernetes
 <br />
 <h2>Basic Concepts</h2>
 
+<p>A note before we start this journey: be aware kubernetes allow two ways to manage the objects. The first one is <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/">declarative</a> that use file definitions;  and <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-command/">imperative</a>, that use command line directy.</p>
+
 <h3 id="pod" >Pod</h3>
 <p style="text-align: justify;">
 <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a> is a kubernate object that represents a deployable unit of a set of containers. The containers are encapsulated into the Pod that run an instance of the application. If you need to increase the application with more Pods then you need increase the replication number (scale up). To have an application in a Pod is assumed that the application is already developed and built into an images and it is available in some repository. Also assume that the Kubernetes cluster has set up and working. The Pod can have more than one container (only one instance), but the best practices is to have only one container by Pod. </p>
@@ -77,6 +79,8 @@ $ k logs mypod > /opt/mypod.logs
 </center></p>
 
 <p style="text-align: justify;">A special feature to Pods is the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/">Pod Initialization</a>. <em>It uses an Init Container to initialize a Pod before an application Container runs.</em></p> 
+
+<p>Any trouble with your pod you can <a href="https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/">Debug Pod</a> and <a href="https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/">Debug Running Pod</a>.</p>
 
 <h3 id="rs">ReplicaSet</h3>
 <p style="text-align: justify;"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a> maintain a stable set of replicas running at any given time. it is used to guarantee the availability of a specified number of identical Pods. Then, it ensures high availability and handle loads across the pods (load balancing). Even the Pods already created, it's possible to scale that number.</p>
@@ -117,13 +121,14 @@ $ k create deploy mydeploy --image-nginx --dry-run=client -oyaml > deploy-def.ya
 $ kubectl create deployment nginx --image=nginx               
 $ kubectl create deployment nginx --image=nginx --replicas=4
 
-$ kubectl scale deployment nginx --replicas=4
+$ kubectl scale deployment/nginx --replicas=2 // update the replicas
 $ kubetcl get deployments
 $ kubectl get all
 
 // UPGRADE - StrategyType attribute (First step is created a new replicaSet)
-$ kubectl edit deployment my-deployment         // Change definition directly
-$ kubectl apply –f deployment-definition.yml    // Change the file and apply
+$ kubectl edit deployment my-deployment                // Change definition directly
+$ kubectl apply –f deployment-definition.yml           // Create or update
+$ kubectl replace –f deployment-definition.yml --force // delete and replace the pods
 $ kubectl set image deployment/myapp-deployment nginx-container=nginx:1.9.1
 
 // ROLLBACK (destroy the pods and go back with the olders)
@@ -168,6 +173,8 @@ $ kubectl run httpd --image=httpd:alpine --port=80 --expose=true  // example 2
 $ kubectl get svc
 {% endhighlight %}
 
+<p>Any trouble with your service you can <a href="https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/">Debug Service</a>.</p>
+
 <p><center>
   <img src="/img/kubernetes/service.png" height="100%" width="100%">
 </center></p>
@@ -210,7 +217,7 @@ $ kubectl delete deploy redis-deploy -n dev-ns
 
 <h3 id="secret">Secret</h3>
 
-<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a> objects are used to store sensitive data which is done in an encoded format. It is created independent of the Pod.</p>
+<p style="text-align: justify;">The <a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a> objects are used to store sensitive data which is done in an encoded format. It is created independent of the Pod. You can see different ways of manage the secrets <a href="https://kubernetes.io/docs/tasks/configmap-secret/">here</a>.</p>
 
 {% highlight ruby %}
 $ echo –n ‘mysql’ | base64
