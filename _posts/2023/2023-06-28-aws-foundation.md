@@ -742,6 +742,11 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
+<p><center>
+  <img src="/img/aws/iam.png" height="90%" width="90%">
+</center></p>
+
+
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Best Practices</a></p>
   <ul>
     <li>Use IAM user instead of root user in regular activities</li>
