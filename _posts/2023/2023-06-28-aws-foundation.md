@@ -320,6 +320,11 @@ permalink: /:categories/aws-foundational
   </li>    
 </ul>  
 
+
+<p><center>
+  <img src="/img/aws/ecs.png" height="90%" width="90%">
+</center></p>
+
 <p style="text-align: justify;"><b>EBL</b> - <a href="https://aws.amazon.com/elasticloadbalancing/">Elastic Load Balancer</a></p>
 <ul>
   <li>Servers that handle the traffic and distribute it across, e.g., EC2 instance, containers and IP address. Single AZ or Multiple AZ. </li>
