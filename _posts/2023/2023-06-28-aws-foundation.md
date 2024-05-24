@@ -23,7 +23,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/aws-arch.svg" height="80%" width="80%">
+  <img src="/img/aws/aws-arch.svg" height="90%" width="90%">
 </center></p>
 
 
