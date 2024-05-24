@@ -6,6 +6,7 @@ categories: infra
 permalink: /:categories/aws-foundational
 ---
 
+<p><a href="#concept">Cloud Concepts</a> > <a href="#globalinfra">AWS Global Infrastructure</a> > <a href="#network">AWS networking services</a> > <a href="#compute">AWS compute services</a> > <td><a href="#storage">AWS Storage Services</a> > <a href="#database">AWS database services</a> > <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
 
 <p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
@@ -21,36 +22,10 @@ permalink: /:categories/aws-foundational
   <li><a href="https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/">6 Practice Exams | AWS Certified Cloud Practitioner CLF-C01</a></li>
 </ul>
 
+<p><center>
+  <img src="/img/aws/aws-arch-svg.png" height="80%" width="80%">
+</center></p>
 
-<table>
-  <tr>
-    <td><a href="#concept">Cloud Concepts</a></td>
-    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
-    <td><a href="#network">AWS networking services</a></td>
-  </tr>
-  <tr>
-    <td><a href="#compute">AWS compute services</a></td>
-    <td><a href="#storage">AWS Storage Services</a></td>
-    <td><a href="#database">AWS database services</a></td>
-  </tr>
-  <tr>
-    <td><a href="#others">Others Services</a></td>
-    <td><a href="#migration">Migration</a></td>
-    <td><a href="#security">Security</a></td>
-  </tr>
-  <tr>
-    <td><a href="#machinelearning">Machine Learning</a></td>
-    <td><a href="#pricing">Billing and Pricing</a></td>
-    <td><a href="#architect">AWS Well-Architected</a></td>
-  </tr>
-  <tr>
-    <td><a href="#support">Support</a></td>
-    <td><a href="#shots">Some Shots</a></td>
-    <td><a href="#conclusion">Conclusion</a></td>
-  </tr>
-</table>
-
-<p>Here are some notes using those courses as support.</p>
 
 <br />
 <hr>
