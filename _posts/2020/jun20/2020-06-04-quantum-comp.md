@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "Quantum Programming"
+title:  "Quantum Programming - Part 1"
 date:   2020-06-04
 categories: beyond
 permalink: /:categories/quantum-programming
 ---
 
 <p class="has-text-align-justify">The <a href="https://en.wikipedia.org/wiki/Quantum_computing">quantum computing </a>is the new revolution. It is going to put the current IT such a prehistoric era. This new technology comes from quantum mechanical (or <a href="https://www.newscientist.com/term/quantum-physics/">quantum-physics</a>) regarding how atoms work (electrons, protons, neutrons, quarks, gluons). It includes, for exemple, the interactions between the particles.</p>
+
+
 
 <h2>Quantic Theory</h2>
 
@@ -36,7 +38,7 @@ permalink: /:categories/quantum-programming
 
 <p>You can find a list of companies that already is working on this scope here: [<a href="https://quantumcomputingreport.com/privatestartup/">1</a>].</p>
 
-<h2 class="p2"><span class="s1"><b>SDK</b></span></h2>
+<h2 id="simulators" class="p2"><span class="s1"><b>SDK</b></span></h2>
 
 <p style="align-justify">It's not necessary to have a quantum computer to start your path in direction of the quantum programming. There are <a href="https://en.wikipedia.org/wiki/Quantum_programming">simulators</a> to do that.</p>
 
@@ -63,6 +65,10 @@ permalink: /:categories/quantum-programming
 <tr><td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/cOUrzxyng04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
 
 <td style="width: 50%;"><iframe width="300" height="215" src="https://www.youtube.com/embed/jTDnGox0c9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr></tbody></table></figure>
+
+<h2>Be Continued...</h2>
+
+<li><a href="https://fabiana2611.github.io/beyond/quantum-programming-2">Quantum Programming - Part 2</a></li>
 
 <h2 class="p12"><span class="s1"><b>REFERENCES</b></span></h2>
 
