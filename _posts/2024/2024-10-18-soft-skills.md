@@ -28,10 +28,11 @@ The slides must be clean and easy to get information (page number, labels, legen
 <p style="text-align: justify;">As a perfect combination, the good message follows the 7 Cs: clear, correct, complete, concrete, concise, consideration, and caution. <a href="https://www.youtube.com/watch?v=xr1q-uBtIH4">[5 Game-Changing Communication Hacks You've Never Heard Of!]</a>.
 
 <p style="text-align: justify;">In numbers, the communication has this distribution: <a href="https://www.masterclass.com/articles/how-to-use-the-7-38-55-rule-to-negotiate-effectively">[7-38-55 Rule]</a></p>
-- First impression: 7-20 seconds
-- Average listening attention: 5 minutes
-- 7-38-55: 7% verbal communication (content), 38% voice (tone), 55% body language
-
+<u>
+	<li>First impression: 7-20 seconds</li>
+	<li>Average listening attention: 5 minutes</li>
+	<li>7-38-55: 7% verbal communication (content), 38% voice (tone), 55% body language</li>
+</u>
 <p style="text-align: justify;">The <a href="https://ecampusontario.pressbooks.pub/commbusprofcdn/chapter/types-of-nonverbal-communication/">nonverbal communication</a> involves: sounds, body language, touch, smell, etc. So we have to pay attention to all of these skills: Listening, Speaking, Writing, Presentation, Body Language
 
 <p style="text-align: justify;">This article shows a simple way to focus on effective communication: Simplify, Focus on Problem, Identify Benefits or Solutions, and Practice Your Pitch <a href="https://www.howcommunicationworks.com/blog/2020/12/19/effectively-communicate-complex-information-4-simple-steps">[EFFECTIVELY COMMUNICATE COMPLEX INFORMATION</a>]
@@ -45,10 +46,12 @@ The slides must be clean and easy to get information (page number, labels, legen
 <p style="text-align: justify;">The facilitation is <a href="https://dictionary.cambridge.org/dictionary/english/facilitation">the process of making something possible or easier</a>. In terms of work context, it is a skill to guide and improve a group of people to collaborate to achieve the outcomes. It engages the participants for discovering and insights. It’s not a presentation where someone talk about one theme to a group. Facilitation involves questions, moderates discussions. <a href="https://www.thefountaininstitute.com/blog/what-is-facilitation">[1]</a>, <a href="https://www.sessionlab.com/blog/what-is-facilitation/">[2]</a>, <a href="https://www.td.org/talent-development-glossary-terms/what-is-facilitation">[3]</a>, <a href="https://www.facilitator.school/blog/what-is-facilitation">[4]</a>, <a href="https://www.roffeypark.com/articles/what-are-facilitation-skills-and-how-do-you-facilitate/">[5]</a>, <a href="https://apmg-international.com/article/what-facilitation-depth-guide">[6]</a>. An effective communication impact directly on that.</p>
 
 <p style="text-align: justify;">The facilitator is someone that support the structure to make the discussion more productive. They can use some structure to organize the toughs:</p>
-- PREP: Point | Reason | Example | Point
-- PER: Point | Example | Relevance
-- What | So What | Now What
-- Past | Present | Future
+<ul>
+	<li>PREP: Point | Reason | Example | Point</li>
+	<li>PER: Point | Example | Relevance</li>
+	<li>What | So What | Now What</li>
+	<li>Past | Present | Future</li>
+</ul>
 
 <p style="text-align: justify;">Facilitators must plan time-box, guarantee that everyone can be hear, taking notes, assign actions and owner, summarizing the discussion. That person doesn’t need to be an expert of the subject, but understand the process, plan and guide the group to focus on solving the problems. The Facilitator has to pay attention to introduce theirselves and the communication. Every detail can impact: voice (volume, pauses, tone), eye contact, confident posture, inclusive gesture, purposeful movement. Also must be attentive to audience communication. They have to be a good listening, read body language and visual cues. They are focus on encouraging people to collaborate and feel comfortable to discuss. The facilitator is attentive to put participants in the same page. The facilitator achieve their goals when the individuals collaborate, are respectful and they are open to the controversy.</p>
 
@@ -97,12 +100,13 @@ The slides must be clean and easy to get information (page number, labels, legen
 <p style="text-align: justify;">A facilitator can be faced with some challenges to extract the best of the audience when invite wrong people, people is not comfortable to speak, someone dominate the discussion, conflicts, Misunderstanding, people don’t listen and audience feel that opinion has no value, unclear goal, poor planning, distraction.</p>
 
 <p style="text-align: justify;">It's possible to identify three levels of collaboration:</p>
-- LOW: Uncoordinated action
-- Medium: Some kind of coordinated individual efforts and process
-- High: Concerted team effort. All team members work together to achieve the team goal
+<ul>
+	<li>LOW: Uncoordinated action</li>
+	<li>Medium: Some kind of coordinated individual efforts and process</li>
+	<li>High: Concerted team effort. All team members work together to achieve the team goal</li>
+</ul>
 
-
-Here are some examples of tools: [DiSC] (https://internalchange.com/everything-disc-products/), [StrenghtsFinder](https://www.gallup.com/cliftonstrengths/en/253850/cliftonstrengths-for-individuals.aspx ): [Emotional Intelligence](https://www.amazon.com/dp/B002U3CBUW/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1 ), [Myers-Briggs](https://www.myersbriggs.org/my-mbti-personality-type/myers-briggs-overview/ ), [Culture Mapping](https://erinmeyer.com/tools/), [Predictive Index](https://www.predictiveindex.com/assessments/behavioral-assessment/), [Enneagram Assessment](https://www.enneagraminstitute.com/type-descriptions/)
+<p style="text-align: justify;">Here are some examples of tools: <a href="https://internalchange.com/everything-disc-products/">DiSC</a>, <a href="https://www.gallup.com/cliftonstrengths/en/253850/cliftonstrengths-for-individuals.aspx">StrenghtsFinder</a>, <a href="https://www.amazon.com/dp/B002U3CBUW/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">Emotional Intelligence</a>, <a href="https://www.myersbriggs.org/my-mbti-personality-type/myers-briggs-overview/">Myers-Briggs</a>, <a href="https://erinmeyer.com/tools/">Culture Mapping</a>, <a href="https://www.predictiveindex.com/assessments/behavioral-assessment/">Predictive Index</a>, <a href="https://www.enneagraminstitute.com/type-descriptions/">Enneagram Assessment</a>.</p>
 
 
 <h2>Conclusion</h2>
