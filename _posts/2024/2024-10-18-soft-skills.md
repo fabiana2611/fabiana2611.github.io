@@ -28,12 +28,13 @@ The slides must be clean and easy to get information (page number, labels, legen
 <p style="text-align: justify;">As a perfect combination, the good message follows the 7 Cs: clear, correct, complete, concrete, concise, consideration, and caution. <a href="https://www.youtube.com/watch?v=xr1q-uBtIH4">[5 Game-Changing Communication Hacks You've Never Heard Of!]</a>.
 
 <p style="text-align: justify;">In numbers, the communication has this distribution: <a href="https://www.masterclass.com/articles/how-to-use-the-7-38-55-rule-to-negotiate-effectively">[7-38-55 Rule]</a></p>
-<u>
+<ul>
 	<li>First impression: 7-20 seconds</li>
 	<li>Average listening attention: 5 minutes</li>
 	<li>7-38-55: 7% verbal communication (content), 38% voice (tone), 55% body language</li>
-</u>
-<p style="text-align: justify;">The <a href="https://ecampusontario.pressbooks.pub/commbusprofcdn/chapter/types-of-nonverbal-communication/">nonverbal communication</a> involves: sounds, body language, touch, smell, etc. So we have to pay attention to all of these skills: Listening, Speaking, Writing, Presentation, Body Language
+</ul>
+
+<p style="text-align: justify;">The <a href="https://ecampusontario.pressbooks.pub/commbusprofcdn/chapter/types-of-nonverbal-communication/">nonverbal communication</a> involves: sounds, body language, touch, smell, etc. So we have to pay attention to all of these skills: Listening, Speaking, Writing, Presentation, Body Language.
 
 <p style="text-align: justify;">This article shows a simple way to focus on effective communication: Simplify, Focus on Problem, Identify Benefits or Solutions, and Practice Your Pitch <a href="https://www.howcommunicationworks.com/blog/2020/12/19/effectively-communicate-complex-information-4-simple-steps">[EFFECTIVELY COMMUNICATE COMPLEX INFORMATION</a>]
 
@@ -57,7 +58,7 @@ The slides must be clean and easy to get information (page number, labels, legen
 
 <blockquote>“Facilitators are unbiased and put their egos aside”</blockquote>
 
-<p style="text-align: justify;">In the middle of the audience is possible to identify some types of challenges that the facilitator with good Facilitation skills has to pay attention to overcome: participants that dominate the discussion or that don’t contribute, the participant hesitates that never make a decision or that do a decision without weighting the pos and cons. <a href="https://voltagecontrol.com/articles/expert-tips-for-facilitating-with-challenging-participants/">[7]</a>, <a href="https://integratedwork.com/facilitation/the-top-three-facilitation-challenges-every-facilitator-encounters/">[8]</a></p>
+<p style="text-align: justify;">In the middle of the audience is possible to identify some types of challenges that the facilitator with good Facilitation skills has to pay attention to overcome: participants that dominate the discussion or that don’t contribute, the participant hesitates that never make a decision or that do a decision without weighting the pos and cons. <a href="https://voltagecontrol.com/articles/expert-tips-for-facilitating-with-challenging-participants/">[7]</a>, <a href="https://integratedwork.com/facilitation/the-top-three-facilitation-challenges-every-facilitator-encounters/">[8]</a>.</p>
 
 <p style="text-align: justify;">Here are <a href="https://www.thedesigngym.com/top-11-skills-effective-facilitator/">Top 11 Skills</a> for a facilitator: 
 1. You are prepared for anything
@@ -82,7 +83,7 @@ The slides must be clean and easy to get information (page number, labels, legen
 <p style="text-align: justify;">When the facilitator is planning a meeting they must thing in some point: before, begin, divergence and convergence, closing, after.</p>
 <ol>
 	<li><u>Before</u> the meeting is necessary to understand the audience, goals, structure it, and schedule it</li>
-	<li>The <u>beginning</u> is the moment of connection among facilitator, participants and the subject. At this moment they can establishing some trust. Here is the moment to have fun (ice break) and explain rules about the meeting. Should be clear what will happen and show the Agenda is very helpful. Some techniques that can help on this are: <a href="https://www.sessionlab.com/methods/idoarrt-meeting-design">IDOARRT</a>, <a href="https://www.sessionlab.com/methods/finger-rules">Finger Rules</a>, <a href="https://fellow.app/blog/meetings/ways-to-use-a-parking-lot-to-improve-meeting-productivity/">Parking Lot</a></li>
+	<li>The <u>beginning</u> is the moment of connection among facilitator, participants and the subject. At this moment they can establishing some trust. Here is the moment to have fun (ice break) and explain rules about the meeting. Should be clear what will happen and show the Agenda is very helpful. Some techniques that can help on this are: <a href="https://www.sessionlab.com/methods/idoarrt-meeting-design">IDOARRT</a>, <a href="https://www.sessionlab.com/methods/finger-rules">Finger Rules</a>, <a href="https://fellow.app/blog/meetings/ways-to-use-a-parking-lot-to-improve-meeting-productivity/">Parking Lot</a>.</li>
 	<li><u>During</u> the meeting is necessary to have attention on time box, cover important itens and review some previous decisions or actions. If it is a meeting of discovery is necessary stimulate the discussions to brings up insights. For that, the facilitator can use resources for it like diagrams, questions. It will stimulate divergences that is very helpful to the discussion. In this point, the facilitator has to bring people to a convergent point. It can be done clustering the ideas and vote, prioritize, or even a matrix of values vs effort / frequency vs impact. Some techniques that can help on this are: <u>Brainwriting</u>, <u>One, Two, Four</u>, <u>SWOT Analysis</u>, <u>Six Thinking Hats</u>, <u>Dot-voting</u>, <u>Start, Stop, Continue</u>, <u>Finger Rules</u>, <u>Parking Lot</u>.</li>
 	<li>To <u>close</u> the meeting, the facilitator should summarize, remind the actions and owners, and what will happen next. Some techniques that can help on this are: <u>One Breath Feedback</u>, <u>Letter to Myself</u>, <u>Finger Rules</u>, <u>Parking Lot</u></li>
 	<li><u>After</u> meeting, if necessary an Email Summary could be good (depending on the type of audience)</li>
