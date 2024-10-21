@@ -6,7 +6,41 @@ categories: infra
 permalink: /:categories/aws-foundational
 ---
 
-<p><a href="#concept">Cloud Concepts</a> > <a href="#iam">IAM</a> > <a href="#orgcontrolpower">AWS Organization and Control Power</a> > <a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a> > <a href="#network">AWS networking services</a> > <a href="#storage">AWS Storage Services</a> > <a href="#container">Docker Containers and ECS</a> > <a href="#serverless">Serverless Applications</a> > <a href="#database">AWS database services</a> > <a href="#globalinfra">AWS Global Infrastructure</a> >  <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
+<table>
+  <tr>
+    <td><a href="#concept">Cloud Concepts</a></td>
+    <td><a href="#iam">IAM</a></td>
+    <td><a href="#orgcontrolpower">AWS Organization and Control Power</a></td>
+  </tr>
+  <tr>
+    <td><a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a></td>
+    <td><a href="#network">AWS networking services</a></td>
+    <td><a href="#storage">AWS Storage Services</a></td>
+  </tr>
+  <tr>
+    <td><a href="#container">Docker Containers and ECS</a></td>
+    <td><a href="#serverless">Serverless Applications</a></td>
+    <td><a href="#database">AWS database services</a></td>
+  </tr>
+  <tr>
+    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
+    <td><a href="#others">Others Services</a></td>
+    <td><a href="#migration">Migration</a></td>
+  </tr>
+  <tr>
+    <td><a href="#security">Security</a></td>
+    <td><a href="#machinelearning">Machine Learning</a></td>
+    <td><a href="#pricing">Billing and Pricing</a></td>
+  </tr>
+  <tr>
+    <td><a href="#architect">AWS Well-Architected</a></td>
+    <td><a href="#support">Support</a></td>
+    <td><a href="#shots">Some Shots</a></td>
+  </tr>
+  <tr>
+    <td colspan="3">><a href="#conclusion">Conclusion</a></td>
+  </tr>
+</table>
 
 
  <br />
@@ -556,7 +590,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://aws.amazon.com/ecs/">ECS</a></li>
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 <br />
 <hr>
@@ -595,7 +629,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 <br />
 <hr>
@@ -714,7 +748,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -786,7 +820,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 
@@ -805,7 +839,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 
@@ -956,7 +990,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -1005,7 +1039,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 
@@ -1030,7 +1064,10 @@ permalink: /:categories/aws-foundational
 <p>Amazon <b>Personalize</b>: build apps with real-time personalized recommendation</p>
 <p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
 
-### #####################################################################################
+
+
+
+<!-- #################################################################################################################################### -->
 
 
 
@@ -1080,7 +1117,7 @@ permalink: /:categories/aws-foundational
 
 
 
-### #####################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -1127,9 +1164,6 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-
-
-
 <p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
 <p style="text-align: justify;">Amazon <b>WorkSpaces</b>: Managed Desktop as a Service (DaaS). Integrated with KMS. Pay-as-you-go.</p>
 <p style="text-align: justify;">Amazon <b>AppStream</b>: Desktop Application Streaming Service (web browser)</p>
@@ -1155,7 +1189,7 @@ permalink: /:categories/aws-foundational
 
 
 
-
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -1188,7 +1222,6 @@ permalink: /:categories/aws-foundational
   <li>Pay less as AWS grows</li>
 </ul>  
 
-### #####################################################################################
 
 <p style="text-align: justify;">Costing Tools:</p>
 <ul>
@@ -1290,6 +1323,10 @@ permalink: /:categories/aws-foundational
 <li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected</a></li>
 <li><a href="https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/">The 6 Pillars of the AWS Well-Architected Framework</a></li>
 
+
+<!-- #################################################################################################################################### -->
+
+
 <br />
 <hr>
 <br />
@@ -1382,6 +1419,10 @@ permalink: /:categories/aws-foundational
 <p><b>Audit</b>: CloudWatch, CloudTrail, SSE-KMS, AWS Config</p>
 
 <p><b>Encryptation</b>: AZ traffic (Default), CloudTrail (default), Site-To-Site VPN (default), all storage (RDS, S3, EBS, Redshift, EFS)</p>
+
+
+<!-- #################################################################################################################################### -->
+
 
 <br />
 <hr>
