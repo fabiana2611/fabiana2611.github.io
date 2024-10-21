@@ -13,32 +13,33 @@ permalink: /:categories/aws-foundational
     <td><a href="#orgcontrolpower">AWS Organization and Control Power</a></td>
   </tr>
   <tr>
-    <td><a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a></td>
+    <td><a href="#ec2">EC2</a></td>
+    <td><a href="#elbasg">ELB and ASG</a></td>
     <td><a href="#network">AWS networking services</a></td>
-    <td><a href="#storage">AWS Storage Services</a></td>
   </tr>
   <tr>
+    <td><a href="#storage">AWS Storage Services</a></td>
     <td><a href="#container">Docker Containers and ECS</a></td>
     <td><a href="#serverless">Serverless Applications</a></td>
-    <td><a href="#database">AWS database services</a></td>
   </tr>
   <tr>
+    <td><a href="#database">AWS database services</a></td>
     <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
     <td><a href="#others">Others Services</a></td>
-    <td><a href="#migration">Migration</a></td>
   </tr>
   <tr>
+    <td><a href="#migration">Migration</a></td>
     <td><a href="#security">Security</a></td>
     <td><a href="#machinelearning">Machine Learning</a></td>
-    <td><a href="#pricing">Billing and Pricing</a></td>
   </tr>
   <tr>
+    <td><a href="#pricing">Billing and Pricing</a></td>
     <td><a href="#architect">AWS Well-Architected</a></td>
     <td><a href="#support">Support</a></td>
-    <td><a href="#shots">Some Shots</a></td>
   </tr>
   <tr>
-    <td colspan="3">><a href="#conclusion">Conclusion</a></td>
+    <td><a href="#shots">Some Shots</a></td>
+    <td colspan="2"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
