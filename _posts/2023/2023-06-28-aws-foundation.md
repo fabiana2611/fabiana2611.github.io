@@ -6,14 +6,11 @@ categories: infra
 permalink: /:categories/aws-foundational
 ---
 
-<p><a href="#concept">Cloud Concepts</a> > <a href="#iam">IAM</a> > <a href="#orgcontrolpower">AWS Organization and Control Power</a> > <a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a> > <a href="#network">AWS networking services</a> > <a href="#storage">AWS Storage Services</a> > <a href="#container">Docker Containers and ECS</a> > <a href="#serverless">Serverless Applications</a> > <a href="#database">AWS database services</a> >
+<p><a href="#concept">Cloud Concepts</a> > <a href="#iam">IAM</a> > <a href="#orgcontrolpower">AWS Organization and Control Power</a> > <a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a> > <a href="#network">AWS networking services</a> > <a href="#storage">AWS Storage Services</a> > <a href="#container">Docker Containers and ECS</a> > <a href="#serverless">Serverless Applications</a> > <a href="#database">AWS database services</a> > <a href="#globalinfra">AWS Global Infrastructure</a> >  <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
 
 
-
- <a href="#globalinfra">AWS Global Infrastructure</a> >  <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
-
-
- 
+ <br />
+ <hr>
 
 <p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
@@ -34,7 +31,7 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/aws-arch.svg" height="100%" width="100%">
 </center></p>
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 <br />
 <hr>
@@ -98,7 +95,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -160,7 +157,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -181,7 +178,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Control Tower</b>: is over organization given support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -275,7 +272,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -328,7 +325,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -402,7 +399,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">(DigitalCloud) AWS Content Delivery and DNS Services</a></li>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
@@ -418,9 +415,6 @@ permalink: /:categories/aws-foundational
   <li>object storage: storage as a object. Any change then all the opject is changed</li>
 </ul>
 
-
-<br />
-<h2>S3</h2>
 
 <p style="text-align: justify;"><b>S3</b> - Amazon Simple Storage Service <a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a>.</p>
 <ul>
@@ -458,7 +452,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p style="text-align: justify;"><b>EBS</b> - Amazon Elastic Block Store (Amazon <b>EBS) <a href="https://aws.amazon.com/ebs/">[1]</a><a href="https://digitalcloud.training/amazon-ebs/">[2]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">[3]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html">[4]</a></p>
+<p style="text-align: justify;"><b>EBS</b> - Amazon Elastic Block Store <a href="https://aws.amazon.com/ebs/">[1]</a><a href="https://digitalcloud.training/amazon-ebs/">[2]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">[3]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html">[4]</a></p>
 <ul>
   <li>EBS <b>Volume</b>: attached to one instance.</li> 
   <li>The EBS volumes not need to be attached to an instance.</li> 
@@ -499,7 +493,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 
-### ########################################################################################################################
+<!-- #################################################################################################################################### -->
 
 
 <br />
