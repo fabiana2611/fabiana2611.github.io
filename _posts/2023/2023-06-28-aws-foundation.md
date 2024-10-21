@@ -1,12 +1,19 @@
 ---
 layout: post
-title:  "AWS Cloud Practitioner - Foundational"
-date:   2023-06-28
+title:  "AWS Cloud Concepts"
+date:   2024-06-01
 categories: infra
 permalink: /:categories/aws-foundational
 ---
 
-<p><a href="#concept">Cloud Concepts</a> > <a href="#globalinfra">AWS Global Infrastructure</a> > <a href="#network">AWS networking services</a> > <a href="#compute">AWS compute services</a> > <td><a href="#storage">AWS Storage Services</a> > <a href="#database">AWS database services</a> > <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
+<p><a href="#concept">Cloud Concepts</a> > <a href="#iam">IAM</a> > <a href="#orgcontrolpower">AWS Organization and Control Power</a> > <a href="#ec2">EC2</a> > <a href="#elbasg">ELB and ASG</a> > <a href="#network">AWS networking services</a> > <a href="#storage">AWS Storage Services</a> > <a href="#container">Docker Containers and ECS</a> > <a href="#serverless">Serverless Applications</a> > <a href="#database">AWS database services</a> >
+
+
+
+ <a href="#globalinfra">AWS Global Infrastructure</a> >  <a href="#others">Others Services</a>  > <a href="#migration">Migration</a> > <a href="#security">Security</a> > <a href="#machinelearning">Machine Learning</a> > <a href="#pricing">Billing and Pricing</a> > <a href="#architect">AWS Well-Architected</a> > <a href="#support">Support</a> > <a href="#shots">Some Shots</a> > <a href="#conclusion">Conclusion</a></p>
+
+
+ 
 
 <p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
@@ -22,15 +29,16 @@ permalink: /:categories/aws-foundational
   <li><a href="https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/">6 Practice Exams | AWS Certified Cloud Practitioner CLF-C01</a></li>
 </ul>
 
+
 <p><center>
   <img src="/img/aws/aws-arch.svg" height="100%" width="100%">
 </center></p>
 
+### ########################################################################################################################
 
 <br />
 <hr>
 <br />
-
 <h2 id="concept">Cloud Concepts</h2>
 
 <p style="text-align: justify;"><b>Definition</b>: <a href="https://aws.amazon.com/what-is-cloud-computing/">Cloud computing</a> is the on-demand delivery of IT resources over the Internet with pay-as-you-go pricing. </p>
@@ -80,163 +88,123 @@ permalink: /:categories/aws-foundational
   <li><b>High Availability</b>: Direct relatioship with horizontal scalability. No interruption even with failover. Run across <a href="https://aws.amazon.com/rds/features/multi-az/">multi AZ</a>, at least in 2 AZ</li>
 </ul>
 
-<p style="text-align: justify;"><b>ASG</b> (<a href="https://aws.amazon.com/autoscaling/">Auto Scaling</a> Group): </p>
-<ul>
-  <li>ASG contains a collection of EC2 instance (logical group)</li>
-  <li>Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
-  <li>Replace unhealthy instances. </li> 
-  <li>Only run at an optimal capacity.</li>
-  <li>AWS EC2 Auto Scaling provides elasticity and scalability.</li>
-  <li>A <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">scheduled scaling policy</a> can be configured for known increase in app traffic (predictable load changes)</li>
-  <li>Predictive scaling: uses daily and weekly trends to determine when scale</li>
-  <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
-  <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
-  <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">DigitalCloud Summary</a></li>
-</ul> 
-
 <p style="text-align: justify;"><b><a href="https://aws.amazon.com/serverless/">Serverless</a>:</b> <em>technologies for running code, managing data, and integrating applications, all without managing servers. Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. It eliminates infrastructure management tasks like capacity provisioning, patching and OS maintenance.</em> It not mean no server.</p>  
 
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">DigitalCloudSummary</a></li>
-<li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">(DigitalCloud) Auto Scaling and Elastic Load Balancing</a></li>
-<li><a href="https://aws.amazon.com/what-is-cloud-computing/?nc2=h_ql_le_int_cc">AWS - What is cloud computing?</a></li>
-
-<br />
-<hr>
-<br />
-
-<h2 id="globalinfra">AWS Global Infrastructure</h2>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
-<ul>
-  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
-  <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
-  <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
-  <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
-  <li>Regional <b>Edge Caches</b>: <em>between your CloudFront Origin servers and the Edge Locations</em></li>
-  <li>Architecture: Single Region + SingleAZ; Single Region + Multi AZ; Multi Region + Active-Passive; Multi Region + Active-Active</li>
-  <li>In Active-Passive failover is possible to apply the <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">routing policy</a> Failover routing</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/cloudfront/"><b>Amazon CloudFront</b></a>: Global Content Delivery Network (CDN)</p>
-<ul>
-  <li>Replicate part of your application to AWS Edge Locations (content is served at the edge). </li>
-  <li>It can use cache at the edge to reduce latency. Improves read performance. </li>
-  <li>DDoS protection, integration with Shield, Firewall</li>
-  <li>S3 bucket: distribute files and caching at the edge, security with OAC (Origing Access Control)</li>
-  <li>Customer origin: ALB, EC2 instance, S3 website</li>
-  <li>Great for static content that must be available everywhere; in oposite of S3 Cross Region Replication that is great for dynamic content that needs to be available at low latency in few regions</li>
-  <li><b>Pricing</b>: Traffic distribution; Requests; Data transfer out. Price is different for region</li>
-</ul>
-
-<p style="text-align: justify;"><b>S3 Transfer Acceleration</b></p>
-<ul>
-  <li>Accelerate global uploads & downloads into Amazon S3</li>
-  <li>Increase transfer speed to Edge Location</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/global-accelerator/"><b>AWS Global Accelerator</b></a></p>
-<ul>
-  <li>Improve global application availability and performance</li>
-  <li>Optimize the rote</li>
-  <li>Use Edge Locations to the traffic</li>
-  <li>Global Network</li>
-  <li>Integration with Shield for DDoS protection</li>
-  <li>No caching and has proxy packets at the edge</li>
-  <li>Improve performance over TCP/UDP</li>
-  <li>Good when use static IP and need determinist and fast regional failover.</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outspots</b></a></p>
-<ul>
-  <li><em> virtually any on-premises or edge location</em></li>
-  <li>Hybrid cloud</li>
-  <li>Server racks -> customer is responsible for that</li>
-  <li>Low latency, local data, data residency, easier migration, fully managed service</li>
-</ul>  
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
- 
-<p style="text-align: justify;">Cloud Integration (the services can be scale)</p>
-<ul>
-  <li><b>SQS</b> (cloud native service): queue model. Retention os message (4-14 days) and deleted after to be read. Decouple. Distributed application. Pay-as-you-go pricing.</li>
-  <li><a href="https://aws.amazon.com/sns/"><b>SNS</b></a> (cloud native service): pub/sub model. It can send a message to many receivers. Publisher -> SNS topic. Subscriber -> get all messages from the topic</li>
-  <li>Amazon MQ: message broker. Good when migrating to the cloud</li>
-  <li><b>Kinesis</b>: real-time data streaming model</li>
-</ul>  
-
-<p style="text-align: justify;">Cloud Monitoring</p>
-<ul>
-  <li><a href="https://aws.amazon.com/cloudwatch/"><b>CloudWatch</b></a> (Metrics, Logs, Alarms, Events): It is a  monitoring and observability service. Provide <b>metrics</b> and <b>insights</b> (interactively search and analyze log data). The alarms trigger notifications for metric. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
-  <li><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</li>
-  <li><a href="https://aws.amazon.com/cloudtrail/"><b>CloudTrail</b></a>: track events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). Governance, compliance, audit for AWS account. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically unusual API activities in the customer account. </li>
-  <li><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
-  <li><b>CodeGuru</b>: automated code review and application performance recommendations</li>
-  <li><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</li>
-  <li><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</li>
-</ul>  
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
-<li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
-<li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
-
-<br />
-<hr>
-<br />
-
-<h2 id="network">AWS networking services</h2>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/vpc"><b>VPC</b></a> (Virtual Private Cloud): your own isolated network in AWS cloud</p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">VPC Peering</a> - connect two VPC. Private addresses.</li> 
-  <li>VPC Endpoint - connect to AWS services using private Network (Gateway [S3 and DynamoDB]; Interface [the rest]). Use AWS PrivateLink (provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet).</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>: capture information about the IP traffic going to and from network interfaces in your VPC</li>
-  <li>When the VPC is created is defined the range of IP</li>
-  <p style="text-align: justify;"><b>Elastic IP</b>: static IP to a public IP to EC2 instance</p>
-  <li><b>High avalilability with VPC</b>:two subnets configured in one AZ</li>
-  <li><b>Subnet</b>: partition the network inside the VPC and AZ. The public is accessible from the internet. <b>Route Tables</b> make possible the access of the internet and between subnets.</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"><b>Security Group</b></a>: instance level, virtual firewall to ENI/EC2 instance (ALLOW rule -IP and other security groups). Stateful. Protect against low level network attack like UDP floods.</li>
-  <li><b>Network ACL</b> (Access Control List): subnet level, firewall to subnets (ALLOW and DENY rules - only IP). Stateless. Customer is responsible for configure it.</li>
-  <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
-  <li><b>NAT Gateway</b> (AWS-managed) and <b>NAT instance</b> (self-managed): allows the instance inside the private Subnets to access the internet. But denying inbound traffic from internet</li>
-</ul>
-  
-<p style="text-align: justify;"><a href="https://aws.amazon.com/vpn/">Virtual Private Network</a> (<b>VPN</b>): </p>
-<ul>
-  <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
-  <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: connect (encrypted) on premises VPN to AWS. Over the public internet</li>
-  <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
-  <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
-  <li><b>Customer Gateway</b>: installed in customer network</li>
-  <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
+  <li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">DigitalCloudSummary</a></li>
+  <li><a href="https://aws.amazon.com/what-is-cloud-computing/?nc2=h_ql_le_int_cc">AWS - What is cloud computing?</a></li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/directconnect/"><b>Direct Connect (DX)</b></a>: physical connection (private) between on premises and AWS. No public internet. The company should use <a href="https://aws.amazon.com/transit-gateway/">AWS Transit Gateway</a> (connect VPC and on-primise network through a central hub - acts like a cloud router)</p>
 
-<p style="text-align: justify;"><b>Route 53</b>: Global Managed DNS. Helth check. Reliability and cost-effective way to route end users. <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">Weighted routing policy</a> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource. It can be used, e.g, for load balancing purpose. It is a hybrid architecture.</p>
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-networking-services/">DigitalCloud Summary</li>
-<li><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">(DigitalCloud) AWS Content Delivery and DNS Services</a></li>
+### ########################################################################################################################
 
 
 <br />
 <hr>
 <br />
+<h2 id="iam">IAM - AWS Identity and Access Management</h2>
 
-<h2 id="compute">AWS compute services</h2>
+<p style="text-align: justify;">Identify AWS access management (IAM) <a href="https://aws.amazon.com/iam/">[1]</a><a href="https://digitalcloud.training/aws-iam/">[2]</a> capabilities</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/ec2/"><b>Amazon EC2</b></a> (Elastic Compute Cloud): </p>
+<ul>
+  <li><b>IAM</b> is a <b>Global</b> service used to control the access to AWS resources (authentication/authorization). </li>
+  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support paln, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies.</li>
+  <li>IAM Security Tool: 
+    <ul>
+      <li>IAM Credential Report (account-level): account's users and their credential status. Access it by IAM menu Credential Report</li> 
+      <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">IAM Access Advisor</a> (user-level): services permissions and last access. Access it by IAM User menu. Use it to identify unnecessary permissions that have been assigned to users.</li>
+    </ul>
+  </li>
+</ul>
+
+<p style="text-align: justify;"><b>Users</b> are accounts without permissions by default. They are create with NO access to any AWS services, only login to the AWS console. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account.</p>
+
+<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested.</p>
+
+<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It provides temporary security credentials for customer role session</p>
+
+<p style="text-align: justify;">The <b>policies</b> can be applied to users, groups and roles. It is a document written in JSON. <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<ul>
+  <li>Version</li>
+  <li>Effect: allow/deny</li>
+  <li>Action: type of action that should be allowed or denied</li>
+  <li>Resource: specifies the object or objects that the policy statement covers</li>
+  <li>Condition: circumstances under which the policy grants permission</li>
+  <li>Principal: account, user, role, or federated user</li>
+</ul>
+
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access (API/SDK). It is generated through thr AWS Console</p>
+
+<p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS CLI.</p>
+
+<p><center>
+  <img src="/img/aws/iam.png" height="90%" width="90%">
+</center></p>
+
+<ul><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Best Practices</a>
+    <li>Use IAM user instead of root user in regular activities</li>
+    <li>Add user into groups</li>
+    <li>Strong password</li>
+    <li>Use MFA</li>
+    <li>Create roles for permissions to AWS services</li>
+    <li>User Access Keys for programmatic access (CLI/SDK)</li>
+    <li>Audit permissions through IAM Credential Reports and IAM Access Advisor</li>
+    <li>Protectect your access key</li>
+    <li>Prefer customer managed policies (managed policies cannot be edited)</li>
+    <li>Use roles for applications that run EC2 and to delegate permissions</li>
+    <li>Rotate credentials</li>
+    <li>Give only credentials that is really needed (Least privilege)</li>
+</ul>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+<h2 id="orgcontrolpower">AWS Organization and Control Tower</h2>
+
+<p style="text-align: justify;"><b>AWS Organization</b><a href="https://aws.amazon.com/organizations/">[1]</a><a href="https://digitalcloud.training/aws-organizations/">[2]</a>: it is a collection of AWS accounts where is possible manage these accounts, apply polices, delegate responsibilities, apply SSO, share resources within the organization, use CloudTrail across the accounts.</p>
+
+<ul>
+  <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
+  <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
+ </ul>
+
+<p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions.</p>    
+
+
+<p style="text-align: justify;"><b>Control Tower</b>: is over organization given support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+<h2 id="ec2">EC2 - Elastic Compute Cloud</h2>
+
+
+<p id="ec2" style="text-align: justify;"><b>Amazon EC2</b> (Elastic Compute Cloud)<a href="https://aws.amazon.com/ec2/">[1]</a><a href="https://digitalcloud.training/amazon-ec2/">[2]</a>: virtual server instances in the cloud</p>
+
 <ul>
   <li><b>IaaS</b> (Infrastructure as a service)</li>
   <li>It can run virtual server instances in the cloud</li>
   <li>Each instance can run Windows/Linux/MacOS</li>
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
+  <li>Volumes: EBS (persist) and Instance Store (Non-Persistent)
   <li>It's possible to run commands when the machine starts (EC2 User data scripts): install updates, softwares, etc. Those scripts run with root user.</li>
   <li>Instance metadata is information about the instance. User data and metadata are not encrypted. The metadata is available at http://169.254.169.254/latest/meta-data</li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
+  <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
+  <li>Get metrics in CloudWatch, logs in CloudTrail</li>
+  <li><b><a href="https://fabiana2611.github.io/infra/aws-foundational#pricing">Pricing: </a></b>On-Demand, Reservation (Standard, Convertible and Shecule), Saving Plain, Spot, <a href="https://aws.amazon.com/ec2/dedicated-hosts/">Dedicated Host</a>, <a href="https://aws.amazon.com/ec2/pricing/dedicated-instances/">Dedicated Instance</a></li>
   <li><b>Shared Responsability</b>
     <ul>
       <li>AWS: Infrastructure (global network security), Isolation on physical hosts, Replacing hoardware, Compliance Validation</li>
@@ -254,10 +222,12 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
 <ul>
+  <li>Template of root volume + laung permissions + block device mapping the volumes to attach</li>
   <li>Launch EC2 one or more pre-configured instance </li>
   <li>It can be customized </li>
   <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
   <li>An EBS snapshot is created when an AMI is builded</li>
+  <li>It can be copied to other regions by the console, command line, or the API</li>
 </ul> 
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html"><b>EC2 Image Builder</b></a></p>
@@ -267,18 +237,276 @@ permalink: /:categories/aws-foundational
   <li>The execution can be scheduled and after the process the AMI can be distributed (multiple regions)</li>
 </ul> 
 
-<p style="text-align: justify;">Amazon <b>Lambda</b></p>
+<p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc.</p>
 <ul>
-  <li>FaaS</li>
-  <li>Virtual functions</li>
-  <li>Serverless</li>
-  <li>Run on-demand</li>
-  <li>Scaling automatically</li>
-  <li>Event-driven</li>
-  <li>Can be monitoring through <b>CloudWatch</b></li>
-  <li>Integrated with Load balancer (<b>ELB</b>)</li>
-  <li>Pricing: Pay per call (request) and duration (time of execution)</li>
+  <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
+  <li><b>Reservations (1-3 years):</b> predicted workload. various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">Discount up 72%</a>.
+    <ul>
+      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted.</li> 
+      <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a> long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value</li>
+    </ul>
+  </li>
+  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plain</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
+  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instanves in AWS.</li> 
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): physical server with EC2 instance dedicated, can use your own licenses. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
+  <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account.</li>
+  <li><a href="https://aws.amazon.com/blogs/aws/new-per-second-billing-for-ec2-instances-and-ebs-volumes/">Minimum charge</a>: one-minute for Linux based EC2 instances.</li>    
 </ul>
+
+<p><b>Network:</b></p>
+<ul>
+  <li>Elastic Network Interface (ENI) -> Virtual Network card -> Attributes: Primary and secondary IPv4 address, Elastic IPv4, public IPv4/IPv6, security group, MAC address, source/destination check flag, description -> Attached to  instances. eth0 is ENI created when an Ec2 instance is launched</li>
+  <li>Elastic Network Adapter (ENA): it anable Enhanced network which provides higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies.</li>
+  <li>Elastic Fabric Adapter (EFA): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of inter-node communications at scale on AWS.</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"><b>Placement groups:</b></a> To meet the needs of your workload, you can launch a group of interdependent EC2 instances into a placement group to influence their placement. It can be <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>. </p>
+
+<p><center>
+  <img src="/img/aws/placementgroup.png" height="90%" width="90%">
+</center></p>
+
+<p><b>Aditional References:</b></p>
+<ul>
+  <li><a href="https://digitalcloud.training/aws-compute-services/">DigitalCloud Summary</a></li>
+  <li><a href="https://aws.amazon.com/ec2/instance-types/">Instance Types</a></li>
+  <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-optimization/right-sizing/">Right Sizing</a></li>
+  <li><a href="https://instances.vantage.sh/">Instance Types - Vantage</a></li>
+</ul>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+<h2 id="elbasg">Elastic Load Balancing and Auto Scaling</h2>
+
+<p>These are features <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a> to be used to ensure elasticity and high availability. They can be used together.</p>
+
+<p style="text-align: justify;"><b>ELB</b> (<a href="https://aws.amazon.com/elasticloadbalancing/">Elastic Load Balancer</a>): distribute the traffic across healthy instances. It do the health check<a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">[2]</a><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-update-security-groups.html">[3]</a> with targets. It routes only to helthy target.</p>
+
+<ul>
+  <li>Servers that handle the traffic and distribute it across, e.g., EC2 instance, containers and IP address. Single AZ or Multiple AZ. </li>
+  <li>It has only one point of access (DNS). </li>
+  <li>Single Region</li>
+  <li>Benefits: High availability across zones, automatic scaling and Fault Tolerance.</li>
+  <li>Types:
+    <ul> 
+      <li><b>ALB</b> (Application Load Babancer): HTTP/S; Static DNS (URL); Layer 7; It is a single point of contact for client. Distributes incoming application traffic across multiple targets in multiple AZ.</li>
+      <li><b>NLB</b> (Network Load Balancer): high performance/low latency (TCP/UDP); static IP throught Elastic IP; layer 4. It distributes traffic.</li> 
+      <li><b>GLB</b> (Gateway Load Balancer): route traffic to firewalls managing in EC2 instance (Layer 3); Classic Load Balancer (Layer 4 and 7)</li>
+    </ul>
+  </li>
+  <li><b>Shared responsibility</b>: AWS is responsable to keep it working, upgrade, maintain, and provide only few configurations.</li>
+</ul>
+
+<p><center>
+  <img src="/img/aws/elb.png" height="90%" width="90%">
+</center></p>
+
+<p style="text-align: justify;">Auto Scaling: create and remove instance when is necessary. It can use a launch configuration <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[4]</a> (an instance configuration template) that an Auto Scaling group uses to launch Amazon EC2 instances.</p>
+
+<p id="asg" style="text-align: justify;"><b>ASG</b> (<a href="https://aws.amazon.com/autoscaling/">Auto Scaling</a> Group): </p>
+<ul>
+  <li>ASG contains a collection of EC2 instance (logical group)</li>
+  <li>Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
+  <li>Replace unhealthy instances. </li> 
+  <li>Only run at an optimal capacity.</li>
+  <li>AWS EC2 Auto Scaling provides elasticity and scalability.</li>
+  <li>A <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">scheduled scaling policy</a> can be configured for known increase in app traffic (predictable load changes)</li>
+  <li>Predictive scaling: uses daily and weekly trends to determine when scale</li>
+  <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
+  <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
+  <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">DigitalCloud Summary</a></li>
+</ul> 
+
+<p><b>Aditional References:</b></p>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling for Amazon EC2 Auto Scaling</a></li>
+</ul>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="network">AWS networking services</h2>
+
+<p id="vpc" style="text-align: justify;"><b>VPC</b><a href="https://aws.amazon.com/vpc">[1]</a><a href="https://digitalcloud.training/amazon-vpc/">[2]</a> (Virtual Private Cloud): your own isolated network in AWS cloud</p>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">VPC Peering</a> - connect two VPC. Private addresses.</li> 
+  <li>VPC Endpoint - connect to AWS services using private Network (Gateway [S3 and DynamoDB]; Interface [the rest]). Use AWS PrivateLink (provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet).</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>: capture information about the IP traffic going to and from network interfaces in your VPC</li>
+  <li>When the VPC is created is defined the range of IP</li>
+  <li><b>Elastic IP</b>: static IP to a public IP to EC2 instance</li>
+  <li><b>High avalilability with VPC</b>: two subnets configured in one AZ</li>
+  <li><b>Subnet</b>: partition the network inside the VPC and AZ. The public is accessible from the internet. </li><li><b>Route Tables</b> make possible the access of the internet and between subnets.</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"><b>Security Group</b></a>: instance level, virtual firewall to ENI/EC2 instance (ALLOW rule -IP and other security groups). Stateful. Protect against low level network attack like UDP floods.</li>
+  <li><b>Network ACL</b> (Access Control List): subnet level, firewall to subnets (ALLOW and DENY rules - only IP). Stateless. Customer is responsible for configure it.</li>
+  <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
+  <li><b>NAT Gateway</b> (AWS-managed) and <b>NAT instance</b> (self-managed): allows the instance inside the private Subnets to access the internet. But denying inbound traffic from internet</li>
+</ul>
+  
+<p style="text-align: justify;"><a href="https://aws.amazon.com/vpn/">Virtual Private Network</a> (<b>VPN</b>): </p>
+<ul>
+  <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
+  <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: connect (encrypted) on premises VPN to AWS. Over the public internet</li>
+  <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
+  <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
+  <li><b>Customer Gateway</b>: installed in customer network</li>
+  <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
+</ul>
+
+<p style="text-align: justify;"><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (private) or dedicated network connection between on premises and AWS. No public internet. The company should use <a href="https://aws.amazon.com/transit-gateway/">AWS Transit Gateway</a> (connect VPC and on-primise network through a central hub - acts like a cloud router)</p>
+
+<p style="text-align: justify;"><b>Route 53</b><a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a>: Global Managed DNS. Helth check. Reliability and cost-effective way to route end users. <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">Weighted routing policy</a> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource. It can be used, e.g, for load balancing purpose. It is a hybrid architecture. It's not possible to extend Route 53 to on-premises instances. Paied for hosted zone, queries, traffic flow, helth checks, domain name.</p>
+
+
+<p><b><u>Performance</u></b></p>
+
+<p style="text-align: justify;"><b>AWS Global Accelerator</b><a href="https://aws.amazon.com/global-accelerator/">[1]</a><a href="https://digitalcloud.training/aws-global-accelerator/">[2]</a></p>
+<ul>
+  <li>Improve global application availability and performance</li>
+  <li>Optimize the rote</li>
+  <li>Use Edge Locations to the traffic</li>
+  <li>Global Network</li>
+  <li>Integration with Shield for DDoS protection</li>
+  <li>No caching and has proxy packets at the edge</li>
+  <li>Improve performance over TCP/UDP</li>
+  <li>Good when use static IP and need determinist and fast regional failover.</li>
+  <li>Target: EC2 instances or ALB</li>
+</ul>
+
+<p style="text-align: justify;"><b>Amazon CloudFront</b><a href="https://aws.amazon.com/cloudfront/">[1]</a><a href="https://digitalcloud.training/amazon-cloudfront/">[2]</a>: Global Content Delivery Network (CDN)</p>
+<ul>
+  <li>Replicate part of your application to AWS Edge Locations (content is served at the edge). </li>
+  <li>Edge location: location to cache the content</li>
+  <li>It can use cache at the edge to reduce latency. Improves read performance. </li>
+  <li>DDoS protection, integration with Shield, Firewall</li>
+  <li>S3 bucket: distribute files and caching at the edge, security with OAC (Origing Access Control)</li>
+  <li>Customer origin: ALB, EC2 instance, S3 website</li>
+  <li>It's a global service</li>
+  <li>Can be integrated with CloudTrail</li>
+  <li>Great for static content that must be available everywhere; in oposite of S3 Cross Region Replication that is great for dynamic content that needs to be available at low latency in few regions</li>
+  <li><b>Pricing</b>: Traffic distribution; Requests; Data transfer out. Price is different for region</li>
+</ul>
+
+
+<p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-networking-services/">DigitalCloud Summary</li>
+<li><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">(DigitalCloud) AWS Content Delivery and DNS Services</a></li>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="storage">AWS Storage Services</h2>
+
+<p style="text-align: justify;">There are three categories to storage services:</p>
+<ul>
+  <li>File storage: storage files in a hierarchy</li>
+  <li>block storage: storage in a fixed sze blocks. Any change only a block is changed</li>
+  <li>object storage: storage as a object. Any change then all the opject is changed</li>
+</ul>
+
+
+<br />
+<h2>S3</h2>
+
+<p style="text-align: justify;"><b>S3</b> - Amazon Simple Storage Service <a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a>.</p>
+<ul>
+  <li>Object store and global file system.</li>
+  <li>Used to store any files until 5TB without limits in buckets (directories/containers)</li>
+  <li>These objects have a key.</li>
+  <li>You can have version of the objects (bucket level)</li>
+  <li>Virtually unlimited amount of online highly durable object storage. </li>
+  <li>Each <b>bucket</b> is inside of a region</li>
+  <li><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a>: 
+    <ul>
+      <li><b>Standard</b>: frequently accessed</li> 
+      <li><b>Standard-IA</b>: infrequently accessed but require rapid access. Low per GB storage price and per GB retrieval fee</li>
+      <li><b>Intelligent-Tiering</b>: optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. One tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. More expensive than Standard-IA.</li>
+      <li><b>One Zone-IA</b>: lower cost</li> 
+      <li><b>Glacier</b>: archived data; <b>pay for what you need</b>. Read and write</li>
+      <li><b>Glacier Deep Archive</b>: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
+    </ul>
+  </li> 
+  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</li>
+  <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
+  <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
+  <li><b>Security</b>: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object </li>
+  <li>Performance: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> Accelerate global uploads & downloads into Amazon S3; and Increase transfer speed to Edge Location (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication:</a> CRR and SRR</li>
+  <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a></li>
+  <li><b>Shared Responsibility</b>
+    <ul>
+      <li>AWS: Infrastructure (global security, durability, availability), Configuration and vulnerability analysis, Compliance validation, AWS employees can't not access the customer data, separation between customers</li>
+      <li>Customer: version, bucket policies, replication, logging and monitoring, storage class, data encryptation, IAM user and roles</li>
+    </ul>
+  </li>
+  <li><b>Pricing</b>: Depends the storage class; storage quantity; number of request; transition request; data transfer.</li>
+</ul>
+
+
+<p style="text-align: justify;"><b>EBS</b> - Amazon Elastic Block Store (Amazon <b>EBS) <a href="https://aws.amazon.com/ebs/">[1]</a><a href="https://digitalcloud.training/amazon-ebs/">[2]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">[3]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html">[4]</a></p>
+<ul>
+  <li>EBS <b>Volume</b>: attached to one instance.</li> 
+  <li>The EBS volumes not need to be attached to an instance.</li> 
+  <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains)</li> 
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a>: Same AZ, only to SSD volume, allowed only in some regions, and others restrictions</li> 
+  <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
+  <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
+  <li>A <b>snapshot</b> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
+  <li>It has a limited performance.</li> 
+  <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.</p>
+
+<p style="text-align: justify;"><b>EFS</b><a href="https://aws.amazon.com/efs/">[1]<a href="https://digitalcloud.training/amazon-efs/">[2]</a> - Amazon Elastic File System</p>
+<ul>
+  <li>Shared File storage service for use with EC2.</li>
+  <li>Managed NFS and works with Linux instance in multi-AZ. It is considered highly available, scalable, expensive, pay per use.</li>
+  <li>Different AZ can share the same EFS.</li>
+  <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Stanrd to EFS-IA.</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html"><b>Storage Gateway</b></a></p>
+<ul>
+  <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
+  <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
+  <li>Virtually unlimited cloud storage</li>
+  <li>Cannot be used to data archival</li>
+  <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
+  <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a> for Windows File Server provides fully managed Microsoft Windows file servers, backed by a fully native Windows file system. Amazon FSx supports a broad set of enterprise Windows workloads with fully managed file storage built on Microsoft Windows Server. Amazon FSx has native support for Windows file system features and for the industry-standard Server Message Block (SMB) protocol to access file storage over a network</p>
+
+<p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
+<li><a href="https://docs.aws.amazon.com/opsworks/latest/userguide/best-practices-storage.html">Best Practices: Root Device Storage for Instances</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
+
+
+### ########################################################################################################################
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="container">Docker Containers and ECS</h2>
 
 <p style="text-align: justify;"><b>Docker</b> </p>
 <ul>
@@ -325,118 +553,62 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/ecs.png" height="90%" width="90%">
 </center></p>
 
-<p style="text-align: justify;"><b>EBL</b> - <a href="https://aws.amazon.com/elasticloadbalancing/">Elastic Load Balancer</a></p>
-<ul>
-  <li>Servers that handle the traffic and distribute it across, e.g., EC2 instance, containers and IP address. Single AZ or Multiple AZ. </li>
-  <li>It has only one point of access (DNS). </li>
-  <li>Single Region</li>
-  <li>Benefits: High availability across zones, automatic scaling and Fault Tolerance.</li>
-  <li>Types:
-    <ul> 
-      <li><b>ALB</b> (Application Load Babancer): HTTP/S; Static DNS (URL); Layer 7; It is a single point of contact for client. Distributes incoming application traffic across multiple targets in multiple AZ.</li>
-      <li><b>NLB</b> (Network Load Balancer): high performance/low latency (TCP/UDP); static IP throught Elastic IP; layer 4. It distributes traffic.</li> 
-      <li><b>GLB</b> (Gateway Load Balancer): route traffic to firewalls managing in EC2 instance (Layer 3); Classic Load Balancer (Layer 4 and 7)</li>
-    </ul>
-  </li>
-  <li><b>Shared responsibility</b>: AWS is responsable to keep it working, upgrade, maintain, and provide only few configurations.</li>
-</ul>
+<p style="text-align: justify;">Amazon Elastic Container Service for Kubernetes (<a href="https://aws.amazon.com/eks/">EKS</a>): Manage Kubernetes clusters on AWS</p>
+
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-compute-services/">DigitalCloud Summary</a></li>
-<li><a href="https://aws.amazon.com/ec2/instance-types/">Instance Types</a></li>
-<li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling for Amazon EC2 Auto Scaling</a></li>
-<li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-optimization/right-sizing/">Right Sizing</a></li>
-<li><a href="https://instances.vantage.sh/">Instance Types - Vantage</a></li>
+<li><a href="https://digitalcloud.training/amazon-ecs-and-eks/">ECS and EKS</a></li>
+<li><a href="https://aws.amazon.com/ecs/pricing/">ECS Pricing</a></li>
+<li><a href="https://aws.amazon.com/ecs/">ECS</a></li>
+
+
+### #####################################################################################
 
 <br />
 <hr>
 <br />
 
-<h2 id="storage">AWS Storage Services</h2>
+<h2 id="serverless">Serverless Applications</h2>
 
-<p style="text-align: justify;">There are three categories to storage services:</p>
 <ul>
-  <li>File storage: storage files in a hierarchy</li>
-  <li>block storage: storage in a fixed sze blocks. Any change only a block is changed</li>
-  <li>object storage: storage as a object. Any change then all the opject is changed</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/s3/"><b>S3</b></a> - Amazon Simple Storage Service</p>
-<ul>
-  <li>Object store and global file system.</li>
-  <li>Used to store any files until 5TB without limits in buckets (directories/containers)</li>
-  <li>These objects have a key.</li>
-  <li>You can have version of the objects (bucket level)</li>
-  <li>Virtually unlimited amount of online highly durable object storage. </li>
-  <li>Each <b>bucket</b> is inside of a region</li>
-  <li><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a>: 
+  <li>API Gateway <a href="https://digitalcloud.training/amazon-api-gateway/">[1]</a><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html">[2]
+  </a><a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/">[3]</a>: Fully managed service for developers, Serverless and scalable, Restful and WeSocket</li>
+  <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
+  <li>Lambda@Edge</li>
+  <li>Amazon <a href="https://digitalcloud.training/amazon-kinesis/">Kinesis</a> Data Streams (KDS)</li>
+  <li>
+    Lambda<a href="https://digitalcloud.training/aws-lambda/">[1]</a><a href="https://aws.amazon.com/blogs/architecture/best-practices-for-developing-on-aws-lambda/">[2]</a>:
     <ul>
-      <li><b>Standard</b>: frequently accessed</li> 
-      <li><b>Standard-IA</b>: infrequently accessed but require rapid access. Low per GB storage price and per GB retrieval fee</li>
-      <li><b>Intelligent-Tiering</b>: optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. One tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. More expensive than Standard-IA.</li>
-      <li><b>One Zone-IA</b>: lower cost</li> 
-      <li><b>Glacier</b>: archived data; <b>pay for what you need</b>. Read and write</li>
-      <li><b>Glacier Deep Archive</b>: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
-    </ul>
-  </li> 
-  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</li>
-  <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
-  <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
-  <li><b>Security</b>: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
-  <li><b>Shared Responsibility</b>
-    <ul>
-      <li>AWS: Infrastructure (global security, durability, availability), Configuration and vulnerability analysis, Compliance validation, AWS employees can't not access the customer data, separation between customers</li>
-      <li>Customer: version, bucket policies, replication, logging and monitoring, storage class, data encryptation, IAM user and roles</li>
+      <li>FaaS</li>
+      <li>Example of integration: API Gateway, Kinesis, DynamoDB, S3, CloudFront, CloudWatch, SNS, SQS, Cognito</li>
+      <li>Virtual functions</li>
+      <li>Serverless</li>
+      <li>Run on-demand</li>
+      <li>Scaling automatically</li>
+      <li>Event-driven</li>
+      <li>Can be monitoring through <b>CloudWatch</b></li>
+      <li>Integrated with Load balancer (<b>ELB</b>)</li>
+      <li>Pricing: Pay per call (request) and duration (time of execution)</li>
     </ul>
   </li>
-  <li><b>Pricing</b>: Depends the storage class; storage quantity; number of request; transition request; data transfer.</li>
+  <li>SNS<a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-notification-service">[1]</a><a href="https://aws.amazon.com/sns/">[2]</a></li>
+  <li>SQS <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-queue-service-amazon-sqs">[1]</a><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">[2]</a>. Poll-based</li>
+  <li><a href="https://digitalcloud.training/aws-application-integration/#aws-step-functions">Step Function</a></li>
+  <li>EventBridge (https://aws.amazon.com/eventbridge/)</li>
+  <li><a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">SWF</a></li>
+  <li><a href="https://digitalcloud.training/aws-application-integration/#amazon-mq">Amazon MQ</a></li>
+  <li><a href="https://digitalcloud.training/amazon-cloudwatch/">CloudWatch</a></li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/ebs/"><b>EBS</b></a> - Amazon Elastic Block Store (Amazon <b>EBS)</b></p>
-<ul>
-  <li>EBS <b>Volume</b>: attached to one instance.</li> 
-  <li>The EBS volumes not need to be attached to an instance.</li> 
-  <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains)</li> 
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a>: Same AZ, only to SSD volume, allowed only in some regions, and others restrictions</li> 
-  <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
-  <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
-  <li>A <b>snapshot</b> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
-  <li>It has a limited performance.</li> 
-  <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
-</ul>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.</p>
-
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/efs/">EFS</a></b> - Amazon Elastic File System</p>
-<ul>
-  <li>Shared File storage service for use with EC2.</li>
-  <li>Managed NFS and works with Linux instance in multi-AZ. It is considered highly available, scalable, expensive, pay per use.</li>
-  <li>Different AZ can share the same EFS.</li>
-  <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Stanrd to EFS-IA.</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html"><b>Storage Gateway</b></a></p>
-<ul>
-  <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
-  <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
-  <li>Virtually unlimited cloud storage</li>
-  <li>Cannot be used to data archival</li>
-  <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
-  <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a> for Windows File Server provides fully managed Microsoft Windows file servers, backed by a fully native Windows file system. Amazon FSx supports a broad set of enterprise Windows workloads with fully managed file storage built on Microsoft Windows Server. Amazon FSx has native support for Windows file system features and for the industry-standard Server Message Block (SMB) protocol to access file storage over a network</p>
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
-<li><a href="https://docs.aws.amazon.com/opsworks/latest/userguide/best-practices-storage.html">Best Practices: Root Device Storage for Instances</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
+### #####################################################################################
 
 <br />
 <hr>
 <br />
 
 <h2 id="database">AWS database services</h2>
+
 
 <p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine</p>
 
@@ -477,7 +649,7 @@ permalink: /:categories/aws-foundational
   <li>Shared Responsibility: AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
 </ul>
 
-<p style="text-align: justify;">Amazon <b><a href="https://aws.amazon.com/dynamodb/features/">DynamoDB</a></b></p>
+<p style="text-align: justify;"><b>Amazon DynamoDB<a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a></b></p>
 <ul>
   <li>Highly available with replication across 3 AZ.</li>
   <li>Multi-Region replication. Ative-Active with cross region support. The global tables replicate data automatically across the customer choise of regions</li>
@@ -494,6 +666,8 @@ permalink: /:categories/aws-foundational
   <li>Pricing: throughput; Indexed data storage; Data tranfer; Global tables; reserved capacity; On-demand capacity mode; Provisioned capacity mode</li>
 </ul>
 
+<p>DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB</p>
+
 <p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/redshift"><b>Redshift</b></a></p>
 <ul>
   <li>Based on PostgreSQL (but not OLTP)</li>
@@ -506,7 +680,7 @@ permalink: /:categories/aws-foundational
   <li>BI tools: AWS Quicksight or Tableau</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/glue/">Amazon <b>Glue</b></a></p>
+<p style="text-align: justify;">Amazon <b>Glue</b><a href="https://aws.amazon.com/glue/">[1]</a><a href="https://digitalcloud.training/aws-glue/">[2]</a></p>
 <ul>
   <li>extract, transform, and load (ETL) service</li>
   <li>serverless service</li>
@@ -538,22 +712,25 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-database-services/">DigitalCloud Summary</a></li>
 <li><a href="https://aws.amazon.com/emr/features/">Amazon EMR features</a></li>
 <li><a href="https://aws.amazon.com/products/databases/">AwS Database</a></li>
+<li><a href="https://digitalcloud.training/amazon-elasticache/">Elasticache</a></li>
+<li><a href="https://digitalcloud.training/amazon-athena/">Athena</a></li>
+<li><a href="https://digitalcloud.training/amazon-emr/">EMR</a></li>
+<li><a href="https://digitalcloud.training/amazon-rds/">RDS</a></li>
+<li><a href="https://digitalcloud.training/amazon-aurora/">Autora</a></li>
+
+
+
+### #####################################################################################
+
 
 <br />
 <hr>
 <br />
 
-<h2 id="others">Others Services</h2>
+<h2 id="database">Deployment</h2>
 
-<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
-<ul>
-  <li>Fully managed batch process</li>
-  <li>Batch will dynamically launch EC2 instances or Spot instances</li>
-  <li>AWS provisions the compute and memory. Customer only need submit or schedule the batch job.</li>
-  <li>Batch jobs are defines as Docker images and run on ECS</li>
-</ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/cloudformation/">Amazon <b>CloudFormation</b></a></p>
+<p style="text-align: justify;">Amazon <b>CloudFormation</b><a href="https://aws.amazon.com/cloudformation/">[1]</a><a href="https://digitalcloud.training/aws-cloudformation/">[2]</a></p>
 <ul>
   <li>declarative way of outlining your AWS Infrastructure, for any resources</li>
   <li>It uses <b>template</b> to create the stack (security group, EC2 instancesm S3 bucket, ELB, etc)</li>
@@ -573,7 +750,7 @@ permalink: /:categories/aws-foundational
   <li>Provisions the resources using CloudFormation</li>
 </ul>
 
-<p style="text-align: justify;">AWS Elastic <a href="https://aws.amazon.com/elasticbeanstalk/"><b>Beantalk</b></a></p>
+<p style="text-align: justify;">AWS Elastic <b>Beantalk</b><a href="https://aws.amazon.com/elasticbeanstalk/">[1]</a><a href="https://digitalcloud.training/aws-elastic-beanstalk/">[2]</a></p>
 <ul>
   <li>Integrate with VPC and IAM</li>
   <li>ZIP, WAR, Git</li>
@@ -588,34 +765,8 @@ permalink: /:categories/aws-foundational
   <li>Pricing: Free but you pay for the underlying instances</li>
 </ul>
 
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codedeploy/"><b>CodeDeploy</b></a></p>
-<ul>
-  <li>Deploy automatically</li>
-  <li>Works with EC2 instanes, On-Premises servers</li>
-  <li>CodeDeploy Agent is responsable to provision and configure Servers and Instances</li>
-</ul>
 
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology</p>
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codepipeline/"><b>CodePipeline</b></a>: Orchestrate the steps until production</p>
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codestar/features/"><b>CodeStar</b></a>: UI to manage Software Development activities.</p>
-<p style="text-align: justify;">AWS <b>Cloud9</b>: Cloud IDE</p>
-
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codebuild/features/"><b>CodeBuild</b></a></p>
-<ul>
-  <li>Compile code, run tests and packaged to be deployed by CodeDeploy</li>
-  <li>Pay-as-you-go pricing. Pay for build time</li>
-  <li>Like Jenkins</li>
-</ul>
-
-<p style="text-align: justify;">AWS <b>CodeArtifact</b></p>
-<ul>
-  <li>Artifacts: dependencies</li>
-  <li>It is an artifact management</li>
-  <li>Like maven, gradle, npm, yarn</li>
-  <li>Developers and CodeBuild retrieve the dependencies using it.</li>
-</ul>
-
-<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/systems-manager/faq/">Systems Manager</a></b> (SSM) Session Manager</p>
+<p style="text-align: justify;">AWS <b>Systems Manager </b> (SSM) Session Manager<a href="https://aws.amazon.com/systems-manager/faq/">[1]</a><a href="https://digitalcloud.training/aws-systems-manager/">[2]</a></p>
 <ul>
   <li>Provides an operations console and APIs for centralized application and resource management in hybrid environments</li>
   <li>A hybrid service that manage EC2 and OnPremises system at scale</li>
@@ -628,80 +779,41 @@ permalink: /:categories/aws-foundational
   <li>Track and resolve operational issues across your AWS applications and resources from a central place</li>
 </ul>
 
-<p style="text-align: justify;">AWS <b>OpsWorks</b></p>
+<p style="text-align: justify;">AWS <b>OpsWorks</b><a href="https://digitalcloud.training/aws-opsworks/">[1]</a></p>
 <ul>
   <li>Like Chef and Puppet - perform server configuration automatically.</li>
   <li>Alternative to SSM</li>
 </ul>
 
 
-<p style="text-align: justify;">Amazon <b>API Gateway</b>: Fully managed service for developers, Serverless and scalable, Restful and WeSocket</p>
-<p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
-<p style="text-align: justify;">Amazon <b>WorkSpaces</b>: Managed Desktop as a Service (DaaS). Integrated with KMS. Pay-as-you-go.</p>
-<p style="text-align: justify;">Amazon <b>AppStream</b>: Desktop Application Streaming Service (web browser)</p>
-<p style="text-align: justify;">AWS <b>IoT</b>: connect devices to the cloud</p>
-<p style="text-align: justify;">Amazon <b>Elastic Transcoder</b>: convert media files in S3 into different formats of media files</p>
-<p style="text-align: justify;">AWS <b>AppSync</b>: store and sync data between mobile and web app</p>
-<p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
-<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
-<p style="text-align: justify;">AWS <b>Backup</b>: set on demand and scheduled backups. Cross-Region/Cros-Account backups</p>
-<p style="text-align: justify;">AWS <b>Elastic Disaster Recovery(DRS)</b>: recover physical, virtual and cloud-based servers into AWS</p>
-<p style="text-align: justify;">AWS <b>DataSync</b>: Move large amount of data from on-premises to AWS</p>
-<p style="text-align: justify;">AWS <b>Application Discovery Service</b>: Move large amount of data from on-premises to AWS</p>
-<p style="text-align: justify;">AWS <b>Fault Inject Simulator (FIS)</b>: based on chaos engineering. stressing test.</p>
-<p style="text-align: justify;">AWS <b>Step Functions</b>: workflow to lambda function.</p>
-<p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
-<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: marketing communication service (email, sms, voice)</p>
-<p style="text-align: justify;">Amazon Elastic Container Service for Kubernetes (<a href="https://aws.amazon.com/eks/">EKS</a>)</p>
-
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
-<li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
-<li><a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></li>
-<li><a href="https://aws.amazon.com/elasticsearch-service/features/">Amazon OpenSearch Service Features</a></li>
+<li><a href="https://digitalcloud.training/aws-config/">AWS Config</a></li>
+<li><a href="https://digitalcloud.training/aws-resource-access-manager/">AWS Resource Access Manager</a></li>
 
-<br />
-<hr>
-<br />
 
-<h2 id="migration">Migration</h2>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/cloud-adoption-framework/">AWS Cloud Adoption Framework (AWS CAF)</a> AWS experience and best practices to help migrate your business outcomes through innovative use of AWS. Perspective: Business, People, Governance, Platform, Security and Operations.</p>
+### #####################################################################################
 
-<p><a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">Strategy</a>:</p>
+
+
+### Monitoring, Logging and Audit
+
+<p style="text-align: justify;">Cloud Monitoring</p>
 <ul>
-  <li><b>Rehosting</b>: moving applications without changes (lift-and-shift)</li>
-  <li><b>Replatforming</b>: few cloud optimizations to realize a tangible benefit(lift, tinker, and shift)</li>
-  <li><b>Refactoring/re-architecting</b>: reimagining how an application is architected and developed by using cloud-native features</li>
-  <li><b>Repurchasing</b>: moving from a traditional license to a software-as-a-service model</li>
-  <li><b>Retaining</b>:  keeping applications that are critical for the business in the source environment</li>
-  <li><b>Retiring</b>: removing applications that are no longer needed</li>
-</ul>
+  <li><b>CloudWatch</b><a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a> (Metrics, Logs, Alarms, Events): It is a  monitoring and observability service. Provide <b>metrics</b> and <b>insights</b> (interactively search and analyze log data). The alarms trigger notifications for metric. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
+  <li><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</li>
+  <li><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: track events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). Governance, compliance, audit for AWS account. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically unusual API activities in the customer account. </li>
+  <li><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
+  <li><b>CodeGuru</b>: automated code review and application performance recommendations</li>
+  <li><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</li>
+  <li><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</li>
+</ul>  
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/dms/"><b>DMS</b></a> (Database Migration Service): Migrate to AWS. With this is possible do continuous replication (ex: send to data warehouse)</p>
 
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/migration-hub/features/">AWS Migration Hub</a></b>: single location to track the progress of application migrations</p>
 
-<p style="text-align: justify;"><b>AWS Server Migration Service (SMS)</b> is a fast agentless service easy to migrate thousands of on-premises workloads to AWS</p>
+### #####################################################################################
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/application-migration-service/">AWS Application Migration Service</a> <b>(MGN)</b>: Migrating to native AWS</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/snow"><b>Snow Family</b></a></p>
-<ul>
-  <li>Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS</li>
-  <li>Data migration: 
-    <ul>
-      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync</li>
-      <li>Snowball Edge (Storage Optimized (80TB) /Compute Optimized (42TB)): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes.) EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
-      <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
-    </ul>  
-  </li>
-  <li>Edge computing: Snowcone, Snowball Edge. Process data while it's being create on an edge location (Ex: process data, machine learning, transcoding media streams)</li>
-  <li>OpsHub manage Snow Family device.</li>
-  <li>Snowball Pricing: per data transfer job</li>
-</ul>
-
-<p style="text-align: justify;">AWS <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">Application Discovery Service</a> helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</p>
 
 <br />
 <hr>
@@ -709,64 +821,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="security">Security</h2>
 
-<p style="text-align: justify;"><b>Users</b> are accounts without permissions by default. They are create with NO access to any AWS services, only login to the AWS console. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account.</p>
 
-<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested.</p>
-
-<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It provides temporary security credentials for customer role session</p>
-
-<p style="text-align: justify;">The <b>policies</b> can be applied to users, groups and roles. It is a document written in JSON. <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
-<ul>
-  <li>Version</li>
-  <li>Effect: allow/deny</li>
-  <li>Action: type of action that should be allowed or denied</li>
-  <li>Resource: specifies the object or objects that the policy statement covers</li>
-  <li>Condition: circumstances under which the policy grants permission</li>
-  <li>Principal: account, user, role, or federated user</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/organizations/">AWS Organization</a> is a feature to control many accounts</p>
-<ul>
-  <li><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions.</li>    
-  <li>To remove an account from the AWS Organization that should be as standalone</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access (API/SDK). It is generated through thr AWS Console</p>
-
-<p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS CLI.</p>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/iam/">Identify AWS access management (IAM)</a> capabilities</p>
-<ul>
-  <li><b>IAM</b> is a <b>Global</b> service used to control the access to AWS resources (authentication/authorization). </li>
-  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support paln, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies.</li>
-  <li>IAM Security Tool: 
-    <ul>
-      <li>IAM Credential Report (account-level): account's users and their credential status. Access it by IAM menu Credential Report</li> 
-      <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">IAM Access Advisor</a> (user-level): services permissions and last access. Access it by IAM User menu. Using it is possible to identify unnecessary permissions that have been assigned to users.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><center>
-  <img src="/img/aws/iam.png" height="90%" width="90%">
-</center></p>
-
-
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Best Practices</a></p>
-  <ul>
-    <li>Use IAM user instead of root user in regular activities</li>
-    <li>Add user into groups</li>
-    <li>Strong password</li>
-    <li>Use MFA</li>
-    <li>Create roles for permissions to AWS services</li>
-    <li>User Access Keys for programmatic access (CLI/SDK)</li>
-    <li>Audit permissions through IAM Credential Reports and IAM Access Advisor</li>
-    <li>Protectect you access key</li>
-    <li>Prefer customer managed policies (managed policies cannot be edited)</li>
-    <li>Use roles for applications that run EC2 and to delegate permissions</li>
-    <li>Rotate credentials</li>
-    <li>Give only credentials that is really needed (Least privilege)</li>
-  </ul>
 
 <p style="text-align: justify;"><b>Security Groups</b></p>
 <ul>
@@ -801,7 +856,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>AWS Shield Standard: free for every customer, protect websites and applications (SYN/UDP fllds, reflection attacks). </li>
   <li>AWS Shield Advanced: protection 24/7, optional DDoS migration services; protection on EC2, ELB, CloudFront, GLobal Acceleator, Route 53. Detection and mitigation for network layer (layer 3), transport layer (layer 4) and application layer (layer 7) attacks</li>
-  <li>AWS <a href="https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html">WAF</a> (Web Application Firewall): filter specific requests based on rules, protection on layer 7 (HTTP), ALB, API Gateway, CloudFront, Define Web ACL (Web Access Control List - protect SQL Injection and Cross-Site Scripting(XSS), rate-based rules). Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
+  <li>AWS WAF<a href="https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html">[1]</a><a href="https://digitalcloud.training/aws-waf-shield/">[2]</a> (Web Application Firewall): filter specific requests based on rules, protection on layer 7 (HTTP), ALB, API Gateway, CloudFront, Define Web ACL (Web Access Control List - protect SQL Injection and Cross-Site Scripting(XSS), rate-based rules). Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
   <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
   <li><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">Mitigate</a></li>
 </ul>
@@ -814,7 +869,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Encryptation</b></p>
 <ul>
-  <li>AWS <b>KMS</b> - Key Management Service
+  <li>AWS <b>KMS</b><a href="https://digitalcloud.training/aws-kms/">[1]</a> - Key Management Service
     <ul>
       <li>Encryptation for Software</li>
       <li>AWS manage the encryptation keys</li>
@@ -826,7 +881,7 @@ permalink: /:categories/aws-foundational
   <li>The <b>AWS encryption SDK</b> is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/UsingClientSideEncryption.html">client-side encryption</a> library that is separate from the language–specific SDKs</li>
   <li>Amazon <b>S3 Managed Keys</b> (SSE-S3) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
   <li>Server-side encryption with AWS Key Management Service (AWS KMS) keys <b>(SSE-KMS)</b> is similar to SSE-S3, but using this service. It provides audit trail.</li>
-  <li><b><a href="https://aws.amazon.com/cloudhsm/">CloudHSM</a></b>: Hardware Security Module. Encryptation for Hardware; The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
+  <li><b>CloudHSM</b><a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: Hardware Security Module. Encryptation for Hardware; The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
 </ul>
 
 <p style="text-align: justify;"><b>CMK</b> - Customer Master Keys</p>
@@ -893,18 +948,72 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">AWS <a href="https://aws.amazon.com/cognito/"><b>Cognito</b></a> - Alternative to IAM. Identity for your Web and Mobile applications users (sign-up/sign-in; social identity like Facebook)</p>
 
-<p style="text-align: justify;">AWS <b>Directory Service</b>: AWS Managed Microsoft Active Directory (Database of objects (user, accounts, computers, etc). Centralized security management)</p>
+<p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>: AWS Managed Microsoft Active Directory (Database of objects (user, accounts, computers, etc). Centralized security management)</p>
 
 <p style="text-align: justify;">AWS <b>IAM Identify Center</b>: One loging like <a href="https://aws.amazon.com/single-sign-on/">SSO</a>.</p>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
-
 
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-security-services/">(DigitalCloud) Summary</a></li>
 <li><a href="https://digitalcloud.training/aws-cloud-management-services/">(DigitalCloud) AWS Cloud Management Services</a></li>
 <li><a href="https://aws.amazon.com/security/">AWS Cloud Security</a></li>
 <li><a href="https://aws.amazon.com/waf/features/">AWS WAF features</a></li>
+
+
+
+### #####################################################################################
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="migration">Migration</h2>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/cloud-adoption-framework/">AWS Cloud Adoption Framework (AWS CAF)</a> AWS experience and best practices to help migrate your business outcomes through innovative use of AWS. Perspective: Business, People, Governance, Platform, Security and Operations.</p>
+
+<p><a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/">Strategy</a>:</p>
+<ul>
+  <li><b>Rehosting</b>: moving applications without changes (lift-and-shift)</li>
+  <li><b>Replatforming</b>: few cloud optimizations to realize a tangible benefit(lift, tinker, and shift)</li>
+  <li><b>Refactoring/re-architecting</b>: reimagining how an application is architected and developed by using cloud-native features</li>
+  <li><b>Repurchasing</b>: moving from a traditional license to a software-as-a-service model</li>
+  <li><b>Retaining</b>:  keeping applications that are critical for the business in the source environment</li>
+  <li><b>Retiring</b>: removing applications that are no longer needed</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/dms/"><b>DMS</b></a> (Database Migration Service): Migrate to AWS. With this is possible do continuous replication (ex: send to data warehouse)</p>
+
+<p style="text-align: justify;"><b><a href="https://aws.amazon.com/migration-hub/features/">AWS Migration Hub</a></b>: single location to track the progress of application migrations</p>
+
+<p style="text-align: justify;"><b>AWS Server Migration Service (SMS)</b> is a fast agentless service easy to migrate thousands of on-premises workloads to AWS</p>
+
+<p style="text-align: justify;">AWS Application Migration Service<a href="https://aws.amazon.com/application-migration-service/">[1]</a><a href="https://digitalcloud.training/aws-migration-services/">[2]</a> <b>(MGN)</b>: Migrating to native AWS</p>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/snow"><b>Snow Family</b></a></p>
+<ul>
+  <li>Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS</li>
+  <li>Data migration: 
+    <ul>
+      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync</li>
+      <li>Snowball Edge (Storage Optimized (80TB) /Compute Optimized (42TB)): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes.) EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
+      <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
+    </ul>  
+  </li>
+  <li>Edge computing: Snowcone, Snowball Edge. Process data while it's being create on an edge location (Ex: process data, machine learning, transcoding media streams)</li>
+  <li>OpsHub manage Snow Family device.</li>
+  <li>Snowball Pricing: per data transfer job</li>
+</ul>
+
+<p style="text-align: justify;">AWS <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">Application Discovery Service</a> helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</p>
+
+
+
+
+### #####################################################################################
+
+
 
 <br />
 <hr>
@@ -926,6 +1035,133 @@ permalink: /:categories/aws-foundational
 <p>Amazon <b>Kendra</b>: document search service. Extract answers from docs. Natural Language search.</p>
 <p>Amazon <b>Personalize</b>: build apps with real-time personalized recommendation</p>
 <p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
+
+### #####################################################################################
+
+
+
+<br />
+<hr>
+
+<br />
+<h2 id="globalinfra">AWS Global Infrastructure</h2>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
+<ul>
+  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
+  <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
+  <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
+  <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
+  <li>Regional <b>Edge Caches</b>: <em>between your CloudFront Origin servers and the Edge Locations</em></li>
+  <li>Architecture: Single Region + SingleAZ; Single Region + Multi AZ; Multi Region + Active-Passive; Multi Region + Active-Active</li>
+  <li>In Active-Passive failover is possible to apply the <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">routing policy</a> Failover routing</li>
+</ul>
+
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outspots</b></a></p>
+<ul>
+  <li><em> virtually any on-premises or edge location</em></li>
+  <li>Hybrid cloud</li>
+  <li>Server racks -> customer is responsible for that</li>
+  <li>Low latency, local data, data residency, easier migration, fully managed service</li>
+</ul>  
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
+ 
+<p style="text-align: justify;">Cloud Integration (the services can be scale)</p>
+<ul>
+  <li><b>SQS</b> (cloud native service): queue model. Retention os message (4-14 days) and deleted after to be read. Decouple. Distributed application. Pay-as-you-go pricing.</li>
+  <li><a href="https://aws.amazon.com/sns/"><b>SNS</b></a> (cloud native service): pub/sub model. It can send a message to many receivers. Publisher -> SNS topic. Subscriber -> get all messages from the topic</li>
+  <li>Amazon MQ: message broker. Good when migrating to the cloud</li>
+  <li><b>Kinesis</b>: real-time data streaming model</li>
+</ul>  
+
+
+
+
+<p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
+<li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
+<li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
+
+
+
+### #####################################################################################
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="others">Others Services</h2>
+
+<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
+<ul>
+  <li>Fully managed batch process</li>
+  <li>Batch will dynamically launch EC2 instances or Spot instances</li>
+  <li>AWS provisions the compute and memory. Customer only need submit or schedule the batch job.</li>
+  <li>Batch jobs are defines as Docker images and run on ECS</li>
+</ul>
+
+
+
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codedeploy/"><b>CodeDeploy</b></a></p>
+<ul>
+  <li>Deploy automatically</li>
+  <li>Works with EC2 instanes, On-Premises servers</li>
+  <li>CodeDeploy Agent is responsable to provision and configure Servers and Instances</li>
+</ul>
+
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology</p>
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codepipeline/"><b>CodePipeline</b></a>: Orchestrate the steps until production</p>
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codestar/features/"><b>CodeStar</b></a>: UI to manage Software Development activities.</p>
+<p style="text-align: justify;">AWS <b>Cloud9</b>: Cloud IDE</p>
+
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codebuild/features/"><b>CodeBuild</b></a></p>
+<ul>
+  <li>Compile code, run tests and packaged to be deployed by CodeDeploy</li>
+  <li>Pay-as-you-go pricing. Pay for build time</li>
+  <li>Like Jenkins</li>
+</ul>
+
+<p style="text-align: justify;">AWS <b>CodeArtifact</b></p>
+<ul>
+  <li>Artifacts: dependencies</li>
+  <li>It is an artifact management</li>
+  <li>Like maven, gradle, npm, yarn</li>
+  <li>Developers and CodeBuild retrieve the dependencies using it.</li>
+</ul>
+
+
+
+
+
+<p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
+<p style="text-align: justify;">Amazon <b>WorkSpaces</b>: Managed Desktop as a Service (DaaS). Integrated with KMS. Pay-as-you-go.</p>
+<p style="text-align: justify;">Amazon <b>AppStream</b>: Desktop Application Streaming Service (web browser)</p>
+<p style="text-align: justify;">AWS <b>IoT</b>: connect devices to the cloud</p>
+<p style="text-align: justify;">Amazon <b>Elastic Transcoder</b>: convert media files in S3 into different formats of media files</p>
+<p style="text-align: justify;">AWS <b>AppSync</b>: store and sync data between mobile and web app</p>
+<p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
+<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
+<p style="text-align: justify;">AWS <b>Backup</b>: set on demand and scheduled backups. Cross-Region/Cros-Account backups</p>
+<p style="text-align: justify;">AWS <b>Elastic Disaster Recovery(DRS)</b>: recover physical, virtual and cloud-based servers into AWS</p>
+<p style="text-align: justify;">AWS <b>DataSync</b>: Move large amount of data from on-premises to AWS</p>
+<p style="text-align: justify;">AWS <b>Application Discovery Service</b>: Move large amount of data from on-premises to AWS</p>
+<p style="text-align: justify;">AWS <b>Fault Inject Simulator (FIS)</b>: based on chaos engineering. stressing test.</p>
+<p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
+<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: marketing communication service (email, sms, voice)</p>
+
+
+<p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
+<li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
+<li><a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></li>
+<li><a href="https://aws.amazon.com/elasticsearch-service/features/">Amazon OpenSearch Service Features</a></li>
+
+
+
+
 
 
 <br />
@@ -958,27 +1194,7 @@ permalink: /:categories/aws-foundational
   <li>Pay less as AWS grows</li>
 </ul>  
 
-<p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc.</p>
-<ul>
-  <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
-  <li><b>Reservations (1-3 years):</b> predicted workload. various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">Discount up 72%</a>.
-    <ul>
-      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted.</li> 
-      <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a> long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value</li>
-    </ul>
-  </li>
-  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plain</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
-  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instanves in AWS.</li> 
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): physical server with EC2 instance dedicated, can use your own licenses. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
-  <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account.</b></li>
-  <li><a href="https://aws.amazon.com/blogs/aws/new-per-second-billing-for-ec2-instances-and-ebs-volumes/">Minimum charge</a>: one-minute for Linux based EC2 instances.</li>    
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/organizations/">AWS <b>Organization</b></a></p>
-<ul>
-  <li>provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
-  <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
- </ul>
+### #####################################################################################
 
 <p style="text-align: justify;">Costing Tools:</p>
 <ul>
@@ -995,7 +1211,6 @@ permalink: /:categories/aws-foundational
   <li>AWS <b>Cost Anomaly Detection</b>: Continuously monitor your cost and usage using ML to detect unusual spends</li>
   <li>AWS <b>Service Quotas</b>: Notify when a service is close of the quota (maximum value for the resources, actions and item in account) value is achieved</li>
   <li><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port.</li>
-  <li>AWS <b>Control Tower</b>: set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard. It run on top of <b>AWS Organization</b></li>
   <li>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</li>
 </ul>  
 
