@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AWS Cloud Concepts"
-date:   2024-06-01
+date:   2023-06-01
 categories: infra
 permalink: /:categories/aws-foundational
 ---
@@ -66,7 +66,7 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/aws-arch.svg" height="100%" width="100%">
 </center></p>
 
-<!-- #################################################################################################################################### -->
+<!-- ######################################################## -->
 
 <br />
 <hr>
@@ -130,7 +130,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ################################################# -->
 
 
 <br />
@@ -141,8 +141,10 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">Identify AWS access management (IAM) <a href="https://aws.amazon.com/iam/">[1]</a><a href="https://digitalcloud.training/aws-iam/">[2]</a> capabilities</p>
 
 <ul>
-  <li><b>IAM</b> is a <b>Global</b> service used to control the access to AWS resources (authentication/authorization). </li>
-  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support paln, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies.</li>
+  <li><b>IAM</b> is a <b>Global</b> (not apply to regions) service used to control the access to AWS resources (authentication/authorization). It can be used to manage users, groups, access policies, user credentials, user pwd policies, MFA and API keys.</li>
+  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full administrative permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support plan, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies.</li>
+  <li>When a Identity Federation (AD, facebook, SAML, OpenID) is configured, IAM user account is not necessary</li>
+  <li>Power User has alot of permission but not to manage groups and users in IAM.</li>
   <li>IAM Security Tool: 
     <ul>
       <li>IAM Credential Report (account-level): account's users and their credential status. Access it by IAM menu Credential Report</li> 
@@ -151,13 +153,13 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
-<p style="text-align: justify;"><b>Users</b> are accounts without permissions by default. They are create with NO access to any AWS services, only login to the AWS console. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account.</p>
+<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions (by default) with access to an AWS Accounts. They are create with NO access to any AWS services, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "servoce accounts". It's possible to have 5000 users per AWS account.</p>
 
-<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested.</p>
+<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
 
-<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It provides temporary security credentials for customer role session</p>
+<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
-<p style="text-align: justify;">The <b>policies</b> can be applied to users, groups and roles. It is a document written in JSON. <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to users, groups, roles or resources. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. The types of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssimeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
 <ul>
   <li>Version</li>
   <li>Effect: allow/deny</li>
@@ -167,8 +169,9 @@ permalink: /:categories/aws-foundational
   <li>Principal: account, user, role, or federated user</li>
 </ul>
 
+<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">IAM authentication</a> is just another way to authenticate the user's credentials while accessing the database.</p>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access (API/SDK). It is generated through thr AWS Console</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access (API/SDK). It is generated through the AWS Console</p>
 
 <p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS CLI.</p>
 
@@ -176,7 +179,8 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/iam.png" height="90%" width="90%">
 </center></p>
 
-<ul><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Best Practices</a>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Best Practices</a></p>
+<ul>
     <li>Use IAM user instead of root user in regular activities</li>
     <li>Add user into groups</li>
     <li>Strong password</li>
@@ -192,7 +196,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<!-- #################################################################################################################################### -->
+<!-- #################################################### -->
 
 
 <br />
@@ -207,13 +211,13 @@ permalink: /:categories/aws-foundational
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
  </ul>
 
-<p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions.</p>    
+<p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only UAM users and roles (not resources policies)</p>    
 
 
-<p style="text-align: justify;"><b>Control Tower</b>: is over organization given support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
+<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ############################################## -->
 
 
 <br />
@@ -1255,7 +1259,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="architect">AWS Architecture and Ecosystem</h2>
 
-<p style="text-align: justify;"><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">AWS Well-Architectured Framework</a> helps to build secure, high-performing, resilient, and efficient infrastructure</p>
+<p style="text-align: justify;">AWS Well-Architectured Framework<a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a>helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[1]</a><a href="https://aws.amazon.com/architecture/well-architected/">[2]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[3].</p>
 
 <p style="text-align: justify;">AWS Best Practices - Design Principles</p>
 <ul>
@@ -1286,7 +1290,7 @@ permalink: /:categories/aws-foundational
       <li>Best Practices: creates, use procedures and validate; collect metrics; continuous change</li>
     </ul> 
   </li>
-  <li>Security: protect information, systems and assets
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html">Security</a>: protect information, systems and assets
     <ul>
       <li>Design Principles: strong identity foundation; traceability; apply at all layers; automate; protect data in transit and at rest; keep people away from data; prepare for security events</li>
       <li>Best Practice: control who do what; identify incidents; maintain confidentiality and integrity of data</li>
@@ -1300,29 +1304,25 @@ permalink: /:categories/aws-foundational
       <li>Change management: CloudWatch, CloudTrail, AWS Config</li>
     </ul> 
   </li>
-  <li>Performance Efficiency: use compute resources efficiently 
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html">Performance Efficiency</a>: use compute resources efficiently 
     <ul>
       <li>Design Principles: democratize advanced technology; go global in minutes; experiment more often; Mechanical sympathy</li>
       <li>Best practices: Data-driven approach; review the choices;make trade-offs;</li>
     </ul> 
   </li>
-  <li>Cost Optimization: run system to delivery value at the loest price 
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html">Cost Optimization</a>: run system to delivery value at the loest price 
     <ul>
       <li>Design Principles: adopt a consumption mode, measure overall efficinecy; stop spending money on data center operations; analyze and attribute expenditure; use managed and application level services to reduce cost</li>
       <li>Best Practices: using the appropriate services, resources, and configurations for the specific workloads</li>
     </ul> 
   </li>
-  <li>Sustainability (shared responsibility): minimizing the environmental impacts of running cloud workloads
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/cloud-sustainability.html">Sustainability</a> (shared responsibility): minimizing the environmental impacts of running cloud workloads
     <ul>
       <li>Design Principles: understand impacts; establish sustainability goals; maximize utilization; anticipate and adopt new solutions; use managed services; reduce downstream impact</li>
     </ul>
   </li>
 </ul>
 
-<p><b>Aditional References</b></p>
-<li><a href="https://digitalcloud.training/architecting-for-the-cloud/">DigitalCloud Summary</a></li>
-<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected</a></li>
-<li><a href="https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/">The 6 Pillars of the AWS Well-Architected Framework</a></li>
 
 
 <!-- #################################################################################################################################### -->
