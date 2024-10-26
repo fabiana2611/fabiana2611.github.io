@@ -1259,7 +1259,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="architect">AWS Architecture and Ecosystem</h2>
 
-<p style="text-align: justify;">AWS Well-Architectured Framework<a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a>helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[1]</a><a href="https://aws.amazon.com/architecture/well-architected/">[2]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[3].</p>
+<p style="text-align: justify;">AWS Well-Architectured Framework helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a><a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[2]</a><a href="https://aws.amazon.com/architecture/well-architected/">[3]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[4]</a>.</p>
 
 <p style="text-align: justify;">AWS Best Practices - Design Principles</p>
 <ul>
@@ -1282,7 +1282,7 @@ permalink: /:categories/aws-foundational
   <li>Simulate applications for flash sale days</li>
 </ul>
 
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/">Pillars</a></b>:</p> 
+<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/">Pillars</a>:</p> 
 <ul>
   <li><a href="https://wa.aws.amazon.com/wat.pillar.operationalExcellence.en.html">Operational Excellence</a>: run and monitor system 
     <ul>
