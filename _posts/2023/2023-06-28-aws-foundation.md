@@ -24,22 +24,27 @@ permalink: /:categories/aws-foundational
   </tr>
   <tr>
     <td><a href="#database">AWS database services</a></td>
-    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
-    <td><a href="#others">Others Services</a></td>
+    <td><a href="#deploy">Deployment</a></td>
+    <td><a href="#monitoring">Monitoring</a></td>
   </tr>
   <tr>
-    <td><a href="#migration">Migration</a></td>
     <td><a href="#security">Security</a></td>
+    <td><a href="#migration">Migration</a></td>
     <td><a href="#machinelearning">Machine Learning</a></td>
   </tr>
+
   <tr>
+    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
+    <td><a href="#others">Others Services</a></td>
     <td><a href="#pricing">Billing and Pricing</a></td>
-    <td><a href="#architect">AWS Well-Architected Framework</a></td>
-    <td><a href="#support">Support</a></td>
   </tr>
   <tr>
+    <td><a href="#architect">AWS Well-Architected Framework</a></td>
+    <td><a href="#support">Support</a></td>
     <td><a href="#shots">Some Shots</a></td>
-    <td colspan="2"><a href="#conclusion">Conclusion</a></td>
+  </tr>
+  <tr>
+    <td colspan="3"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
@@ -552,7 +557,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ################################################################## -->
 
 
 <br />
@@ -615,7 +620,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://aws.amazon.com/ecs/">ECS</a></li>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ###################################################### -->
 
 <br />
 <hr>
@@ -654,7 +659,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ############################################################# -->
 
 <br />
 <hr>
@@ -773,14 +778,14 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ###################################################### -->
 
 
 <br />
 <hr>
 <br />
 
-<h2 id="database">Deployment</h2>
+<h2 id="deploy">Deployment</h2>
 
 
 <p style="text-align: justify;">Amazon <b>CloudFormation</b><a href="https://aws.amazon.com/cloudformation/">[1]</a><a href="https://digitalcloud.training/aws-cloudformation/">[2]</a></p>
@@ -845,13 +850,11 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ##################################################### -->
 
 
-
-### Monitoring, Logging and Audit
-
-<p style="text-align: justify;">Cloud Monitoring</p>
+<h2 id="monitoring">Cloud Monitoring</h2>
+<p style="text-align: justify;"></p>
 <ul>
   <li><b>CloudWatch</b><a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a> (Metrics, Logs, Alarms, Events): It is a  monitoring and observability service. Provide <b>metrics</b> and <b>insights</b> (interactively search and analyze log data). The alarms trigger notifications for metric. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
   <li><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</li>
@@ -864,7 +867,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ####################################################### -->
 
 
 
@@ -1015,7 +1018,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- #################################################### -->
 
 
 <br />
@@ -1064,7 +1067,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- #################################################### -->
 
 
 
@@ -1092,7 +1095,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ########################################### -->
 
 
 
@@ -1216,7 +1219,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ############################################################### -->
 
 
 <br />
@@ -1274,6 +1277,12 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-billing-and-pricing/">DigitalCloud Summary</a></li>
 <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using AWS cost allocation tags</a></li>
 <li><a href="https://aws.amazon.com/aws-cost-management/">Cloud Financial Management with AWS</a></li>
+
+
+
+<!-- ############################################################### -->
+
+
 
 <br />
 <hr>
@@ -1347,7 +1356,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ################################################# -->
 
 
 <br />
@@ -1415,6 +1424,10 @@ permalink: /:categories/aws-foundational
   <li>Expert guidance to grow and optimize in the Cloud.</li>
   <li>Workshop to cost optimization</li>
 </ul>
+
+
+<!-- ########################################################## -->
+
 
 <br />
 <hr>
