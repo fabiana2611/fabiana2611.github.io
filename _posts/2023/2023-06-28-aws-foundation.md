@@ -34,7 +34,7 @@ permalink: /:categories/aws-foundational
   </tr>
   <tr>
     <td><a href="#pricing">Billing and Pricing</a></td>
-    <td><a href="#architect">AWS Well-Architected</a></td>
+    <td><a href="#architect">AWS Well-Architected Framework</a></td>
     <td><a href="#support">Support</a></td>
   </tr>
   <tr>
@@ -233,7 +233,7 @@ permalink: /:categories/aws-foundational
   <li>It can run virtual server instances in the cloud</li>
   <li>Each instance can run Windows/Linux/MacOS</li>
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
-  <li>Volumes: EBS (persist) and Instance Store (Non-Persistent)
+  <li>Volumes: EBS (persist) and Instance Store (Non-Persistent)</li>
   <li>It's possible to run commands when the machine starts (EC2 User data scripts): install updates, softwares, etc. Those scripts run with root user.</li>
   <li>Instance metadata is information about the instance. User data and metadata are not encrypted. The metadata is available at http://169.254.169.254/latest/meta-data</li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
@@ -438,7 +438,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">(DigitalCloud) AWS Content Delivery and DNS Services</a></li>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ############################################# -->
 
 
 <br />
@@ -1257,11 +1257,11 @@ permalink: /:categories/aws-foundational
 <hr>
 <br />
 
-<h2 id="architect">AWS Architecture and Ecosystem</h2>
+<h2 id="architect">AWS Well-Architectured Framework</h2>
 
 <p style="text-align: justify;">AWS Well-Architectured Framework helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a><a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[2]</a><a href="https://aws.amazon.com/architecture/well-architected/">[3]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[4]</a>.</p>
 
-<p style="text-align: justify;">AWS Best Practices - Design Principles</p>
+<p style="text-align: justify;">AWS Best Practices</p>
 <ul>
   <li>Scalability (vertical and horizontal)</li>
   <li>Disposable Resources</li>
@@ -1422,7 +1422,7 @@ permalink: /:categories/aws-foundational
 <p><b>Encryptation</b>: AZ traffic (Default), CloudTrail (default), Site-To-Site VPN (default), all storage (RDS, S3, EBS, Redshift, EFS)</p>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ########################################################## -->
 
 
 <br />
