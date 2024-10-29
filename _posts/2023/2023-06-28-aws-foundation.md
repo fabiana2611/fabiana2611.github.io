@@ -230,12 +230,14 @@ permalink: /:categories/aws-foundational
 
 <ul>
   <li><b>IaaS</b> (Infrastructure as a service)</li>
+  <li>Secure, resizable compute capacity in the cloud. Designed to make web-scale cloud computing easier for developers</li>
   <li>It can run virtual server instances in the cloud</li>
   <li>Each instance can run Windows/Linux/MacOS</li>
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
   <li>Volumes: EBS (persist) and Instance Store (Non-Persistent)</li>
-  <li>It's possible to run commands when the machine starts (EC2 User data scripts): install updates, softwares, etc. Those scripts run with root user.</li>
+  <li>Bootstrap scripts: script that runs when the instance first runs (EC2 User data scripts). It can install updates, softwares, etc. Those scripts run with root user.</li>
   <li>Instance metadata is information about the instance. User data and metadata are not encrypted. The metadata is available at http://169.254.169.254/latest/meta-data</li>
+  <li></li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
   <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
@@ -252,8 +254,9 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">Amazon EC2 <a href="https://aws.amazon.com/ec2/spot/">Spot Instances</a></p>
 <ul>
   <li><em>Let you take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 90% discount compared to On-Demand prices. You can use Spot Instances for various stateless, fault-tolerant, or flexible applications such as big data, containerized workloads, CI/CD, web servers, high-performance computing (HPC), and test & development workloads.</em></li>
-  <li>Useful for workloads resilient to failure (batch, data analysis, Image processing, distributed workload). However, it is not suitable for critical jobs or databases.</li>
+  <li>Useful for workloads resilient to failure (batch, data analysis, Image processing, distributed workload, CI/CD and testing). However, it is not suitable for critical jobs or persistent workload and databases.</li>
   <li>Useful when workload is not immediate and can be stopped for a moment and continue from that point after</li>
+  <li>Spot fleed: collection of spot on-demand. It will try and match the target capacity with your price restraints. Strategies: capacotyOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
 </ul>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
@@ -273,30 +276,47 @@ permalink: /:categories/aws-foundational
   <li>The execution can be scheduled and after the process the AMI can be distributed (multiple regions)</li>
 </ul> 
 
-<p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc.</p>
+<p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
   <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
-  <li><b>Reservations (1-3 years):</b> predicted workload. various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">Discount up 72%</a>.
+  <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front.
     <ul>
-      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted.</li> 
-      <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a> long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value</li>
+      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
+      <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a>: long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value (up to 54% off the on-demand price)</li>
     </ul>
   </li>
   <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plain</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
-  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instanves in AWS.</li> 
+  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instances in AWS. Urgent Capacity; Flexible; Cost Sensitive. Use for app with flexible start and end times; app with low compute prices (Image rendering, Genomic sequence). Not use if need a guarantee of time.</li> 
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): physical server with EC2 instance dedicated, can use your own licenses. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
-  <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account.</li>
+  <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account. Compliance, Licensing, on-Demand, Reserved.</li>
   <li><a href="https://aws.amazon.com/blogs/aws/new-per-second-billing-for-ec2-instances-and-ebs-volumes/">Minimum charge</a>: one-minute for Linux based EC2 instances.</li>    
 </ul>
 
 <p><b>Network:</b></p>
 <ul>
-  <li>Elastic Network Interface (ENI) -> Virtual Network card -> Attributes: Primary and secondary IPv4 address, Elastic IPv4, public IPv4/IPv6, security group, MAC address, source/destination check flag, description -> Attached to  instances. eth0 is ENI created when an Ec2 instance is launched</li>
-  <li>Elastic Network Adapter (ENA): it anable Enhanced network which provides higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies.</li>
-  <li>Elastic Fabric Adapter (EFA): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of inter-node communications at scale on AWS.</li>
+  <li>ENI (Elastic Network Interface): Virtual Network card
+    <ul>
+      <li>Attributes: Primary and secondary IPv4 address, Elastic IPv4, public IPv4/IPv6, security group, MAC address, source/destination check flag, description</li>
+      <li>Attached to instances</li>
+      <li>eth0 is ENI created when an Ec2 instance is launched</li>
+      <li>Use cases: create a management network; use network and security compliances in your VPC; create dual-homed instances with workloads/roles on distinct subnets; create a low-budget, high-availability solution</li>
+    </ul>
+  </li>
+  <li>ENL (Enhaneed Networking): uses single root I/O virtualization (SR-IOV) to provide high performance (1-Gbps - 100 Gbps)
+    <ul>
+      <li>ENA (Elastic Network Adapter): it enable Enhanced network which provides higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies (up to 100 Gbps)</li>
+      <li>VF (Intel 82599 Virtual Function Interface): For older instances (up to 10 Gbps)</li>
+    </ul>  
+  </li>
+  <li>EFA (Elastic Fabric Adapter): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of inter-node communications at scale on AWS. </li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"><b>Placement groups:</b></a> To meet the needs of your workload, you can launch a group of interdependent EC2 instances into a placement group to influence their placement. It can be <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>. </p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"><b>Placement groups:</b></a> It is an strategy of optimization to meet the needs of your workload which you can launch a group of interdependent EC2 instances into a placement group to influence their placement. It can be: </p>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>: grouping of instances within a single AZ. Low latency and high throughput. It can't span multiple Azs</li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>: set of racks that each rack has its own network and power source. Multiple EC2 instance</li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other</li>
+</ul>
 
 <p><center>
   <img src="/img/aws/placementgroup.png" height="90%" width="90%">
@@ -311,7 +331,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<!-- #################################################################################################################################### -->
+<!-- ###################################################### -->
 
 
 <br />
@@ -1094,11 +1114,13 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outspots</b></a></p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outsposts</b></a></p>
 <ul>
   <li><em> virtually any on-premises or edge location</em></li>
-  <li>Hybrid cloud</li>
-  <li>Server racks -> customer is responsible for that</li>
+  <li>It brings AWS data center close to on-premises (racks)</li>
+  <li>Hybrid cloud, fully managed infra, consistency</li>
+  <li>Outposts Racks: Complete Rack (42 U rack) </li>
+  <li>Outposts servers: 1U or 2U</li>
   <li>Low latency, local data, data residency, easier migration, fully managed service</li>
 </ul>  
 
@@ -1122,7 +1144,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- #################################################################################################################################### -->
+<!-- ###################################################### -->
 
 
 <br />
@@ -1400,7 +1422,7 @@ permalink: /:categories/aws-foundational
 
 <h2 id="shots">Some Shots</h2>
 
-<p style="text-align: justify;"><b>Computing Service</b>: Batch, EC2, EC2 Image Builder, Elastic Beanstalk, Lambda, Lightsail, AWS Outspots, Serverless Application Repository, AWS SimSpace Weaver, AWS App Runner</p>
+<p style="text-align: justify;"><b>Computing Service</b>: Batch, EC2, EC2 Image Builder, Elastic Beanstalk, Lambda, Lightsail, AWS Outsposts, Serverless Application Repository, AWS SimSpace Weaver, AWS App Runner</p>
 
 <p><b>Serverless</b>:</p>
 <ul>
@@ -1415,7 +1437,7 @@ permalink: /:categories/aws-foundational
   <li><b>DaaS</b> (Desktop as a Service): Amazon WorkSpace. </li>
 </ul>
 
-<p><b>Hybrid</b>: Storage Gateway, Outspots, SSM, Route 53, Virtual Private Gateway</p>
+<p><b>Hybrid</b>: Storage Gateway, Outsposts, SSM, Route 53, Virtual Private Gateway</p>
 
 <p><b>Audit</b>: CloudWatch, CloudTrail, SSE-KMS, AWS Config</p>
 
