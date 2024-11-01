@@ -143,7 +143,8 @@ permalink: /:categories/aws-foundational
 <br />
 <h2 id="iam">IAM - AWS Identity and Access Management</h2>
 
-<p style="text-align: justify;">Identify AWS access management (IAM) <a href="https://aws.amazon.com/iam/">[1]</a><a href="https://digitalcloud.training/aws-iam/">[2]</a> capabilities</p>
+<p style="text-align: justify;">Identify AWS access management (IAM) capabilities. It is the AWS service to specify how people, tools and applications will access AWS services and data <a href="https://aws.amazon.com/iam/">[1]</a><a href="https://digitalcloud.training/aws-iam/">[2]</a><a href="https://docs.aws.amazon.com/accounts/latest/reference/managing-accounts.html">[3]</a>.</p>
+
 
 <ul>
   <li><b>IAM</b> is a <b>Global</b> (not apply to regions) service used to control the access to AWS resources (authentication/authorization). It can be used to manage users, groups, access policies, user credentials, user pwd policies, MFA and API keys.</li>
@@ -201,6 +202,16 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
+<p><b>Good Reads:</b></p>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">IAM roles for Amazon EC2</a></li>
+<li><a href="https://aws.amazon.com/iam/">AWS Identity and Access Management</a></li>
+<li><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">Policies and permissions in AWS Identity and Access Management</a></li>
+<li><a href="https://repost.aws/knowledge-center/iam-restrict-calls-ip-addresses">How can I use IAM roles to restrict API calls from specific IP addresses to the AWS Management Console?</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html?icmpid=docs_iam_console">Set an account password policy for IAM users</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS task IAM role</a></li>
+<li><a href="https://aws.amazon.com/iam/features/manage-roles/">Manage IAM Roles</a></li>
+
 <!-- #################################################### -->
 
 
@@ -222,6 +233,11 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
 
 
+<p><center>
+  <img src="/img/aws/iam-org-ct.png" height="60%" width="60%">
+</center></p>
+
+
 <!-- ############################################## -->
 
 
@@ -230,10 +246,16 @@ permalink: /:categories/aws-foundational
 <br />
 <h2 id="ec2">EC2 - Elastic Compute Cloud</h2>
 
-
-<p id="ec2" style="text-align: justify;"><b>Amazon EC2</b> (Elastic Compute Cloud)<a href="https://aws.amazon.com/ec2/">[1]</a><a href="https://digitalcloud.training/amazon-ec2/">[2]</a>: virtual server instances in the cloud</p>
-
+<p style="text-align: justify;"><b>Amazon EC2</b> (Elastic Compute Cloud)<a href="https://aws.amazon.com/ec2/">[1]</a><a href="https://digitalcloud.training/amazon-ec2/">[2]</a> is a virtual machine that is managed by AWS.</p>
 <ul>
+  <li>A new instance combine CPU, memory, Storage and networking. The different <a href="https://aws.amazon.com/ec2/instance-types/">types</a> were created to optimize different use case. The t2.micro is an general example of a type of instance. The first letter 't' represent the instance class, the number '2' represents the generation, and the last part is the size. Each category try to balance different characteristics:</p>
+    <ul>
+      <li>compute: require high performance (batch, media transcoding, HPC, machine learning, gaming) - Ex. C8g </li>
+      <li>memory: process large data sets in memory (relational/non-relational database, distributed cache, in-memory database for BI, real-time unstructured data) - Ex. R8g </li>
+      <li>storage: high, sequencial read and write access to large data sets on local storage (OLTP, relational/non-relational database, cache, data wharehouse, distributed file systems) - Ex. I4g</li>
+      <li>networking </li>
+    </ul>
+  </li>
   <li><b>IaaS</b> (Infrastructure as a service)</li>
   <li>Secure, resizable compute capacity in the cloud. Designed to make web-scale cloud computing easier for developers</li>
   <li>It can run virtual server instances in the cloud</li>
@@ -255,6 +277,12 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
 </ul>
+
+<p><center>
+  <img src="/img/aws/ec2.png" height="60%" width="60%">
+</center></p>
+
+<p style="text-align: justify;">VMWare on AWS: for hybrid cloud, cloud migration, disaster recovery, leverage AWS</p>
 
 <p style="text-align: justify;">Amazon EC2 <a href="https://aws.amazon.com/ec2/spot/">Spot Instances</a></p>
 <ul>
@@ -383,6 +411,10 @@ permalink: /:categories/aws-foundational
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>: set of racks that each rack has its own network and power source. Multiple EC2 instance</li>
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other. A spread placement group can span multiple Availability Zones in the same Region. You can have a maximum of seven running instances per Availability Zone per group. </li>
 </ul>
+
+<p><center>
+  <img src="/img/aws/placementgroup.png" height="90%" width="90%">
+</center></p>
 
 <p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
@@ -551,7 +583,12 @@ permalink: /:categories/aws-foundational
   <li>object storage: storage as a object. Any change then all the opject is changed</li>
 </ul>
 
-<p style="text-align: justify;"><b>S3</b> - Amazon Simple Storage Service <a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a>.</p>
+<h3>S3</h3>
+
+<p style="text-align: justify;"><b>S3</b><a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a> is an AWS Storage service</a> for object. It allows store and retrieve data from anywhere at a low cost. Basically for static files. The files are storage in bukets and is highly available and highly durable. Data is stored redundantly across multiple AZs. The name must be global unique name even the bucket is regional level. S3 is design for Frequent Access.</p>
+
+<p style="text-align: justify;">As characteristics, S3 offer different storage classes for different use cases (Tiered Storage); it has a lifecycle Management automatically to move the objects between different storage tiers or delete them through rules to be more cost effective; and use versions to retrieve old objecs. Also, it has a Strong Read-After-Write Consistency.</p>
+
 <ul>
   <li>Object store and global file system.</li>
   <li>Used to store any files until 5TB without limits in buckets (directories/containers)</li>
@@ -586,8 +623,126 @@ permalink: /:categories/aws-foundational
   <li><b>Pricing</b>: Depends the storage class; storage quantity; number of request; transition request; data transfer.</li>
 </ul>
 
+<p><u>Secure</u></p>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html"><b>Storage Gateway</b></a></p>
+<p>Securing the data:</p>
+<ul>
+  <li>Server-side Encryption: default encryption on a bucket will encrypt all new objects stored in the bucket</li>
+  <li>Access Control Lists (ACLs): It is account level control. It defines which account/groups can access and type of access. It can be attach by object or bucket.</li>
+  <li>Bucket Policies: It is account level and user level control. It defines who and what is allowed or denied. - allows across account</li>
+  <li>IAM Policy: It is user level contro. A policy attached to a user can give permission to access S3 bucket</li>
+  <li>IAM Role for EC2 instance can allow EC2 instance access S3 bucket</li>
+  <li>Access Point</li>
+</ul>
+
+<p style="text-align: justify;">Buckets are private by default. For securing a bucket with public access is necessary to allow public access to bucket and objects. It involves Object ACL (Individual Object level) and Bucket Policies (entire bucket level).</p>
+
+<p style="text-align: justify;">S3 is a good option to hosting a static website. It will scales automatically. For that, the bucket access should be public and you can add a policy to allow read permission for the objects. Other use cases can be: backup and storage, disaster recovery, archive, hybrid cloud storage, data lakes and big data analytics.</p>
+
+<p>Encrypting S3 Object:</p>
+<ul>
+  <li>Types: 
+    <ul>
+      <li>in transit: SSL/TLS; HTTPS (Buket policy can force encryption)</li>
+      <li>at Rest: server-side: SSE-S3 (AES 256-bit -> default -> all objects); SSE-KMS (advantages: user control + audit key usage using CloudTrail); SSE-C: customer-provider keys (S3 does NOT store the encryption key you provide; must use HTTPS; key must be provided in header)</li>
+      <li>at rest: client-side: encrypt before upload file</li>
+    </ul>
+  </li>
+  <li>Enforcing Server-side Encryption adding a parameter in PUT Request Header:
+    <ul>
+      <li>x-amz-server-side-encryption: AES256</li>
+      <li>x-amz-server-side-encryption: aws:kms</li>
+      <li>PS: You can create bucket policy to denies any S3 PUT request without this parameter</li>
+    </ul>
+  </li>
+  <li>CORS: needs to be anabled</li>
+  <li>MFA delete: for delete object or suspend version. Only the owner can enbled it.</li>
+</ul>
+
+<p><u>Lock</u></p>
+<ul>
+  <li>S3 Object Lock: WriteOnce, ReadMany (WORM)
+    <ul>
+      <li>Governance Mode: overwrite or delete an object version only with special permissions</li>
+      <li>Compliance Mode: even root cannot overwrite or delete protected object version for the duration of the retention period.</li>
+      <li>Legal hold can be placed and removed by user with s3:PutObjectLegalHold permission</li>
+    </ul>
+  </li>
+  <li>Glacier Vault Lock: WORM. Deploy and enforce compliance controls for individual S3 Glacier valts with vault lock policy. Objects can be deleted.</li>
+</ul>
+
+<p><u>Optimizing S3 Performance:</u></p>
+
+<ul>
+  <li>Use Preifx (folders inside the bucket) to increase performance</li>
+  <li>Use KMS impact in performance because is necessary to call GenerateDataKey when upload a file and call Decrypt in KMS API to download a file</li>
+  <li>Mulpart Uploads can increate performance. It is recomended for files over 100MB and required for files over 5GB. The performance can be improved parallelizing uploads.</li>
+  <li>S3 Byte-Range Fetches: Parallelize downloads by specifying bytes ranges</li>
+  <li>Tranfer speed can be increate transfering the data to an edge location</li>
+</ul>
+
+<p><u>Backup</u></p>
+
+<ul>
+  <li>Versioning: all versions are stored; good for backup; once enable it cannot be disabled (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
+  <li>Replication:
+    <ul>
+      <li>Replicate the object from one bucket to another and the version must be enables in both sides</li>
+      <li>The object uploaded after turn it on will be replicated. The others that exist will do automatically</li>
+      <li>Deleted objects are not replicated by default</li>
+      <li>Cross-Region Replication (CRR): compliance, lower latency access</li>
+      <li>Same-Region Replication (SRR): log aggregation, live replication</li>
+      <li>Copying is asynchronous</li>
+      <li>Only new objects are replicated</li>
+    </ul>
+  </li>
+  <li>S3 sync command: uses the CopyObject APIs to copy objects between Amazon S3 buckets. The sync command lists the source and target buckets to identify objects that are in the source bucket but that aren't in the target bucket. The command also identifies objects in the source bucket that have different LastModified dates than the objects that are in the target bucket. The sync command on a versioned bucket copies only the current version of the object—previous versions aren't copied. By default, this preserves object metadata, but the access control lists (ACLs) are set to FULL_CONTROL for your AWS account, which removes any additional ACLs. If the operation fails, you can run the sync command again without duplicating previously copied objects.
+    aws s3 sync s3://DOC-EXAMPLE-BUCKET-SOURCE s3://DOC-EXAMPLE-BUCKET-TARGET
+    https://repost.aws/knowledge-center/move-objects-s3-bucket
+  </li>
+  <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
+</li>
+</ul>
+
+<p><u>Classes</u></p>
+
+<ul>
+  <li>Standard: High Availability and durability; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
+  <li>Standard-Infrequent Access: Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup.</li>
+  <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA; Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
+  <li>Intelligent-Tiering: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not.</li>
+  <li>Gacier: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
+    <ul>
+      <li>Gacier Instant Retrieval (minimum duration - 90 days)</li>
+      <li>Glacier Flexible Retrieval -> not need immediate access, retrieve large sets of data at no cost (backup, disaster recover)(minimum duration - 90 days)</li>
+      <li>Glacier Deep Archive -> Cheapest -> data sets for 7 -10 years (12h). (minimum duration - 180 days)</li>
+    </ul>
+  </li>
+</ul>
+
+<p style="text-align: justify;">Cost</p>
+<ul>
+  <li>Owner pay for storage and data transfer</li>
+  <li>If other requester, then they will pay for it</li>
+</ul>
+
+<p style="text-align: justify;">Last notes</p>
+<ul>
+  <li>S3 Event Notification: S3 event can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery)</li>
+  <li>S3 Storage Lens: Tools to analyse S3</li>
+  <li>S3 Access Log: A nre buket will store the logs. They must be in the same region.</li>
+  <li>Pre-Signed URL: can be created by Cosole or CLI.</li>
+</ul>
+
+
+<p><center>
+  <img src="/img/aws/s3.png" height="60%" width="60%">
+</center></p>
+
+
+<h3>Storage Gateway</h3>
+
+<p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a></p>
 <ul>
   <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
   <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
@@ -596,6 +751,7 @@ permalink: /:categories/aws-foundational
   <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
   <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
 </ul>
+
 
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
@@ -715,7 +871,9 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine <a href="https://digitalcloud.training/aws-database-services/">[1]</a><a href="https://aws.amazon.com/backup/">[2]</a></p>
 
-<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html">[3]</a></p>
+<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a></p>
+
+
 <ul>
   <li>Use EC2 instance</li>
   <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS</li>
@@ -741,7 +899,12 @@ permalink: /:categories/aws-foundational
   <li>Pricing: Depends the Clock hours of server uptime; Database characteristics (size, mem); Database purchase type (on demand, reserved instance); Number of database instances; Provisioned storage; Additional storage; Requests; Deployment type; Data transfer (OUT); Reserved Instances.</li>
 </ul>
 
-<p style="text-align: justify;"><b>Aurora</b><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">[1]</a><a href="https://aws.amazon.com/rds/aurora/">[2]</a><a href="https://digitalcloud.training/amazon-aurora/">[3]</a></p>
+<p><center>
+  <img src="/img/aws/rds.png" height="60%" width="60%">
+</center></p>
+
+
+<p style="text-align: justify;"><b>Aurora</b><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">[1]</a><a href="https://aws.amazon.com/rds/aurora/">[2]</a><a href="https://digitalcloud.training/amazon-aurora/">[3]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html">[4]</a></p>
 <ul>
   <li>Relational DB from AWS fully managed.</li>
   <li>Compatible with <a href="https://aws.amazon.com/rds/aurora/mysql-features/">MySQL</a>, PostgreSQL, Oracle, Microsoft SQL Server</li>
@@ -752,6 +915,9 @@ permalink: /:categories/aws-foundational
   <li>Perform Machine Learning</li>
 </ul>
 
+<p><center>
+  <img src="/img/aws/aurora.png" height="60%" width="60%">
+</center></p>
 
 <p style="text-align: justify;">Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><li><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></li></p>
 <ul>
@@ -763,6 +929,10 @@ permalink: /:categories/aws-foundational
   <li>Securitu through IAM, Security Groups, KMS, Redis Auth</li>
   <li>Shared Responsibility: AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
 </ul>
+
+<p><center>
+  <img src="/img/aws/elasticache.png" height="60%" width="60%">
+</center></p>
 
 <p style="text-align: justify;"><b>Amazon DynamoDB</b><a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">[3]</a></p>
 
@@ -791,6 +961,10 @@ permalink: /:categories/aws-foundational
   <li>Global Table: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
   <li>Time to Live (TTL): define when an item expire abd can be automatically deleted</li>
 </ul>
+
+<p><center>
+  <img src="/img/aws/dynamoDB.png" height="60%" width="60%">
+</center></p>
 
 <p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales sutomatically up tp 64TB, high avai;ability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
 
