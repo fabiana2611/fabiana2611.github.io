@@ -264,22 +264,15 @@ permalink: /:categories/aws-foundational
   <li>Spot fleed: collection of spot on-demand. It will try and match the target capacity with your price restraints. Strategies: capacotyOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
-<ul>
-  <li>Template of root volume + laung permissions + block device mapping the volumes to attach</li>
-  <li>Launch EC2 one or more pre-configured instance </li>
-  <li>It can be customized </li>
-  <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
-  <li>An EBS snapshot is created when an AMI is builded</li>
-  <li>It can be copied to other regions by the console, command line, or the API</li>
-</ul> 
-
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html"><b>EC2 Image Builder</b></a></p>
 <ul>
   <li>It creates Virtual Machine or container images</li>
   <li>Automate the creation, maintain, validate and test EC2 AMIs</li>
   <li>The execution can be scheduled and after the process the AMI can be distributed (multiple regions)</li>
 </ul> 
+
+
+<p style="text-align: justify;">EC2 Hibernate: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, RBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
 
 <p><b>Storage:</b></p>
 <ul>
@@ -289,28 +282,68 @@ permalink: /:categories/aws-foundational
     <b>EBS</b> - Amazon Elastic Block Store <a href="https://aws.amazon.com/ebs/">[1]</a><a href="https://digitalcloud.training/amazon-ebs/">[2]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">[3]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html">[4]</a>
     <ul>
       <li>EBS <b>Volume</b>: attached to one instance.</li> 
+      <li>Designed for mission-critical workload</li>
+      <li>High Availability: Automatically replicated within a single AZ</li>
+      <li>Scalable: dynamically increase capacity and change the volume type with no impact</li>
       <li>The EBS volumes not need to be attached to an instance.</li> 
       <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains)</li> 
       <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a>: Same AZ, only to SSD volume, allowed only in some regions, and others restrictions</li> 
       <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
       <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
-      <li>A <b>snapshot</b> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
+      <li>A <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">snapshot</a> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
       <li>It has a limited performance.</li> 
       <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
-      <li>EBS Volume Types: gp2/gp3 (SSD) [nalance price and performance]; io1/io2 (SSD)[critical low latency or high throughput]; stl(HDD)[low cost, frequently accessed]; scl (HDD)[lowest cost; less frequently accedded]. Onlys SSDs can be boot volume.</li>
+      <li>EBS Volume Types: 
+        <ul>
+          <li>gp2/gp3 (SSD): general puerpose; balance between price and performance; 3K IOPS and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Hadoop). </li> 
+          <li>io1 (SSD): high perfomance and most expensive. 64K IOPs per volume, 50 IOPS per GiB. critical low latency or high throughput]; Use cases: large database, legacy</li>
+          <li>io2 (SSD): Higher durability. 500 IOPS per GiB (same price of io1). I/O intensive apps, large database</li>
+          <li>st1(HDD): low cost, frequently accessed and thoughput intensive workload (big data, data warehouse); </li>
+          <li>sc1 (HDD): lowest cost; less frequently accedded]. Onlys SSDs can be boot volume.</li>
+        </ul>
+      </li>
       <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted.</li>
     </ul>
   </li>
   <li>
-    <b>EFS</b><a href="https://aws.amazon.com/efs/">[1]<a href="https://digitalcloud.training/amazon-efs/">[2]</a> - Amazon Elastic File System</p>
+    <b>EFS</b><a href="https://aws.amazon.com/efs/">[1]</a><a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html">[2]</a><a href="https://digitalcloud.training/amazon-efs/">[3]</a> - Amazon Elastic File System</p>
     <ul>
-      <li>Shared File storage service for use with EC2.</li>
-      <li>Managed NFS and works with Linux instance in multi-AZ. It is considered highly available, scalable, expensive, pay per use.</li>
-      <li>Different AZ can share the same EFS.</li>
+      <li>Network File System (NFS) for Linux instances in multi-AZ.</li>
+      <li>Shared File storage service using EC2.</li>
+      <li>It is considered highly available, scalable, expensive, pay per use.</li>
+      <li>Expensive</li>
       <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Stanrd to EFS-IA.</li>
+      <li>Encryption at rest using KMS</li>
+      <li>Pay per use</li>
+      <li>Tiers: frequent access and not frequent access</li>
+      <li>For linus instance and linux-based applications</li>
     </ul>
-    </li>
+  </li>
+  <li> <a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a>
+    <ul>
+      <li>for Windows File Server: fully managed Microsoft Windows file servers, manage native Microsoft windows file system. Make the migration easy</li>
+      <li>for Lustre: managed file system that is optimized for compute-intensive workloads (HPC, Machine Learning, Media data Processing). Fo Linux File System. It can store data in S3.</li>
+    </ul>
+  </li>
 </p>    
+
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
+<ul>
+  <li>Template of root volume + laung permissions + block device mapping the volumes to attach</li>
+  <li>Launch EC2 one or more pre-configured instance </li>
+  <li>It can be customized </li>
+  <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
+  <li>An EBS snapshot is created when an AMI is builded</li>
+  <li>It can be copied to other regions by the console, command line, or the API</li>
+  <li>Category:
+    <ul>
+      <li>Amazon EBS: created from an Amazon EBS snapshot. It can be stopped. The data is not lost if stop or reboot. By default, the root device volume will be deleted on termination</li>
+      <li>Instance Store: created from a template stored in S3. If delete the instance the volume will be deleted as well. If the instance fails you lose data, if reboot the data is not lost. It cannot stop the volume.</li>
+    </ul>
+  </li>
+</ul> 
+
 
 <p><b>Network:</b></p>
 <ul>
@@ -348,7 +381,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>: grouping of instances within a single AZ. Low latency and high throughput. It can't span multiple Azs</li>
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>: set of racks that each rack has its own network and power source. Multiple EC2 instance</li>
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other</li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other. A spread placement group can span multiple Availability Zones in the same Region. You can have a maximum of seven running instances per Availability Zone per group. </li>
 </ul>
 
 <p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
@@ -518,7 +551,6 @@ permalink: /:categories/aws-foundational
   <li>object storage: storage as a object. Any change then all the opject is changed</li>
 </ul>
 
-
 <p style="text-align: justify;"><b>S3</b> - Amazon Simple Storage Service <a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a>.</p>
 <ul>
   <li>Object store and global file system.</li>
@@ -537,7 +569,7 @@ permalink: /:categories/aws-foundational
       <li><b>Glacier Deep Archive</b>: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
     </ul>
   </li> 
-  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</li>
+  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, <a href="https://aws.amazon.com/s3/features/replication/">Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</a></li>
   <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
   <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
   <li><b>Security</b>: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
@@ -564,8 +596,6 @@ permalink: /:categories/aws-foundational
   <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
   <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
 </ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a> for Windows File Server provides fully managed Microsoft Windows file servers, backed by a fully native Windows file system. Amazon FSx supports a broad set of enterprise Windows workloads with fully managed file storage built on Microsoft Windows Server. Amazon FSx has native support for Windows file system features and for the industry-standard Server Message Block (SMB) protocol to access file storage over a network</p>
 
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
@@ -683,21 +713,25 @@ permalink: /:categories/aws-foundational
 
 <h2 id="database">AWS database services</h2>
 
+<p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine <a href="https://digitalcloud.training/aws-database-services/">[1]</a><a href="https://aws.amazon.com/backup/">[2]</a></p>
 
-<p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine</p>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/rds/"><b>RDS</b></a> - Amazon Relational Database Service</p>
+<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html">[3]</a></p>
 <ul>
   <li>Use EC2 instance</li>
   <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS</li>
-  <li>Aurora, MySQL and PostgreSQL compatible</li>
+  <li>RDS types for it: SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</li>
   <li>It's possible encrypt the RDS instances using AWS Key Management Service (KMS) and snapshot</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
-  <li>Replics is only to ready. It improves database scalability.</li>
+  <li>Replicas is only to ready. It improves database scalability.</li>
+  <li>Read Replica: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
+  <li>Multi-AZ: RDS creates an copy of production database in another AZ. RDS will automatically fail over to the standby copy.</li>
   <li>It can use Auto scaling to add replicas</li>
   <li>Serveless</li>
   <li>You can't use SSH to access instances.</li>
-  <li>It is suited for OLTP workloads</li>
+  <li>It is suited for OLTP workloads (real-time)</li>
+  <li>Security through IAM, Security Groups, KMS, SSL in transit</li>
+  <li>Support for IAM Authentication (IAM roles)</li>
+  <li>RDS Proxy: Allows app to pool and share DB connections improving db efficience, as well reduce the failover</li>
   <li>Shared Responsibility
     <ul>
       <li>AWS: Manage the underlyning EC2 instance, disable ssh access; Automated DB and OS patching, guarantee the hardware</li>
@@ -707,30 +741,41 @@ permalink: /:categories/aws-foundational
   <li>Pricing: Depends the Clock hours of server uptime; Database characteristics (size, mem); Database purchase type (on demand, reserved instance); Number of database instances; Provisioned storage; Additional storage; Requests; Deployment type; Data transfer (OUT); Reserved Instances.</li>
 </ul>
 
-<p style="text-align: justify;"><b><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">Aurora</a></b></p>
+<p style="text-align: justify;"><b>Aurora</b><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">[1]</a><a href="https://aws.amazon.com/rds/aurora/">[2]</a><a href="https://digitalcloud.training/amazon-aurora/">[3]</a></p>
 <ul>
   <li>Relational DB from AWS fully managed.</li>
-  <li>Faster, auto-scales (up 128 TB), automatic backup enabled</li>
   <li>Compatible with <a href="https://aws.amazon.com/rds/aurora/mysql-features/">MySQL</a>, PostgreSQL, Oracle, Microsoft SQL Server</li>
-  <li>You can also deploy replics for read scaling within and across Regions</li>
+  <li>Storage: data is stored in 6 replicas across 3 AZ</li>
+  <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. automatic backup enabled</li>
+  <li>User case: unpredictable and intermittent workloads, no capacity planning</li>
+  <li>Autora Global: up to 16DB read instances in each region</li>
+  <li>Perform Machine Learning</li>
 </ul>
 
-<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/elasticache"><b>ElastiCache</b></a></p>
+
+<p style="text-align: justify;">Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><li><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></li></p>
 <ul>
   <li>Manage Mem cached</li>
+  <li>Managed Redis</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
+  <li>Support for clustering (Redis) and Multi AZ</li>
+  <li>Securitu through IAM, Security Groups, KMS, Redis Auth</li>
   <li>Shared Responsibility: AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
 </ul>
 
-<p style="text-align: justify;"><b>Amazon DynamoDB<a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a></b></p>
+<p style="text-align: justify;"><b>Amazon DynamoDB</b><a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">[3]</a></p>
+
 <ul>
-  <li>Highly available with replication across 3 AZ.</li>
-  <li>Multi-Region replication. Ative-Active with cross region support. The global tables replicate data automatically across the customer choise of regions</li>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WhyDynamoDB.html">NoSQL</a> database</li>
-  <li>Distributed serverless database</li>
+  <li>Key/value store and document store (Tables, Items [maximum size 400KB] and Attributes)</li>
+  <li>Highly available with replication across 3 AZ.</li>
+  <li>Stored on SSD storage</li>
   <li>Hight performance</li>
   <li>Low latency retrieval</li>
+  <li>Eventually consistent reads (default - better performance) or Strongly consistent reads</li>
+  <li>Multi-Region replication. Ative-Active with cross region support. The global tables replicate data automatically across the customer choise of regions</li>
+  <li>Distributed serverless database</li>
   <li>Integrated with IAM for security, authorization and administration</li>
   <li>Low cost and auto scaling</li>
   <li>Horizontal Scaling</li>
@@ -738,11 +783,18 @@ permalink: /:categories/aws-foundational
   <li><a href="https://aws.amazon.com/dynamodb/dax/">DynamoDB <b>Accelarator</b> (DAX)</a> is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
   <li>Pricing: throughput; Indexed data storage; Data tranfer; Global tables; reserved capacity; On-demand capacity mode; Provisioned capacity mode</li>
+  <li>Security: Encryption at rest using KMS; Site-to-Site VPN, Direct Connect (DX), IAM policies and roles; Integrate with CloudWatch and CloudTrail; VPC endpoints to communicate directly with DynamoDB</li>
+  <li>ACID with DynamoDB -> Dynamo transaction across 1 or more tables within a single AWS account and region. Used when the application needs coordenation. This feature needs to be enable.</li>
+  <li>Backup: On-Demand: full backups at any time; no performance impact, same region of source table</li>
+  <li>Recovery: Point-in-Time Recovery (PITR): protect agains accidental writes or deletes; restore to any point in the last 35 days; incremental; not default; latesst restorable in the past 5 minutes</li>
+  <li>Streams: time-oerdered sequence of titem-level changes in a table. Stored for 24 hours</li>  
+  <li>Global Table: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
+  <li>Time to Live (TTL): define when an item expire abd can be automatically deleted</li>
 </ul>
 
-<p>DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB</p>
+<p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales sutomatically up tp 64TB, high avai;ability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
 
-<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/redshift"><b>Redshift</b></a></p>
+<p style="text-align: justify;">Amazon <b>Redshift</b><a href="https://aws.amazon.com/redshift">[1]</a><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">[2]</a></p>
 <ul>
   <li>Based on PostgreSQL (but not OLTP)</li>
   <li>Relational database for a analytic purpose</li>
@@ -762,7 +814,7 @@ permalink: /:categories/aws-foundational
   <li>The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. </li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/emr/">Amazon <b>EMR</b></a> (Elastic MapReduce)</p>
+<p style="text-align: justify;">Amazon EMR (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
 <ul>
   <li>Helps to create Hadoop clusters (Big Data)</li>
   <li>Take care of all the provisioning and configuration</li>
@@ -770,27 +822,20 @@ permalink: /:categories/aws-foundational
   <li>Ex: machine learn and big data</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/documentdb"><b>DocumentDB</b></a>: Implementation of MongoDB, Ex: User profile.</p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed graph database; no decentralization component; immutable ledger database. Ex: review a complete history of all the changes. NoSQL. Use cryptography. Immutable database.</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed graph database; no decentralization component; immutable ledger database. Ex: review a complete history of all the changes</p>
+<p style="text-align: justify;"><b>Managed Blockchain</b>: create and manage blockchain networks with open-source frameworks</p>
 
-<p style="text-align: justify;"><a href="Amazon Managed Blockchain"><b>Managed Blockchain</b></a>: create and manage blockchain networks with open-source frameworks</p>
+<p style="text-align: justify;"><b>Amazon Keyspaces</b>: run Apache Cassandra workloads. Distributed database that uses NoSQL. Main application is big data but can be used for backend. Fully manage database. Pay for resource is used.</p>
+
+<p><b>Neptune</b><a href="https://aws.amazon.com/neptune">[1]</a<a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">[2]</a>: Fully managed graph database. Good to app with highly connected datasets, as fraud detection and knowledge grapns. Used for analysis, build connections between identities, build knowledge, detect fraud patterns, security.</p>
 
 <p style="text-align: justify;">Analyses</p>
-<ul> <a href="https://aws.amazon.com/neptune"><b>Neptune</b></a>: Fully managed graph database. Good to app with highly connected datasets, as fraud detection and knowledge grapns</li>
+<ul> 
   <li><a href="https://aws.amazon.com/quicksight/"><b>QuickSight</b></a>:  scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service</li>
-  <li><a href="https://aws.amazon.com/athena/features/"><b>Athena</b></a>: Analyze data in S3 using SQL; it is serverless (no infrastructure to manage); Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
+  <li><b>Athena</b><a href="https://digitalcloud.training/amazon-athena/">[1]</a><a href="https://aws.amazon.com/athena/features/">[2]</a>: Analyze data in S3 using SQL; it is serverless (no infrastructure to manage); Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
+  <li>Timestream: time series database service for IoT and operational application</li>
 </ul>
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-database-services/">DigitalCloud Summary</a></li>
-<li><a href="https://aws.amazon.com/emr/features/">Amazon EMR features</a></li>
-<li><a href="https://aws.amazon.com/products/databases/">AwS Database</a></li>
-<li><a href="https://digitalcloud.training/amazon-elasticache/">Elasticache</a></li>
-<li><a href="https://digitalcloud.training/amazon-athena/">Athena</a></li>
-<li><a href="https://digitalcloud.training/amazon-emr/">EMR</a></li>
-<li><a href="https://digitalcloud.training/amazon-rds/">RDS</a></li>
-<li><a href="https://digitalcloud.training/amazon-aurora/">Autora</a></li>
 
 
 
