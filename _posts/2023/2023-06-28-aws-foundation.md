@@ -248,7 +248,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Amazon EC2</b> (Elastic Compute Cloud)<a href="https://aws.amazon.com/ec2/">[1]</a><a href="https://digitalcloud.training/amazon-ec2/">[2]</a> is a virtual machine that is managed by AWS.</p>
 <ul>
-  <li>A new instance combine CPU, memory, Storage and networking. The different <a href="https://aws.amazon.com/ec2/instance-types/">types</a> were created to optimize different use case. The t2.micro is an general example of a type of instance. The first letter 't' represent the instance class, the number '2' represents the generation, and the last part is the size. Each category try to balance different characteristics:</p>
+  <li>A new instance combine CPU, memory, Storage and networking. The different <a href="https://aws.amazon.com/ec2/instance-types/">types</a> were created to optimize different use case. The t2.micro is an general example of a type of instance. The first letter 't' represent the instance class, the number '2' represents the generation, and the last part is the size. Each category try to balance different characteristics:
     <ul>
       <li>compute: require high performance (batch, media transcoding, HPC, machine learning, gaming) - Ex. C8g </li>
       <li>memory: process large data sets in memory (relational/non-relational database, distributed cache, in-memory database for BI, real-time unstructured data) - Ex. R8g </li>
@@ -279,7 +279,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/ec2.png" height="60%" width="60%">
+  <img src="/img/aws/ec2.png" height="100%" width="100%">
 </center></p>
 
 <p style="text-align: justify;">VMWare on AWS: for hybrid cloud, cloud migration, disaster recovery, leverage AWS</p>
@@ -696,12 +696,8 @@ permalink: /:categories/aws-foundational
       <li>Only new objects are replicated</li>
     </ul>
   </li>
-  <li>S3 sync command: uses the CopyObject APIs to copy objects between Amazon S3 buckets. The sync command lists the source and target buckets to identify objects that are in the source bucket but that aren't in the target bucket. The command also identifies objects in the source bucket that have different LastModified dates than the objects that are in the target bucket. The sync command on a versioned bucket copies only the current version of the object—previous versions aren't copied. By default, this preserves object metadata, but the access control lists (ACLs) are set to FULL_CONTROL for your AWS account, which removes any additional ACLs. If the operation fails, you can run the sync command again without duplicating previously copied objects.
-    aws s3 sync s3://DOC-EXAMPLE-BUCKET-SOURCE s3://DOC-EXAMPLE-BUCKET-TARGET
-    https://repost.aws/knowledge-center/move-objects-s3-bucket
-  </li>
+  <li>S3 sync command can be used to copy objects between S# buckets and lists the source and target buckets.</li>
   <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
-</li>
 </ul>
 
 <p><u>Classes</u></p>
@@ -736,7 +732,7 @@ permalink: /:categories/aws-foundational
 
 
 <p><center>
-  <img src="/img/aws/s3.png" height="60%" width="60%">
+  <img src="/img/aws/s3.png" height="100%" width="100%">
 </center></p>
 
 
@@ -869,11 +865,9 @@ permalink: /:categories/aws-foundational
 
 <h2 id="database">AWS database services</h2>
 
-<p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine <a href="https://digitalcloud.training/aws-database-services/">[1]</a><a href="https://aws.amazon.com/backup/">[2]</a></p>
+<p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine <a href="https://digitalcloud.training/aws-database-services/">[1]</a><a href="https://aws.amazon.com/backup/">[2]</a>.</p>
 
-<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a></p>
-
-
+<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
 <ul>
   <li>Use EC2 instance</li>
   <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS</li>
@@ -900,7 +894,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/rds.png" height="60%" width="60%">
+  <img src="/img/aws/rds.png" height="100%" width="100%">
 </center></p>
 
 
@@ -916,10 +910,10 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/aurora.png" height="60%" width="60%">
+  <img src="/img/aws/aurora.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;">Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><li><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></li></p>
+<p style="text-align: justify;">Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
   <li>Manage Mem cached</li>
   <li>Managed Redis</li>
@@ -931,7 +925,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/elasticache.png" height="60%" width="60%">
+  <img src="/img/aws/elasticache.png" height="100%" width="100%">
 </center></p>
 
 <p style="text-align: justify;"><b>Amazon DynamoDB</b><a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">[3]</a></p>
@@ -963,7 +957,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 <p><center>
-  <img src="/img/aws/dynamoDB.png" height="60%" width="60%">
+  <img src="/img/aws/dynamoDB.png" height="100%" width="100%">
 </center></p>
 
 <p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales sutomatically up tp 64TB, high avai;ability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
