@@ -485,7 +485,7 @@ permalink: /:categories/aws-foundational
 <h2 id="network">AWS networking services</h2>
 
 
-<p id="vpc" style="text-align: justify;"><b>VPC</b> (Virtual Private Cloud): isolated network in AWS cloud that can ne fully customizid<a href="https://aws.amazon.com/vpc">[1]</a><a href="https://digitalcloud.training/amazon-vpc/">[2]</a><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">[3]</a>. It is a virtual data center. A range of IP<a href="https://cidr.xyz/">[4]</a><a href="https://www.ipaddressguide.com/cidr.aspx">[5]</a> is defined when the VPC is created</p>
+<p id="vpc" style="text-align: justify;"><b><u>VPC</u></b> (Virtual Private Cloud): isolated network in AWS cloud that can ne fully customizid<a href="https://aws.amazon.com/vpc">[1]</a><a href="https://digitalcloud.training/amazon-vpc/">[2]</a><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">[3]</a>. It is a virtual data center. A range of IP<a href="https://cidr.xyz/">[4]</a><a href="https://www.ipaddressguide.com/cidr.aspx">[5]</a> is defined when the VPC is created</p>
 <ul>
   <li><b>Subnet</b>: partition the network inside the VPC and AZ. The public is accessible from the internet.  Instances are launch into subnets. Two subnets configured in one AZ (High avalilability)</li>
   <li><b>Elastic IP</b>: static IP to a public IP to EC2 instance</li>
@@ -503,9 +503,9 @@ permalink: /:categories/aws-foundational
 
 <p><b><u>VPCs Connections</u></b></p>
 <ul>
-  <li><b>VPC Peering</b><a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a> - connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li> 
+  <li><b>VPC Peering</b> <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a> - connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li> 
   <li><b>PrivateLink</b> provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a Network Load Balancer (NLB) on the service VPC and an ENI on the customer VPC.</li>
-  <li><p><b><u>Security</u>: VPM CloudHub: Multiple sites with its own VPN connection. The traffic os encrypted.</b></li>
+  <li><b><u>Security</u></b>: VPM CloudHub: Multiple sites with its own VPN connection. The traffic os encrypted.</li>
   <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>:
     <ul>
       <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
@@ -517,8 +517,8 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
   <li><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (private) between on premises and AWS. Types: dedicated network connection (physical ethernet connection associated with a single customer) or hosted connection (provisioned by a partner). No public internet. The company should use AWS Transit Gateway. Using only DX data in transit is not encrypted but is private; DX + VPN privides an IPSec-encrypted private connection. Resuliency: Use two Direct Connection locations each one with two independent connections.</li>
-  <li><b>AWS Transit Gateway</b><a href="https://aws.amazon.com/transit-gateway/">[1]</a>: connect VPC and on-premise netowrk using a central hub working as a router. It allows a transitive peering; works on a hub-and-spoke model; works on a regional basis (cannot have it across multiple regions but can use it across multiple accounts.)</li>
-  <li>Site-To-Site VPN: it connects two VPCs via VPN. It needs Virtual Private Gateway (VGW), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail.</li>
+  <li><b>AWS Transit Gateway</b> <a href="https://aws.amazon.com/transit-gateway/">[1]</a>: connect VPC and on-premise netowrk using a central hub working as a router. It allows a transitive peering; works on a hub-and-spoke model; works on a regional basis (cannot have it across multiple regions but can use it across multiple accounts.)</li>
+  <li><b>Site-To-Site VPN</b>: it connects two VPCs via VPN. It needs Virtual Private Gateway (VGW), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail.</li>
 </ul>
 
 <p style="text-align: justify;">5G Networking with <a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
