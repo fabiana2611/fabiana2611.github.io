@@ -232,7 +232,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only UAM users and roles (not resources policies)</p>    
 
 
-<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard. Supports <b>Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources)</p>
+<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources)</p>
 
 
 <p><center>
@@ -355,7 +355,7 @@ permalink: /:categories/aws-foundational
       <li>for Lustre: managed file system that is optimized for compute-intensive workloads (HPC, Machine Learning, Media data Processing). Fo Linux File System. It can store data in S3.</li>
     </ul>
   </li>
-</p>    
+</ul>    
 
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
