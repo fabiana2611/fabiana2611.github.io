@@ -14,7 +14,7 @@ permalink: /:categories/aws-foundational
   </tr>
   <tr>
     <td><a href="#ec2">EC2</a></td>
-    <td><a href="#elbasg">ELB and ASG</a></td>
+    <td><a href="#asg">ASG</a></td>
     <td><a href="#network">AWS networking services</a></td>
   </tr>
   <tr>
@@ -211,6 +211,8 @@ permalink: /:categories/aws-foundational
 <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html?icmpid=docs_iam_console">Set an account password policy for IAM users</a></li>
 <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS task IAM role</a></li>
 <li><a href="https://aws.amazon.com/iam/features/manage-roles/">Manage IAM Roles</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">Policy evaluation logic</a></li>
+
 
 <!-- #################################################### -->
 
@@ -230,11 +232,11 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only UAM users and roles (not resources policies)</p>    
 
 
-<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard</p>
+<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard. Supports <b>Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources)</p>
 
 
 <p><center>
-  <img src="/img/aws/iam-org-ct.png" height="60%" width="60%">
+  <img src="/img/aws/iam-org-ct.png" height="100%" width="100%">
 </center></p>
 
 
@@ -447,30 +449,9 @@ permalink: /:categories/aws-foundational
 <br />
 <hr>
 <br />
-<h2 id="elbasg">Elastic Load Balancing and Auto Scaling</h2>
+<h2 id="asg">Auto Scaling</h2>
 
 <p>These are features <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a> to be used to ensure elasticity and high availability. They can be used together.</p>
-
-<p style="text-align: justify;"><b>ELB</b> (<a href="https://aws.amazon.com/elasticloadbalancing/">Elastic Load Balancer</a>): distribute the traffic across healthy instances. It do the health check<a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">[2]</a><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-update-security-groups.html">[3]</a> with targets. It routes only to helthy target.</p>
-
-<ul>
-  <li>Servers that handle the traffic and distribute it across, e.g., EC2 instance, containers and IP address. Single AZ or Multiple AZ. </li>
-  <li>It has only one point of access (DNS). </li>
-  <li>Single Region</li>
-  <li>Benefits: High availability across zones, automatic scaling and Fault Tolerance.</li>
-  <li>Types:
-    <ul> 
-      <li><b>ALB</b> (Application Load Babancer): HTTP/S; Static DNS (URL); Layer 7; It is a single point of contact for client. Distributes incoming application traffic across multiple targets in multiple AZ.</li>
-      <li><b>NLB</b> (Network Load Balancer): high performance/low latency (TCP/UDP); static IP throught Elastic IP; layer 4. It distributes traffic.</li> 
-      <li><b>GLB</b> (Gateway Load Balancer): route traffic to firewalls managing in EC2 instance (Layer 3); Classic Load Balancer (Layer 4 and 7)</li>
-    </ul>
-  </li>
-  <li><b>Shared responsibility</b>: AWS is responsable to keep it working, upgrade, maintain, and provide only few configurations.</li>
-</ul>
-
-<p><center>
-  <img src="/img/aws/elb.png" height="90%" width="90%">
-</center></p>
 
 <p style="text-align: justify;">Auto Scaling: create and remove instance when is necessary. It can use a launch configuration <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[4]</a> (an instance configuration template) that an Auto Scaling group uses to launch Amazon EC2 instances.</p>
 
@@ -503,33 +484,110 @@ permalink: /:categories/aws-foundational
 
 <h2 id="network">AWS networking services</h2>
 
-<p id="vpc" style="text-align: justify;"><b>VPC</b><a href="https://aws.amazon.com/vpc">[1]</a><a href="https://digitalcloud.training/amazon-vpc/">[2]</a> (Virtual Private Cloud): your own isolated network in AWS cloud</p>
+
+<p id="vpc" style="text-align: justify;"><b>VPC</b> (Virtual Private Cloud): isolated network in AWS cloud that can ne fully customizid<a href="https://aws.amazon.com/vpc">[1]</a><a href="https://digitalcloud.training/amazon-vpc/">[2]</a><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">[3]</a>. It is a virtual data center. A range of IP<a href="https://cidr.xyz/">[4]</a><a href="https://www.ipaddressguide.com/cidr.aspx">[5]</a> is defined when the VPC is created</p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">VPC Peering</a> - connect two VPC. Private addresses.</li> 
-  <li>VPC Endpoint - connect to AWS services using private Network (Gateway [S3 and DynamoDB]; Interface [the rest]). Use AWS PrivateLink (provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet).</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>: capture information about the IP traffic going to and from network interfaces in your VPC</li>
-  <li>When the VPC is created is defined the range of IP</li>
+  <li><b>Subnet</b>: partition the network inside the VPC and AZ. The public is accessible from the internet.  Instances are launch into subnets. Two subnets configured in one AZ (High avalilability)</li>
   <li><b>Elastic IP</b>: static IP to a public IP to EC2 instance</li>
-  <li><b>High avalilability with VPC</b>: two subnets configured in one AZ</li>
-  <li><b>Subnet</b>: partition the network inside the VPC and AZ. The public is accessible from the internet. </li><li><b>Route Tables</b> make possible the access of the internet and between subnets.</li>
-  <li><b>Network ACL</b> (Access Control List): subnet level, firewall to subnets (ALLOW and DENY rules - only IP). Stateless. Customer is responsible for configure it.</li>
+  <li><b>Route Tables</b> make possible the access of the internet and between subnets.</li>
   <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
-  <li><b>NAT Gateway</b> (AWS-managed) and <b>NAT instance</b> (self-managed): allows the instance inside the private Subnets to access the internet. But denying inbound traffic from internet</li>
+  <li><b>NAT Gateway</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">[1]</a> (AWS-managed) and <b>NAT instance</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html">[2]</a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. It is Reduntand inside AZ; no need to patch; automatically assigned a public IP; and it's not associated with security groups. NAT instance supports port forwarding</li>
+  <li><b>VPC Endpoint</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">[1]</a>: connect to AWS services using private Network. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leavinf AWS environment. They are horizontaly scaled, redundant, and highly available. Types: Interface endpoints (elastic network interface with private IP - supports many services) and Gateway Endpoints (virtual device you provision, similar to NAT GW - supports connection to S3 and DynamoDB)</li>
 </ul>
-  
-<p style="text-align: justify;"><a href="https://aws.amazon.com/vpn/">Virtual Private Network</a> (<b>VPN</b>): </p>
+
+<p><b><u>VPC Security</u></b></p>
 <ul>
-  <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
-  <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: connect (encrypted) on premises VPN to AWS. Over the public internet</li>
-  <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
-  <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
-  <li><b>Customer Gateway</b>: installed in customer network</li>
-  <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
+  <li><b>Network ACL</b> (Access Control List): it is the first line of defense. It is subnet level: firewall to subnets (only IP), controlling traffic in and out of one or ore subnets. <u>Stateless</u>: have to allow inbound and outbound traffic (checks for an allow rule for both connections). Supports allow and deny rules. Customer is responsible for configure it. The default ACLs allows all outbound and inbound traffic. The custom ACL denies inbound and outbound traffic by default. A subnet will be associated with the default ACL. A subnet is associated with only one ACL but ACL can be associated with multiple subnets. Rules are evaluating in order starting with the lowest number rule (first match wins).</li>
+  <li><b>Security Group</b> (SG): Virtual firewall for EC2 instance. <u>Stateful</u>: if there is an inbount rule that allow the traffic, the outbound automatically allowed without rules; if the outgoing request is done by instance and the rule allow the outbound traffic then the inbound return is automatically allowed. Supports only allow rules. Security Groups can be associated with a NAT instance. The rules are evaluated before deciding whether to allow traffic.</li>  
 </ul>
 
-<p style="text-align: justify;"><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (private) or dedicated network connection between on premises and AWS. No public internet. The company should use <a href="https://aws.amazon.com/transit-gateway/">AWS Transit Gateway</a> (connect VPC and on-primise network through a central hub - acts like a cloud router)</p>
+<p><b><u>VPCs Connections</u></b></p>
+<ul>
+  <li><b>VPC Peering</b><a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a> - connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li> 
+  <li><b>PrivateLink</b> provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a Network Load Balancer (NLB) on the service VPC and an ENI on the customer VPC.</li>
+  <li><p><b><u>Security</u>: VPM CloudHub: Multiple sites with its own VPN connection. The traffic os encrypted.</b></li>
+  <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>:
+    <ul>
+      <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
+      <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: connect (encrypted) on premises VPN to AWS. Over the public internet</li>
+      <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
+      <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
+      <li><b>Customer Gateway</b>: installed in customer network</li>
+      <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
+    </ul>
+  </li>
+  <li><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (private) between on premises and AWS. Types: dedicated network connection (physical ethernet connection associated with a single customer) or hosted connection (provisioned by a partner). No public internet. The company should use AWS Transit Gateway. Using only DX data in transit is not encrypted but is private; DX + VPN privides an IPSec-encrypted private connection. Resuliency: Use two Direct Connection locations each one with two independent connections.</li>
+  <li><b>AWS Transit Gateway</b><a href="https://aws.amazon.com/transit-gateway/">[1]</a>: connect VPC and on-premise netowrk using a central hub working as a router. It allows a transitive peering; works on a hub-and-spoke model; works on a regional basis (cannot have it across multiple regions but can use it across multiple accounts.)</li>
+  <li>Site-To-Site VPN: it connects two VPCs via VPN. It needs Virtual Private Gateway (VGW), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail.</li>
+</ul>
 
-<p style="text-align: justify;"><b>Route 53</b><a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a>: Global Managed DNS. Helth check. Reliability and cost-effective way to route end users. <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">Weighted routing policy</a> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource. It can be used, e.g, for load balancing purpose. It is a hybrid architecture. It's not possible to extend Route 53 to on-premises instances. Paied for hosted zone, queries, traffic flow, helth checks, domain name.</p>
+<p style="text-align: justify;">5G Networking with <a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
+
+<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>: capture information about the IP traffic going to and from network interfaces in your VPC. For this is necessary to configure the Bastion Host security Group to allows inound from internet on port 22.</p>
+
+<p><b>Bastion Host</b> is a instance in public subnet that handle the communication between internet and one or more EC2 instance in a private subnet via ssh.</p>
+
+<p style="text-align: justify;">VPC sharing <em> allows multiple AWS accounts to create their application resources into shared and centrally-managed Amazon VPCs. To set this up, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner. You can share Amazon VPCs to leverage the implicit routing within a VPC for applications that require a high degree of interconnectivity and are within the same trust boundaries. </em><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">[1]</a></p>
+
+
+<p style="text-align: justify;"><b>Route 53</b><a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a>: Global Managed DNS. Helth check. Reliability and cost-effective way to route end users.</p>
+<ul> 
+  <li>It is a DNS supported by AWS:
+    <ul>
+      <li>DNS: Convert name to IP</li>
+      <li>TTL: time to live</li>
+      <li>CNAME (canonical name): map a domain name to another domain name. CAnnot be used for naked domain names</li>
+      <li>Alias: Map a host name to an AWS resource. You can't set TTL and cannot set an ALIAS record for an EC2 DNS name.</li>
+      <li>Record/alias can be used to naked domain names.</li>
+      <li>DNS: Port 53</li>
+      <li>DNS does not route any traffic but responds to the DNS queries</li>
+    </ul>
+  </li>
+  <li>It is a hybrid architecture.</li>
+  <li>It's not possible to extend Route 53 to on-premises instances.</li>
+  <li>Paied for hosted zone, queries, traffic flow, helth checks, domain name. </li>
+  <li>Policies:
+    <ul>
+      <li><b>Weighted routing policy</b><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">[1]</a> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource (split traffic based on different weights assigned). It can be used, e.g, for load balancing purpose. Assigning 0 to a record will stop the traffic to that resource. Assigning 0 to all records then all records returns equally.</li>
+      <li><b>Simple Routing Policy</b> route the traffic to a single resource. It allows one record with multiple IP; if the record is multiple value the Route 53 returns all values to the user in a random order. Failover Routing Policy: used when you want to create an active/passive set up. It cannot be associated with Health Checks.</li>
+      <li><b>Geolocation Routing Policy</b>: choose where the traffic will be sent based on the geographic location of the <u>users</u> (which DNS queries originate). Also, can restrict distribution of content. </li>
+      <li><b>Geoproximity Routing</b>: based on geographic location of the <u>resources</u>, and can choose to route more traffic to a given resource. </li>
+      <li><b>Latency Routing Policy</b>: based on the lowest network latency for the end user (which regions will give them the fastest response time)</li>    
+      <li>Failover routing policy: use primary and standby configuration that sends all traffic to the primary until it fails a health check and sends traffic to the secondary. This solution does not good enough for lowest latency</li>
+    </ul>
+  </li>
+  <li><em>An AWS DNS alias record is a type of record that points a domain name to an AWS resource, such as an Elastic Beanstalk environment, an Amazon CloudFront distribution, or an Amazon S3 bucket. It is used to create subdomains or point a domain name to a different AWS service. Reference: Values for Alias Records </em> <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-alias.html">[1]</a></li>
+  <li>Health Checks: Only for public resources</li>
+</ul>
+
+<p><center>
+  <img src="/img/aws/lb.png" height="100%" width="100%">
+</center></p>
+
+<p style="text-align: justify;"><b>ELB</b> (Elastic Load Balancer): distribute the traffic across healthy instances with targets. <a href="https://aws.amazon.com/elasticloadbalancing/">[1]<a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-update-security-groups.html">[2]</a></p>
+<ul>
+  <li>It can be across multiple AZs but Single Region</li>
+  <li>Internal (private) or external (public)</li>
+  <li>Servers that handle the traffic and distribute it across, e.g., EC2 instance, containers and IP address.</li>
+  <li>It has only one point of access (DNS). </li>
+  <li>It do the health check<a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">[2]</a></li>
+  <li>Benefits: High availability across zones, automatic scaling and Fault Tolerance.</li>
+  <li>AWS responsibilities: guarantees it will work, upgrade, maintenance, high availability</li>
+  <li>Types:
+    <ul> 
+      <li><b>ALB</b> (Application Load Babancer / Inteligent LB): HTTP/S; Static DNS (URL); Layer 7; It is a single point of contact for client. ALBs allow you to route traffic based on the contents of the requests. Distributes incoming application traffic across multiple targets in multiple AZ. Good for microservices and container-based application</li>
+      <li><b>NLB</b> (Network Load Balancer / Performance LB): high performance/low latency (TCP/UDP); static IP throught Elastic IP; layer 4 (connection level). It distributes traffic. When the NLB has only unhealthy registered targets, the Network Load Balancer routes requests to all the registered targets, known as fail-open mode.</li> 
+      <li><b>GLB</b> (Gateway Load Balancer / Inline Virtual Appliance LB): route traffic to firewalls managing in EC2 instance (Layer 3); Classic Load Balancer (Layer 4 and 7)</li>
+      <li><b>Classic</b>: layer 4/7; more used to test or dev. 504 error means gateways has time out</li>
+    </ul>
+  </li>
+  <li>Sticky Session: redirect to the same instance. Use cookies (LB or Application). <em>Stickiness allows the load balancer to bind a user's session to a specific target within the target group. The stickiness type differs based on the type of cookie used. Can't be turned on if Cross-zone load balancing is off.</em></li>
+  <li><b>Shared responsibility</b>: AWS is responsable to keep it working, upgrade, maintain, and provide only few configurations.</li>
+</ul>
+
+<p><center>
+  <img src="/img/aws/elb.png" height="100%" width="100%">
+</center></p>
 
 
 <p><b><u>Performance</u></b></p>
@@ -565,6 +623,7 @@ permalink: /:categories/aws-foundational
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-networking-services/">DigitalCloud Summary</li>
 <li><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">(DigitalCloud) AWS Content Delivery and DNS Services</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/security.html">VPC Security</a></li>
 
 
 <!-- ############################################# -->
@@ -870,7 +929,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
 <ul>
   <li>Use EC2 instance</li>
-  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS</li>
+  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS. You can only create read replicas of databases running on RDS.</li>
   <li>RDS types for it: SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</li>
   <li>It's possible encrypt the RDS instances using AWS Key Management Service (KMS) and snapshot</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
@@ -1105,10 +1164,6 @@ permalink: /:categories/aws-foundational
 <br />
 
 <h2 id="security">Security</h2>
-
-
-
-
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/compliance/shared-responsibility-model/"><b>Shared Responsibility</b></a> has the customer responsible for security IN the cloud (data, access, authentication, configuration, encryptation, network traffic protection). AWS is responsible for the security OF the cloud, protecting/mnaging all AWS Global infrastructure (Software [compute, storage, database, networking], and hardware [regions, AZ, Edge Locations])</p>
 <ul>
@@ -1349,8 +1404,6 @@ permalink: /:categories/aws-foundational
   <li>Low latency, local data, data residency, easier migration, fully managed service</li>
 </ul>  
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
- 
 <p style="text-align: justify;">Cloud Integration (the services can be scale)</p>
 <ul>
   <li><b>SQS</b> (cloud native service): queue model. Retention os message (4-14 days) and deleted after to be read. Decouple. Distributed application. Pay-as-you-go pricing.</li>
