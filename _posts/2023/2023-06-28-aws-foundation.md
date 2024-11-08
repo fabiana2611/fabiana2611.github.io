@@ -158,7 +158,7 @@ permalink: /:categories/aws-foundational
 </ul>  
 
 <p><center>
-  <img src="/img/aws/global-infra.png" height="60%" width="60%">
+  <img src="/img/aws/global-infra.png" height="100%" width="100%">
 </center></p>
 
 <p><b>Aditional References:</b></p>
@@ -1070,7 +1070,7 @@ permalink: /:categories/aws-foundational
   <li>Message size: up to 256KB of text)</li>
   <li>Require Message Group ID and Message Deduplication ID</li>
   <li>AWS recommend using separate queues when you need to provide prioritization of work</li>
-  <li>SecurityL
+  <li>Security
     <ul>
       <li>Encryption: message are encrypted in trasit (HTTPS) by defaul but not at rest (can do using KMS)</li>
       <li>Access Control with IAM policy - SQS API</li>
@@ -1082,6 +1082,7 @@ permalink: /:categories/aws-foundational
       <li>FIFO: Guaranteed ordering, no message duplication, 300 trasanction per second (can achieve 3000 with baching). FIFO High throughput process up to 9000 transaction per second, per API without batching; and up to 90000 messages using batching APIs. </li>
       <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput; unlimited throughput</li>
     </ul>
+  </li>
 </ul>
 
 <p style="text-align: justify;"><b>DLQ</b> (Dead-Letter Queues):</p>
@@ -1197,7 +1198,7 @@ permalink: /:categories/aws-foundational
 
 
 <p><center>
-  <img src="/img/aws/serverless.png" height="90%" width="90%">
+  <img src="/img/aws/serverless.png" height="100%" width="100%">
 </center></p>
 
 <p><u>Other Serverless Service</u></p>
@@ -1205,7 +1206,7 @@ permalink: /:categories/aws-foundational
 <ul>
 <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
   <li>Lambda@Edge</li>
-  <li>Amazon <a href="https://digitalcloud.training/amazon-kinesis/">Kinesis</a> Data Streams (KDS)</li>
+  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time instead of SQS</li>
   <li>
     Lambda<a href="https://digitalcloud.training/aws-lambda/">[1]</a><a href="https://aws.amazon.com/blogs/architecture/best-practices-for-developing-on-aws-lambda/">[2]</a>:
     <ul>
@@ -1221,9 +1222,8 @@ permalink: /:categories/aws-foundational
       <li>Pricing: Pay per call (request) and duration (time of execution)</li>
     </ul>
   </li>
-  <li>EventBridge (https://aws.amazon.com/eventbridge/)</li>
-  <li><a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">SWF</a></li>
-  <li>Kinesis: For real-time instead of SQS</li>
+  <li>EventBridge <a href="https://aws.amazon.com/eventbridge/">[1]</a></li>
+  <li>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></li>
 </ul>
 
 
