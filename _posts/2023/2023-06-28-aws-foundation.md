@@ -115,16 +115,6 @@ permalink: /:categories/aws-foundational
   <li>Multicloud - use private/public from multiple providers</li>
 </ul>
 
-<p style="text-align: justify;"><b>Scalability</b></p>
-<ul>
-  <li>Handle greater loads by adapting</li>
-  <li><b>Scale Up</b>: scale by adding more power (CPU/RAM) to existent machine/node. Operation running on only one computer.</li>
-  <li><b>Scale Out</b>: scale by adding more instance to existent pool of resources.  Fault Tolerance is achieved by scale out operation.</li>
-  <li><b>Vertical</b>: inscrease the size of the instance. Common for non distributed system. Limited, e.g, by hardware.</li>
-  <li><b><a href="https://wa.aws.amazon.com/wat.concept.horizontal-scaling.en.html">Horizontal</a></b>: increase the number of instances. Distributed system. Common for web applications. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Auto Scaling</a> Group and Load Balancer</li>
-  <li><b>High Availability</b>: Direct relatioship with horizontal scalability. No interruption even with failover. Run across <a href="https://aws.amazon.com/rds/features/multi-az/">multi AZ</a>, at least in 2 AZ</li>
-</ul>
-
 <p style="text-align: justify;"><b><a href="https://aws.amazon.com/serverless/">Serverless</a>:</b> <em>technologies for running code, managing data, and integrating applications, all without managing servers. Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. It eliminates infrastructure management tasks like capacity provisioning, patching and OS maintenance.</em> It not mean no server.</p>  
 
 
@@ -132,6 +122,124 @@ permalink: /:categories/aws-foundational
 <ul>
   <li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">DigitalCloudSummary</a></li>
   <li><a href="https://aws.amazon.com/what-is-cloud-computing/?nc2=h_ql_le_int_cc">AWS - What is cloud computing?</a></li>
+</ul>
+
+
+<!-- ########################################### -->
+
+
+
+<br />
+<hr>
+
+<br />
+<h2 id="globalinfra">AWS Global Infrastructure</h2>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
+<ul>
+  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
+  <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
+  <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
+  <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
+  <li>Regional <b>Edge Caches</b>: <em>between your CloudFront Origin servers and the Edge Locations</em></li>
+  <li>Architecture: Single Region + SingleAZ; Single Region + Multi AZ; Multi Region + Active-Passive; Multi Region + Active-Active</li>
+  <li>In Active-Passive failover is possible to apply the <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">routing policy</a> Failover routing</li>
+</ul>
+
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outsposts</b></a></p>
+<ul>
+  <li><em> virtually any on-premises or edge location</em></li>
+  <li>It brings AWS data center close to on-premises (racks)</li>
+  <li>Hybrid cloud, fully managed infra, consistency</li>
+  <li>Outposts Racks: Complete Rack (42 U rack) </li>
+  <li>Outposts servers: 1U or 2U</li>
+  <li>Low latency, local data, data residency, easier migration, fully managed service</li>
+</ul>  
+
+<p><center>
+  <img src="/img/aws/global-infra.png" height="60%" width="60%">
+</center></p>
+
+<p><b>Aditional References:</b></p>
+<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
+<li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
+<li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
+
+
+
+<!-- ############################################################### -->
+
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="architect">AWS Well-Architectured Framework</h2>
+
+<p style="text-align: justify;">AWS Well-Architectured Framework helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a><a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[2]</a><a href="https://aws.amazon.com/architecture/well-architected/">[3]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[4]</a>.</p>
+
+<p style="text-align: justify;">AWS Best Practices</p>
+<ul>
+  <li>Scalability (vertical and horizontal)</li>
+  <li>Disposable Resources</li>
+  <li>Automation (serverless, IaaS,etc)</li>
+  <li>Loose Coupling</li>
+  <li>Services not Server</li>
+  <li>Design for failure -> Distributing workloads across multiple Availability Zones</li>
+  <li>Provision capacity for peak load</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html">Principles</a></p>
+<ul>
+  <li>Stop guessing the capacity needs</li>
+  <li>Test systems at production scale</li>
+  <li>Automate</li>
+  <li>Evolutionary architecture</li>
+  <li>Drive architecture using data</li>
+  <li>Simulate applications for flash sale days</li>
+</ul>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/">Pillars</a>:</p> 
+<ul>
+  <li><a href="https://wa.aws.amazon.com/wat.pillar.operationalExcellence.en.html">Operational Excellence</a>: run and monitor system 
+    <ul>
+      <li>Design Principles: IaaC annotate doc; frequent, small, reversible changes; refine operations; anticipate failure; learn with failures</li>
+      <li>Best Practices: creates, use procedures and validate; collect metrics; continuous change</li>
+    </ul> 
+  </li>
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html">Security</a>: protect information, systems and assets
+    <ul>
+      <li>Design Principles: strong identity foundation; traceability; apply at all layers; automate; protect data in transit and at rest; keep people away from data; prepare for security events</li>
+      <li>Best Practice: control who do what; identify incidents; maintain confidentiality and integrity of data</li>
+    </ul> 
+  </li>
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html">Reliability</a>: system recover from infra or service disruptions 
+    <ul>
+      <li>Design Principles: test recovery procedures; automatically recover from failure; scale horizontally; stop guessing capacity; manage change in automation</li>
+      <li>Best Practices: Foundations, Change Management, Failure Management</li>
+      <li>Foundation Services: Amazon VPC, AWS Service Quotas; AWS Trust Advisor</li>
+      <li>Change management: CloudWatch, CloudTrail, AWS Config</li>
+    </ul> 
+  </li>
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html">Performance Efficiency</a>: use compute resources efficiently 
+    <ul>
+      <li>Design Principles: democratize advanced technology; go global in minutes; experiment more often; Mechanical sympathy</li>
+      <li>Best practices: Data-driven approach; review the choices;make trade-offs;</li>
+    </ul> 
+  </li>
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html">Cost Optimization</a>: run system to delivery value at the loest price 
+    <ul>
+      <li>Design Principles: adopt a consumption mode, measure overall efficinecy; stop spending money on data center operations; analyze and attribute expenditure; use managed and application level services to reduce cost</li>
+      <li>Best Practices: using the appropriate services, resources, and configurations for the specific workloads</li>
+    </ul> 
+  </li>
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/cloud-sustainability.html">Sustainability</a> (shared responsibility): minimizing the environmental impacts of running cloud workloads
+    <ul>
+      <li>Design Principles: understand impacts; establish sustainability goals; maximize utilization; anticipate and adopt new solutions; use managed services; reduce downstream impact</li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -449,29 +557,91 @@ permalink: /:categories/aws-foundational
 <br />
 <hr>
 <br />
-<h2 id="asg">Auto Scaling</h2>
+<h2 id="asg">High Availability and Scaling</h2>
 
-<p>These are features <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a> to be used to ensure elasticity and high availability. They can be used together.</p>
+<p style="text-align: justify;">These are features <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a> to be used to ensure elasticity and high availability. They can be used together.</p>
 
-<p style="text-align: justify;">Auto Scaling: create and remove instance when is necessary. It can use a launch configuration <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[4]</a> (an instance configuration template) that an Auto Scaling group uses to launch Amazon EC2 instances.</p>
+<p><b>Scalability</b></p>
+<ul>
+  <li>Handle greater loads by adapting</li>
+  <li><b>Scale Up</b>: scale by adding more power (CPU/RAM) to existent machine/node. Operation running on only one computer.</li>
+  <li><b>Scale Out</b>: scale by adding more instance to existent pool of resources.  Fault Tolerance is achieved by scale out operation.</li>
+  <li><b>Scale In</b>: decrease the number of instances.</li>
+  <li><b>Vertical</b>: inscrease the size of the instance. Common for non distributed system. Limited, e.g, by hardware.</li>
+  <li><b>Horizontal</b> <a href="https://wa.aws.amazon.com/wat.concept.horizontal-scaling.en.html">[1]</a>: increase the number of instances. Distributed system. Common for web applications. Auto Scaling Group and Load Balancer <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a>. Instances that are launched by your Auto Scaling group are automatically registered with the load balance<a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">[2]</a>.</li>
+  <li><b>High Availability</b>: Direct relatioship with horizontal scalability. No interruption even with failover. Run across <a href="https://aws.amazon.com/rds/features/multi-az/">multi AZ</a>, at least in 2 AZ</li>
+</ul>
 
-<p id="asg" style="text-align: justify;"><b>ASG</b> (<a href="https://aws.amazon.com/autoscaling/">Auto Scaling</a> Group): </p>
+<p>Set Up</p>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch Template</a> -> all the settings needed to build an EC2 instance; for all EC2 auto scaling features; supports versioning; more granularity; recommended. The specification of a network interface has considerations and limitations that need to be taken into account in order to avoid errors. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html#change-network-interface">[1]</a></li>
+  <li>Launch Configuration: only certain EC2 Auto Scaling feature; immutable; limited configuration options; specific use cases</li>
+</ul>
+
+
+<p style="text-align: justify;">Auto Scaling: create and remove instance when is necessary. It can use a launch configuration (an instance configuration template) that an Auto Scaling group uses to launch Amazon EC2 instances. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">[1]</a><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[2]</a><a href="https://aws.amazon.com/autoscaling/">[3]</a> </p>
+
 <ul>
   <li>ASG contains a collection of EC2 instance (logical group)</li>
-  <li>Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
   <li>Replace unhealthy instances. </li> 
   <li>Only run at an optimal capacity.</li>
   <li>AWS EC2 Auto Scaling provides elasticity and scalability.</li>
-  <li>A <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">scheduled scaling policy</a> can be configured for known increase in app traffic (predictable load changes)</li>
-  <li>Predictive scaling: uses daily and weekly trends to determine when scale</li>
-  <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
+  <li>High availability can wi achieve with Auto Scaling balancing your EC2 count across the AZs <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">[1]</a>
+  <li>Scaling Policies: minumum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
+    <ul>
+      <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
+      <li>Simple Scaling Policy: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
+      <li>Target Tracking Policy: Use scaling metrics and value that ASG should maintain at all times, e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
+    </ul>
+  </li>
+  <li><b>Instance Warm-Up</b>: stops instances behind load balancer, failing the helath check and being terminated prematuraly</li>
+  <li><b>Cooldown</b>: pause AS for a set amount of time to not launch or terminate instances; </li>
+  <li><b>Avoid Thrashing</b>: create instance very fast</li>
+  <li>Scaling types: 
+    <ul>
+      <li>Reactive scaling: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
+      <li>Scheduled Scaling (predictable workflow) <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">[1]</a> can be configured for known increase in app traffic.</li> 
+      <li>Predictive Scaling: uses daily and weekly trends to determine when scale</li>
+    </ul>
+  </li>
   <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
-  <li><a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">DigitalCloud Summary</a></li>
 </ul> 
 
-<p><b>Aditional References:</b></p>
+<p style="text-align: justify;">Scaling Relational Database</p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling for Amazon EC2 Auto Scaling</a></li>
+  <li>Vertical Scaling: resize the database</li>
+  <li>Scaling Storage: resize storage to go up, but is not able scale back down (RDS, Autora)</li>
+  <li>Read Replicas: realy only copies to spread out the workload. Use multiple zones.</li>
+  <li>Aurora Serverless: offload scaling to AWS. Unpredictable workloads. Aurora is the only engine that offers a serverless scaling option. <a href="https://aws.amazon.com/rds/aurora/serverless/">[1]</a></li>
+</ul>
+
+<p style="text-align: justify;">Scaling Non-Relational Database</p>
+<ul>
+  <li>AWS do this</li>
+  <li><a href="https://aws.amazon.com/dynamodb/pricing/provisioned/">Provisioned</a>: predictable workflow; need tp review past usage to set upper and lower scaling bounds; most cost-effective model</li>
+  <li><a href="https://aws.amazon.com/dynamodb/pricing/on-demand/">On-Demand</a>: sporadic workflow; less cost effective;</li>
+  <li>Read Capacity Unit (RCU): DynamoDB unit of measure for reads per second for an item up to 4KB in size. As an example: if you have objects that are 7KB in size, then will be necessary 2 RCU for 1 strongly consistent read per second (1 RCU = 4KB/1 Strongly Consistent Read -> 2 RCU = 8KB)</li>
+  <li>Write Capacity Unit (WCU): DynamoDB unit of measure for writes per second for an item up to 1KB in size. As an example: if you have an object that are 3KB in size, then will be necessary 3 WCU (1 WCU = 1KB * Write per Second -> 3 KB * 1 WCU = 3 WCUs ) </li>
+</ul>
+
+<p><center>
+  <img src="/img/aws/asg.png" height="100%" width="100%">
+</center></p>
+
+
+<p style="text-align: justify;">Disaster Recovery</p>
+<ul>
+  <li>RPO - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc)</li>
+  <li>RTO - Recovery Time Objective: how fast to recover; how long the business support</li>
+  <li>Strategies
+    <ul>
+      <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
+      <li>Pilot Light -  not consume the same level; provision 100% of the services to keep the applications up (faster than backup and restore but some downtime)</li>
+      <li>Warm Standby - provision the services neceaary to keep the applications up (quicker recovery time than Pilot Light but more expensive)</li>
+      <li>Strategy: Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
+    </ul>
+  </li>
+  
 </ul>
 
 
@@ -885,10 +1055,155 @@ permalink: /:categories/aws-foundational
 
 <h2 id="serverless">Serverless Applications</h2>
 
+<p><u>Loosly Decouple</u></p>
+
+<p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosly Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction</p>
+
+<p><b>SQS</b> (cloud native service) <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-queue-service-amazon-sqs">[1]</a><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">[2]</a>:</p>
 <ul>
-  <li>API Gateway <a href="https://digitalcloud.training/amazon-api-gateway/">[1]</a><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html">[2]
-  </a><a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/">[3]</a>: Fully managed service for developers, Serverless and scalable, Restful and WeSocket</li>
-  <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
+  <li>Fully managed message that use queue for decouple and scale microservices, distributed system and serverless application.</li>
+  <li>Retention of message: default is 4 days, maximum 14 days, the minimun can be customized (e.g.,1 minutes).</li>
+  <li>Deletion: after the retention period or to be read.</li>
+  <li>Pay-as-you-go pricing.</li>
+  <li>Asynchronous process.</li>
+  <li>Settings: Delivery delay (0 up to 15 minutes)</li>
+  <li>Message size: up to 256KB of text)</li>
+  <li>Require Message Group ID and Message Deduplication ID</li>
+  <li>AWS recommend using separate queues when you need to provide prioritization of work</li>
+  <li>SecurityL
+    <ul>
+      <li>Encryption: message are encrypted in trasit (HTTPS) by defaul but not at rest (can do using KMS)</li>
+      <li>Access Control with IAM policy - SQS API</li>
+      <li>SQS Access policy with resource policy - useful for cross-account or other services</li>
+    </ul>
+  </li>
+  <li>Strategy:
+    <ul>
+      <li>FIFO: Guaranteed ordering, no message duplication, 300 trasanction per second (can achieve 3000 with baching). FIFO High throughput process up to 9000 transaction per second, per API without batching; and up to 90000 messages using batching APIs. </li>
+      <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput; unlimited throughput</li>
+    </ul>
+</ul>
+
+<p style="text-align: justify;"><b>DLQ</b> (Dead-Letter Queues):</p>
+<ul>
+  <li>Target for messages that cannot be processed sussessfully.</li>
+  <li>It works with SQS and SNS.</li>
+  <li>Useful for debugging applications and messaging systems.</li>
+  <li>Redrive capability allows moving the message back into the source queue.</li>
+  <li>It is a SQS queue and use FIFO.</li>
+  <li>Benfits: can use alarms</li>
+  <li>Publicly accessible by default</li>
+</ul>
+
+<p><b>SNS</b> (cloud native service) <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-notification-service">[1]</a><a href="https://aws.amazon.com/sns/">[2]</a> :</p>
+<ul>
+  <li>Push-based messaging service.</li>
+  <li>Delivery messages to the endpoints that are subscribed.</li>
+  <li>Fully managed message for application-to-application (A2A) and application-to-person (A2P).</li> 
+  <li>Cycle: Publisher -> SNS topic / Subscriber -> get all messages from the topic</li>
+  <li>Subscribers: Kinesis, SQS, Lambda, emails, SMS and endpoints</li>
+  <li>Size: 256KB of text</li>
+  <li>Extended Library allows sending messages up to 2GB. The payload is stored in S3 and then SNS publishes a reference to the object.</li>
+  <li>DLQ Support</li>
+  <li>FIFO or Standard</li>
+  <li>Security
+    <ul>
+      <li>Encryption in transit by default (HTTPS) and can add at rest via KMS</li>
+      <li>Access Policies: can be attached a resource policy, useful across-account access</li>
+    </ul>
+  </li>
+  <li>FanOut (SNS+SQS) : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
+  <li>Message Filtering: send to specific subscriber</li>
+  <li>Publicly accessible by default</li>
+</ul>
+
+<p><b>Amazon MQ</b> <a href="https://digitalcloud.training/aws-application-integration/#amazon-mq">[1]</a>:</p>
+<ul>
+  <li>Message broker</li>
+  <li>Good when migrating to the cloud</li>
+  <li>Supports ActiveMQ or RabbitMQ</li>
+  <li>Topics and queues</li>
+  <li>1:1 and 1:N message design</li>
+  <li>AmazonMQ requires private network (VPC, Direct Connect or VPN)</li>
+  <li>Not scale as SNS or SQS</li>
+  <li>Runs on servers and can run in multiple AZs with failover</li>
+</ul>
+
+
+<p><b>API Gateway</b> <a href="https://digitalcloud.training/amazon-api-gateway/">[1]</a><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html">[2]</a><a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/">[3]</a>:
+<ul>
+  <li>Fully managed service for developers; easy for developers create, publish, maintain, monitor, and secure APIs at any scale</li>
+  <li>Restful and WeSocket</li>
+  <li>Front door of the application.</li>
+  <li>Integrate with lambda, HTTP, endpoints, etc</li>
+  <li>Features: 
+    <ul>
+      <li>Security - protect endpoints by attaching a WAF (Web Application Firewall);</li>
+      <li>Stop abuse - users can easily implements DDoS protection and rate limiting to curb abuse of their endpoints;</li>
+      <li>Ease of Use</li>
+    </ul>
+  </li>
+  <li>Enpoint Types:
+    <ul>
+      <li>Edge-optimized - (default option): API requests get sent through a CloudFront edge location (best for global users);</li>
+      <li>Regional - ability to also leverage with CloudFront; reduce latency; can be protected with WAF</li>
+      <li>Private - only accessible via VPCs using interface VPC endpoint or Direct Connect</li>
+    </ul>
+  </li>
+  <li>Securing APIs: user authentication (IAM, roles, Cognito, custom authorizer); ACM certs for edge-optimized endpoints and regional endpoints; WAF</li>
+</ul>
+  
+
+<p><b>AWS Batch:</b></p>
+<ul>
+  <li>Run batch computing workloads within AWS (EC2 or ECS/Fargate): Fargate is more recomended because require fast start times (<30 sec), 16 VCPU or less, no GPU, 120 GiB of memory; EC2 needs more control, require GPU and custom AMIs, high levels of cuncurrency, require access to Linux Parameters</li>
+  <li>Simple: Automatically provision and scale, no intallation is required</li>
+  <li>Components: Jobs; Jobs definition (how jobs will run); Jobs Queues; Compute Environment</li>
+  <li>Batch vs Lambda
+    <ul>
+      <li>Time Limits: lambda has 15 minutes execution time limit; batch does not have this</li>
+      <li>Disk space: lambda has limited disk space, and EFS requires functions live within a VPC</li>
+      <li>Runtime limitations: lambda is fully serverless, but limited runtimes; and Batch can use any runtime because uses docker</li>
+    </ul>
+  </li>
+</ul>
+
+
+<p><b>Step Function</b> <a href="https://digitalcloud.training/aws-application-integration/#aws-step-functions">[1]</a></p>
+<ul>
+  <li>Coordenate distributed apps</li>
+  <li>Orchestration service; graphical console;</li>
+  <li>Main componenets: state machine (workflow with different event-driven steps) and tasks (specific states within a workflow (state machine) representing a single unit of work). State is every single step within a workflow</li>
+  <li>Execution: instances where you run your workflows in order to perform your task</li>
+  <li>Types:
+    <ul>
+      <li>Standard: one execution, can run upto one year, useful for long-running workflow - auditable history; up to 2000 executions per second; pricing based per state transition</li>
+      <li>express: at least one execution, can run for up to five minutes, useful for high-event-rate workflows, e.g IoT data streaming; pricing based on number of execution, durations and memory</li>
+    </ul>
+  </li>
+</ul>
+
+<p><b>AppFlow</b>:</p>
+<ul>
+  <li>Integration service for exchanging data between SaaS apps and AWS services; </li>
+  <li>Pulls data records from third party SaaS vendors and stores them in S3;</li>
+  <li>Bi-directional data transfer</li>
+  <li>Flow (transfer data between sources and destinations);</li>
+  <li>Data mapping (how sources data is stored);</li>
+  <li>Filter (controls which data is transferred);</li>
+  <li>Trigger (how the flow is started)</li>
+  <li>Use case: salesforce records to Redshift; analyzing conversations in S3; migration to Snowflake</li>
+</ul>
+
+
+<p><center>
+  <img src="/img/aws/serverless.png" height="90%" width="90%">
+</center></p>
+
+<p><u>Other Serverless Service</u></p>
+
+<ul>
+<li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
   <li>Lambda@Edge</li>
   <li>Amazon <a href="https://digitalcloud.training/amazon-kinesis/">Kinesis</a> Data Streams (KDS)</li>
   <li>
@@ -906,14 +1221,11 @@ permalink: /:categories/aws-foundational
       <li>Pricing: Pay per call (request) and duration (time of execution)</li>
     </ul>
   </li>
-  <li>SNS<a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-notification-service">[1]</a><a href="https://aws.amazon.com/sns/">[2]</a></li>
-  <li>SQS <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-queue-service-amazon-sqs">[1]</a><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">[2]</a>. Poll-based</li>
-  <li><a href="https://digitalcloud.training/aws-application-integration/#aws-step-functions">Step Function</a></li>
   <li>EventBridge (https://aws.amazon.com/eventbridge/)</li>
   <li><a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">SWF</a></li>
-  <li><a href="https://digitalcloud.training/aws-application-integration/#amazon-mq">Amazon MQ</a></li>
-  <li><a href="https://digitalcloud.training/amazon-cloudwatch/">CloudWatch</a></li>
+  <li>Kinesis: For real-time instead of SQS</li>
 </ul>
+
 
 
 <!-- ############################################################# -->
@@ -1133,27 +1445,47 @@ permalink: /:categories/aws-foundational
 
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-config/">AWS Config</a></li>
 <li><a href="https://digitalcloud.training/aws-resource-access-manager/">AWS Resource Access Manager</a></li>
 
 
 
 <!-- ##################################################### -->
 
+<br />
+<hr>
+<br />
+<h2 id="monitoring">Cloud Monitoring, Audit</h2>
 
-<h2 id="monitoring">Cloud Monitoring</h2>
-<p style="text-align: justify;"></p>
+<p style="text-align: justify;"><b>CloudWatch</b> (Metrics, Logs, Alarms, Events) <a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a></p>
 <ul>
-  <li><b>CloudWatch</b><a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a> (Metrics, Logs, Alarms, Events): It is a  monitoring and observability service. Provide <b>metrics</b> and <b>insights</b> (interactively search and analyze log data). The alarms trigger notifications for metric. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
-  <li><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</li>
-  <li><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: track events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). Governance, compliance, audit for AWS account. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically unusual API activities in the customer account. </li>
-  <li><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
-  <li><b>CodeGuru</b>: automated code review and application performance recommendations</li>
-  <li><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</li>
-  <li><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</li>
-</ul>  
+  <li>Performance <b>Monitoring</b></li>
+  <li>It is a  monitoring and observability service which provides metrics and insights; interactively search and analyze log data. </li>
+  <li>Regional source</li>
+  <li>Features: System Metrics, Application Metrics, Alarms</li>
+  <li>The alarms trigger notifications for metric.</li>
+  <li>Types of metrics: default (CPU utilization, Network throughput), custom (EC2 Memory utilization, EBS Storage Capacity)</li>
+  <li>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It's possible to query logs to look for potential issues. For custom logs, use CloudWatch Agent, including on-premise. Features: Filter Patterns; CloudWatch Logs Insights (query using SQL); Alarms. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
+  <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
+</ul>
+
+<p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: <b>Record API calls</b>. It tracks events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). <b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </p>
+
+<p><a href="https://digitalcloud.training/aws-config/">AWS Config</a>: <b>Record configuration changes</b>Helps with auditing and recording compliance of the AWS resources, and record configurations and changes. Per Region but can be aggreated across region and account. It can send alerts for changes and the configuration can be store inside S3.</p>
+
+<p><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): Serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</p>
+
+<p><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</p>
+
+<p><b>CodeGuru</b>: automated code review and application performance recommendations</p>
+
+<p><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</p>
+
+<p><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</p>
 
 
+<p><center>
+  <img src="/img/aws/monitor.png" height="100%" width="100%">
+</center></p>
 
 <!-- ####################################################### -->
 
@@ -1372,53 +1704,7 @@ permalink: /:categories/aws-foundational
 
 
 
-<!-- ########################################### -->
 
-
-
-<br />
-<hr>
-
-<br />
-<h2 id="globalinfra">AWS Global Infrastructure</h2>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
-<ul>
-  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
-  <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
-  <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
-  <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
-  <li>Regional <b>Edge Caches</b>: <em>between your CloudFront Origin servers and the Edge Locations</em></li>
-  <li>Architecture: Single Region + SingleAZ; Single Region + Multi AZ; Multi Region + Active-Passive; Multi Region + Active-Active</li>
-  <li>In Active-Passive failover is possible to apply the <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">routing policy</a> Failover routing</li>
-</ul>
-
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outsposts</b></a></p>
-<ul>
-  <li><em> virtually any on-premises or edge location</em></li>
-  <li>It brings AWS data center close to on-premises (racks)</li>
-  <li>Hybrid cloud, fully managed infra, consistency</li>
-  <li>Outposts Racks: Complete Rack (42 U rack) </li>
-  <li>Outposts servers: 1U or 2U</li>
-  <li>Low latency, local data, data residency, easier migration, fully managed service</li>
-</ul>  
-
-<p style="text-align: justify;">Cloud Integration (the services can be scale)</p>
-<ul>
-  <li><b>SQS</b> (cloud native service): queue model. Retention os message (4-14 days) and deleted after to be read. Decouple. Distributed application. Pay-as-you-go pricing.</li>
-  <li><a href="https://aws.amazon.com/sns/"><b>SNS</b></a> (cloud native service): pub/sub model. It can send a message to many receivers. Publisher -> SNS topic. Subscriber -> get all messages from the topic</li>
-  <li>Amazon MQ: message broker. Good when migrating to the cloud</li>
-  <li><b>Kinesis</b>: real-time data streaming model</li>
-</ul>  
-
-
-
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
-<li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
-<li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
 
 
 
@@ -1552,82 +1838,6 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-billing-and-pricing/">DigitalCloud Summary</a></li>
 <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using AWS cost allocation tags</a></li>
 <li><a href="https://aws.amazon.com/aws-cost-management/">Cloud Financial Management with AWS</a></li>
-
-
-
-<!-- ############################################################### -->
-
-
-
-<br />
-<hr>
-<br />
-
-<h2 id="architect">AWS Well-Architectured Framework</h2>
-
-<p style="text-align: justify;">AWS Well-Architectured Framework helps to build secure, high-performing, resilient, and efficient infrastructure <a href="https://digitalcloud.training/architecting-for-the-cloud/">[1]</a><a href="https://docs.aws.amazon.com/pdfs/wellarchitected/latest/framework/wellarchitected-framework.pdf">[2]</a><a href="https://aws.amazon.com/architecture/well-architected/">[3]</a><a href="https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf">[4]</a>.</p>
-
-<p style="text-align: justify;">AWS Best Practices</p>
-<ul>
-  <li>Scalability (vertical and horizontal)</li>
-  <li>Disposable Resources</li>
-  <li>Automation (serverless, IaaS,etc)</li>
-  <li>Loose Coupling</li>
-  <li>Services not Server</li>
-  <li>Design for failure -> Distributing workloads across multiple Availability Zones</li>
-  <li>Provision capacity for peak load</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html">Principles</a></p>
-<ul>
-  <li>Stop guessing the capacity needs</li>
-  <li>Test systems at production scale</li>
-  <li>Automate</li>
-  <li>Evolutionary architecture</li>
-  <li>Drive architecture using data</li>
-  <li>Simulate applications for flash sale days</li>
-</ul>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/">Pillars</a>:</p> 
-<ul>
-  <li><a href="https://wa.aws.amazon.com/wat.pillar.operationalExcellence.en.html">Operational Excellence</a>: run and monitor system 
-    <ul>
-      <li>Design Principles: IaaC annotate doc; frequent, small, reversible changes; refine operations; anticipate failure; learn with failures</li>
-      <li>Best Practices: creates, use procedures and validate; collect metrics; continuous change</li>
-    </ul> 
-  </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html">Security</a>: protect information, systems and assets
-    <ul>
-      <li>Design Principles: strong identity foundation; traceability; apply at all layers; automate; protect data in transit and at rest; keep people away from data; prepare for security events</li>
-      <li>Best Practice: control who do what; identify incidents; maintain confidentiality and integrity of data</li>
-    </ul> 
-  </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html">Reliability</a>: system recover from infra or service disruptions 
-    <ul>
-      <li>Design Principles: test recovery procedures; automatically recover from failure; scale horizontally; stop guessing capacity; manage change in automation</li>
-      <li>Best Practices: Foundations, Change Management, Failure Management</li>
-      <li>Foundation Services: Amazon VPC, AWS Service Quotas; AWS Trust Advisor</li>
-      <li>Change management: CloudWatch, CloudTrail, AWS Config</li>
-    </ul> 
-  </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html">Performance Efficiency</a>: use compute resources efficiently 
-    <ul>
-      <li>Design Principles: democratize advanced technology; go global in minutes; experiment more often; Mechanical sympathy</li>
-      <li>Best practices: Data-driven approach; review the choices;make trade-offs;</li>
-    </ul> 
-  </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html">Cost Optimization</a>: run system to delivery value at the loest price 
-    <ul>
-      <li>Design Principles: adopt a consumption mode, measure overall efficinecy; stop spending money on data center operations; analyze and attribute expenditure; use managed and application level services to reduce cost</li>
-      <li>Best Practices: using the appropriate services, resources, and configurations for the specific workloads</li>
-    </ul> 
-  </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/cloud-sustainability.html">Sustainability</a> (shared responsibility): minimizing the environmental impacts of running cloud workloads
-    <ul>
-      <li>Design Principles: understand impacts; establish sustainability goals; maximize utilization; anticipate and adopt new solutions; use managed services; reduce downstream impact</li>
-    </ul>
-  </li>
-</ul>
 
 
 
