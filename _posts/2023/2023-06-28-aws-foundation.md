@@ -44,7 +44,8 @@ permalink: /:categories/aws-foundational
     <td><a href="#shots">Some Shots</a></td>
   </tr>
   <tr>
-    <td colspan="3"><a href="#conclusion">Conclusion</a></td>
+    <td><a href="#bigdata">Big Data</a>
+    <td colspan="2"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
@@ -1083,6 +1084,7 @@ permalink: /:categories/aws-foundational
       <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput; unlimited throughput</li>
     </ul>
   </li>
+  <li>In scenarios of real-time should use Kinesis instead of SQS</li>
 </ul>
 
 <p style="text-align: justify;"><b>DLQ</b> (Dead-Letter Queues):</p>
@@ -1113,7 +1115,7 @@ permalink: /:categories/aws-foundational
       <li>Access Policies: can be attached a resource policy, useful across-account access</li>
     </ul>
   </li>
-  <li>FanOut (SNS+SQS) : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
+  <li>FanOut (SNS+SQS) <a href="https://aws.amazon.com/blogs/aws/kds-enhanced-fanout/">[1]</a> : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
   <li>Message Filtering: send to specific subscriber</li>
   <li>Publicly accessible by default</li>
 </ul>
@@ -1198,7 +1200,7 @@ permalink: /:categories/aws-foundational
 
 
 <p><center>
-  <img src="/img/aws/serverless.png" height="100%" width="100%">
+  <img src="/img/aws/serverless-app.png" height="100%" width="100%">
 </center></p>
 
 <p><u>Other Serverless Service</u></p>
@@ -1206,7 +1208,6 @@ permalink: /:categories/aws-foundational
 <ul>
 <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
   <li>Lambda@Edge</li>
-  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time instead of SQS</li>
   <li>
     Lambda<a href="https://digitalcloud.training/aws-lambda/">[1]</a><a href="https://aws.amazon.com/blogs/architecture/best-practices-for-developing-on-aws-lambda/">[2]</a>:
     <ul>
@@ -1333,34 +1334,6 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales sutomatically up tp 64TB, high avai;ability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
 
-<p style="text-align: justify;">Amazon <b>Redshift</b><a href="https://aws.amazon.com/redshift">[1]</a><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">[2]</a></p>
-<ul>
-  <li>Based on PostgreSQL (but not OLTP)</li>
-  <li>Relational database for a analytic purpose</li>
-  <li>OLAP - online analytical processing (analytics and data warehouseing)</li>
-  <li>Parallel Query</li>
-  <li>Run SQL against data warehouse</li>
-  <li>Redshift Spectrum run queries against Amazon S3 without loading the data from Amazon S3 into data warehousing solution</li>
-  <li>Pricing: Pay as you go</li>
-  <li>BI tools: AWS Quicksight or Tableau</li>
-</ul>
-
-<p style="text-align: justify;">Amazon <b>Glue</b><a href="https://aws.amazon.com/glue/">[1]</a><a href="https://digitalcloud.training/aws-glue/">[2]</a></p>
-<ul>
-  <li>extract, transform, and load (ETL) service</li>
-  <li>serverless service</li>
-  <li>prepare and load their data for analytics</li>
-  <li>The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. </li>
-</ul>
-
-<p style="text-align: justify;">Amazon EMR (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
-<ul>
-  <li>Helps to create Hadoop clusters (Big Data)</li>
-  <li>Take care of all the provisioning and configuration</li>
-  <li>Auto Scaling</li>
-  <li>Ex: machine learn and big data</li>
-</ul>
-
 <p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed graph database; no decentralization component; immutable ledger database. Ex: review a complete history of all the changes. NoSQL. Use cryptography. Immutable database.</p>
 
 <p style="text-align: justify;"><b>Managed Blockchain</b>: create and manage blockchain networks with open-source frameworks</p>
@@ -1371,12 +1344,167 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">Analyses</p>
 <ul> 
-  <li><a href="https://aws.amazon.com/quicksight/"><b>QuickSight</b></a>:  scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service</li>
-  <li><b>Athena</b><a href="https://digitalcloud.training/amazon-athena/">[1]</a><a href="https://aws.amazon.com/athena/features/">[2]</a>: Analyze data in S3 using SQL; it is serverless (no infrastructure to manage); Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
+
   <li>Timestream: time series database service for IoT and operational application</li>
 </ul>
 
 
+
+<!-- ###################################################### -->
+
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="bigdata">Big Data</h2>
+
+<p>Characteristics of <a href="https://aws.amazon.com/blogs/big-data/">big data</a></p>
+<ul>
+  <li>Volume: Ranges from terabytes to petabytes of data.</li>
+  <li>Variety: different sources and formats</li>
+  <li>Velocity: needs short period of time</li>
+</ul>
+
+<p style="text-align: justify;"><b>Amazon Redshift</b><a href="https://aws.amazon.com/redshift">[1]</a><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">[2]</a><a href="https://digitalcloud.training/amazon-redshift/">[3]</a><a href="https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html#c-spectrum-overview">[4]</a><a href="https://aws.amazon.com/blogs/big-data/amazon-redshift-spectrum-extends-data-warehousing-out-to-exabytes-no-loading-required/">[4]</a></p>
+
+<ul>
+  <li>Based on PostgreSQL (but not OLTP)</li>
+  <li>Relational database for a analytic purpose</li>
+  <li>OLAP - online analytical processing (analytics and data warehouseing)</li>
+  <li>Parallel Query</li>
+  <li>Run SQL against data warehouse</li>
+  <li>Redshift Spectrum run queries against Amazon S3 without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
+  <li>Size: up to 16PB of data</li>
+  <li>Pricing: Pay as you go</li>
+  <li>BI tools: AWS Quicksight or Tableau</li>
+  <li>High Availability: supports Multi-AZ deployments</li>
+  <li>Snapshots: are incremental and point-in-time. Always contained in S3</li>
+  <li>Performance: always facor large batches inserts</li>
+</ul>
+
+<p style="text-align: justify;">Amazon EMR (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
+<ul>
+  <li>Help with ETL processing</li>
+  <li>EMER is made up of EC2 instances</li>
+  <li>Managed big data platform</li>
+  <li>Storage:
+    <ul>
+      <li>Hadoop Distributed File System (HDFS) - distributes stored data across instance. Used for caching results</li>
+      <li>EMR File System (EMRFS) - extends hadoop to access data in S3 which store input and output data.</li>
+      <li>Localfile system - locally connected disck created with each EC2 instance (instance store volume)</li>
+    </ul>
+  </li>
+  <li>EMR has cluster and Nodes</li>
+  <li>Helps to create Hadoop clusters (Big Data)</li>
+  <li>Take care of all the provisioning and configuration</li>
+  <li>Auto Scaling</li>
+  <li>Purchasing Options and Cluster types: OnDemand, reserved (min 1 year), Spot (cheapest option), long-running or transient</li>
+  <li>Ex: machine learn and big data</li>
+</ul>
+
+
+<p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
+<ul>
+  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingestinf data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
+  <li>Data Firehose: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
+  <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL</li>
+  <li>It is more use to Big Data, but in scenarios quere is necessary real data, tt is better than SQS.</li>
+</ul>
+
+<p><b>Athena</b> <a href="https://digitalcloud.training/amazon-athena/">[1]</a><a href="https://aws.amazon.com/athena/features/">[2]</a>: </p>
+<ul>
+  <li>Analyze data in S3 using SQL;</li>
+  <li>it is serverless (no infrastructure to manage);</li>
+  <li>Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
+  <li>Use case: Query logs -> Serverless solution - the only service that allow you to directly query data that's stored in S3</li>
+</ul>
+
+<p style="text-align: justify;"><b>Amazon Glue</b><a href="https://aws.amazon.com/glue/">[1]</a><a href="https://digitalcloud.training/aws-glue/">[2]</a></p>
+<ul>
+  <li>Serverless data integration</li>
+  <li>Discover, prepare, and combine data for analytics</li>
+  <li>ETL: extract, transform, and load service</li>
+  <li>The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. </li>
+  <li>Good working together with Athena: Athena can work by itself and Glue can design schema for the data</li>
+  <li>It's possible to specify the number of DPUs (data processing unit) for an ETL job. A Glue ETL job must have a minimum of 2 DPUs. AWS Glue allocates 10 DPUs to each ETL job by default</li>
+</ul>
+
+<p><b>QuickSight</b><a href="https://aws.amazon.com/quicksight/">[1]</a>:  </p>
+<ul>
+  <li>Primarily used for analyzing log files and docs, specially within an ETL process</li>
+  <li>scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service</li>
+  <li>Data visualization service -  dashboards</li>
+  <li>Features: visualization, ad-hoc data analytics; integrates with RDS, Aurora, Athena, S3...</li>
+  <li>Robust in-memory engine</li>
+  <li>Colum-level security (CLS)</li>
+  <li>Pricing per-session and use-based</li>
+</ul>
+
+
+<p><b>AWS Data Pipeline</b></p>
+
+<Ul>
+  <li>It is a managed ETL (Extract, Transform, Load ) service within AWS</li>
+  <li>Implement automated workflows for movement and transformation of data between different compute and storage services</li>
+  <li>Data source can be on-premise</li>
+  <li>Define data-driven workflows</li>
+  <li>Define parameters for data transformation</li>
+  <li>Highly Availability and fault tolerant</li>
+  <li>Handling Failures - automatically retries failed activities</li>
+  <li>Integrate with DynamoDB, RDS, Redshift and S3</li>
+  <li>Works with EC2 and EMR</li>
+  <li>Components: Pipeline definition (business logic), Managed Compute (create EC2 instance), task runners, Data Notes (location and types of data)</li>
+  <li>Use cases: processing data in EMR using Hadoop streaming; Importing or exporting DynamoDB data; Copying CSF files or data between S3 buckets; Exporting RDS data to S3</li>
+  <li>Can use SNS for failure notification andsuccess and other event-driven workflow</li>
+</Ul>
+
+
+<p><b>Managed Streaming for Apache Kafka (Amazon MSK)</b></p>
+
+<ul>
+  <li>Managed service to dun data streaming that needs Kafka</li>
+  <li>Control Plane: creates, updates and delete clusters</li>
+  <li>Data Plane: leverage Kafka data-plane operations for producing and consuming streming data</li>
+  <li>Components: Broker Nodes (amount of broker nodes per AZ); ZooKeeper Nodes; Producer, Consumers and Topics; Flexible Cluster Operations</li>
+  <li>Resiliency: Automatic Recovery, detection of broker failures; Reduce data (reuse storage); Impact time is limited; After recovery, the same broker IP will be used again </li>
+  <li>Serverless</li>
+  <li>Security and Logging
+    <ul>
+      <li>Integration with KMS</li>
+      <li>Encryption at rest bu default</li>
+      <li>TLS for encryption in trasit between brokers in clisters</li>
+      <li>Deliver broker logs to CloudWatch, S3, Kinesis Data Firehose</li>
+      <li>Metrics are gathered and sent to CloudWatch</li>
+      <li>MSK API calls are logged to CloudTrail</li>
+    </ul>
+  </li>
+</ul>
+
+
+<p><b>OpenSearch</b><a href="https://aws.amazon.com/elasticsearch-service/features/">[1]</a></p>
+<ul>
+  <li>Successor of Elasticsearch</li>
+  <li>Managed analytics and visualization service</li>
+  <li>Quick Analysis in clusters, usually par of an TLS process</li>
+  <li>Search any field</li>
+  <li>Can be used as a component to another database</li>
+  <li>Easily Scalable</li>
+  <li>Security: via Cognit and IAM, VPC SG (cluster can be deployed in a VPC), encryption at rest and in transit (KMS encryption, TLS), field-level security. Cannot use IP-based access policies.</li>
+  <li>Backup using snapshot</li>
+  <li>Create cluster (OS domain), specify the number of instances and type</li>
+  <li>Storage options: UltraWarm or Cold storage</li>
+  <li>Multi-AZ capable: up to three AZs</li>
+  <li>Flexible - SQL for BI apps. Support SQL is not native but can be enable via plugin</li>
+  <li>Integration with CloudWatch, CloudTrail, S3, Kinesis</li>
+  <li>Use case - creating a logging solution involving visualization of log file analytics or BI report</li>
+</ul>
+
+
+<p><center>
+  <img src="/img/aws/bigdata.png" height="100%" width="100%">
+</center></p>
 
 <!-- ###################################################### -->
 
@@ -1457,6 +1585,7 @@ permalink: /:categories/aws-foundational
 <h2 id="monitoring">Cloud Monitoring, Audit</h2>
 
 <p style="text-align: justify;"><b>CloudWatch</b> (Metrics, Logs, Alarms, Events) <a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a></p>
+
 <ul>
   <li>Performance <b>Monitoring</b></li>
   <li>It is a  monitoring and observability service which provides metrics and insights; interactively search and analyze log data. </li>
@@ -1776,7 +1905,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
 <li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
 <li><a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></li>
-<li><a href="https://aws.amazon.com/elasticsearch-service/features/">Amazon OpenSearch Service Features</a></li>
+
 
 
 
