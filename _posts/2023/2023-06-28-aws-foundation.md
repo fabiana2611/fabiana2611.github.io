@@ -1155,11 +1155,12 @@ permalink: /:categories/aws-foundational
   <li>Virtual functions</li>
   <li>By default, Lambda function is launched outside of VPC, but it can be done in VPC</li>
   <li>Synchronous: CLI,SDK, API Gateway</li>
-Asynchronous: S3, SNS, CloudWatch, etc</ul>
+  <li>Asynchronous: S3, SNS, CloudWatch, etc</li>
   <li>Serverless</li>
   <li>Run on-demand</li>
   <li>Scaling automatically</li>
   <li>Event-driven</li>
+  Security: Lambda bees IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a>
   <li>Can be monitoring through <b>CloudWatch</b></li>
   <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
   <li>Compute: 
@@ -1276,10 +1277,10 @@ Asynchronous: S3, SNS, CloudWatch, etc</ul>
 </ul>  
 
 <p><center>
-  <img src="/img/aws/ecs.png" height="90%" width="90%">
+  <img src="/img/aws/ecs.png" height="100%" width="100%">
 </center></p>
 
-<p><b>Fargate</b> <a href="https://aws.amazon.com/fargate/">[1]</p>
+<p><b>Fargate</b> <a href="https://aws.amazon.com/fargate/">[1]</a></p>
 <ul>
   <li>Serverless compute engine for Docker container</li> 
   <li>AWS manage the infrastructure</li>
