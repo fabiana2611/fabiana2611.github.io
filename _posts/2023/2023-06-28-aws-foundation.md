@@ -1503,8 +1503,9 @@ permalink: /:categories/aws-foundational
 
 
 <p><center>
-  <img src="/img/aws/bigdata.png" height="100%" width="100%">
+  <img src="/img/aws/big-data.png" height="100%" width="100%">
 </center></p>
+
 
 <!-- ###################################################### -->
 
