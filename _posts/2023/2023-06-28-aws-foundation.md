@@ -19,7 +19,7 @@ permalink: /:categories/aws-foundational
   </tr>
   <tr>
     <td><a href="#storage">AWS Storage Services</a></td>
-    <td><a href="#container">Docker Containers and ECS</a></td>
+    <td><a href="#container">Containers</a></td>
     <td><a href="#serverless">Serverless Applications</a></td>
   </tr>
   <tr>
@@ -44,8 +44,9 @@ permalink: /:categories/aws-foundational
     <td><a href="#shots">Some Shots</a></td>
   </tr>
   <tr>
-    <td><a href="#bigdata">Big Data</a>
-    <td colspan="2"><a href="#conclusion">Conclusion</a></td>
+    <td><a href="#bigdata">Big Data</a></td>
+    <td><a href="#decouple">Loosly Decouple</a></td>
+    <td colspan="1"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
@@ -985,78 +986,13 @@ permalink: /:categories/aws-foundational
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 
-<!-- ################################################################## -->
-
-
-<br />
-<hr>
-<br />
-
-<h2 id="container">Docker Containers and ECS</h2>
-
-<p style="text-align: justify;"><b>Docker</b> </p>
-<ul>
-  <li>Amazon <b>ECS</b> (Elastic Container Service)
-    <ul>
-      <li>Launch Docker containers on AWS (inside the EC2 instance)</li>
-      <li>It has integration with <b>ALB</b> (Application Load Balancer)</li>
-      <li>A <b>ECS cluster</b> can have ECS Container instances in different AZ</li>
-      <li>It is not fully managed service and the customer can manage the underlying servers.</li>
-      <li><b>Shared responsibility</b>
-        <ul>
-          <li>AWS start and stop the containers</li>
-          <li>Customer has to provision and maintain the infrastructure (EC2 instance). </li>
-        </ul>
-      </li>
-    </ul>    
-  </li>
-  <li><b><a href="https://aws.amazon.com/fargate/">Fargate</a></b>
-    <ul>
-      <li>Launch Docker container on AWS.</li> 
-      <li>Serverless</li>
-      <li>Works with ECS and EKS</li>
-      <li>Charged for running tasks</li>
-      <li>No EFS and EBS integrations</li>
-      <li><b>Shared responsibility</b>
-        <ul>
-          <li>AWS: Automatically provision resources. AWS runs the containers for the customer.</li>
-          <li>The customer don't need provision the infrastructure. </li>
-        </ul>
-      </li>
-      <li><b>Pricing</b>: pay for vCPU and memory allocated</li>
-    </ul>
-  </li>
-  <li><b>ECR</b> - Elastic Container Registry
-    <ul>
-      <li>Private Docker Registry</li> 
-      <li>Store customer docker images to be runned by ECS or Fargate</li>
-    </ul>
-  </li>    
-</ul>  
-
-
-<p><center>
-  <img src="/img/aws/ecs.png" height="90%" width="90%">
-</center></p>
-
-<p style="text-align: justify;">Amazon Elastic Container Service for Kubernetes (<a href="https://aws.amazon.com/eks/">EKS</a>): Manage Kubernetes clusters on AWS</p>
-
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/amazon-ecs-and-eks/">ECS and EKS</a></li>
-<li><a href="https://aws.amazon.com/ecs/pricing/">ECS Pricing</a></li>
-<li><a href="https://aws.amazon.com/ecs/">ECS</a></li>
-
-
 <!-- ###################################################### -->
 
 <br />
 <hr>
 <br />
 
-<h2 id="serverless">Serverless Applications</h2>
-
-<p><u>Loosly Decouple</u></p>
+<h2 id="decouple">Loosly Decouple</u></h2>
 
 <p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosly Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction</p>
 
@@ -1200,33 +1136,178 @@ permalink: /:categories/aws-foundational
 
 
 <p><center>
-  <img src="/img/aws/serverless-app.png" height="100%" width="100%">
+  <img src="/img/aws/decouple.png" height="100%" width="100%">
 </center></p>
 
-<p><u>Other Serverless Service</u></p>
 
+<!-- ############################################################# -->
+
+<br />
+<hr>
+<br />
+<h2 id="serverless">Serverless Applications</h2>
+
+
+<p><b>Lambda</b> <a href="https://digitalcloud.training/aws-lambda/">[1]</a><a href="https://aws.amazon.com/blogs/architecture/best-practices-for-developing-on-aws-lambda/">[2]</a>: </p>
 <ul>
-<li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
-  <li>Lambda@Edge</li>
-  <li>
-    Lambda<a href="https://digitalcloud.training/aws-lambda/">[1]</a><a href="https://aws.amazon.com/blogs/architecture/best-practices-for-developing-on-aws-lambda/">[2]</a>:
+  <li>FaaS</li>
+  <li>Example of integration: ELB, API Gateway, Kinesis, DynamoDB, S3, CloudFront, CloudWatch, SNS, SQS, Cognito</li>
+  <li>Virtual functions</li>
+  <li>By default, Lambda function is launched outside of VPC, but it can be done in VPC</li>
+  <li>Synchronous: CLI,SDK, API Gateway</li>
+Asynchronous: S3, SNS, CloudWatch, etc</ul>
+  <li>Serverless</li>
+  <li>Run on-demand</li>
+  <li>Scaling automatically</li>
+  <li>Event-driven</li>
+  <li>Can be monitoring through <b>CloudWatch</b></li>
+  <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
+  <li>Compute: 
     <ul>
-      <li>FaaS</li>
-      <li>Example of integration: API Gateway, Kinesis, DynamoDB, S3, CloudFront, CloudWatch, SNS, SQS, Cognito</li>
-      <li>Virtual functions</li>
-      <li>Serverless</li>
-      <li>Run on-demand</li>
-      <li>Scaling automatically</li>
-      <li>Event-driven</li>
-      <li>Can be monitoring through <b>CloudWatch</b></li>
-      <li>Integrated with Load balancer (<b>ELB</b>)</li>
-      <li>Pricing: Pay per call (request) and duration (time of execution)</li>
+      <li>1K councurrent execution</li>
+      <li>Short-term execution (900 seconfs - 15minutes). If is necessary more time, use RC2, Batch, EC2</li>
     </ul>
   </li>
-  <li>EventBridge <a href="https://aws.amazon.com/eventbridge/">[1]</a></li>
+  <li>Storage: 
+    <ul>
+      <li>512MB-10GB disk storage (integration with EFS);</li>
+      <li>4KB for all environment variables;</li>
+      <li>128MB-10GB memory allocation</li>
+      <li>Easily set memory - up to 10.240MB, and CPU scales proportionaly with memory</li>
+    </ul>
+  </li>
+  <li>Deployment and configuration
+    <ul>
+      <li>Compressed deployment package <= 50MB</li>
+      <li>Uncompressed package <= 250MB</li>
+      <li>Request and response payload size up to 6BM</li>  
+      <li>Streamed responses up to 20MB</li>
+    </ul>
+  </li>
+  <li>Lambda@Edge: function attached to CloudFront to run close the user and minimize latency</li>
+</ul>
+
+
+<p><b>Serverless Application Repository</b></p>
+<ul>
+  <li>It allows users find, deploy, publish their own serverless application</li>
+  <li>Privately share applications</li>
+  <li>Deeply integrated with Lambda service</li>
+  <li>Options:
+    <ul>
+      <li>Publish: makes apps available for others to find and deploy;SAM templates helps to define apps; private by default</li>
+      <li>Deploy: Find and deploy published apps; Browse public apps wihtout an AWS account; Browse withoin Lambda Console</li>
+    </ul>
+  </li>
+</ul>
+
+<p><b>Aurora Serverless</b></p>
+<ul>
+  <li>On-Demand and Auto Scaling for Aurora database</li>
+  <li>Automation of monitoring workloads and adjusting capacity for database</li>
+  <li>Pricing: charged for resources consumed by DB cluster</li>
+  <li>Concepts: Aurora Capacity Units (ACU - how the custer scale); allocated by AWS-managed warm pools; 2GiB of memory, matching CPU and networking capability; resiliency (six copies of data across three AZs)</li>
+  <li>Use case: variable workfloes; multi-tentant apps (service manage capacity for each app); new apps; dev and test new features; mixed use apps; capacity planning</li>
+</ul>
+
+<p><b>GraphQL</b>: (AWS AppSync): robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
+
+<p>Other serverless service</p>
+<ul>
+  <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
   <li>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></li>
 </ul>
 
+
+<!-- ############################################################# -->
+
+<br />
+<hr>
+<br />
+<h2 id="container">Containers</h2>
+
+
+<p>Here are serverless services for containers <a href="https://digitalcloud.training/amazon-ecs-and-eks/">[1]</a>.</p>
+
+<ul><u>Orchestration</u> 
+  <li><b>ECS</b> (Elastic Container Service) <a href="https://aws.amazon.com/ecs/">[2]</a> 
+    <ul>
+      <li>ECS Launch Types: EC2 and Fargate</li>
+      <li>Components:
+        <ul>
+          <li>Cluster: logical grouping of tasks or services. It can have ECS Container instances in different AZ</li>
+          <li>Task: a running Docker container</li>
+          <li>Container instance: EC2 instance running the ECS agent</li>
+          <li>Service: Defines long running tasks. It can control number of tasks with Auto Scaling, and attach an ELB for distrubute traffic across containers</li>  
+        </ul>
+      </li>
+      <li>Why: ECS manages anywhere many containers; ECS will place the containers and keep them online; containers are registered with LB; containers can have roles attached to them; easy to set up and scale</li>
+      <li>Best used when all in on AWS</li>
+      <li><a href="https://aws.amazon.com/ecs/pricing/">ECS Pricing</a></li>
+      <li><b>Shared responsibility</b>
+        <ul>
+          <li>AWS start and stop the containers</li>
+          <li>Customer has to provision and maintain the infrastructure (EC2 instance). </li>
+        </ul>
+      </li>
+      <li>ECS anywhere:
+        <ul> 
+          <li>on-Premise, no orchestration, completely managed, Inboud traffic has to be managed separately (no ELB support)</li>
+          <li>Requirement: SSM Agent, ECS Agent, Doker; register external instances; installation script within ECS console; execute scripts on on-premises VMs; deploy containers using EXTERNAl launch type</li>
+        </ul>
+      </li>  
+    </ul>  
+  </li>
+  <li><b>EKS</b> (Amazon Elastic Container Service for Kubernetes) <a href="https://aws.amazon.com/eks/">[3]</a>:
+    <ul>
+      <li>Manage Kubernetes clusters on AWS</li>
+      <li>Can be used on-premise and the cloud</li>
+      <li>Best used when is not all in on AWS</li>
+      <li>More work to configure and integrate with AWS</li>
+      <li>EKS-D: managed bu developer. Self-managed Kubernetes deployment (EKS anywhere)</li>
+      <li>EKS anywhere:
+        <ul> 
+          <li>on-Premise EKS, EKS Distro (deployment, usege and management for cluster), full lifecycle management</li>
+          <li>Concepts: control plane, location, updates (manual CLI), Curated Packages, Enterprise Subscription</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>  
+
+<p><center>
+  <img src="/img/aws/ecs.png" height="90%" width="90%">
+</center></p>
+
+<p><b>Fargate</b> <a href="https://aws.amazon.com/fargate/">[1]</p>
+<ul>
+  <li>Serverless compute engine for Docker container</li> 
+  <li>AWS manage the infrastructure</li>
+  <li>Works with ECS and EKS</li>
+  <li>Benefits: no OS access, pay based on resources allocated and time ran (pay for vCPU and memory allocated - pricing model); short-running task; isolated environment ber container; capable of mounting EFS file system for persistent, shared storage. In some use cases it can be advantage comparing with <u>EC2</u>.</li>
+  <li>Comparing with <u>Lambda</u>, select Fargate when the workload is more consistent (predictable). Also, Fargate allows docler use across the organization and some control by developer. By other hand, lambda is better to unpredictable or inconsistent workload; good for a single funcion.</li>
+  <li>It is for containers and applications that need to run longer</li>
+  <li><b>Shared responsibility</b>
+    <ul>
+      <li>AWS: Automatically provision resources. AWS runs the containers for the customer.</li>
+      <li>The customer don't need provision the infrastructure. </li>
+    </ul>
+  </li>
+</ul>
+
+<p><b>ECR</b> - Elastic Container Registry</p>
+<ul>
+  <li>Managed container image registry</li>
+  <li>Secure, scalable, reilable infrastructure</li>
+  <li>Private conteiner image repository</li> 
+  <li>Components: Registry (private); Authorization token (to push and pull images to and from retristries); Repository; Images</li>
+  <li>Secure: permission via IAM; repository policy</li>
+  <li>Cross-Region; Cross-account; configured per repository and per region</li>
+  <li>Store customer images to be runned by ECS or Fargate</li>
+  <li>Integration with customized container infrastructure, ECS, EKS, locally (linux - for development purpose)</li>
+  <li>Use rules to expire and remove unsused images</li>
+  <li>Scan on push repository can identify vulnerabilities</li>
+</ul>
 
 
 <!-- ############################################################# -->
@@ -1586,7 +1667,6 @@ permalink: /:categories/aws-foundational
 <h2 id="monitoring">Cloud Monitoring, Audit</h2>
 
 <p style="text-align: justify;"><b>CloudWatch</b> (Metrics, Logs, Alarms, Events) <a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a></p>
-
 <ul>
   <li>Performance <b>Monitoring</b></li>
   <li>It is a  monitoring and observability service which provides metrics and insights; interactively search and analyze log data. </li>
@@ -1598,13 +1678,36 @@ permalink: /:categories/aws-foundational
   <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
 </ul>
 
-<p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: <b>Record API calls</b>. It tracks events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). <b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has encryptation enabled as default. Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </p>
+<p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
+<ul>
+  <li><b>Record API calls</b>. It tracks events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). </li>
+  <li><b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has encryptation enabled as default. </li>
+  <li>Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </li>
+</ul>
 
 <p><a href="https://digitalcloud.training/aws-config/">AWS Config</a>: <b>Record configuration changes</b>Helps with auditing and recording compliance of the AWS resources, and record configurations and changes. Per Region but can be aggreated across region and account. It can send alerts for changes and the configuration can be store inside S3.</p>
 
-<p><a href="https://aws.amazon.com/eventbridge/"><b>EventBridge</b></a> (CloudWatch Events): Serverless, build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc. Schema Registry, Archive events, replay archive events</p>
+<p><b>EventBridge</b> <a href="https://aws.amazon.com/eventbridge/">[1]</a></p>
+<ul>
+  <li>Serverless event bus</li>
+  <li>Pass events from a source to an endpoint</li>
+  <li>Build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc.</li>
+  <li>Events Bus is the router that receives events and delivers them to targets.</li> 
+  <li>Use it to trigger an action based on an event in AWS</li>
+  <li>Sucessor of CloudWatchEvents</li>
+  <li>Fastest way to respond to things happening in the environment</li>
+</ul>
 
-<p><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>: Debugging in Production. Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</p>
+<p><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>:</p>
+<ul> 
+  <li>Serverless</li>
+  <li>Collect data to get insights about requests and responses</li>
+  <li>Traces - tracing headers, send trace data</li>
+  <li>Debugging in Production.</li>
+  <li>Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
+  <li>Contepts: Segments, subsegments, service graph, traces, tracing headers</li>
+</ul>
+
 
 <p><b>CodeGuru</b>: automated code review and application performance recommendations</p>
 
@@ -1616,6 +1719,7 @@ permalink: /:categories/aws-foundational
 <p><center>
   <img src="/img/aws/monitor.png" height="100%" width="100%">
 </center></p>
+
 
 <!-- ####################################################### -->
 
