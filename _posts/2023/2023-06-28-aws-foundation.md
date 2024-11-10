@@ -417,7 +417,12 @@ permalink: /:categories/aws-foundational
 <p><b>Storage:</b></p>
 <ul>
   <li>
-    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.</li>
+    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
+    <ul>
+      <li>AWS: Infrastructure, Replication for data for EBS volumes and EFS drives, replacing faulty hardware, Ensuring their emploees cannot access your data.</li>
+      <li>Customer: backups and snapshot procesures, data encryptation, data on the drives, analysis the risk</li>
+    </ul>
+  </li>
   <li>
     <b>EBS</b> - Amazon Elastic Block Store <a href="https://aws.amazon.com/ebs/">[1]</a><a href="https://digitalcloud.training/amazon-ebs/">[2]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">[3]</a><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html">[4]</a>
     <ul>
@@ -1215,7 +1220,7 @@ permalink: /:categories/aws-foundational
 
 <p>Other serverless service</p>
 <ul>
-  <li>Cognito<a href="https://digitalcloud.training/amazon-cognito/">[1]</a></li>
+  
   <li>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></li>
 </ul>
 
@@ -1733,74 +1738,126 @@ permalink: /:categories/aws-foundational
 <h2 id="security">Security</h2>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/compliance/shared-responsibility-model/"><b>Shared Responsibility</b></a> has the customer responsible for security IN the cloud (data, access, authentication, configuration, encryptation, network traffic protection). AWS is responsible for the security OF the cloud, protecting/mnaging all AWS Global infrastructure (Software [compute, storage, database, networking], and hardware [regions, AZ, Edge Locations])</p>
+
+
+<p><b><u>Examples of Atacck</u>:</b></p>
+
 <ul>
-  <li>EC2 Storage:
+  <li><b>DDos</b>: Distributed Denial-of-Service
     <ul>
-      <li>AWS: Infrastructure, Replication for data for EBS volumes and EFS drives, replacing faulty hardware, Ensuring their emploees cannot access your data.</li>
-      <li>Customer: backups and snapshot procesures, data encryptation, data on the drives, analysis the risk</li>
+      <li>Attempts to make the application unavailable to the end users</li>
+      <li>Layer 4 DDoS Atack is the same SYN flood. It works at the transport layer (TCP). It involves the 3-way handshake to establish the connection (client -> SYN packet to a server -> server replies SYN-ACK -> Client responds ACK). The atack overwhelm the server with SYN-ACK.</li>    
     </ul>
   </li>
-  <li>Databases
-    <ul>
-      <li>Customer: resiliency, backup, patching, high availability, fault tolerance, scaling, etc.</li>
-    </ul>
-  </li> 
-  <li>Shared Controls
-    <ul>
-      <li>Patch Management, Configuration Management, Awareness and Training</li>
-    </ul>
-  </li>
+  <li><b>Amplification Attack</b>: attacker send a third-party server a request using spoofed IP address. Th server responds to that IO.</li>
+  <li><b>Layer 7 attack</b>: application receives a flood of GET or POST requests</li>
 </ul>
 
-<p style="text-align: justify;">DDos: Distributed Denial-of-Service</p>
+
+<p><b><u>AWS Security Services and strategies</u>:</b></p>
+
+<p>Loggin API Calls with <a href="#monitoring">CloudTrail</a>: It allows after-the-fact incident investigation; near real-time intrusion detection; industry and regulatory compliance. Store the logs in S3</p>
+
+
+<p>Protecting application with <b>AWS Shield Standard</b></p>
 <ul>
-  <li>AWS Shield Standard: free for every customer, protect websites and applications (SYN/UDP fllds, reflection attacks). </li>
-  <li>AWS Shield Advanced: protection 24/7, optional DDoS migration services; protection on EC2, ELB, CloudFront, GLobal Acceleator, Route 53. Detection and mitigation for network layer (layer 3), transport layer (layer 4) and application layer (layer 7) attacks</li>
-  <li>AWS WAF<a href="https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html">[1]</a><a href="https://digitalcloud.training/aws-waf-shield/">[2]</a> (Web Application Firewall): filter specific requests based on rules, protection on layer 7 (HTTP), ALB, API Gateway, CloudFront, Define Web ACL (Web Access Control List - protect SQL Injection and Cross-Site Scripting(XSS), rate-based rules). Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
-  <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
+  <li>Protect AWS customers on ELB, CloudFront and Route 53</li>
+  <li>AWS Shield Standard: free for every customer, protect websites and applications (SYN/UDP floods, reflection attacks, and over layer 3 and 4 attacks). </li>
+  <li>AWS Shield Advanced: protection 24/7, optional DDoS migration services; protection on EC2, ELB, CloudFront, GLobal Acceleator, Route 53 against more sophisticated attacks. Detection and mitigation for network layer (layer 3), transport layer (layer 4) and application layer (layer 7) attacks. Near real-time notifications of DDoS attacks.</li>
   <li><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">Mitigate</a></li>
 </ul>
 
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
+<p><b>WAF</b> <a href="https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html">[1]</a><a href="https://digitalcloud.training/aws-waf-shield/">[2]</a> (Web Application Firewall):</p>
 <ul>
-  <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
-  <li>It cannot: Dos, Port flooding, etc</li>
+  <li>Filtering traffic: filter specific requests based on rules - requests sent to CloudFront, ELB, API Gateway.</li>
+  <li>Protection on layer 7  (HTTP) DDoS attacks, SQL Injection and Cross-Site Scripting(XSS) </li>
+  <li>Define Web ACL (Web Access Control List - rate-based rules).</li>
+  <li>Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
+  <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
+  <li><a href="https://aws.amazon.com/waf/features/">AWS WAF features</a></li>
 </ul>
 
-<p style="text-align: justify;"><b>Encryptation</b></p>
+<p><b>Firewall Manager</b></p>
 <ul>
-  <li>AWS <b>KMS</b><a href="https://digitalcloud.training/aws-kms/">[1]</a> - Key Management Service
+  <li>Centralized service to manage rules across multiple AWS account and applications in AWS Organization</li>
+  <li>Simplify the management of Firewall rules across account</li>
+</ul>
+
+<p><b>GuardDuty</b> <a href="https://aws.amazon.com/guardduty">[1]</a>:</p>
+<ul>
+  <li>Threat detection service to protect AWS account</li>
+  <li>Monitor suspicious activity</li>
+  <li>It uses Machine Learning and check Logs.</li>
+  <li>Identify potential security issues.</li>
+  <li>Analyse CloudTrail events, VPC Flow Logs, etc.</li>
+  <li>Ex: unusual API calls, malicious IP, unauthorized deployment, compromised instances</li>
+  <li>Feature: Alerts in GuardDuty console and ClaudWatch Event; receive feeds from thord party (e.g., AWS Security inform malicious IP); monitor CloudTrail, VPC Flow logs and DNS logs; centralize detection across multiple AWS account; automate response with CloudWatch Events and Lambda</li>
+  <li>Pricing: 30 days frew; quantity of CloudTrail Events; volume of DNS and VPC Flow Logs data</li>
+</ul>
+
+<p><b>Macie</b> <a href="https://aws.amazon.com/macie/">[1]</a>:</p>
+<ul>
+  <li>Monitoring S3 bucket</li>
+  <li>Fully managed data security and data privacy service (Identify potential security issues).</li>
+  <li>Personally Identifiable Information (PII) - personal data used to establish an individual's identity</li>
+  <li>It uses machine learning and pattern matching to discover and protect customers sensitive data in S3</li>
+  <li>Alerts to uncrypted buckets, public buckets, shared buckets</li>
+</ul>
+
+
+<p><b>Inspector</b> <a href="https://aws.amazon.com/inspector/">[1]</a>: </p>
+<ul>
+  <li>Automated security assessment service that helps improve the security and compliance of applications deployed on AWS. </li>
+  <li>Inspect running operating systems (OS) against known vulnerabilities</li>
+  <li>Exposure, vulnerabilities, and deviations from best practices</li>
+  <li>Reports and Integration with AWS security Hub</li>
+  <li>After performing the assessment, it produces a detailed list of security findings prioritized by level of severity</li>
+  <li>Types of assessment: Netework and Host</li>
+  <li>Analyze against unintended network accessibility</li>
+  <li>Automated Security Assessments for EC2 instances, Container images, Lambda Functions.</li>
+  <li>Send findings to Amazon Event Bridge.</li>
+  <li>Continous scanning of the infrastructure when it is needed</li>
+  <li>Can use an agent to monitoring</li>
+  <li>Cannot be used to prevent Distributed Denial-of-Service (DDoS) attack</li>
+</ul>
+
+<p><b>Encryptation</b></p>
+<ul>
+  <li><b>KMS</b><a href="https://digitalcloud.training/aws-kms/">[1]</a> - Key Management Service
     <ul>
       <li>Encryptation for Software</li>
       <li>AWS manage the encryptation keys</li>
+      <li>CMK - customer master key: can be generated by KMS, customer key management or CloudHSM
+        <ul>
+          <li>AWS managed CMK: create, managed and used on the customers behalf by AWS; used by AWS services</li>
+          <li>Customer Managed CMK: create, manage, use, enable or disable; rotation policy</li>
+          <li>AWS owned CMK: collections of CMKs owned by AWS to use in multiple accounts. The customer cannot see those keys.</li>
+          <li>CloudHSM Keys: created by the device</li>
+        </ul>
+      </li>
+      <li>The key can be routated</li>
+      <li>Create policies to access KMS CMKs</li>
+      <li>Control permissions: key policy; IAM + key policy; grants + key policy</li>
       <li>Sometimes is necessary to encrypt the <b>data in rest</b>(data stored or archived on device) or <b>in transit</b>(being moved from an origin to a destiny throgh network)</li>
       <li>Encryptation is possible in all storage and database: EBS Volume, S3 bucket, Redshift, RDS, EFS</li>
       <li>Encryptation is automatically enabled to: CloudTrail Logs, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/DataEncryption.html">S3 Glacier</a>, Storage Gateway</li>
     </ul>
   </li>
+  <li><b>CloudHSM</b><a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: 
+    <ul>
+      <li>cloud-based HSM that anables easily generate and use your own encryption keys in AWS cloud</li>
+      <li>Hardware Security Module (physical device)</li>
+      <li>Encryptation for Hardware;</li>
+      <li>The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
+    </ul>
+  </li>
   <li>The <b>AWS encryption SDK</b> is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/UsingClientSideEncryption.html">client-side encryption</a> library that is separate from the language–specific SDKs</li>
   <li>Amazon <b>S3 Managed Keys</b> (SSE-S3) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
   <li>Server-side encryption with AWS Key Management Service (AWS KMS) keys <b>(SSE-KMS)</b> is similar to SSE-S3, but using this service. It provides audit trail.</li>
-  <li><b>CloudHSM</b><a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: Hardware Security Module. Encryptation for Hardware; The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
 </ul>
 
-<p style="text-align: justify;"><b>CMK</b> - Customer Master Keys</p>
-<ul>
-  <li>AWS managed CMK: create, managed and used on the customers behalf by AWS; used by AWS services</li>
-  <li>Customer Managed CMK: create, manage, use, enable or disable; rotation policy</li>
-  <li>AWS owned CMK: collections of CMKs owned by AWS to use in multiple accounts. The customer cannot see those keys.</li>
-  <li>CloudHSM Keys: created by the device</li>
-</ul>
 
-<p style="text-align: justify;"><b>ACM</b> - AWS Certificate Manager</p>
-<ul>
-  <li>Customer can provise, manage and deploy SSL/TSL certiticates</li>
-  <li>Provide encryptation for websites (HTTPS)</li>
-  <li>Free charge for TLS certificate</li>
-  <li>Integration with ELB, CloudFront, APIs</li>
-</ul>
-
-<p style="text-align: justify;">AWS <b>Secrets Manager</b></p>
+<p>AWS <b>Secrets Manager</b></p>
 <ul>
   <li>Storing secrets</li>
   <li>Rotation of secrets</li>
@@ -1808,23 +1865,74 @@ permalink: /:categories/aws-foundational
   <li>Secrets encrypted using KMS</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/artifact/"><b>AWS Artifact</b></a>: Artifact reports (AWS security and compliance document) and Artifact Agreements (AWS agreements). Ex: Service Organization Control (SOC) reports, Payment Card Industry (PCI)</p>
-
-<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/guardduty"><b>GuardDuty</b></a>: it is an intelligent Threat discovery to protect AWS account. Monitor suspicious activity It uses Machine Learning and check Logs. Identify potential security issues. Analyse CloudTrail events, VPC Flow Logs, etc.</p>
-
-<p style="text-align: justify;"><a href="https://aws.amazon.com/inspector/">Amazon <b>Inspector</b></a>: </p>
+<p><b>Parameter Store</b></p>
 <ul>
-  <li>Automated security assessment service that helps improve the security and compliance of applications deployed on AWS. </li>
-  <li>Inspect running operating systems (OS) against known vulnerabilities</li>
-  <li>Analyze against unintended network accessibility</li>
-  <li>Exposure, vulnerabilities, and deviations from best practices</li>
-  <li>Automated Security Assessments for EC2 instances, Container images, Lambda Functions.</li>
-  <li>Reports and Integration with AWS security Hub</li>
-  <li>Send findings to Amazon Event Bridge.</li>
-  <li>Continous scanning of the infrastructure when it is needed</li>
-  <li>Can use an agent to monitoring</li>
-  <li>Cannot be used to prevent Distributed Denial-of-Service (DDoS) attack</li>
+  <li>provides secure, hiararchical storage for configuration data management and secrets management</li>
+  <li>Pricing: FREE!!!</li>
+  <li>Limits: 10.000</li>
 </ul>
+
+
+<p style="text-align: justify;"><b>ACM</b> - AWS Certificate Manager</p>
+<ul>
+  <li>Customer can provise, manage and deploy SSL/TSL certiticates</li>
+  <li>Provide encryptation for websites (HTTPS)</li>
+  <li>Free charge for TLS certificate</li>
+  <li>Integration with ELB, CloudFront, API Gateway</li>
+  <li>Pricing: free</li>
+</ul>
+
+
+<p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for PCI compliance, GDPR, etc</p>
+
+
+<p style="text-align: justify;"><b>AWS Artifact</b> <a href="https://aws.amazon.com/artifact/">[1]</a>: Artifact reports (AWS security and compliance document) and Artifact Agreements (AWS agreements). PS: <b>Audits and download compliance reports</b>. Ex: Service Organization Control (SOC) reports, Payment Card Industry (PCI)</p>
+
+<p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://aws.amazon.com/cognito/">[2]</a></p>
+<ul>
+  <li>Alternative to IAM.</li>
+  <li>Authentication, authorization, and user management for web and mobile apps</li>
+  <li>Identity for your Web and <b>Mobile</b> applications users (sign-up/sign-in; social identity like Facebook)</li>
+  <li>Components: user pools and identity pools</li>
+</ul>
+
+
+<p><b>AWS Detective</b>: </p>
+<ul>
+  <li>deep analyses to isolate the <b>root cause</b> of the security issues or suspicious activities (ML/graphs)</li>
+  <li>Machine learning, statistical analysis, and graph theory</li>
+  <li>Sources: VPC Flow logs, CloudTrail logs, Kubernates audit logs, GuardDuty findings</li>
+  <li>Use case: Triage security findings; Threat Hunting</li>
+</ul>
+
+
+<p><b>Network Firewall</b>: </p>
+<ul>
+  <li>Managed service that makes it easy to deploy physical firewall protection across VPCs.</li>
+  <li>Use cases: Filter internet traffic; Finter outbound traffic; inspect VPC-to-VPC traffic.</li>
+  <li>Scenario: Filtering the network traffic begore it reaches the Internet Gateway, or intrusion requirement prevention system, or any hardware firewall requirement</li>
+</ul>
+
+<p><b>AWS Security Hub</b>:</p>
+<ul>
+  <li>Central Security Hub to view all security alerts</li>
+  <li>Across multiple Accounts</li>
+  <li>Automate security Checks. Create a dashboard. Identify potential security issues.</li>
+</ul>
+ 
+
+
+
+---
+
+<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
+<ul>
+  <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
+  <li>It cannot: Dos, Port flooding, etc</li>
+</ul>
+
+
+
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/config/">AWS <b>Config</b></a>:</p>
 <ul>
@@ -1836,21 +1944,19 @@ permalink: /:categories/aws-foundational
   <li>Per region service; can be aggregated across regions and accounts</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/macie/"><b>AWS Macie</b></a>: fully managed data security and data privacy service. It uses machine learning and pattern matching to discover and protect customers sensitive data in AWS. Identify potential security issues.</p>
 
-<p style="text-align: justify;"><b>AWS Security Hub</b>: Central Security Hub. For AWS Account. Automate security Checks. Create a dashboard. Identify potential security issues.</p>
 
-<p style="text-align: justify;"><b>AWS Detective</b>: deep analyses to isolate the root cause of the security issues or suspicious activities (ML/graphs)</p>
+
+
+
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/"><b>AWS Abuse</b></a>: Report suspected AWS resources used for abusive or illegal purposes (spam, port scanning, DoS, DDoS, etc)</p>
 
 <p style="text-align: justify;">AWS <b>STS</b> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
 
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/cognito/"><b>Cognito</b></a> - Alternative to IAM. Identity for your Web and Mobile applications users (sign-up/sign-in; social identity like Facebook)</p>
+
 
 <p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>: AWS Managed Microsoft Active Directory (Database of objects (user, accounts, computers, etc). Centralized security management)</p>
-
-<p style="text-align: justify;">AWS <b>IAM Identify Center</b>: One loging like <a href="https://aws.amazon.com/single-sign-on/">SSO</a>.</p>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
 
@@ -1858,7 +1964,7 @@ permalink: /:categories/aws-foundational
 <li><a href="https://digitalcloud.training/aws-security-services/">(DigitalCloud) Summary</a></li>
 <li><a href="https://digitalcloud.training/aws-cloud-management-services/">(DigitalCloud) AWS Cloud Management Services</a></li>
 <li><a href="https://aws.amazon.com/security/">AWS Cloud Security</a></li>
-<li><a href="https://aws.amazon.com/waf/features/">AWS WAF features</a></li>
+
 
 
 
