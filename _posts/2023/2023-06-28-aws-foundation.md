@@ -769,28 +769,43 @@ permalink: /:categories/aws-foundational
 
 <p><b><u>Performance</u></b></p>
 
-<p style="text-align: justify;"><b>AWS Global Accelerator</b><a href="https://aws.amazon.com/global-accelerator/">[1]</a><a href="https://digitalcloud.training/aws-global-accelerator/">[2]</a></p>
+<p><b>AWS Global Accelerator</b><a href="https://aws.amazon.com/global-accelerator/">[1]</a><a href="https://digitalcloud.training/aws-global-accelerator/">[2]</a></p>
 <ul>
+  <li>Network service that send users' traffic through AWS's global network infrastructure via accelerators.</li>
+  <li>Increase performance with IP cache</li>
+  <li>By default, GA provides two static Anycast IP address</li>
+  <li>For TCP and UDP (Major difference from CloudFront)</li>
   <li>Improve global application availability and performance</li>
-  <li>Optimize the rote</li>
+  <li>Optimize the route to endpoints</li>
   <li>Use Edge Locations to the traffic</li>
   <li>Global Network</li>
   <li>Integration with Shield for DDoS protection</li>
   <li>No caching and has proxy packets at the edge</li>
   <li>Improve performance over TCP/UDP</li>
+  <li>Global Accelerator can help deal with IP caching issues by providing static IPs</li>
   <li>Good when use static IP and need determinist and fast regional failover.</li>
   <li>Target: EC2 instances or ALB</li>
+  <li>Both Route 53 and Global Accelerator can create weights for application endpoints</li>
 </ul>
 
-<p style="text-align: justify;"><b>Amazon CloudFront</b><a href="https://aws.amazon.com/cloudfront/">[1]</a><a href="https://digitalcloud.training/amazon-cloudfront/">[2]</a>: Global Content Delivery Network (CDN)</p>
+<p><b>Amazon CloudFront</b><a href="https://aws.amazon.com/cloudfront/">[1]</a><a href="https://digitalcloud.training/amazon-cloudfront/">[2]</a>:</p>
 <ul>
-  <li>Replicate part of your application to AWS Edge Locations (content is served at the edge). </li>
-  <li>Edge location: location to cache the content</li>
-  <li>It can use cache at the edge to reduce latency. Improves read performance. </li>
+  <li>Global (and fast) Content Delivery Network (CDN)</li>
+  <li>It works with AWS and on-site architecture</li>
+  <li>It can block countries, but the best place to do to it is WAF</li>
+  <li>
+    <ul>
+      <li>Replicate part of your application to AWS Edge Locations (content is served at the edge)</li>
+      <li>Edge location: location to cache the content</li>
+      <li>It can use cache at the edge to reduce latency. Improves read performance</li>
+      <li>It's possible to force the expiration of content or use TTL</li><li>
+    </ul>
+  </li>
+  <li>Security: defauls to HTTPS connections and can add custom SSL certificate</li>
   <li>DDoS protection, integration with Shield, Firewall</li>
+  <li>CloudFront commonly fronts S3 buckets</li>
   <li>S3 bucket: distribute files and caching at the edge, security with OAC (Origing Access Control)</li>
   <li>Customer origin: ALB, EC2 instance, S3 website</li>
-  <li>It's a global service</li>
   <li>Can be integrated with CloudTrail</li>
   <li>Great for static content that must be available everywhere; in oposite of S3 Cross Region Replication that is great for dynamic content that needs to be available at low latency in few regions</li>
   <li><b>Pricing</b>: Traffic distribution; Requests; Data transfer out. Price is different for region</li>
@@ -987,7 +1002,6 @@ permalink: /:categories/aws-foundational
 
 <p><b>Aditional References:</b></p>
 <li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
-<li><a href="https://docs.aws.amazon.com/opsworks/latest/userguide/best-practices-storage.html">Best Practices: Root Device Storage for Instances</a></li>
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 
@@ -1372,14 +1386,15 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/aurora.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;">Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
+<p>Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
   <li>Manage Mem cached</li>
   <li>Managed Redis</li>
+  <li>Can be used in fron of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
   <li>Support for clustering (Redis) and Multi AZ</li>
-  <li>Securitu through IAM, Security Groups, KMS, Redis Auth</li>
+  <li>Security through IAM, Security Groups, KMS, Redis Auth</li>
   <li>Shared Responsibility: AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
 </ul>
 
@@ -1387,7 +1402,7 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/elasticache.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;"><b>Amazon DynamoDB</b><a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">[3]</a></p>
+<p><b>Amazon DynamoDB</b><a href="https://aws.amazon.com/dynamodb/features/">[1]</a><a href="https://digitalcloud.training/amazon-dynamodb/">[2]</a><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">[3]</a></p>
 
 <ul>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WhyDynamoDB.html">NoSQL</a> database</li>
@@ -1403,7 +1418,12 @@ permalink: /:categories/aws-foundational
   <li>Low cost and auto scaling</li>
   <li>Horizontal Scaling</li>
   <li>Standard and IA (Infrequent Access) Table class</li>
-  <li><a href="https://aws.amazon.com/dynamodb/dax/">DynamoDB <b>Accelarator</b> (DAX)</a> is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
+  <li>Cache: <a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
+    <ul>
+      <li>It is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
+      <li>Lives inside the VPC
+    </ul>
+  </li>
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
   <li>Pricing: throughput; Indexed data storage; Data tranfer; Global tables; reserved capacity; On-demand capacity mode; Provisioned capacity mode</li>
   <li>Security: Encryption at rest using KMS; Site-to-Site VPN, Direct Connect (DX), IAM policies and roles; Integrate with CloudWatch and CloudTrail; VPC endpoints to communicate directly with DynamoDB</li>
@@ -1614,22 +1634,17 @@ permalink: /:categories/aws-foundational
   <li>Declarative programming</li>
   <li>Free to use</li>
   <li>JSON/YAML</li>
+  <li>Stack is a regional resource</li>
 </ul>
 
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/cdk/"><b>Cloud Development Kit (CDK)</b></a></p>
-<ul>
-  <li>Open-source software development framework.</li>
-  <li>Define your cloud infrastructure using a familiar language.</li>
-  <li>The code is compiled into a CloudFormation template</li>
-  <li>Provisions the resources using CloudFormation</li>
-</ul>
-
-<p style="text-align: justify;">AWS Elastic <b>Beantalk</b><a href="https://aws.amazon.com/elasticbeanstalk/">[1]</a><a href="https://digitalcloud.training/aws-elastic-beanstalk/">[2]</a></p>
+<p>AWS Elastic <b>Beantalk</b><a href="https://aws.amazon.com/elasticbeanstalk/">[1]</a><a href="https://digitalcloud.training/aws-elastic-beanstalk/">[2]</a></p>
 <ul>
   <li>Integrate with VPC and IAM</li>
   <li>ZIP, WAR, Git</li>
   <li>Plataform as a Service (PaaS)</li>
+  <li>Monitoring, metrics, and health checks are all included</li>
   <li>Wasy-to-use service for deploying (on EC2) and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.</li>
+  <li>It can fully manage the EC2 instance or developer can control that</li>
   <li>Shared Responsibility
     <ul>
       <li>Aws: performe the deployment strategy, OS, capacity, load balancing, auto-scaling, health-monitoring and responsiveness</li>
@@ -1640,7 +1655,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p style="text-align: justify;">AWS <b>Systems Manager </b> (SSM) Session Manager<a href="https://aws.amazon.com/systems-manager/faq/">[1]</a><a href="https://digitalcloud.training/aws-systems-manager/">[2]</a></p>
+<p>AWS <b>Systems Manager</b> <a href="https://aws.amazon.com/systems-manager/faq/">[1]</a><a href="https://digitalcloud.training/aws-systems-manager/">[2]</a></p>
 <ul>
   <li>Provides an operations console and APIs for centralized application and resource management in hybrid environments</li>
   <li>A hybrid service that manage EC2 and OnPremises system at scale</li>
@@ -1651,12 +1666,32 @@ permalink: /:categories/aws-foundational
   <li>Provide secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, and manage SSH keys</li>
   <li>Centralize operational data from multiple AWS services, automate tasks, create logical groups of resources</li>
   <li>Track and resolve operational issues across your AWS applications and resources from a central place</li>
+  <li>Summary
+    <ul>
+      <li>Capabilities: Automation, run command, patch manager, parameter store, maintenance windows, session manager</li>
+      <li>Session Manager: logging (to CloudWatch and CLoudTrail), SSM Agent</li>
+      <li>System Manager Agent (SSM Agent): makes possible for System Manager to update, manage, and configure resoures where the agent is installed</li>
+      <li>Parameter Store: free to store config and secret values</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+-----
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/cdk/"><b>Cloud Development Kit (CDK)</b></a></p>
+<ul>
+  <li>Open-source software development framework.</li>
+  <li>Define your cloud infrastructure using a familiar language.</li>
+  <li>The code is compiled into a CloudFormation template</li>
+  <li>Provisions the resources using CloudFormation</li>
 </ul>
 
 <p style="text-align: justify;">AWS <b>OpsWorks</b><a href="https://digitalcloud.training/aws-opsworks/">[1]</a></p>
 <ul>
   <li>Like Chef and Puppet - perform server configuration automatically.</li>
   <li>Alternative to SSM</li>
+  <li><a href="https://docs.aws.amazon.com/opsworks/latest/userguide/best-practices-storage.html">Best Practices: Root Device Storage for Instances</a></li>
 </ul>
 
 
@@ -1774,6 +1809,7 @@ permalink: /:categories/aws-foundational
   <li>Define Web ACL (Web Access Control List - rate-based rules).</li>
   <li>Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
   <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
+  <li>In case use CloudFront and is necessary to block an IP, WAF must be with CloudFront to block that IP and not in ALB because, in this case, ALB just can see the CloudFront ID; and for the same reason NACL is not enough.</li>
   <li><a href="https://aws.amazon.com/waf/features/">AWS WAF features</a></li>
 </ul>
 
@@ -1873,7 +1909,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p style="text-align: justify;"><b>ACM</b> - AWS Certificate Manager</p>
+<p><b>ACM</b> - AWS Certificate Manager</p>
 <ul>
   <li>Customer can provise, manage and deploy SSL/TSL certiticates</li>
   <li>Provide encryptation for websites (HTTPS)</li>
@@ -1910,7 +1946,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Managed service that makes it easy to deploy physical firewall protection across VPCs.</li>
   <li>Use cases: Filter internet traffic; Finter outbound traffic; inspect VPC-to-VPC traffic.</li>
-  <li>Scenario: Filtering the network traffic begore it reaches the Internet Gateway, or intrusion requirement prevention system, or any hardware firewall requirement</li>
+  <li>Scenario: Filtering the network traffic before it reaches the Internet Gateway, or intrusion requirement prevention system, or any hardware firewall requirement</li>
 </ul>
 
 <p><b>AWS Security Hub</b>:</p>
@@ -1945,16 +1981,9 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-
-
-
-
-
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/"><b>AWS Abuse</b></a>: Report suspected AWS resources used for abusive or illegal purposes (spam, port scanning, DoS, DDoS, etc)</p>
 
 <p style="text-align: justify;">AWS <b>STS</b> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
-
-
 
 <p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>: AWS Managed Microsoft Active Directory (Database of objects (user, accounts, computers, etc). Centralized security management)</p>
 
