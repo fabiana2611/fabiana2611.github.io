@@ -584,7 +584,7 @@ permalink: /:categories/aws-foundational
 <br />
 <h2 id="asg">High Availability and Scaling</h2>
 
-<p style="text-align: justify;">These are features <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a> to be used to ensure elasticity and high availability. They can be used together.</p>
+<p style="text-align: justify;">These are <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">features</a> to be used to ensure elasticity and high availability. They can be used together.</p>
 
 <p><b>Scalability</b></p>
 <ul>
@@ -599,20 +599,20 @@ permalink: /:categories/aws-foundational
 
 <p>Set Up</p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch Template</a> -> all the settings needed to build an EC2 instance; for all EC2 auto scaling features; supports versioning; more granularity; recommended. The specification of a network interface has considerations and limitations that need to be taken into account in order to avoid errors. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html#change-network-interface">[1]</a></li>
+  <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch Template</a>: all the settings needed to build an EC2 instance; for all EC2 auto scaling features; supports versioning; more granularity; recommended. The specification of a network interface has considerations and limitations that need to be taken into account in order to avoid errors. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html#change-network-interface">[1]</a></li>
   <li>Launch Configuration: only certain EC2 Auto Scaling feature; immutable; limited configuration options; specific use cases</li>
 </ul>
 
 
-<p style="text-align: justify;">Auto Scaling: create and remove instance when is necessary. It can use a launch configuration (an instance configuration template) that an Auto Scaling group uses to launch Amazon EC2 instances. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">[1]</a><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[2]</a><a href="https://aws.amazon.com/autoscaling/">[3]</a> </p>
+<p style="text-align: justify;"><b>Auto Scaling</b>: create and remove instance when is necessary. It can use a launch configuration (an instance configuration template) that an Auto Scaling Group uses to launch Amazon EC2 instances. <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">[1]</a><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">[2]</a><a href="https://aws.amazon.com/autoscaling/">[3]</a> </p>
 
 <ul>
   <li>ASG contains a collection of EC2 instance (logical group)</li>
   <li>Replace unhealthy instances. </li> 
   <li>Only run at an optimal capacity.</li>
   <li>AWS EC2 Auto Scaling provides elasticity and scalability.</li>
-  <li>High availability can wi achieve with Auto Scaling balancing your EC2 count across the AZs <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">[1]</a>
-  <li>Scaling Policies: minumum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
+  <li>High availability can be achieved with Auto Scaling balancing your EC2 count across the AZs <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">[1]</a></li>
+  <li>Scaling Policies: minimum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
     <ul>
       <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
       <li>Simple Scaling Policy: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
@@ -625,7 +625,7 @@ permalink: /:categories/aws-foundational
   <li>Scaling types: 
     <ul>
       <li>Reactive scaling: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
-      <li>Scheduled Scaling (predictable workflow) <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">[1]</a> can be configured for known increase in app traffic.</li> 
+      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> (predictable workflow) can be configured for known increase in app traffic.</li> 
       <li>Predictive Scaling: uses daily and weekly trends to determine when scale</li>
     </ul>
   </li>
@@ -637,16 +637,24 @@ permalink: /:categories/aws-foundational
   <li>Vertical Scaling: resize the database</li>
   <li>Scaling Storage: resize storage to go up, but is not able scale back down (RDS, Autora)</li>
   <li>Read Replicas: realy only copies to spread out the workload. Use multiple zones.</li>
-  <li>Aurora Serverless: offload scaling to AWS. Unpredictable workloads. Aurora is the only engine that offers a serverless scaling option. <a href="https://aws.amazon.com/rds/aurora/serverless/">[1]</a></li>
+  <li><a href="https://aws.amazon.com/rds/aurora/serverless/">Aurora Serverless</a>: offload scaling to AWS. Unpredictable workloads. Aurora is the only engine that offers a serverless scaling option.</li>
 </ul>
 
 <p style="text-align: justify;">Scaling Non-Relational Database</p>
 <ul>
   <li>AWS do this</li>
-  <li><a href="https://aws.amazon.com/dynamodb/pricing/provisioned/">Provisioned</a>: predictable workflow; need tp review past usage to set upper and lower scaling bounds; most cost-effective model</li>
-  <li><a href="https://aws.amazon.com/dynamodb/pricing/on-demand/">On-Demand</a>: sporadic workflow; less cost effective;</li>
-  <li>Read Capacity Unit (RCU): DynamoDB unit of measure for reads per second for an item up to 4KB in size. As an example: if you have objects that are 7KB in size, then will be necessary 2 RCU for 1 strongly consistent read per second (1 RCU = 4KB/1 Strongly Consistent Read -> 2 RCU = 8KB)</li>
-  <li>Write Capacity Unit (WCU): DynamoDB unit of measure for writes per second for an item up to 1KB in size. As an example: if you have an object that are 3KB in size, then will be necessary 3 WCU (1 WCU = 1KB * Write per Second -> 3 KB * 1 WCU = 3 WCUs ) </li>
+  <li>Types:
+    <ul>
+      <li><a href="https://aws.amazon.com/dynamodb/pricing/provisioned/">Provisioned</a>: predictable workflow; need to review past usage to set upper and lower scaling bounds; most cost-effective model</li>
+      <li><a href="https://aws.amazon.com/dynamodb/pricing/on-demand/">On-Demand</a>: sporadic workflow; less cost effective;</li>
+    </ul>
+  </li>
+  <li>Concepts:
+    <ul>
+      <li>Read Capacity Unit (<b>RCU</b>): DynamoDB unit of measure for reads per second for an item up to 4KB in size. As an example: if you have objects that are 7KB in size, then will be necessary 2 RCU for 1 strongly consistent read per second (1 RCU = 4KB/1 Strongly Consistent Read -> 2 RCU = 8KB)</li>
+      <li>Write Capacity Unit (<b>WCU</b>): DynamoDB unit of measure for writes per second for an item up to 1KB in size. As an example: if you have an object that are 3KB in size, then will be necessary 3 WCU (1 WCU = 1KB * Write per Second -> 3 KB * 1 WCU = 3 WCUs ) </li>
+    </ul>
+  </li>
 </ul>
 
 <p><center>
@@ -654,10 +662,10 @@ permalink: /:categories/aws-foundational
 </center></p>
 
 
-<p>Disaster Recovery</p>
+<p><b>Disaster Recovery</b></p>
 <ul>
-  <li>RPO - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc) (How often you run backups - back in time to get the data to recover)</li>
-  <li>RTO - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
+  <li><b>RPO</b> - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc) (How often you run backups - back in time to get the data to recover)</li>
+  <li><b>RTO</b> - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
   <li>Strategies
     <ul>
       <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
@@ -665,16 +673,17 @@ permalink: /:categories/aws-foundational
       <li>Warm Standby - provision the services necessary to keep the applications up (quicker recovery time than Pilot Light but more expensive)</li>
       <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise</li>
       <li>All AWS Multi Region - the best approach for Data replication is use Aurora Global</li>
-      <li>Strategy: Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
+      <li>Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
     </ul>
   </li>
   <li>AWS <b>Elastic Disaster Recovery(DRS)</b>: recover physical, virtual and cloud-based servers into AWS</li>
 </ul>
 
-<p style="text-align: justify;">AWS <b>Backup</b>: set on demand and scheduled backups. Cross-Region/Cros-Account backups</p>
+<p style="text-align: justify;">AWS <b>Backup</b>:</p>
 <ul>
   <li>Supports PITR for supported services</li>
   <li>It can be done on-demand or schedule</li>
+  <li>Cross-Region/Cros-Account backups</li>
   <li>Tag-based backup policies</li>
   <li>Backup Plans - frequency, retention</li>
   <li>Backup Vault Lock: enforce WARM (WriteOnceReadMany) for backups</li>
