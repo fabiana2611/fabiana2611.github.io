@@ -56,7 +56,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
-<p style="text-align: justify;">The first test must be the <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and this post is regarding that one.</p>
+<p style="text-align: justify;">A optional test is <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and the first mandatory is <a href="XXXXXXXXXX">AWS Certified Solutions Architect Associate (SAA-C03)</a>.</p>
 
 <p style="text-align: justify;">The first step to start your journey is <a href="https://www.tutorialspoint.com/amazon_web_services/amazon_web_services_account.htm">creating your account</a> to do your tests. AWS has a <a href="https://repost.aws/knowledge-center/create-and-activate-aws-account">HowTo</a> for it. Don't forget to not use the root to do your tasks. You have to create an AWS IAM service by <a href="https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson">AWS Management Console</a>. The default region available to the user is <b>North Virginia</b>.</p>
 
@@ -66,6 +66,11 @@ permalink: /:categories/aws-foundational
   <li><a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-new/">Udemy Course: [NEW] Ultimate AWS Certified Cloud Practitioner - 2023</a></li>
   <li><a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-practice-exams-c/">AWS Certified Cloud Practitioner Practice Exams CLF-C01 2023</a></li>
   <li><a href="https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/">6 Practice Exams | AWS Certified Cloud Practitioner CLF-C01</a></li>
+
+  <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/?srsltid=AfmBOorzNJorKXzTS3Em5hppo_mNN1sFL3mJMRo4frUF-nD0hVNo5rql&couponCode=ST20MT111124A">Ultimate AWS Certified Solutions Architect Associate SAA-C03</a></li>
+  <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-hands-on/?srsltid=AfmBOorhqC5fI0UB9elZPwHObF9FAdz3SCIJCtdd8csSGV3DFcTed2fi&couponCode=ST20MT111124A">AWS Certified Solutions Architect Associate (SAA-C03) Course</a></li>
+  
+  <li><a href="https://www.pluralsight.com/cloud-guru/courses/aws-certified-solutions-architect-associate-saa-c03">[Cloud Guru] AWS Certified Solutions Architect - Associate (SAA-C03) </a></li>
 </ul>
 
 
@@ -258,7 +263,7 @@ permalink: /:categories/aws-foundational
 
 <ul>
   <li><b>IAM</b> is a <b>Global</b> (not apply to regions) service used to control the access to AWS resources (authentication/authorization). It can be used to manage users, groups, access policies, user credentials, user pwd policies, MFA and API keys.</li>
-  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full administrative permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support plan, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies.</li>
+  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full administrative permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support plan, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies. SCPs are one of the only ways to limit the root account.</li>
   <li>When a Identity Federation (AD, facebook, SAML, OpenID) is configured, IAM user account is not necessary</li>
   <li>Power User has alot of permission but not to manage groups and users in IAM.</li>
   <li>IAM Security Tool: 
@@ -332,7 +337,13 @@ permalink: /:categories/aws-foundational
 <br />
 <h2 id="orgcontrolpower">AWS Organization and Control Tower</h2>
 
-<p style="text-align: justify;"><b>AWS Organization</b><a href="https://aws.amazon.com/organizations/">[1]</a><a href="https://digitalcloud.training/aws-organizations/">[2]</a>: it is a collection of AWS accounts where is possible manage these accounts, apply polices, delegate responsibilities, apply SSO, share resources within the organization, use CloudTrail across the accounts.</p>
+<p style="text-align: justify;"><b>AWS Organization</b><a href="https://aws.amazon.com/organizations/">[1]</a><a href="https://digitalcloud.training/aws-organizations/">[2]</a>: </p>
+<ul>
+  <li>it is a collection of AWS accounts where is possible manage these accounts, apply polices, delegate responsibilities, apply SSO, share resources within the organization, use CloudTrail across the accounts.</li>
+  <li>RAM easily share resources across AWS accounts. Free to use, pay by shared resources. Participants cannot modify shared resources.</li>
+  <li>OU: Organization unit has a logical group of account</li>
+  <li>For across-account access is better to create a role instead create a new IAM user. It gives temporary credentials.</li>
+</ul>
 
 <ul>
   <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
@@ -342,7 +353,21 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only UAM users and roles (not resources policies)</p>    
 
 
-<p style="text-align: justify;"><b>Control Tower</b>: is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it. it set up and govern a secure and compliant multi-account AWS environment. Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources)</p>
+<p><b>Control Tower</b>:</p>
+<ul>
+  <li>It is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it.</li>
+  <li>it set up and govern a secure and compliant multi-account AWS environment.</li>
+  <li>Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources). 
+  <li>Features:
+    <ul>
+      <li>Landing Zone: well-architected, multi-account environment based n compliance and security best practices.</li>
+      <li>Guardrails: hugh-level rules providing continuous governance -> preventive (ensures accounts maintain governance by disallowing violation actions; leverages service control policies; status of enforced or not enabled; supported in all Regions) and Detective (detects and alerts whithin all accounts; leverages AWS config rules; status of clear, in violation, or not enabled; apply to some regions)</li>
+      <li>Account Factory: configurable account template</li>
+      <li>CloudFormation StackSet: automated deployment of templates</li>
+      <li>Shared accounts: three accounts usad by Control Tower created during landing zone creation</li>
+    </ul>
+  </li>
+</ul>
 
 
 <p><center>
@@ -636,20 +661,32 @@ permalink: /:categories/aws-foundational
 </center></p>
 
 
-<p style="text-align: justify;">Disaster Recovery</p>
+<p>Disaster Recovery</p>
 <ul>
-  <li>RPO - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc)</li>
-  <li>RTO - Recovery Time Objective: how fast to recover; how long the business support</li>
+  <li>RPO - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc) (How often you run backups - back in time to get the data to recover)</li>
+  <li>RTO - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
   <li>Strategies
     <ul>
       <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
       <li>Pilot Light -  not consume the same level; provision 100% of the services to keep the applications up (faster than backup and restore but some downtime)</li>
-      <li>Warm Standby - provision the services neceaary to keep the applications up (quicker recovery time than Pilot Light but more expensive)</li>
+      <li>Warm Standby - provision the services necessary to keep the applications up (quicker recovery time than Pilot Light but more expensive)</li>
+      <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise</li>
+      <li>All AWS Multi Region - the best approach for Data replication is use Aurora Global</li>
       <li>Strategy: Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
     </ul>
   </li>
-  
+  <li>AWS <b>Elastic Disaster Recovery(DRS)</b>: recover physical, virtual and cloud-based servers into AWS</li>
 </ul>
+
+<p style="text-align: justify;">AWS <b>Backup</b>: set on demand and scheduled backups. Cross-Region/Cros-Account backups</p>
+<ul>
+  <li>Supports PITR for supported services</li>
+  <li>It can be done on-demand or schedule</li>
+  <li>Tag-based backup policies</li>
+  <li>Backup Plans - frequency, retention</li>
+  <li>Backup Vault Lock: enforce WARM (WriteOnceReadMany) for backups</li>
+</ul>
+
 
 
 <!-- ##################################################### -->
@@ -985,19 +1022,6 @@ permalink: /:categories/aws-foundational
 <p><center>
   <img src="/img/aws/s3.png" height="100%" width="100%">
 </center></p>
-
-
-<h3>Storage Gateway</h3>
-
-<p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a></p>
-<ul>
-  <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
-  <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
-  <li>Virtually unlimited cloud storage</li>
-  <li>Cannot be used to data archival</li>
-  <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
-  <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
-</ul>
 
 
 <p><b>Aditional References:</b></p>
@@ -1676,6 +1700,11 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
+<p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
+
+<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
+
+<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: marketing communication service (email, sms, voice) - engage with customers</p>
 
 
 -----
@@ -1726,7 +1755,19 @@ permalink: /:categories/aws-foundational
   <li>Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </li>
 </ul>
 
-<p><a href="https://digitalcloud.training/aws-config/">AWS Config</a>: <b>Record configuration changes</b>Helps with auditing and recording compliance of the AWS resources, and record configurations and changes. Per Region but can be aggreated across region and account. It can send alerts for changes and the configuration can be store inside S3.</p>
+<p><a href="https://digitalcloud.training/aws-config/">AWS Config</a>:</p>
+<ul>
+  <li>Inventory management and control tool (it's not preventative)</li>
+  <li>Record configuration changes (<u>configuration history</u>)</li>
+  <li>Receive alerts via SNS for alerting (change and compliance notification)</li>
+  <li>EventBridge can send events from Config events to other AWS service</li>
+  <li>Helps with auditing and recording compliance of the AWS resources, and record configurations and changes.</li>
+  <li>Per <u>Region</u> but can be aggreated across region and account.</li>
+  <li>It can send alerts for changes and the configuration can be store inside S3.</li>
+  <li>Use case: discover the architecture in a account (query); create rules to monitor and receive alerts when that rules are violated (enforce); get the history (learn)</li>
+  <li>Pricing: pay per item and rule evaluation</li>
+  <li>Remediation: can be automatic via SSM automation document which can leverage Lambda function for custom logic</li>
+</ul>
 
 <p><b>EventBridge</b> <a href="https://aws.amazon.com/eventbridge/">[1]</a></p>
 <ul>
@@ -1752,9 +1793,21 @@ permalink: /:categories/aws-foundational
 
 <p><b>CodeGuru</b>: automated code review and application performance recommendations</p>
 
-<p><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>: service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). It shows general status.</p>
+<p><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>:</p>
+<ul>
+  <li>Provides a dashboard for viewing both public AWS service events and account-specific events that affect resources within your AWS accounts</li>
+  <li>Provides you continuous visibility into your resource performance and availability of AWS services</li>
+  <li>Service history (Service health Dashboard) for all regions or by your account (Account Helth Dashboard). </li>
+  <li>It shows general status.</li>
+</ul>
 
-<p><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: personalized view of the status of the AWS services that are part of customer Cloud architecture. Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and. Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues. It gives a personalized view of performance and availability of the services used by customer.</p>
+<p><b><a href="https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/">AWS Personal Health Dashboard</a></b>: </p>
+<ul>
+  <li>Personalized view of the status of the AWS services that are part of customer Cloud architecture.</li>
+  <li>Alerts are triggered by changes in the health of your AWS resources, giving event visibility, and guidance to help quickly diagnose and resolve issues and.</li>
+  <li>Customer can quickly assess the impact on your business when AWS service(s) are experiencing issues.</li>
+  <li>It gives a personalized view of performance and availability of the services used by customer.</li>
+</ul>
 
 
 <p><center>
@@ -1926,9 +1979,12 @@ permalink: /:categories/aws-foundational
 
 <p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://aws.amazon.com/cognito/">[2]</a></p>
 <ul>
+  <li>AWS Cognito is a fully managed service that provides secure and scalable customer identity and access management (CIAM), enabling user authentication, authorization, and data synchronization across devices and platforms for web and mobile applications, with support for both authenticated and unauthenticated users.</li>
+  <li>The main role of AWS Cognito is to serve as a Customer Identity and Access Management solution.</li>
   <li>Alternative to IAM.</li>
   <li>Authentication, authorization, and user management for web and mobile apps</li>
   <li>Identity for your Web and <b>Mobile</b> applications users (sign-up/sign-in; social identity like Facebook)</li>
+  <li>External</li>
   <li>Components: user pools and identity pools</li>
 </ul>
 
@@ -1961,14 +2017,6 @@ permalink: /:categories/aws-foundational
 
 ---
 
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
-<ul>
-  <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
-  <li>It cannot: Dos, Port flooding, etc</li>
-</ul>
-
-
-
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/config/">AWS <b>Config</b></a>:</p>
 <ul>
@@ -1980,12 +2028,33 @@ permalink: /:categories/aws-foundational
   <li>Per region service; can be aggregated across regions and accounts</li>
 </ul>
 
+<p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>:</p>
+<ul>
+  <li>It is fully manage version of Microsoft Active Directory (Database of objects (user, accounts, computers, etc).</li>
+  <li>Centralized security management)</li>
+  <li>Build AD in AWS</li>
+  <li>Create a tunnel between AWS and on-premise AD</li>
+  <li>Standalone directory pwered by Linux Samba Active Directory</li>
+  <li>Managed Microsoft AD: migrate into AWS</li>
+  <li>Ad Connector: leave on-primise but not move yet</li>
+</ul>
+
+
+<p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
+<ul>
+  <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
+  <li>It cannot: Dos, Port flooding, etc</li>
+</ul>
+
+
+
+
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/"><b>AWS Abuse</b></a>: Report suspected AWS resources used for abusive or illegal purposes (spam, port scanning, DoS, DDoS, etc)</p>
 
 <p style="text-align: justify;">AWS <b>STS</b> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
 
-<p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>: AWS Managed Microsoft Active Directory (Database of objects (user, accounts, computers, etc). Centralized security management)</p>
+
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
 
@@ -2018,21 +2087,14 @@ permalink: /:categories/aws-foundational
   <li><b>Retiring</b>: removing applications that are no longer needed</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/dms/"><b>DMS</b></a> (Database Migration Service): Migrate to AWS. With this is possible do continuous replication (ex: send to data warehouse)</p>
-
-<p style="text-align: justify;"><b><a href="https://aws.amazon.com/migration-hub/features/">AWS Migration Hub</a></b>: single location to track the progress of application migrations</p>
-
-<p style="text-align: justify;"><b>AWS Server Migration Service (SMS)</b> is a fast agentless service easy to migrate thousands of on-premises workloads to AWS</p>
-
-<p style="text-align: justify;">AWS Application Migration Service<a href="https://aws.amazon.com/application-migration-service/">[1]</a><a href="https://digitalcloud.training/aws-migration-services/">[2]</a> <b>(MGN)</b>: Migrating to native AWS</p>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/snow"><b>Snow Family</b></a></p>
 <ul>
   <li>Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS</li>
   <li>Data migration: 
     <ul>
-      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync</li>
-      <li>Snowball Edge (Storage Optimized (80TB) /Compute Optimized (42TB)): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes.) EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
+      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, $GB of memory, 2vCPUs)</li>
+      <li>Snowball Edge (Storage Optimized (80TB) /Compute Optimized (42TB tp 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes.) EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
       <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
     </ul>  
   </li>
@@ -2041,8 +2103,78 @@ permalink: /:categories/aws-foundational
   <li>Snowball Pricing: per data transfer job</li>
 </ul>
 
-<p style="text-align: justify;">AWS <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">Application Discovery Service</a> helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</p>
+<h3>Storage Gateway</h3>
 
+<p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a></p>
+<ul>
+  <li>Hybrid cloud storage service that helps to merge on-primes resources with cloud</li>
+  <li>File Gateway caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3</li>
+  <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3</li>
+  <li>Tape gateway help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>
+  <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
+  <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
+  <li>Virtually unlimited cloud storage</li>
+  <li>Cannot be used to data archival</li>
+  <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
+  <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
+</ul>
+
+
+<p>AWS <b>DataSync</b> <a href="https://aws.amazon.com/datasync/">[1]</a>:</p>
+<ul>
+  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data between on-premises storage, edge locations, other clouds, and AWS Storage services.</li>
+  <li>Agent-based solution for migrating on-premises storage to AWS.</li>
+  <li>Agent for self-managed locations</li>
+  <li>The agent is not necessary when transferring data betwenn AWS storage in the same AWS account</li>
+  <li>Move data between NFS/SMB and AWS storage solutions</li>
+  <li>DataSync encrypts data in-transit via TLS.</li>
+  <li>DataSync works best as a solution for one-time data migration.</li> 
+  <li>DataSync can transfer data to archival storage, such as S3 Glacier Deep Archive.</li> 
+</ul>
+
+
+<p>AWS <b>Transfer Family</b> <a href="https://aws.amazon.com/aws-transfer-family/">[1]</a>:</p>
+<ul>
+  <li>Transfer Family allows you to integrate legacy applications that use FTPS and S3 together</li>
+  <li>Move files in and out S3 or EFS using SFTP, FTPS, FTP.</li>
+  <li>Easiest way to change nothing.</li>
+</ul> 
+
+
+<p>AWS <<b>Application Discovery Service</b><a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">[1]</a> </p>
+<ul>
+  <li>helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</li>
+  <li>Types: Agentless and Agent Based</li>
+  <li>RTO: Recovery Time Objective</li>
+  <li>RPO: Recovery Point Objective</li>
+</ul>
+
+<p>AWS <b>Application Migration Service (MGN)</b> <a href="https://aws.amazon.com/application-migration-service/">[1]</a><a href="https://digitalcloud.training/aws-migration-services/">[2]</a>:</p>
+<ul>
+  <li>Plan migration projects</li>
+  <li>Agentless Discovery or Agent-based</li>
+  <li>This service is an automated lift-and-shift (rehost) solution for expediting migration of apps to AWS and can be used for physical, virtual, or cloud servers to avoid cutover windows or disruptions.</li>
+  <li>Migrating to run natively on AWS</li>
+</ul>
+
+
+<p><b>DMS</b> (Database Migration Service) <a href="https://aws.amazon.com/dms/">[1]</a>:</p>
+<ul>
+  <li>Migrate to AWS (relational DBs, data warehouse, NoSQL, other data stores).</li>
+  <li>With this is possible do continuous replication (ex: send to data warehouse)</li>
+  <li>Option: perform a one-time migration or continuously replicate ongoing changes</li>
+  <li>Types: Full Load; Full load and change Data capture (CDC); CDC only</li>
+  <li>Source DB -> EC2 instance running DMS -> Target DB</li>
+  <li>When Multi-AZ enabled, DMS give a synchronous stand replica in different AZ</li>
+</ul>
+
+<p><b>AWS Migration Hub</b> <a href="https://aws.amazon.com/migration-hub/features/">[1]</a>:</p>
+<ul>
+ <li>single location to track the progress of application migrations</li>
+ <li>Integrate with Server Migration Server(SMS) and Database Migration Servie (DMS)</li>
+</ul>
+
+<p style="text-align: justify;"><b>AWS Server Migration Service (SMS)</b> is a fast agentless service easy to migrate thousands of on-premises workloads to AWS</p>
 
 
 
@@ -2058,23 +2190,29 @@ permalink: /:categories/aws-foundational
 
 <p>Amazon <b>Rekognition</b>: find objects, people, text in images and videos. Create "familiar faces" database or compare against celebrities.</p>
 
+<p>Amazon <b>SageMaker</b>: service for build, train and deploy machine models.</p>
+
+---
+
 <p><a href="ttps://aws.amazon.com/transcribe/">Amazon <b>Transcribe</b></a>: Convert speech to text.(deep learning process. Automatically remove Personal Identifiable Information (PII)</p>
 
 <p><a href="https://aws.amazon.com/polly/">Amazon <b>Polly</b></a>: Turn text into lifelike speech. Deep learning.</p>
+
 <p>Amazon <b>Translate</b>: Natural and accurate language translation</p>
+
 <p>Amazon <b>Lex</b>: Automatic Speech Recognition (ASR) - speech to text (chatbots, call center bots)</p>
+
 <p>Amazon <b>Connect</b>: receive calls, create contact flows</p>
+
 <p>Amazon <b>Comprehend</b>: Natural Language Processing (NLP), serverless service; analyses and organize text; identify positive/negative experience </p>
-<p>Amazon <b>SageMaker</b>: service for build, train and deploy machine models.</p>
+
 <p>Amazon <b>Forecast</b>: predict future sales, reduce forecasting time. Ex. Financial planning.</p>
+
 <p>Amazon <b>Kendra</b>: document search service. Extract answers from docs. Natural Language search.</p>
+
 <p>Amazon <b>Personalize</b>: build apps with real-time personalized recommendation</p>
+
 <p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
-
-
-
-
-
 
 
 
@@ -2126,20 +2264,20 @@ permalink: /:categories/aws-foundational
 
 
 <p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
+
 <p style="text-align: justify;">Amazon <b>WorkSpaces</b>: Managed Desktop as a Service (DaaS). Integrated with KMS. Pay-as-you-go.</p>
+
 <p style="text-align: justify;">Amazon <b>AppStream</b>: Desktop Application Streaming Service (web browser)</p>
+
 <p style="text-align: justify;">AWS <b>IoT</b>: connect devices to the cloud</p>
+
 <p style="text-align: justify;">Amazon <b>Elastic Transcoder</b>: convert media files in S3 into different formats of media files</p>
+
 <p style="text-align: justify;">AWS <b>AppSync</b>: store and sync data between mobile and web app</p>
-<p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
-<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
-<p style="text-align: justify;">AWS <b>Backup</b>: set on demand and scheduled backups. Cross-Region/Cros-Account backups</p>
-<p style="text-align: justify;">AWS <b>Elastic Disaster Recovery(DRS)</b>: recover physical, virtual and cloud-based servers into AWS</p>
-<p style="text-align: justify;">AWS <b>DataSync</b>: Move large amount of data from on-premises to AWS</p>
-<p style="text-align: justify;">AWS <b>Application Discovery Service</b>: Move large amount of data from on-premises to AWS</p>
+
 <p style="text-align: justify;">AWS <b>Fault Inject Simulator (FIS)</b>: based on chaos engineering. stressing test.</p>
+
 <p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
-<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: marketing communication service (email, sms, voice)</p>
 
 
 <p><b>Aditional References:</b></p>
@@ -2192,17 +2330,36 @@ permalink: /:categories/aws-foundational
       <li>Billing dashboard </li> 
       <li>Cost Allocation <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tags</a>: Tracking cost. Tags are used to organized resources.</li>
       <li>Cost and Usage Reports: set of cost and usage data available - can publish the reports to S3. Tracking cost</li>
-      <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-explorer/">Cost Explorer</a>: Tracking costs. Visualize data as graph, understand, and manage your AWS costs and usage over time. Future cost projection. Filter by Region, AZ, tags etc.</li>
+      <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-explorer/">Cost Explorer</a>: Tracking costs. Visualize data as graph, understand, and manage your AWS costs and usage over time. Future cost projection. Filter by Region, AZ, tags etc. Features: Time, filter, service</li>
     </ul>
   </li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing Alarms</a> and <a href="https://aws.amazon.com/aws-cost-management/aws-budgets">Budgets</a>: Monitoring against cost plans. The AWS Budget allows companies to track and categorize spending on a detailed level.</li>
   <li>AWS <b>Cost Anomaly Detection</b>: Continuously monitor your cost and usage using ML to detect unusual spends</li>
   <li>AWS <b>Service Quotas</b>: Notify when a service is close of the quota (maximum value for the resources, actions and item in account) value is achieved</li>
-  <li><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port.</li>
-  <li>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</li>
+  <li><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: fully managed best-practices <u>audit tool</u>. Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port. It is account level. Check Categories: Cost Optimization; Performance; Security; Fault Tolerance; Service Limits</li>
+  <li>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Analyzes configurations and utilization metrics. Reports current usage optimizations and recomendation. Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</li>
 </ul>  
 
-<p style="text-align: justify;">AWS <b>Service Catalog</b>: stacks of authorized products</p>
+<p style="text-align: justify;">AWS <b>Service Catalog</b>:</p>
+<ul>
+  <li>Stacks of authorized products</li>
+  <li>Allows organizations to create and manage catalogs of IT services</li>
+  <li>List resources like AMIs, servers, sofwtares, database,etc</li>
+  <li>Centralized service</li>
+  <li>EndUser can deploy preapproved catalog items within an organization</li>
+  <li>Catalog templates are written and listed using CloudFormation templates</li>
+  <li>Benefits: standardize, senf-service, access control, versioning</li>
+</ul>
+
+<p>AWS Proton</p>
+<ul>
+  <li>It is a service that creates and manages infrastructure and deployment tooling</li>
+  <li>Automate IaC provisioning and deplyments</li>
+  <li>Define standardized infrastructure</li>
+  <li>Use templates to define and manage app stacks</li>
+  <li>automatically provisions resources, configure CI/CD pipelines, and deploys code</li>
+  <li>Supports CloudFormation and Terraform</li>
+</ul>
 
 <p><b>Aditional References</b></p>
 <li><a href="https://digitalcloud.training/aws-billing-and-pricing/">DigitalCloud Summary</a></li>
