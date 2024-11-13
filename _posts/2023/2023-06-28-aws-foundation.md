@@ -593,7 +593,7 @@ permalink: /:categories/aws-foundational
   <li><b>Scale Out</b>: scale by adding more instance to existent pool of resources.  Fault Tolerance is achieved by scale out operation.</li>
   <li><b>Scale In</b>: decrease the number of instances.</li>
   <li><b>Vertical</b>: inscrease the size of the instance. Common for non distributed system. Limited, e.g, by hardware.</li>
-  <li><b>Horizontal</b> <a href="https://wa.aws.amazon.com/wat.concept.horizontal-scaling.en.html">[1]</a>: increase the number of instances. Distributed system. Common for web applications. Auto Scaling Group and Load Balancer <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[1]</a>. Instances that are launched by your Auto Scaling group are automatically registered with the load balance<a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">[2]</a>.</li>
+  <li><b>Horizontal</b> <a href="https://wa.aws.amazon.com/wat.concept.horizontal-scaling.en.html">[1]</a>: increase the number of instances. Distributed system. Common for web applications. Auto Scaling Group and Load Balancer <a href="https://digitalcloud.training/auto-scaling-and-elastic-load-balancing/">[2]</a>. Instances that are launched by your Auto Scaling group are automatically registered with the load balance<a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">[3]</a>.</li>
   <li><b>High Availability</b>: Direct relatioship with horizontal scalability. No interruption even with failover. Run across <a href="https://aws.amazon.com/rds/features/multi-az/">multi AZ</a>, at least in 2 AZ</li>
 </ul>
 
@@ -611,8 +611,8 @@ permalink: /:categories/aws-foundational
   <li>Replace unhealthy instances. </li> 
   <li>Only run at an optimal capacity.</li>
   <li>AWS EC2 Auto Scaling provides elasticity and scalability.</li>
-  <li>High availability can be achieved with Auto Scaling balancing your EC2 count across the AZs <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">[1]</a></li>
-  <li>Scaling Policies: minimum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
+  <li>High availability can be achieved with <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling</a> balancing your EC2 count across the AZs</li>
+  <li><b>Scaling Policies</b>: minimum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
     <ul>
       <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
       <li>Simple Scaling Policy: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
@@ -622,7 +622,7 @@ permalink: /:categories/aws-foundational
   <li><b>Instance Warm-Up</b>: stops instances behind load balancer, failing the helath check and being terminated prematuraly</li>
   <li><b>Cooldown</b>: pause AS for a set amount of time to not launch or terminate instances; </li>
   <li><b>Avoid Thrashing</b>: create instance very fast</li>
-  <li>Scaling types: 
+  <li><b>Scaling types</b>: 
     <ul>
       <li>Reactive scaling: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
       <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> (predictable workflow) can be configured for known increase in app traffic.</li> 
@@ -632,7 +632,7 @@ permalink: /:categories/aws-foundational
   <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
 </ul> 
 
-<p style="text-align: justify;">Scaling Relational Database</p>
+<p style="text-align: justify;">Scaling <b>Relational Database</b></p>
 <ul>
   <li>Vertical Scaling: resize the database</li>
   <li>Scaling Storage: resize storage to go up, but is not able scale back down (RDS, Autora)</li>
@@ -640,7 +640,7 @@ permalink: /:categories/aws-foundational
   <li><a href="https://aws.amazon.com/rds/aurora/serverless/">Aurora Serverless</a>: offload scaling to AWS. Unpredictable workloads. Aurora is the only engine that offers a serverless scaling option.</li>
 </ul>
 
-<p style="text-align: justify;">Scaling Non-Relational Database</p>
+<p style="text-align: justify;">Scaling <b>Non-Relational Database</b></p>
 <ul>
   <li>AWS do this</li>
   <li>Types:
@@ -666,7 +666,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li><b>RPO</b> - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc) (How often you run backups - back in time to get the data to recover)</li>
   <li><b>RTO</b> - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
-  <li>Strategies
+  <li><b>Strategies</b>
     <ul>
       <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
       <li>Pilot Light -  not consume the same level; provision 100% of the services to keep the applications up (faster than backup and restore but some downtime)</li>
