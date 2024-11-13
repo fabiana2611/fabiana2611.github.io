@@ -435,16 +435,31 @@ permalink: /:categories/aws-foundational
   <li>The execution can be scheduled and after the process the AMI can be distributed (multiple regions)</li>
 </ul> 
 
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
+<ul>
+  <li>Template of root volume + launch permissions + block device mapping the volumes to attach</li>
+  <li>Launch EC2 - one or more pre-configured instance </li>
+  <li>It can be customized </li>
+  <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
+  <li>It can be copied to other regions by the console, command line, or the API</li>
+  <li>An EBS snapshot is created when an AMI is builded</li>
+  <li>Category:
+    <ul>
+      <li>Amazon EBS: created from an Amazon EBS snapshot. It can be stopped. The data is not lost if stop or reboot. By default, the root device volume will be deleted on termination</li>
+      <li>Instance Store: created from a template stored in S3. If delete the instance the volume will be deleted as well. If the instance fails you lose data, if reboot the data is not lost. It cannot stop the volume.</li>
+    </ul>
+  </li>
+</ul> 
 
-<p style="text-align: justify;">EC2 Hibernate: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, RBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
+<p style="text-align: justify;"><b>EC2 Hibernate</b>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
 
 <p><b>Storage:</b></p>
 <ul>
   <li>
     <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
     <ul>
-      <li>AWS: Infrastructure, Replication for data for EBS volumes and EFS drives, replacing faulty hardware, Ensuring their emploees cannot access your data.</li>
-      <li>Customer: backups and snapshot procesures, data encryptation, data on the drives, analysis the risk</li>
+      <li>AWS: Infrastructure, Replication for data to EBS volumes and EFS drives, replacing faulty hardware, Ensuring their employees cannot access your data.</li>
+      <li>Customer: backups and snapshot procesures, data encryptation, analysis the risk</li>
     </ul>
   </li>
   <li>
@@ -454,10 +469,9 @@ permalink: /:categories/aws-foundational
       <li>Designed for mission-critical workload</li>
       <li>High Availability: Automatically replicated within a single AZ</li>
       <li>Scalable: dynamically increase capacity and change the volume type with no impact</li>
-      <li>The EBS volumes not need to be attached to an instance.</li> 
-      <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains)</li> 
-      <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a>: Same AZ, only to SSD volume, allowed only in some regions, and others restrictions</li> 
+      <li>The EBS volumes not need to be attached to an instance. There is the root volume. Good practice create your own volume.</li> 
       <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
+      <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains): <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a> Same AZ, only to SSD volume, allowed only in some regions, and others restrictions)</li> 
       <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
       <li>A <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">snapshot</a> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
       <li>It has a limited performance.</li> 
@@ -475,17 +489,14 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
   <li>
-    <b>EFS</b><a href="https://aws.amazon.com/efs/">[1]</a><a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html">[2]</a><a href="https://digitalcloud.training/amazon-efs/">[3]</a> - Amazon Elastic File System</p>
+    <b>EFS</b> - Amazon Elastic File System <a href="https://aws.amazon.com/efs/">[1]</a><a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html">[2]</a><a href="https://digitalcloud.training/amazon-efs/">[3]</a> 
     <ul>
-      <li>Network File System (NFS) for Linux instances in multi-AZ.</li>
+      <li>Network File System (NFS) for Linux instances and linux-based applications in multi-AZ.</li>
       <li>Shared File storage service using EC2.</li>
-      <li>It is considered highly available, scalable, expensive, pay per use.</li>
-      <li>Expensive</li>
-      <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Stanrd to EFS-IA.</li>
+      <li>It is considered highly available, scalable, expensive, pay per use (Expensive).</li>
+      <li>Tiers: frequent access (Standard) and not frequent access (IA)</li>
+      <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Standard to EFS-IA.</li>
       <li>Encryption at rest using KMS</li>
-      <li>Pay per use</li>
-      <li>Tiers: frequent access and not frequent access</li>
-      <li>For linus instance and linux-based applications</li>
     </ul>
   </li>
   <li> <a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a>
@@ -495,23 +506,6 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
 </ul>    
-
-
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
-<ul>
-  <li>Template of root volume + laung permissions + block device mapping the volumes to attach</li>
-  <li>Launch EC2 one or more pre-configured instance </li>
-  <li>It can be customized </li>
-  <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
-  <li>An EBS snapshot is created when an AMI is builded</li>
-  <li>It can be copied to other regions by the console, command line, or the API</li>
-  <li>Category:
-    <ul>
-      <li>Amazon EBS: created from an Amazon EBS snapshot. It can be stopped. The data is not lost if stop or reboot. By default, the root device volume will be deleted on termination</li>
-      <li>Instance Store: created from a template stored in S3. If delete the instance the volume will be deleted as well. If the instance fails you lose data, if reboot the data is not lost. It cannot stop the volume.</li>
-    </ul>
-  </li>
-</ul> 
 
 
 <p><b>Network:</b></p>
