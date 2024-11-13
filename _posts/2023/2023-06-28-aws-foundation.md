@@ -9,58 +9,59 @@ permalink: /:categories/aws-foundational
 <table>
   <tr>
     <td><a href="#concept">Cloud Concepts</a></td>
+    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
+    <td><a href="#architect">AWS Well-Architected Framework</a></td>
+  </tr>
+  <tr>
     <td><a href="#iam">IAM</a></td>
     <td><a href="#orgcontrolpower">AWS Organization and Control Power</a></td>
-  </tr>
-  <tr>
     <td><a href="#ec2">EC2</a></td>
-    <td><a href="#asg">ASG</a></td>
-    <td><a href="#network">AWS networking services</a></td>
-  </tr>
-  <tr>
-    <td><a href="#storage">AWS Storage Services</a></td>
-    <td><a href="#container">Containers</a></td>
-    <td><a href="#serverless">Serverless Applications</a></td>
-  </tr>
-  <tr>
-    <td><a href="#database">AWS database services</a></td>
-    <td><a href="#deploy">Deployment</a></td>
-    <td><a href="#monitoring">Monitoring</a></td>
-  </tr>
-  <tr>
-    <td><a href="#security">Security</a></td>
-    <td><a href="#migration">Migration</a></td>
-    <td><a href="#machinelearning">Machine Learning</a></td>
   </tr>
 
   <tr>
-    <td><a href="#globalinfra">AWS Global Infrastructure</a></td>
+    <td><a href="#asg">High Availability and Scaling</a></td>
+    <td><a href="#network">AWS networking services</a></td>
+    <td><a href="#storage">AWS Storage Services</a></td>
+  </tr>
+  <tr>
+    <td><a href="#decouple">Loosly Decouple</a></td>
+    <td><a href="#serverless">Serverless Applications</a></td>
+    <td><a href="#container">Containers</a></td>
+  </tr>
+  <tr>
+    <td><a href="#database">AWS database services</a></td>
+    <td><a href="#bigdata">Big Data</a></td>
+    <td><a href="#deploy">Deployment</a></td>
+  </tr>
+  <tr>
+    <td><a href="#monitoring">Monitoring</a></td>
+    <td><a href="#security">Security</a></td>
+    <td><a href="#migration">Migration</a></td>
+  </tr>
+
+  <tr>
+    <td><a href="#machinelearning">Machine Learning</a></td>
     <td><a href="#others">Others Services</a></td>
     <td><a href="#pricing">Billing and Pricing</a></td>
   </tr>
   <tr>
-    <td><a href="#architect">AWS Well-Architected Framework</a></td>
     <td><a href="#support">Support</a></td>
     <td><a href="#shots">Some Shots</a></td>
-  </tr>
-  <tr>
-    <td><a href="#bigdata">Big Data</a></td>
-    <td><a href="#decouple">Loosly Decouple</a></td>
     <td colspan="1"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
 
- <br />
- <hr>
+<hr>
+<br />
 
-<p style="text-align: justify;">AWS has a lot of certifications and a set of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
+<p style="text-align: justify;">AWS has a lot of certifications and a few of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
-<p style="text-align: justify;">A optional test is <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and the first mandatory is <a href="XXXXXXXXXX">AWS Certified Solutions Architect Associate (SAA-C03)</a>.</p>
+<p style="text-align: justify;">A optional test is <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and the first mandatory is <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/?ch=sec&sec=rmg&d=1">AWS Certified Solutions Architect Associate (SAA-C03)</a>.</p>
 
-<p style="text-align: justify;">The first step to start your journey is <a href="https://www.tutorialspoint.com/amazon_web_services/amazon_web_services_account.htm">creating your account</a> to do your tests. AWS has a <a href="https://repost.aws/knowledge-center/create-and-activate-aws-account">HowTo</a> for it. Don't forget to not use the root to do your tasks. You have to create an AWS IAM service by <a href="https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson">AWS Management Console</a>. The default region available to the user is <b>North Virginia</b>.</p>
+<p style="text-align: justify;">The first step to start your journey is <a href="https://www.tutorialspoint.com/amazon_web_services/amazon_web_services_account.htm">creating your account</a> to do your tests. AWS has a <a href="https://repost.aws/knowledge-center/create-and-activate-aws-account">HowTo</a> for it. Don't forget to not use the root to do your tasks. You have to create user in AWS IAM service by <a href="https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson">AWS Management Console</a>. The default region available to the user is <b>North Virginia</b>.</p>
 
-<p style="text-align: justify;">The course used fot this was:</p>
+<p style="text-align: justify;">Some courses:</p>
 <ul>
   <li><a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-training-course/">Udemy Course: AWS Certified Cloud Practitioner Exam Treining</a></li>
   <li><a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-new/">Udemy Course: [NEW] Ultimate AWS Certified Cloud Practitioner - 2023</a></li>
@@ -77,6 +78,7 @@ permalink: /:categories/aws-foundational
 <p><center>
   <img src="/img/aws/aws-arch.svg" height="100%" width="100%">
 </center></p>
+
 
 <!-- ######################################################## -->
 
@@ -127,7 +129,7 @@ permalink: /:categories/aws-foundational
 
 <p><b>Aditional References:</b></p>
 <ul>
-  <li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">DigitalCloudSummary</a></li>
+  <li><a href="https://digitalcloud.training/aws-cloud-computing-concepts/">[DigitalCloudS] Concepts</a></li>
   <li><a href="https://aws.amazon.com/what-is-cloud-computing/?nc2=h_ql_le_int_cc">AWS - What is cloud computing?</a></li>
 </ul>
 
@@ -156,7 +158,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/outposts/"><b>AWS Outsposts</b></a></p>
 <ul>
-  <li><em> virtually any on-premises or edge location</em></li>
+  <li><em>Virtually any on-premises or edge location</em></li>
   <li>It brings AWS data center close to on-premises (racks)</li>
   <li>Hybrid cloud, fully managed infra, consistency</li>
   <li>Outposts Racks: Complete Rack (42 U rack) </li>
@@ -169,10 +171,11 @@ permalink: /:categories/aws-foundational
 </center></p>
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-global-infrastructure/">DigitalCloud Summary</a></li>
-<li><a href="https://digitalcloud.training/aws-application-integration/">DigitalCloud - AWS Application Integration Services</a></li>
-<li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
-
+<ul>
+  <li><a href="https://digitalcloud.training/aws-global-infrastructure/">[DigitalCloud] Global Infrastructure</a></li>
+  <li><a href="https://digitalcloud.training/aws-application-integration/">[DigitalCloud] AWS Application Integration Services</a></li>
+  <li><a href="https://infrastructure.aws/">Regions and Availability Zones</a></li>
+</ul>
 
 
 <!-- ############################################################### -->
@@ -236,9 +239,9 @@ permalink: /:categories/aws-foundational
       <li>Best practices: Data-driven approach; review the choices;make trade-offs;</li>
     </ul> 
   </li>
-  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html">Cost Optimization</a>: run system to delivery value at the loest price 
+  <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html">Cost Optimization</a>: run system to delivery value at the lowest price 
     <ul>
-      <li>Design Principles: adopt a consumption mode, measure overall efficinecy; stop spending money on data center operations; analyze and attribute expenditure; use managed and application level services to reduce cost</li>
+      <li>Design Principles: adopt a consumption mode, measure overall efficiency; stop spending money on data center operations; analyze and attribute expenditure; use managed and application level services to reduce cost</li>
       <li>Best Practices: using the appropriate services, resources, and configurations for the specific workloads</li>
     </ul> 
   </li>
@@ -263,9 +266,9 @@ permalink: /:categories/aws-foundational
 
 <ul>
   <li><b>IAM</b> is a <b>Global</b> (not apply to regions) service used to control the access to AWS resources (authentication/authorization). It can be used to manage users, groups, access policies, user credentials, user pwd policies, MFA and API keys.</li>
-  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full administrative permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support plan, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies. SCPs are one of the only ways to limit the root account.</li>
+  <li><a href="https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html"><b>Root</b></a> has <b>full administrative permissions</b> and complete access to all AWS services and resource.  <a href="https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html">Actions allowed only to root</a>: change account setting, close account, restore IAM permission, change or cancel AWS support plan, register as a seller, config S3 bucket to enable <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html">MFA</a>, edit/delete S3 bucket policies. SCPs can limit the root account.</li>
   <li>When a Identity Federation (AD, facebook, SAML, OpenID) is configured, IAM user account is not necessary</li>
-  <li>Power User has alot of permission but not to manage groups and users in IAM.</li>
+  <li>Power User has a lot of permission but not to manage groups and users in IAM.</li>
   <li>IAM Security Tool: 
     <ul>
       <li>IAM Credential Report (account-level): account's users and their credential status. Access it by IAM menu Credential Report</li> 
@@ -274,13 +277,13 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
-<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions (by default) with access to an AWS Accounts. They are create with NO access to any AWS services, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "servoce accounts". It's possible to have 5000 users per AWS account.</p>
+<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions (by default) with access to an AWS Accounts. They are create with NO access to any AWS services, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "service accounts". It's possible to have 5000 users per AWS account.</p>
 
 <p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
 
 <p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
-<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to users, groups, roles or resources. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. The types of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssimeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to users, groups, roles or resources. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. The types of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
 <ul>
   <li>Version</li>
   <li>Effect: allow/deny</li>
@@ -311,22 +314,24 @@ permalink: /:categories/aws-foundational
     <li>Audit permissions through IAM Credential Reports and IAM Access Advisor</li>
     <li>Protectect your access key</li>
     <li>Prefer customer managed policies (managed policies cannot be edited)</li>
-    <li>Use roles for applications that run EC2 and to delegate permissions</li>
+    <li>Use roles for applications that run EC2 and delegate permissions</li>
     <li>Rotate credentials</li>
     <li>Give only credentials that is really needed (Least privilege)</li>
 </ul>
 
 
 <p><b>Good Reads:</b></p>
-<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">IAM roles for Amazon EC2</a></li>
-<li><a href="https://aws.amazon.com/iam/">AWS Identity and Access Management</a></li>
-<li><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL</a></li>
-<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">Policies and permissions in AWS Identity and Access Management</a></li>
-<li><a href="https://repost.aws/knowledge-center/iam-restrict-calls-ip-addresses">How can I use IAM roles to restrict API calls from specific IP addresses to the AWS Management Console?</a></li>
-<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html?icmpid=docs_iam_console">Set an account password policy for IAM users</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS task IAM role</a></li>
-<li><a href="https://aws.amazon.com/iam/features/manage-roles/">Manage IAM Roles</a></li>
-<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">Policy evaluation logic</a></li>
+<ul>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">IAM roles for Amazon EC2</a></li>
+  <li><a href="https://aws.amazon.com/iam/">AWS Identity and Access Management</a></li>
+  <li><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">Using IAM authentication to connect with pgAdmin Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL</a></li>
+  <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">Policies and permissions in AWS Identity and Access Management</a></li>
+  <li><a href="https://repost.aws/knowledge-center/iam-restrict-calls-ip-addresses">How can I use IAM roles to restrict API calls from specific IP addresses to the AWS Management Console?</a></li>
+  <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html?icmpid=docs_iam_console">Set an account password policy for IAM users</a></li>
+  <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">Amazon ECS task IAM role</a></li>
+  <li><a href="https://aws.amazon.com/iam/features/manage-roles/">Manage IAM Roles</a></li>
+  <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">Policy evaluation logic</a></li>
+</ul>
 
 
 <!-- #################################################### -->
@@ -343,28 +348,24 @@ permalink: /:categories/aws-foundational
   <li>RAM easily share resources across AWS accounts. Free to use, pay by shared resources. Participants cannot modify shared resources.</li>
   <li>OU: Organization unit has a logical group of account</li>
   <li>For across-account access is better to create a role instead create a new IAM user. It gives temporary credentials.</li>
-</ul>
-
-<ul>
   <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
+  <li><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only IAM users and roles (not resources policies)</li>
  </ul>
-
-<p style="text-align: justify;"><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only UAM users and roles (not resources policies)</p>    
 
 
 <p><b>Control Tower</b>:</p>
 <ul>
   <li>It is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it.</li>
   <li>it set up and govern a secure and compliant multi-account AWS environment.</li>
-  <li>Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restruct regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources). 
+  <li>Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restrict regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources). </li>
   <li>Features:
     <ul>
-      <li>Landing Zone: well-architected, multi-account environment based n compliance and security best practices.</li>
-      <li>Guardrails: hugh-level rules providing continuous governance -> preventive (ensures accounts maintain governance by disallowing violation actions; leverages service control policies; status of enforced or not enabled; supported in all Regions) and Detective (detects and alerts whithin all accounts; leverages AWS config rules; status of clear, in violation, or not enabled; apply to some regions)</li>
+      <li>Landing Zone: well-architected, multi-account environment based on compliance and security best practices.</li>
+      <li>Guardrails: high-level rules providing continuous governance -> preventive (ensures accounts maintain governance by disallowing violation actions; leverages service control policies; status of enforced or not enabled; supported in all Regions) and Detective (detects and alerts whithin all accounts; leverages AWS config rules; status of clear, in violation, or not enabled; apply to some regions)</li>
       <li>Account Factory: configurable account template</li>
       <li>CloudFormation StackSet: automated deployment of templates</li>
-      <li>Shared accounts: three accounts usad by Control Tower created during landing zone creation</li>
+      <li>Shared accounts: three accounts used by Control Tower created during landing zone creation</li>
     </ul>
   </li>
 </ul>
@@ -385,7 +386,8 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Amazon EC2</b> (Elastic Compute Cloud)<a href="https://aws.amazon.com/ec2/">[1]</a><a href="https://digitalcloud.training/amazon-ec2/">[2]</a> is a virtual machine that is managed by AWS.</p>
 <ul>
-  <li>A new instance combine CPU, memory, Storage and networking. The different <a href="https://aws.amazon.com/ec2/instance-types/">types</a> were created to optimize different use case. The t2.micro is an general example of a type of instance. The first letter 't' represent the instance class, the number '2' represents the generation, and the last part is the size. Each category try to balance different characteristics:
+  <li><b>IaaS</b> (Infrastructure as a service)</li>
+  <li>A new instance combine CPU, memory, Storage and networking. The different <a href="https://aws.amazon.com/ec2/instance-types/">types</a> were created to optimize different use case. The `t2.micro` is a general example of a type of instance. The first letter 't' represent the instance class, the number '2' represents the generation, and the last part is the size. Each category try to balance different characteristics:
     <ul>
       <li>compute: require high performance (batch, media transcoding, HPC, machine learning, gaming) - Ex. C8g </li>
       <li>memory: process large data sets in memory (relational/non-relational database, distributed cache, in-memory database for BI, real-time unstructured data) - Ex. R8g </li>
@@ -393,20 +395,17 @@ permalink: /:categories/aws-foundational
       <li>networking </li>
     </ul>
   </li>
-  <li><b>IaaS</b> (Infrastructure as a service)</li>
   <li>Secure, resizable compute capacity in the cloud. Designed to make web-scale cloud computing easier for developers</li>
   <li>It can run virtual server instances in the cloud</li>
   <li>Each instance can run Windows/Linux/MacOS</li>
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
-  <li>Volumes: EBS (persist) and Instance Store (Non-Persistent)</li>
-  <li>Bootstrap scripts: script that runs when the instance first runs (EC2 User data scripts). It can install updates, softwares, etc. Those scripts run with root user.</li>
-  <li>Instance metadata is information about the instance. User data and metadata are not encrypted. The metadata is available at http://169.254.169.254/latest/meta-data</li>
-  <li></li>
+  <li>Volumes: <b>EBS</b> (persist) and <b>Instance Store</b> (Non-Persistent)</li>
+  <li><b>Bootstrap scripts</b>: script that runs when the instance first runs (EC2 User data scripts). It can install updates, softwares, etc. Those scripts run with root user.</li>
+  <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b></li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
   <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
   <li>Get metrics in CloudWatch, logs in CloudTrail</li>
-  <li><b><a href="https://fabiana2611.github.io/infra/aws-foundational#pricing">Pricing: </a></b>On-Demand, Reservation (Standard, Convertible and Shecule), Saving Plain, Spot, <a href="https://aws.amazon.com/ec2/dedicated-hosts/">Dedicated Host</a>, <a href="https://aws.amazon.com/ec2/pricing/dedicated-instances/">Dedicated Instance</a></li>
   <li><b>Shared Responsability</b>
     <ul>
       <li>AWS: Infrastructure (global network security), Isolation on physical hosts, Replacing hoardware, Compliance Validation</li>
@@ -419,14 +418,14 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/ec2.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;">VMWare on AWS: for hybrid cloud, cloud migration, disaster recovery, leverage AWS</p>
+<p style="text-align: justify;"><b>VMWare</b> on AWS: for hybrid cloud, cloud migration, disaster recovery, leverage AWS.</p>
 
 <p style="text-align: justify;">Amazon EC2 <a href="https://aws.amazon.com/ec2/spot/">Spot Instances</a></p>
 <ul>
   <li><em>Let you take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 90% discount compared to On-Demand prices. You can use Spot Instances for various stateless, fault-tolerant, or flexible applications such as big data, containerized workloads, CI/CD, web servers, high-performance computing (HPC), and test & development workloads.</em></li>
   <li>Useful for workloads resilient to failure (batch, data analysis, Image processing, distributed workload, CI/CD and testing). However, it is not suitable for critical jobs or persistent workload and databases.</li>
   <li>Useful when workload is not immediate and can be stopped for a moment and continue from that point after</li>
-  <li>Spot fleed: collection of spot on-demand. It will try and match the target capacity with your price restraints. Strategies: capacotyOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
+  <li>Spot fleed: collection of spot on-demand. It will try and match the target capacity with your price restraints. Strategies: capacityOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
 </ul>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html"><b>EC2 Image Builder</b></a></p>
