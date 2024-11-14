@@ -21,7 +21,7 @@ permalink: /:categories/aws-foundational
   <tr>
     <td><a href="#asg">High Availability and Scaling</a></td>
     <td><a href="#network">AWS networking services</a></td>
-    <td><a href="#storage">AWS Storage Services</a></td>
+    <td><a href="#s3">S3</a></td>
   </tr>
   <tr>
     <td><a href="#decouple">Loosly Decouple</a></td>
@@ -849,45 +849,31 @@ permalink: /:categories/aws-foundational
 <hr>
 <br />
 
-<h2 id="storage">AWS Storage Services</h2>
+<h2 id="s3">S3</h2>
 
-<p style="text-align: justify;">There are three categories to storage services:</p>
+<p style="text-align: justify;">There are three categories to <a href="https://digitalcloud.training/aws-storage-services/">Storage Service</a>:</p>
 <ul>
   <li>File storage: storage files in a hierarchy</li>
-  <li>block storage: storage in a fixed sze blocks. Any change only a block is changed</li>
-  <li>object storage: storage as a object. Any change then all the opject is changed</li>
+  <li>block storage: storage in a fixed size blocks. Any change only a block is changed</li>
+  <li>object storage: storage as a object. Any change then all the objects are changed</li>
 </ul>
 
-<h3>S3</h3>
 
-<p style="text-align: justify;"><b>S3</b><a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a> is an AWS Storage service</a> for object. It allows store and retrieve data from anywhere at a low cost. Basically for static files. The files are storage in bukets and is highly available and highly durable. Data is stored redundantly across multiple AZs. The name must be global unique name even the bucket is regional level. S3 is design for Frequent Access.</p>
+<p style="text-align: justify;"><b>S3</b><a href="https://digitalcloud.training/amazon-s3-and-glacier/">[1]</a><a href="https://aws.amazon.com/s3/">[2]</a> is an AWS Storage service for object. It allows store and retrieve data from anywhere at a low cost. Basically for static files. The files are storage in <b>bukets</b> and is highly available and highly durable. Data is stored redundantly across <u>multiple AZs</u>. The name must be global unique name even the bucket is regional level. S3 is design for <u>Frequent Access</u>.</p>
 
-<p style="text-align: justify;">As characteristics, S3 offer different storage classes for different use cases (Tiered Storage); it has a lifecycle Management automatically to move the objects between different storage tiers or delete them through rules to be more cost effective; and use versions to retrieve old objecs. Also, it has a Strong Read-After-Write Consistency.</p>
+<p style="text-align: justify;">As characteristics, S3 offer different storage <u>classes</u> for different use cases (Tiered Storage); it has a <u>lifecycle Management</u> automatically to move the objects between different storage tiers or delete them through rules to be more cost effective; and use <u>versions</u> to retrieve old objecs. Also, it has a Strong <u>Read-After-Write Consistency</u>.</p>
 
 <ul>
   <li>Object store and global file system.</li>
-  <li>Used to store any files until 5TB without limits in buckets (directories/containers)</li>
+  <li>Used to store any <u>files until 5TB</u> without limits in buckets (directories/containers)</li>
   <li>These objects have a key.</li>
-  <li>You can have version of the objects (bucket level)</li>
+  <li>You can have <u>version</u> of the objects (bucket level)</li>
   <li>Virtually unlimited amount of online highly durable object storage. </li>
   <li>Each <b>bucket</b> is inside of a region</li>
-  <li><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a>: 
-    <ul>
-      <li><b>Standard</b>: frequently accessed</li> 
-      <li><b>Standard-IA</b>: infrequently accessed but require rapid access. Low per GB storage price and per GB retrieval fee</li>
-      <li><b>Intelligent-Tiering</b>: optimize costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. One tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. More expensive than Standard-IA.</li>
-      <li><b>One Zone-IA</b>: lower cost</li> 
-      <li><b>Glacier</b>: archived data; <b>pay for what you need</b>. Read and write</li>
-      <li><b>Glacier Deep Archive</b>: lower cost for <b>long term retention</b>. Also can be used to backup and disaster recovery. Retrieval time of 12-48 hours. Financial Service, Health care and Public sectors.</li>
-    </ul>
-  </li> 
-  <li><b>Features</b>: Transfer acceleration (CloudFront), Requester payes, Events (SNS, SQS, Lambda), Static website hosting, Encryptation, <a href="https://aws.amazon.com/s3/features/replication/">Replication (Cross-Region Replication - CRR; Same-Region Replication - SRR)</a></li>
   <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
   <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
-  <li><b>Security</b>: User-Based (IAM Policies), Resource-Based (<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket Polices)</a>, Object/Bucket Access Control List (ACL), Encryptation</li>
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object </li>
   <li>Performance: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> Accelerate global uploads & downloads into Amazon S3; and Increase transfer speed to Edge Location (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication:</a> CRR and SRR</li>
   <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a></li>
   <li><b>Shared Responsibility</b>
     <ul>
@@ -895,46 +881,44 @@ permalink: /:categories/aws-foundational
       <li>Customer: version, bucket policies, replication, logging and monitoring, storage class, data encryptation, IAM user and roles</li>
     </ul>
   </li>
-  <li><b>Pricing</b>: Depends the storage class; storage quantity; number of request; transition request; data transfer.</li>
+  <li><b>Pricing</b>: Depends the storage class; storage quantity; number of request; transition request; data transfer. Requester payes</li>
 </ul>
 
-<p><u>Secure</u></p>
+<p><b>Security</b></p>
 
-<p>Securing the data:</p>
 <ul>
-  <li>Server-side Encryption: default encryption on a bucket will encrypt all new objects stored in the bucket</li>
   <li>Access Control Lists (ACLs): It is account level control. It defines which account/groups can access and type of access. It can be attach by object or bucket.</li>
   <li>Bucket Policies: It is account level and user level control. It defines who and what is allowed or denied. - allows across account</li>
-  <li>IAM Policy: It is user level contro. A policy attached to a user can give permission to access S3 bucket</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">IAM Policy</a>: It is user level control. A policy attached to a user can give permission to access S3 bucket</li>
   <li>IAM Role for EC2 instance can allow EC2 instance access S3 bucket</li>
   <li>Access Point</li>
+  <li>Encrypting S3 Object:
+    <ul>
+      <li>Types: 
+        <ul>
+          <li>in transit: SSL/TLS; HTTPS (Buket policy can force encryption)</li>
+          <li>at Rest (server-side): SSE-S3 (AES 256-bit -> default -> all objects); SSE-KMS (advantages: user control + audit key usage using CloudTrail); SSE-C: customer-provider keys (S3 does NOT store the encryption key you provide; must use HTTPS; key must be provided in header). Default encryption on a bucket will encrypt all new objects stored in the bucket</li>
+          <li>at rest: client-side: encrypt before upload file</li>
+        </ul>
+      </li>
+      <li>Enforcing Server-side Encryption adding a parameter in PUT Request Header:
+        <ul>
+          <li>x-amz-server-side-encryption: AES256</li>
+          <li>x-amz-server-side-encryption: aws:kms</li>
+          <li>PS: You can create bucket policy to denies any S3 PUT request without this parameter</li>
+        </ul>
+      </li>
+      <li>CORS: needs to be enabled</li>
+      <li>MFA delete: for delete object or suspend version. Only the owner can enbled it.</li>
+    </ul>
+  </li>
 </ul>
 
 <p style="text-align: justify;">Buckets are private by default. For securing a bucket with public access is necessary to allow public access to bucket and objects. It involves Object ACL (Individual Object level) and Bucket Policies (entire bucket level).</p>
 
 <p style="text-align: justify;">S3 is a good option to hosting a static website. It will scales automatically. For that, the bucket access should be public and you can add a policy to allow read permission for the objects. Other use cases can be: backup and storage, disaster recovery, archive, hybrid cloud storage, data lakes and big data analytics.</p>
 
-<p>Encrypting S3 Object:</p>
-<ul>
-  <li>Types: 
-    <ul>
-      <li>in transit: SSL/TLS; HTTPS (Buket policy can force encryption)</li>
-      <li>at Rest: server-side: SSE-S3 (AES 256-bit -> default -> all objects); SSE-KMS (advantages: user control + audit key usage using CloudTrail); SSE-C: customer-provider keys (S3 does NOT store the encryption key you provide; must use HTTPS; key must be provided in header)</li>
-      <li>at rest: client-side: encrypt before upload file</li>
-    </ul>
-  </li>
-  <li>Enforcing Server-side Encryption adding a parameter in PUT Request Header:
-    <ul>
-      <li>x-amz-server-side-encryption: AES256</li>
-      <li>x-amz-server-side-encryption: aws:kms</li>
-      <li>PS: You can create bucket policy to denies any S3 PUT request without this parameter</li>
-    </ul>
-  </li>
-  <li>CORS: needs to be anabled</li>
-  <li>MFA delete: for delete object or suspend version. Only the owner can enbled it.</li>
-</ul>
-
-<p><u>Lock</u></p>
+<p><b>Lock</b></p>
 <ul>
   <li>S3 Object Lock: WriteOnce, ReadMany (WORM)
     <ul>
@@ -946,24 +930,24 @@ permalink: /:categories/aws-foundational
   <li>Glacier Vault Lock: WORM. Deploy and enforce compliance controls for individual S3 Glacier valts with vault lock policy. Objects can be deleted.</li>
 </ul>
 
-<p><u>Optimizing S3 Performance:</u></p>
+<p><b>Optimizing S3 Performance:</b></p>
 
 <ul>
-  <li>Use Preifx (folders inside the bucket) to increase performance</li>
-  <li>Use KMS impact in performance because is necessary to call GenerateDataKey when upload a file and call Decrypt in KMS API to download a file</li>
-  <li>Mulpart Uploads can increate performance. It is recomended for files over 100MB and required for files over 5GB. The performance can be improved parallelizing uploads.</li>
+  <li>Use <u>Preifx</u> (folders inside the bucket) to increase performance</li>
+  <li>The use of KMS impact in performance because is necessary to call GenerateDataKey when upload a file and call Decrypt in KMS API to download a file. Prefer SSE-S3.</li>
+  <li><u>Multipart Uploads</u> can increate performance. It is recomended for files over 100MB and required for files over 5GB. The performance can be improved parallelizing uploads.</li>
   <li>S3 Byte-Range Fetches: Parallelize downloads by specifying bytes ranges</li>
   <li>Tranfer speed can be increate transfering the data to an edge location</li>
+  <li>Transfer acceleration (CloudFront)</li>
 </ul>
 
-<p><u>Backup</u></p>
+<p><b>Backup</b></p>
 
 <ul>
   <li>Versioning: all versions are stored; good for backup; once enable it cannot be disabled (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
-  <li>Replication:
+  <li>Replication <a href="https://aws.amazon.com/s3/features/replication/">[1]</a><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">[2]</a>:
     <ul>
       <li>Replicate the object from one bucket to another and the version must be enables in both sides</li>
-      <li>The object uploaded after turn it on will be replicated. The others that exist will do automatically</li>
       <li>Deleted objects are not replicated by default</li>
       <li>Cross-Region Replication (CRR): compliance, lower latency access</li>
       <li>Same-Region Replication (SRR): log aggregation, live replication</li>
@@ -971,17 +955,18 @@ permalink: /:categories/aws-foundational
       <li>Only new objects are replicated</li>
     </ul>
   </li>
-  <li>S3 sync command can be used to copy objects between S# buckets and lists the source and target buckets.</li>
+  <li>S3 sync command can be used to copy objects between buckets and lists the source and target buckets.</li>
   <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
 </ul>
 
-<p><u>Classes</u></p>
+
+<p><b><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a></b></p>
 
 <ul>
   <li>Standard: High Availability and durability; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
   <li>Standard-Infrequent Access: Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup.</li>
-  <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA; Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
-  <li>Intelligent-Tiering: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not.</li>
+  <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA (lower cost); Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
+  <li>Intelligent-Tiering: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not. No performance impact or operational overhead. More expensive than Standard-IA</li>
   <li>Gacier: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
     <ul>
       <li>Gacier Instant Retrieval (minimum duration - 90 days)</li>
@@ -991,17 +976,11 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
-<p style="text-align: justify;">Cost</p>
+<p style="text-align: justify;"><b>Last notes</b></p>
 <ul>
-  <li>Owner pay for storage and data transfer</li>
-  <li>If other requester, then they will pay for it</li>
-</ul>
-
-<p style="text-align: justify;">Last notes</p>
-<ul>
-  <li>S3 Event Notification: S3 event can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery)</li>
+  <li>S3 Event Notification: can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery)</li>
   <li>S3 Storage Lens: Tools to analyse S3</li>
-  <li>S3 Access Log: A nre buket will store the logs. They must be in the same region.</li>
+  <li>S3 Access Log: A new buket will store the logs. They must be in the same region.</li>
   <li>Pre-Signed URL: can be created by Cosole or CLI.</li>
 </ul>
 
@@ -1010,10 +989,6 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/s3.png" height="100%" width="100%">
 </center></p>
 
-
-<p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-storage-services/">DigitalCloud Summary</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">Bucket policies and user policies</a></li>
 
 
 <!-- ###################################################### -->
