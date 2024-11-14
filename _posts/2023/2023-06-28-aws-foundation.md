@@ -701,7 +701,7 @@ permalink: /:categories/aws-foundational
 <h2 id="network">AWS networking services</h2>
 
 
-<p id="vpc" style="text-align: justify;"><b><u>VPC</u></b> (Virtual Private Cloud): isolated network in AWS cloud that can be fully customized. It is a virtual data center. A range of IP<a href="https://cidr.xyz/">[4]</a><a href="https://www.ipaddressguide.com/cidr.aspx">[5]</a> is defined when the VPC is created <a href="https://digitalcloud.training/amazon-vpc/">[1]</a><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">[2]</a><a href="https://digitalcloud.training/aws-networking-services/">[3]</a><a href="https://aws.amazon.com/vpc">[4]</a></p>
+<p id="vpc" style="text-align: justify;"><b><u>VPC</u></b> (Virtual Private Cloud): isolated network in AWS cloud that can be fully customized. It is a virtual data center. A range of IP<a href="https://cidr.xyz/">[1]</a><a href="https://www.ipaddressguide.com/cidr.aspx">[2]</a> is defined when the VPC is created <a href="https://digitalcloud.training/amazon-vpc/">[3]</a><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">[4]</a><a href="https://digitalcloud.training/aws-networking-services/">[5]</a><a href="https://aws.amazon.com/vpc">[6]</a></p>
 <ul>
   <li><b>Subnet</b>: partition of the network inside the VPC and AZ. The public is accessible from the internet.  Instances are launch into subnets. Two subnets configured in one AZ (High avalilability)</li>
   <li><b>Elastic IP</b>: static IP for a public IP in EC2 instance</li>
@@ -742,10 +742,10 @@ permalink: /:categories/aws-foundational
 
 <p><b>Bastion Host</b> is a instance in public subnet that handle the communication between internet and one or more EC2 instance in a private subnet via ssh.</p>
 
-<p style="text-align: justify;"><b>VPC sharing</b> <em> allows multiple AWS accounts to create their application resources into shared and centrally-managed Amazon VPCs. To set this up, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner. You can share Amazon VPCs to leverage the implicit routing within a VPC for applications that require a high degree of interconnectivity and are within the same trust boundaries. </em><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">[1]</a></p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html"><b>VPC sharing</b></a> <em> allows multiple AWS accounts to create their application resources into shared and centrally-managed Amazon VPCs. To set this up, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner. You can share Amazon VPCs to leverage the implicit routing within a VPC for applications that require a high degree of interconnectivity and are within the same trust boundaries. </em></p>
 
 
-<p><b>Route 53</b><a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">[3]</a>: </p>
+<p><b>Route 53</b> <a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">[3]</a>: </p>
 <ul> 
   <li>Global Managed DNS supported by AWS:
     <ul>
