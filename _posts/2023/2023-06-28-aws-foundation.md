@@ -993,11 +993,12 @@ permalink: /:categories/aws-foundational
 
 <!-- ###################################################### -->
 
+
 <br />
 <hr>
 <br />
 
-<h2 id="decouple">Loosly Decouple</u></h2>
+<h2 id="decouple">Loosly Decouple</h2>
 
 <p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosly Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction</p>
 
@@ -1022,7 +1023,7 @@ permalink: /:categories/aws-foundational
   <li>Strategy:
     <ul>
       <li>FIFO: Guaranteed ordering, no message duplication, 300 trasanction per second (can achieve 3000 with baching). FIFO High throughput process up to 9000 transaction per second, per API without batching; and up to 90000 messages using batching APIs. </li>
-      <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput; unlimited throughput</li>
+      <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput</li>
     </ul>
   </li>
   <li>In scenarios of real-time should use Kinesis instead of SQS</li>
@@ -1161,17 +1162,16 @@ permalink: /:categories/aws-foundational
   <li>By default, Lambda function is launched outside of VPC, but it can be done in VPC</li>
   <li>Synchronous: CLI,SDK, API Gateway</li>
   <li>Asynchronous: S3, SNS, CloudWatch, etc</li>
-  <li>Serverless</li>
   <li>Run on-demand</li>
   <li>Scaling automatically</li>
   <li>Event-driven</li>
-  Security: Lambda bees IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a>
+  <li>Lambda needs IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a>
   <li>Can be monitoring through <b>CloudWatch</b></li>
   <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
   <li>Compute: 
     <ul>
       <li>1K councurrent execution</li>
-      <li>Short-term execution (900 seconfs - 15minutes). If is necessary more time, use RC2, Batch, EC2</li>
+      <li>Short-term execution (900 seconds - 15minutes). If is necessary more time, use RC2, Batch, EC2</li>
     </ul>
   </li>
   <li>Storage: 
@@ -1212,8 +1212,8 @@ permalink: /:categories/aws-foundational
   <li>On-Demand and Auto Scaling for Aurora database</li>
   <li>Automation of monitoring workloads and adjusting capacity for database</li>
   <li>Pricing: charged for resources consumed by DB cluster</li>
-  <li>Concepts: Aurora Capacity Units (ACU - how the custer scale); allocated by AWS-managed warm pools; 2GiB of memory, matching CPU and networking capability; resiliency (six copies of data across three AZs)</li>
-  <li>Use case: variable workfloes; multi-tentant apps (service manage capacity for each app); new apps; dev and test new features; mixed use apps; capacity planning</li>
+  <li>Concepts: Aurora Capacity Units (ACU - how the cluster scale); allocated by AWS-managed warm pools; 2GiB of memory, matching CPU and networking capability; resiliency (six copies of data across three AZs)</li>
+  <li>Use case: variable workflows; multi-tentant apps (service manage capacity for each app); new apps; dev and test new features; mixed use apps; capacity planning</li>
 </ul>
 
 <p><b>GraphQL</b>: (AWS AppSync): robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
