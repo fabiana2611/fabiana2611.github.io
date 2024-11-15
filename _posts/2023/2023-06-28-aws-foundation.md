@@ -1235,7 +1235,8 @@ permalink: /:categories/aws-foundational
 
 <p>Here are serverless services for containers <a href="https://digitalcloud.training/amazon-ecs-and-eks/">[1]</a>.</p>
 
-<ul><u>Orchestration</u> 
+<p><b>Orchestrations</b></p> 
+<ul>
   <li><b>ECS</b> (Elastic Container Service) <a href="https://aws.amazon.com/ecs/">[2]</a> 
     <ul>
       <li>ECS Launch Types: EC2 and Fargate</li>
@@ -1270,7 +1271,7 @@ permalink: /:categories/aws-foundational
       <li>Can be used on-premise and the cloud</li>
       <li>Best used when is not all in on AWS</li>
       <li>More work to configure and integrate with AWS</li>
-      <li>EKS-D: managed bu developer. Self-managed Kubernetes deployment (EKS anywhere)</li>
+      <li>EKS-D: managed by developer. Self-managed Kubernetes deployment (EKS anywhere)</li>
       <li>EKS anywhere:
         <ul> 
           <li>on-Premise EKS, EKS Distro (deployment, usege and management for cluster), full lifecycle management</li>
@@ -1290,8 +1291,8 @@ permalink: /:categories/aws-foundational
   <li>Serverless compute engine for Docker container</li> 
   <li>AWS manage the infrastructure</li>
   <li>Works with ECS and EKS</li>
-  <li>Benefits: no OS access, pay based on resources allocated and time ran (pay for vCPU and memory allocated - pricing model); short-running task; isolated environment ber container; capable of mounting EFS file system for persistent, shared storage. In some use cases it can be advantage comparing with <u>EC2</u>.</li>
-  <li>Comparing with <u>Lambda</u>, select Fargate when the workload is more consistent (predictable). Also, Fargate allows docler use across the organization and some control by developer. By other hand, lambda is better to unpredictable or inconsistent workload; good for a single funcion.</li>
+  <li>Benefits: no OS access, pay based on resources allocated and time ran (pay for vCPU and memory allocated - pricing model); short-running task; isolated environment per container; capable of mounting EFS file system for persistent, shared storage. In some use cases it can be advantage comparing with <u>EC2</u>.</li>
+  <li>Comparing with <u>Lambda</u>, select Fargate when the workload is more consistent (predictable). Also, Fargate allows docker use across the organization and some control by developer. By other hand, lambda is better to unpredictable or inconsistent workload; good for a single funcion.</li>
   <li>It is for containers and applications that need to run longer</li>
   <li><b>Shared responsibility</b>
     <ul>
@@ -1364,7 +1365,7 @@ permalink: /:categories/aws-foundational
   <li>Storage: data is stored in 6 replicas across 3 AZ</li>
   <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. automatic backup enabled</li>
   <li>User case: unpredictable and intermittent workloads, no capacity planning</li>
-  <li>Autora Global: up to 16DB read instances in each region</li>
+  <li>Aurora Global: up to 16DB read instances in each region</li>
   <li>Perform Machine Learning</li>
 </ul>
 
@@ -1376,7 +1377,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Manage Mem cached</li>
   <li>Managed Redis</li>
-  <li>Can be used in fron of any database but betther for RDS</li>
+  <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
   <li>Support for clustering (Redis) and Multi AZ</li>
@@ -1407,7 +1408,7 @@ permalink: /:categories/aws-foundational
   <li>Cache: <a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
     <ul>
       <li>It is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
-      <li>Lives inside the VPC
+      <li>Lives inside the VPC</li>
     </ul>
   </li>
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
