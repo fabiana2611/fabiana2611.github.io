@@ -1399,7 +1399,7 @@ permalink: /:categories/aws-foundational
   <li>Hight performance</li>
   <li>Low latency retrieval</li>
   <li>Eventually consistent reads (default - better performance) or Strongly consistent reads</li>
-  <li>Multi-Region replication. Ative-Active with cross region support. The global tables replicate data automatically across the customer choise of regions</li>
+  <li>Multi-Region replication. Ative-Active with cross region support.</li>
   <li>Distributed serverless database</li>
   <li>Integrated with IAM for security, authorization and administration</li>
   <li>Low cost and auto scaling</li>
@@ -1411,15 +1411,15 @@ permalink: /:categories/aws-foundational
       <li>Lives inside the VPC</li>
     </ul>
   </li>
-  <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
   <li>Pricing: throughput; Indexed data storage; Data tranfer; Global tables; reserved capacity; On-demand capacity mode; Provisioned capacity mode</li>
   <li>Security: Encryption at rest using KMS; Site-to-Site VPN, Direct Connect (DX), IAM policies and roles; Integrate with CloudWatch and CloudTrail; VPC endpoints to communicate directly with DynamoDB</li>
   <li>ACID with DynamoDB -> Dynamo transaction across 1 or more tables within a single AWS account and region. Used when the application needs coordenation. This feature needs to be enable.</li>
   <li>Backup: On-Demand: full backups at any time; no performance impact, same region of source table</li>
   <li>Recovery: Point-in-Time Recovery (PITR): protect agains accidental writes or deletes; restore to any point in the last 35 days; incremental; not default; latesst restorable in the past 5 minutes</li>
-  <li>Streams: time-oerdered sequence of titem-level changes in a table. Stored for 24 hours</li>  
+  <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
+  <li>Streams: time-ordered sequence of titem-level changes in a table. Stored for 24 hours</li>  
   <li>Global Table: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
-  <li>Time to Live (TTL): define when an item expire abd can be automatically deleted</li>
+  <li>Time to Live (TTL): define when an item expire and can be automatically deleted</li>
 </ul>
 
 <p><center>
@@ -1434,13 +1434,9 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Amazon Keyspaces</b>: run Apache Cassandra workloads. Distributed database that uses NoSQL. Main application is big data but can be used for backend. Fully manage database. Pay for resource is used.</p>
 
-<p><b>Neptune</b><a href="https://aws.amazon.com/neptune">[1]</a<a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">[2]</a>: Fully managed graph database. Good to app with highly connected datasets, as fraud detection and knowledge grapns. Used for analysis, build connections between identities, build knowledge, detect fraud patterns, security.</p>
+<p><b>Neptune</b><a href="https://aws.amazon.com/neptune">[1]</a><a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">[2]</a>: Fully managed graph database. Good to app with highly connected datasets, as fraud detection and knowledge graphs. Used for analysis, build connections between identities, build knowledge, detect fraud patterns, security.</p>
 
-<p style="text-align: justify;">Analyses</p>
-<ul> 
-
-  <li>Timestream: time series database service for IoT and operational application</li>
-</ul>
+<p style="text-align: justify;"><b>Timestream</b>: time series database service for IoT and operational application. For analyses.</p>
 
 
 
