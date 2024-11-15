@@ -1224,6 +1224,7 @@ permalink: /:categories/aws-foundational
 <ul>
   
   <li>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></li>
+  <li>AWS <b>AppSync</b>: store and sync data between mobile and web app</li>
 </ul>
 
 
@@ -1535,7 +1536,7 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p><b>AWS Data Pipeline</b></p>
+<p><b>AWS <a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></b></p>
 
 <Ul>
   <li>It is a managed ETL (Extract, Transform, Load ) service within AWS</li>
@@ -1659,6 +1660,16 @@ permalink: /:categories/aws-foundational
       <li>Parameter Store: free to store config and secret values</li>
     </ul>
   </li>
+</ul>
+
+<p>AWS Proton</p>
+<ul>
+  <li>It is a service that creates and manages infrastructure and deployment tooling</li>
+  <li>Automate IaC provisioning and deployments</li>
+  <li>Define standardized infrastructure</li>
+  <li>Use templates to define and manage app stacks</li>
+  <li>automatically provisions resources, configure CI/CD pipelines, and deploys code</li>
+  <li>Supports CloudFormation and Terraform</li>
 </ul>
 
 <p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
@@ -2155,6 +2166,8 @@ permalink: /:categories/aws-foundational
 
 <p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
 
+<p style="text-align: justify;">Amazon <b>Elastic Transcoder</b>: convert media files in S3 into different formats of media files</p>
+
 
 <!-- ###################################################### -->
 
@@ -2224,20 +2237,16 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;">AWS <b>IoT</b>: connect devices to the cloud</p>
 
-<p style="text-align: justify;">Amazon <b>Elastic Transcoder</b>: convert media files in S3 into different formats of media files</p>
-
-<p style="text-align: justify;">AWS <b>AppSync</b>: store and sync data between mobile and web app</p>
-
 <p style="text-align: justify;">AWS <b>Fault Inject Simulator (FIS)</b>: based on chaos engineering. stressing test.</p>
 
 <p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
 
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
-<li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
-<li><a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></li>
-
+<ul>
+  <li><a href="https://digitalcloud.training/additional-aws-services/">DigitalCloud Summary</a></li>
+  <li><a href="https://aws.amazon.com/developer/tools/">Tools to Build on AWS</a></li>  
+</ul>
 
 
 
@@ -2304,21 +2313,12 @@ permalink: /:categories/aws-foundational
   <li>Benefits: standardize, senf-service, access control, versioning</li>
 </ul>
 
-<p>AWS Proton</p>
-<ul>
-  <li>It is a service that creates and manages infrastructure and deployment tooling</li>
-  <li>Automate IaC provisioning and deplyments</li>
-  <li>Define standardized infrastructure</li>
-  <li>Use templates to define and manage app stacks</li>
-  <li>automatically provisions resources, configure CI/CD pipelines, and deploys code</li>
-  <li>Supports CloudFormation and Terraform</li>
-</ul>
-
 <p><b>Aditional References</b></p>
-<li><a href="https://digitalcloud.training/aws-billing-and-pricing/">DigitalCloud Summary</a></li>
-<li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using AWS cost allocation tags</a></li>
-<li><a href="https://aws.amazon.com/aws-cost-management/">Cloud Financial Management with AWS</a></li>
-
+<ul>
+  <li><a href="https://digitalcloud.training/aws-billing-and-pricing/">DigitalCloud Summary</a></li>
+  <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using AWS cost allocation tags</a></li>
+  <li><a href="https://aws.amazon.com/aws-cost-management/">Cloud Financial Management with AWS</a></li>
+</ul>
 
 
 <!-- ################################################# -->
