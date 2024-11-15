@@ -1497,10 +1497,10 @@ permalink: /:categories/aws-foundational
 
 <p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
 <ul>
-  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingestinf data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
+  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingesting data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
   <li>Data Firehose: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
   <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL</li>
-  <li>It is more use to Big Data, but in scenarios quere is necessary real data, tt is better than SQS.</li>
+  <li>It is more use to Big Data, but in scenarios that is necessary real data, it is better than SQS.</li>
 </ul>
 
 <p><b>Athena</b> <a href="https://digitalcloud.training/amazon-athena/">[1]</a><a href="https://aws.amazon.com/athena/features/">[2]</a>: </p>
@@ -1581,7 +1581,7 @@ permalink: /:categories/aws-foundational
   <li>Search any field</li>
   <li>Can be used as a component to another database</li>
   <li>Easily Scalable</li>
-  <li>Security: via Cognit and IAM, VPC SG (cluster can be deployed in a VPC), encryption at rest and in transit (KMS encryption, TLS), field-level security. Cannot use IP-based access policies.</li>
+  <li>Security: via Cognito and IAM, VPC SG (cluster can be deployed in a VPC), encryption at rest and in transit (KMS encryption, TLS), field-level security. Cannot use IP-based access policies.</li>
   <li>Backup using snapshot</li>
   <li>Create cluster (OS domain), specify the number of instances and type</li>
   <li>Storage options: UltraWarm or Cold storage</li>
@@ -1684,8 +1684,9 @@ permalink: /:categories/aws-foundational
 
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-resource-access-manager/">AWS Resource Access Manager</a></li>
-
+<ul>
+  <li><a href="https://digitalcloud.training/aws-resource-access-manager/">AWS Resource Access Manager</a></li>
+</ul>
 
 
 <!-- ##################################################### -->
@@ -1714,19 +1715,25 @@ permalink: /:categories/aws-foundational
   <li>Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </li>
 </ul>
 
-<p><a href="https://digitalcloud.training/aws-config/">AWS Config</a>:</p>
+<p><b>AWS Config</b> <a href="https://digitalcloud.training/aws-config/">[1]</a><a href="https://aws.amazon.com/config/">[2]</a>:</p>
 <ul>
+  <li>Enables customer to assess, audit, and evaluate the configurations of their AWS resources.</li>
+  <li>Continuous monitoring.</li>
+  <li>Track all changes in the resources</li>
+  <li>Auditing and recording compliance of the AWS resources, and record configurations and changes</li>
+  <li>Allows automating the evaluation of recorded configurations</li>
+  <li>Per region service; can be aggregated across regions and accounts</li>
   <li>Inventory management and control tool (it's not preventative)</li>
   <li>Record configuration changes (<u>configuration history</u>)</li>
   <li>Receive alerts via SNS for alerting (change and compliance notification)</li>
   <li>EventBridge can send events from Config events to other AWS service</li>
-  <li>Helps with auditing and recording compliance of the AWS resources, and record configurations and changes.</li>
   <li>Per <u>Region</u> but can be aggreated across region and account.</li>
   <li>It can send alerts for changes and the configuration can be store inside S3.</li>
   <li>Use case: discover the architecture in a account (query); create rules to monitor and receive alerts when that rules are violated (enforce); get the history (learn)</li>
   <li>Pricing: pay per item and rule evaluation</li>
   <li>Remediation: can be automatic via SSM automation document which can leverage Lambda function for custom logic</li>
 </ul>
+
 
 <p><b>EventBridge</b> <a href="https://aws.amazon.com/eventbridge/">[1]</a></p>
 <ul>
@@ -1880,7 +1887,13 @@ permalink: /:categories/aws-foundational
           <li>AWS managed CMK: create, managed and used on the customers behalf by AWS; used by AWS services</li>
           <li>Customer Managed CMK: create, manage, use, enable or disable; rotation policy</li>
           <li>AWS owned CMK: collections of CMKs owned by AWS to use in multiple accounts. The customer cannot see those keys.</li>
-          <li>CloudHSM Keys: created by the device</li>
+          <li>CloudHSM Keys <a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: created by the device
+            <ul>
+              <li>enables easily generate and use your own encryption keys in AWS cloud</li>
+              <li>Hardware Security Module (physical device)(level 3 compliance)</li>
+              <li>The customer manages the encryptation keys</li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li>The key can be routated</li>
@@ -1891,17 +1904,9 @@ permalink: /:categories/aws-foundational
       <li>Encryptation is automatically enabled to: CloudTrail Logs, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/DataEncryption.html">S3 Glacier</a>, Storage Gateway</li>
     </ul>
   </li>
-  <li><b>CloudHSM</b><a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: 
-    <ul>
-      <li>cloud-based HSM that anables easily generate and use your own encryption keys in AWS cloud</li>
-      <li>Hardware Security Module (physical device)</li>
-      <li>Encryptation for Hardware;</li>
-      <li>The customer manages the encryptation keys; use HSM device (level 3 compliance)</li>
-    </ul>
-  </li>
   <li>The <b>AWS encryption SDK</b> is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/UsingClientSideEncryption.html">client-side encryption</a> library that is separate from the language–specific SDKs</li>
-  <li>Amazon <b>S3 Managed Keys</b> (SSE-S3) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
-  <li>Server-side encryption with AWS Key Management Service (AWS KMS) keys <b>(SSE-KMS)</b> is similar to SSE-S3, but using this service. It provides audit trail.</li>
+  <li><b>SSE-S3</b> (S3 Managed Keys) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
+  <li><b>SSE-KMS</b> Key Management Service: Server-side encryption that is similar to SSE-S3, but using this service. It provides audit trail.</li>
 </ul>
 
 
@@ -1939,9 +1944,7 @@ permalink: /:categories/aws-foundational
 <p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://aws.amazon.com/cognito/">[2]</a></p>
 <ul>
   <li>AWS Cognito is a fully managed service that provides secure and scalable customer identity and access management (CIAM), enabling user authentication, authorization, and data synchronization across devices and platforms for web and mobile applications, with support for both authenticated and unauthenticated users.</li>
-  <li>The main role of AWS Cognito is to serve as a Customer Identity and Access Management solution.</li>
   <li>Alternative to IAM.</li>
-  <li>Authentication, authorization, and user management for web and mobile apps</li>
   <li>Identity for your Web and <b>Mobile</b> applications users (sign-up/sign-in; social identity like Facebook)</li>
   <li>External</li>
   <li>Components: user pools and identity pools</li>
@@ -1977,36 +1980,23 @@ permalink: /:categories/aws-foundational
 ---
 
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/config/">AWS <b>Config</b></a>:</p>
-<ul>
-  <li>Enables customer to assess, audit, and evaluate the configurations of their AWS resources.</li>
-  <li>Continuous monitoring.</li>
-  <li>Track all changes in the resources</li>
-  <li>Auditing and recording compliance, configurations</li>
-  <li>Allows automating the evaluation of recorded configurations</li>
-  <li>Per region service; can be aggregated across regions and accounts</li>
-</ul>
-
 <p style="text-align: justify;">AWS <b>Directory Service</b><a href="https://digitalcloud.training/aws-directory-services/">[1]</a>:</p>
 <ul>
-  <li>It is fully manage version of Microsoft Active Directory (Database of objects (user, accounts, computers, etc).</li>
-  <li>Centralized security management)</li>
+  <li>It is fully manage version of Microsoft Active Directory [Database of objects (user, accounts, computers, etc)].</li>
+  <li>Centralized security management</li>
   <li>Build AD in AWS</li>
   <li>Create a tunnel between AWS and on-premise AD</li>
-  <li>Standalone directory pwered by Linux Samba Active Directory</li>
-  <li>Managed Microsoft AD: migrate into AWS</li>
-  <li>Ad Connector: leave on-primise but not move yet</li>
+  <li>Standalone directory powered by Linux Samba Active Directory</li>
+  <li><u>Managed Microsoft AD</u>: migrate into AWS</li>
+  <li><u>Ad Connector</u>: leave on-primise but not move yet</li>
 </ul>
 
 
 <p style="text-align: justify;"><b><a href="https://aws.amazon.com/security/penetration-testing/">Penetration Testing</a></b></p>
 <ul>
   <li>Against customer AWS infrastructure without prior approval, e.g. EC2 instances, NAT Gateway, ELB, RDS, CloudFront, Aurora, API Gateway, Lambda, Beanstalk environment and LightSail resources</li>
-  <li>It cannot: Dos, Port flooding, etc</li>
+  <li>It cannot: DoS, Port flooding, etc</li>
 </ul>
-
-
-
 
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/"><b>AWS Abuse</b></a>: Report suspected AWS resources used for abusive or illegal purposes (spam, port scanning, DoS, DDoS, etc)</p>
@@ -2018,10 +2008,11 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
 
 <p><b>Aditional References:</b></p>
-<li><a href="https://digitalcloud.training/aws-security-services/">(DigitalCloud) Summary</a></li>
-<li><a href="https://digitalcloud.training/aws-cloud-management-services/">(DigitalCloud) AWS Cloud Management Services</a></li>
-<li><a href="https://aws.amazon.com/security/">AWS Cloud Security</a></li>
-
+<ul>
+  <li><a href="https://digitalcloud.training/aws-security-services/">(DigitalCloud) Summary</a></li>
+  <li><a href="https://digitalcloud.training/aws-cloud-management-services/">(DigitalCloud) AWS Cloud Management Services</a></li>
+  <li><a href="https://aws.amazon.com/security/">AWS Cloud Security</a></li>
+</ul>
 
 
 
