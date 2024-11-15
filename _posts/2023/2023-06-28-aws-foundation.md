@@ -17,7 +17,6 @@ permalink: /:categories/aws-foundational
     <td><a href="#orgcontrolpower">AWS Organization and Control Power</a></td>
     <td><a href="#ec2">EC2</a></td>
   </tr>
-
   <tr>
     <td><a href="#asg">High Availability and Scaling</a></td>
     <td><a href="#network">AWS networking services</a></td>
@@ -41,13 +40,16 @@ permalink: /:categories/aws-foundational
 
   <tr>
     <td><a href="#machinelearning">Machine Learning</a></td>
+    <td><a href="#code">Code</a></td>
     <td><a href="#others">Others Services</a></td>
-    <td><a href="#pricing">Billing and Pricing</a></td>
   </tr>
   <tr>
+    <td><a href="#pricing">Billing and Pricing</a></td>
     <td><a href="#support">Support</a></td>
     <td><a href="#shots">Some Shots</a></td>
-    <td colspan="1"><a href="#conclusion">Conclusion</a></td>
+  </tr>
+  <tr>
+    <td colspan="3"><a href="#conclusion">Conclusion</a></td>
   </tr>
 </table>
 
@@ -1099,10 +1101,11 @@ permalink: /:categories/aws-foundational
 </ul>
   
 
-<p><b>AWS Batch:</b></p>
+<p>AWS <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
 <ul>
   <li>Run batch computing workloads within AWS (EC2 or ECS/Fargate): Fargate is more recomended because require fast start times (<30 sec), 16 VCPU or less, no GPU, 120 GiB of memory; EC2 needs more control, require GPU and custom AMIs, high levels of cuncurrency, require access to Linux Parameters</li>
   <li>Simple: Automatically provision and scale, no intallation is required</li>
+  <li>AWS provisions the compute and memory. Customer only need submit or schedule the batch job.</li>
   <li>Components: Jobs; Jobs definition (how jobs will run); Jobs Queues; Compute Environment</li>
   <li>Batch vs Lambda
     <ul>
@@ -1112,7 +1115,6 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
 </ul>
-
 
 <p><b>Step Function</b> <a href="https://digitalcloud.training/aws-application-integration/#aws-step-functions">[1]</a></p>
 <ul>
@@ -1667,13 +1669,6 @@ permalink: /:categories/aws-foundational
 
 
 -----
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/cdk/"><b>Cloud Development Kit (CDK)</b></a></p>
-<ul>
-  <li>Open-source software development framework.</li>
-  <li>Define your cloud infrastructure using a familiar language.</li>
-  <li>The code is compiled into a CloudFormation template</li>
-  <li>Provisions the resources using CloudFormation</li>
-</ul>
 
 <p style="text-align: justify;">AWS <b>OpsWorks</b><a href="https://digitalcloud.training/aws-opsworks/">[1]</a></p>
 <ul>
@@ -1756,8 +1751,6 @@ permalink: /:categories/aws-foundational
   <li>Contepts: Segments, subsegments, service graph, traces, tracing headers</li>
 </ul>
 
-
-<p><b>CodeGuru</b>: automated code review and application performance recommendations</p>
 
 <p><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>:</p>
 <ul>
@@ -2163,6 +2156,55 @@ permalink: /:categories/aws-foundational
 <p>Amazon <b>Texttract</b>: automatically extract text, handwriting and data from documents using AI and ML.</p>
 
 
+<!-- ###################################################### -->
+
+
+<br />
+<hr>
+<br />
+
+<h2 id="code">Code</h2>
+
+
+<ul>
+  <li><b>CodeGuru</b>: automated code review and application performance recommendations</li>
+  <li>AWS <a href="https://aws.amazon.com/cdk/"><b>Cloud Development Kit (CDK)</b></a>
+    <ul>
+      <li>Open-source software development framework.</li>
+      <li>Define your cloud infrastructure using a familiar language.</li>
+      <li>The code is compiled into a CloudFormation template</li>
+      <li>Provisions the resources using CloudFormation</li>
+    </ul>
+  </li>
+  <li>AWS <a href="https://aws.amazon.com/codedeploy/"><b>CodeDeploy</b></a>
+    <ul>
+      <li>Deploy automatically</li>
+      <li>Works with EC2 instanes, On-Premises servers</li>
+      <li>CodeDeploy Agent is responsable to provision and configure Servers and Instances</li>
+    </ul>
+  </li>
+  <li>AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology</li>
+  <li>AWS <a href="https://aws.amazon.com/codepipeline/"><b>CodePipeline</b></a>: Orchestrate the steps until production</li>
+  <li>AWS <a href="https://aws.amazon.com/codestar/features/"><b>CodeStar</b></a>: UI to manage Software Development activities.</li>
+  <li>AWS <b>Cloud9</b>: Cloud IDE</li>
+  <li>AWS <a href="https://aws.amazon.com/codebuild/features/"><b>CodeBuild</b></a>
+    <ul>
+      <li>Compile code, run tests and packaged to be deployed by CodeDeploy</li>
+      <li>Pay-as-you-go pricing. Pay for build time</li>
+      <li>Like Jenkins</li>
+    </ul>
+  </li>
+  <li>AWS <b>CodeArtifact</b>
+    <ul>
+      <li>Artifacts: dependencies</li>
+      <li>It is an artifact management</li>
+      <li>Like maven, gradle, npm, yarn</li>
+      <li>Developers and CodeBuild retrieve the dependencies using it.</li>
+    </ul>
+  </li> 
+</ul>
+
+
 
 <!-- ###################################################### -->
 
@@ -2172,43 +2214,6 @@ permalink: /:categories/aws-foundational
 <br />
 
 <h2 id="others">Others Services</h2>
-
-<p style="text-align: justify;">Amazon <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
-<ul>
-  <li>Fully managed batch process</li>
-  <li>Batch will dynamically launch EC2 instances or Spot instances</li>
-  <li>AWS provisions the compute and memory. Customer only need submit or schedule the batch job.</li>
-  <li>Batch jobs are defines as Docker images and run on ECS</li>
-</ul>
-
-
-
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codedeploy/"><b>CodeDeploy</b></a></p>
-<ul>
-  <li>Deploy automatically</li>
-  <li>Works with EC2 instanes, On-Premises servers</li>
-  <li>CodeDeploy Agent is responsable to provision and configure Servers and Instances</li>
-</ul>
-
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology</p>
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codepipeline/"><b>CodePipeline</b></a>: Orchestrate the steps until production</p>
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codestar/features/"><b>CodeStar</b></a>: UI to manage Software Development activities.</p>
-<p style="text-align: justify;">AWS <b>Cloud9</b>: Cloud IDE</p>
-
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/codebuild/features/"><b>CodeBuild</b></a></p>
-<ul>
-  <li>Compile code, run tests and packaged to be deployed by CodeDeploy</li>
-  <li>Pay-as-you-go pricing. Pay for build time</li>
-  <li>Like Jenkins</li>
-</ul>
-
-<p style="text-align: justify;">AWS <b>CodeArtifact</b></p>
-<ul>
-  <li>Artifacts: dependencies</li>
-  <li>It is an artifact management</li>
-  <li>Like maven, gradle, npm, yarn</li>
-  <li>Developers and CodeBuild retrieve the dependencies using it.</li>
-</ul>
 
 
 <p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
