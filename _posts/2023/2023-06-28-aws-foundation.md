@@ -2043,8 +2043,8 @@ permalink: /:categories/aws-foundational
   <li>Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS</li>
   <li>Data migration: 
     <ul>
-      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, $GB of memory, 2vCPUs)</li>
-      <li>Snowball Edge (Storage Optimized (80TB) /Compute Optimized (42TB tp 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes.) EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
+      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, 4GB of memory, 2vCPUs)</li>
+      <li>Snowball (Storage Optimized (80TB) /Compute Optimized (42TB up to 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes). EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
       <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
     </ul>  
   </li>
@@ -2053,19 +2053,19 @@ permalink: /:categories/aws-foundational
   <li>Snowball Pricing: per data transfer job</li>
 </ul>
 
-<h3>Storage Gateway</h3>
-
 <p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a></p>
 <ul>
   <li>Hybrid cloud storage service that helps to merge on-primes resources with cloud</li>
-  <li>File Gateway caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3</li>
-  <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3</li>
-  <li>Tape gateway help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>
-  <li>It is a hybrid cloud storage service: a bridge between on-premise data and cloud data in S3.</li>
+  <li>Types:
+    <ul>
+      <li>File Gateway caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3</li>
+      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3</li>
+      <li>Tape gateway help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>    
+    </ul>
+  </li>
   <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
   <li>Virtually unlimited cloud storage</li>
   <li>Cannot be used to data archival</li>
-  <li>Types: File Gateway, Volume Gateway and Tape Gateway</li>
   <li>Ex: moving backups to the cloud, low latency access, disaster recovery</li>
 </ul>
 
@@ -2075,7 +2075,7 @@ permalink: /:categories/aws-foundational
   <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data between on-premises storage, edge locations, other clouds, and AWS Storage services.</li>
   <li>Agent-based solution for migrating on-premises storage to AWS.</li>
   <li>Agent for self-managed locations</li>
-  <li>The agent is not necessary when transferring data betwenn AWS storage in the same AWS account</li>
+  <li>The agent is not necessary when transferring data betwen AWS storage in the same AWS account</li>
   <li>Move data between NFS/SMB and AWS storage solutions</li>
   <li>DataSync encrypts data in-transit via TLS.</li>
   <li>DataSync works best as a solution for one-time data migration.</li> 
@@ -2091,12 +2091,10 @@ permalink: /:categories/aws-foundational
 </ul> 
 
 
-<p>AWS <<b>Application Discovery Service</b><a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">[1]</a> </p>
+<p>AWS <b>Application Discovery Service</b><a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">[1]</a> </p>
 <ul>
   <li>helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</li>
   <li>Types: Agentless and Agent Based</li>
-  <li>RTO: Recovery Time Objective</li>
-  <li>RPO: Recovery Point Objective</li>
 </ul>
 
 <p>AWS <b>Application Migration Service (MGN)</b> <a href="https://aws.amazon.com/application-migration-service/">[1]</a><a href="https://digitalcloud.training/aws-migration-services/">[2]</a>:</p>
