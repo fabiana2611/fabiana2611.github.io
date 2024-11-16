@@ -283,9 +283,9 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
 
-<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by users, applications, and services. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
+<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by <u>users, applications, and services</u>. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
-<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to users, groups, roles or resources. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. The types of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to <u>users, groups, roles or resources</u>. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. Best practices: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-groups-for-permissions">least privilege</a>. The <u>types</u> of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
 <ul>
   <li>Version</li>
   <li>Effect: allow/deny</li>
@@ -403,7 +403,7 @@ permalink: /:categories/aws-foundational
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
   <li>Volumes: <b>EBS</b> (persist) and <b>Instance Store</b> (Non-Persistent)</li>
   <li><b>Bootstrap scripts</b>: script that runs when the instance first runs (EC2 User data scripts). It can install updates, softwares, etc. Those scripts run with root user.</li>
-  <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b></li>
+  <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b>. To review scripts used to bootstrap the instances at runtime you can access <b>http://169.254.169.254/latest/yser-data</b></li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
   <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
@@ -458,7 +458,7 @@ permalink: /:categories/aws-foundational
 <p><b>Storage:</b></p>
 <ul>
   <li>
-    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop. So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
+    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop (but not when reboot). So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
     <ul>
       <li>AWS: Infrastructure, Replication for data to EBS volumes and EFS drives, replacing faulty hardware, Ensuring their employees cannot access your data.</li>
       <li>Customer: backups and snapshot procesures, data encryptation, analysis the risk</li>
@@ -529,18 +529,25 @@ permalink: /:categories/aws-foundational
   <li>EFA (Elastic Fabric Adapter): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of inter-node communications at scale on AWS. </li>
 </ul>
 
-<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"><b>Security Group</b></a>:</p>
+<p><b>Security</b></p>
+
+<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"><b>Security Group</b></a> (SG):</p>
 <ul>
-  <li>It operates at instance level (can be attached to multiple instances) and are applied to the network security, controlling the traffic into or out of the EC2 instance, acting like a firewall (by default, inbound traffic is blocked and outbound traffic is authorised).</li>
   <li>Virtual firewall to ENI/EC2 instance</li>
-  <li>Control how traffic is allowed into or out of EC2 instance (ALLOW rule -IP and other security groups)</li>
-  <li>It contains only <b>rules</b> and these rules can reference by IP or by security group. They are stateful and locked down to a region/VPC combination.</li> 
+  <li>Instance level (can be attached to multiple instances)</li>
+  <li>Applied to the network security, controlling the traffic into or out of the EC2 instance</li>
+  <li>By default, inbound traffic is blocked and outbound traffic is authorised</li>
+  <li>ALLOW rule: IP and other security groups -> It contains only <b>rules</b> and these rules can reference by IP or by security group. </li>
+  <li><u>Stateful</u>: if there is an inbount rule that allow the traffic, the outbound automatically allowed without rules; if the outgoing request is done by instance and the rule allow the outbound traffic then the inbound return is automatically allowed. Supports only allow rules. Security Groups can be associated with a NAT instance. The rules are evaluated before deciding whether to allow traffic.</li>
+  <li>Locked down to a region/VPC combination.</li> 
   <li>Protect against low level network attack like UDP floods.</li>
   <li>They regulate access to Ports and authorised IP ranges.</li>
   <li>A good practices is to create a separate security group for SSH access.</li>
   <li>Tips: errors with time out is a security group issue; error of connection refused can be an application error.</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Security groups</a> can be changed for an instance when the instance is in the running or stopped state.</li>
 </ul>
 
+<p><b>Peformance</b></p>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"><b>Placement groups:</b></a> It is an strategy of optimization to meet the needs of your workload which you can launch a group of interdependent EC2 instances into a placement group to influence their placement. It can be: </p>
 <ul>
@@ -556,13 +563,13 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
   <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
-  <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front.
+  <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front. The remaining term of the reserved instances can be sold on Marketplace
     <ul>
       <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
       <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a>: long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value (up to 54% off the on-demand price)</li>
     </ul>
   </li>
-  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plain</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
+  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plan</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
   <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instances in AWS. Urgent Capacity; Flexible; Cost Sensitive. Use for app with flexible start and end times; app with low compute prices (Image rendering, Genomic sequence). Not use if need a guarantee of time.</li> 
   <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): physical server with EC2 instance dedicated, can use your own licenses. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
   <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account. Compliance, Licensing, on-Demand, Reserved.</li>
@@ -709,14 +716,13 @@ permalink: /:categories/aws-foundational
   <li><b>Elastic IP</b>: static IP for a public IP in EC2 instance</li>
   <li><b>Route Tables</b>: make possible the access of the internet and between subnets.</li>
   <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
-  <li><b>NAT Gateway</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">[1]</a> (AWS-managed) and <b>NAT instance</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html">[2]</a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. Nat Gateway does not need to patch. NAT instance supports port forwarding and it's associated with security groups</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) and <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"><b>NAT instance</b></a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. Nat Gateway does not need to patch. NAT instance supports port forwarding and it's associated with security groups</li>
   <li><b>VPC Endpoint</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">[1]</a>: connect to AWS services using private Network. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leaving AWS environment. They are horizontaly scaled, redundant, and highly available. Types: Interface endpoints (elastic network interface with private IP - supports many services) and Gateway Endpoints (virtual device you provision, similar to NAT GW - supports connection to S3 and DynamoDB)</li>
 </ul>
 
 <p><b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/security.html">VPC Security</a></b></p>
 <ul>
-  <li><b>Network ACL</b> (Access Control List): it is the first line of defense. It is subnet level: firewall to subnets (only IP), controlling traffic in and out of one or ore subnets. <u>Stateless</u>: have to allow inbound and outbound traffic (checks for an allow rule for both connections). Supports allow and deny rules. Customer is responsible for configure it. The default ACLs allows all outbound and inbound traffic. The custom ACL denies inbound and outbound traffic by default. A subnet will be associated with the default ACL. A subnet is associated with only one ACL but ACL can be associated with multiple subnets. Rules are evaluating in order starting with the lowest number rule (first match wins).</li>
-  <li><b>Security Group</b> (SG): Virtual firewall for EC2 instance. <u>Stateful</u>: if there is an inbount rule that allow the traffic, the outbound automatically allowed without rules; if the outgoing request is done by instance and the rule allow the outbound traffic then the inbound return is automatically allowed. Supports only allow rules. Security Groups can be associated with a NAT instance. The rules are evaluated before deciding whether to allow traffic.</li>  
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-rules"><b>Network ACL</b></a> (Access Control List): it is the first line of defense. It is subnet level: firewall to subnets (only IP), controlling traffic in and out of one or ore subnets. <u>Stateless</u>: have to allow inbound and outbound traffic (checks for an allow rule for both connections). Supports allow and deny rules. Customer is responsible for configure it. The <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#default-network-acl">default ACLs</a> allows all outbound and inbound traffic. The custom ACL denies inbound and outbound traffic by default. A subnet will be associated with the default ACL. A subnet is associated with only one ACL but ACL can be associated with multiple subnets. Rules are evaluating in order starting with the lowest number rule (first match wins).</li>
 </ul>
 
 <p><b><u>VPCs Connections</u></b></p>
@@ -726,7 +732,7 @@ permalink: /:categories/aws-foundational
   <li><b>VPM CloudHub</b>: Multiple sites with its own VPN connection. The traffic is encrypted.</li>
   <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>:
     <ul>
-      <li>Establish secure connections between your on-premises networks, remote offices, client devices, and the AWS global network</li>
+      <li>Establish secure connections between your on-premises networks and VPC using a secure and private connection with IPsec and TLS. Encrypted network connectivity </li>
       <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: it connects two VPCs via VPN. It needs Virtual Private Gateway (VGW), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail. Connect (encrypted) on premises VPN to AWS over the public internet</li>
       <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
       <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
@@ -966,7 +972,7 @@ permalink: /:categories/aws-foundational
 
 <ul>
   <li>Standard: High Availability and durability; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
-  <li>Standard-Infrequent Access: Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup.</li>
+  <li>Standard-IA (Infrequent Access): Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup. Comparing with Glacier, it is the best option if is necessary retrieves IA data immediately.</li>
   <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA (lower cost); Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
   <li>Intelligent-Tiering: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not. No performance impact or operational overhead. More expensive than Standard-IA</li>
   <li>Gacier: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
@@ -980,7 +986,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Last notes</b></p>
 <ul>
-  <li>S3 Event Notification: can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery)</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html">S3 Event Notification</a>: <em>enables you to receive notifications when certain events happen in your bucket. To enable notifications, you must first add a notification configuration that identifies the events you want Amazon S3 to publish and the destinations where you want Amazon S3 to send the notifications. An S3 notification can be set up to notify you when objects are restored from Glacier to S3.</em>  It can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery).</li>
   <li>S3 Storage Lens: Tools to analyse S3</li>
   <li>S3 Access Log: A new buket will store the logs. They must be in the same region.</li>
   <li>Pre-Signed URL: can be created by Cosole or CLI.</li>
@@ -1130,12 +1136,12 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
-<p><b>AppFlow</b>:</p>
+<p><b>AppFlow</b> <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">[1]</a>:</p>
 <ul>
   <li>Integration service for exchanging data between SaaS apps and AWS services; </li>
   <li>Pulls data records from third party SaaS vendors and stores them in S3;</li>
   <li>Bi-directional data transfer</li>
-  <li>Flow (transfer data between sources and destinations);</li>
+  <li>Transfer up to 100 gibibytes per flow, and this avoids the Lambda function timeouts</li>
   <li>Data mapping (how sources data is stored);</li>
   <li>Filter (controls which data is transferred);</li>
   <li>Trigger (how the flow is started)</li>
@@ -1339,7 +1345,7 @@ permalink: /:categories/aws-foundational
   <li>Sales up by increaing instance size (compute and storage)</li>
   <li>Replicas is only to ready. It improves database scalability.</li>
   <li>Read Replica: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
-  <li>Multi-AZ: RDS creates an copy of production database in another AZ. RDS will automatically fail over to the standby copy.</li>
+  <li>Multi-AZ: when a Multi-AZ DB instance is provisioned, RDS cautomatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
   <li>It can use Auto scaling to add replicas</li>
   <li>Serveless</li>
   <li>You can't use SSH to access instances.</li>
@@ -1396,10 +1402,11 @@ permalink: /:categories/aws-foundational
 
 <ul>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WhyDynamoDB.html">NoSQL</a> database</li>
-  <li>Key/value store and document store (Tables, Items [maximum size 400KB] and Attributes)</li>
+  <li>Key/value store (Tables, Items [maximum size 400KB] and Attributes)</li>
+  <li>Not generally suited to storing documents or images</li>
   <li>Highly available with replication across 3 AZ.</li>
   <li>Stored on SSD storage</li>
-  <li>Hight performance</li>
+  <li>Hight performance: reads and writes for online transaction processing (OLTP) workloads</li>
   <li>Low latency retrieval</li>
   <li>Eventually consistent reads (default - better performance) or Strongly consistent reads</li>
   <li>Multi-Region replication. Ative-Active with cross region support.</li>
@@ -1500,9 +1507,9 @@ permalink: /:categories/aws-foundational
 
 <p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
 <ul>
-  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingesting data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
+  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingesting data. It can be used to continuously collect data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
   <li>Data Firehose: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
-  <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL</li>
+  <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It analyzes the data after it receives the data</li>
   <li>It is more use to Big Data, but in scenarios that is necessary real data, it is better than SQS.</li>
 </ul>
 
@@ -1716,7 +1723,9 @@ permalink: /:categories/aws-foundational
 
 <p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
 <ul>
-  <li><b>Record API calls</b>. It tracks events (history events/API calls). Log, monitoring and retain account activity (Who, What, When)(track user activities and API requests and filter logs to assist with operational analysis and troubleshooting). </li>
+  <li>Record API calls</li>
+   <li>It tracks events (history events/API calls).</li>
+   <li>Log, monitoring and retain account activity (Who, What, When). Track user activities and API requests and filter logs to assist with operational analysis and troubleshooting. </li>
   <li><b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has encryptation enabled as default. </li>
   <li>Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </li>
 </ul>
@@ -1779,6 +1788,11 @@ permalink: /:categories/aws-foundational
   <li>It gives a personalized view of performance and availability of the services used by customer.</li>
 </ul>
 
+<p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for PCI compliance, GDPR, etc</p>
+
+<p><a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a>: is a serverless, Prometheus-compatible <u>monitoring</u> service for container metrics. It is perfect for monitoring Kubernetes clusters at scale</p>
+
+<p><a href="https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html">AWS Managed Grafana</a>: fully managed service for infrastructure for data visualizations (<u>analytics and monitoring application</u>). Features: query, correlate, and visualize operational metrics from multiple sources.</p>
 
 <p><center>
   <img src="/img/aws/monitor.png" height="100%" width="100%">
@@ -1940,17 +1954,15 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for PCI compliance, GDPR, etc</p>
-
-
 <p style="text-align: justify;"><b>AWS Artifact</b> <a href="https://aws.amazon.com/artifact/">[1]</a>: Artifact reports (AWS security and compliance document) and Artifact Agreements (AWS agreements). PS: <b>Audits and download compliance reports</b>. Ex: Service Organization Control (SOC) reports, Payment Card Industry (PCI)</p>
 
-<p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://aws.amazon.com/cognito/">[2]</a></p>
+<p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">[2]</a></p>
 <ul>
   <li>AWS Cognito is a fully managed service that provides secure and scalable customer identity and access management (CIAM), enabling user authentication, authorization, and data synchronization across devices and platforms for web and mobile applications, with support for both authenticated and unauthenticated users.</li>
   <li>Alternative to IAM.</li>
   <li>Identity for your Web and <b>Mobile</b> applications users (sign-up/sign-in; social identity like Facebook)</li>
   <li>External</li>
+  <li>Auth process: Authenticate and get tokens; Exchange tokens and get AWS credentials; Access AWS services using credentials.</li>
   <li>Components: user pools and identity pools</li>
 </ul>
 
@@ -2005,7 +2017,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/"><b>AWS Abuse</b></a>: Report suspected AWS resources used for abusive or illegal purposes (spam, port scanning, DoS, DDoS, etc)</p>
 
-<p style="text-align: justify;">AWS <b>STS</b> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">AWS <b>STS</b></a> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
 
 
 
@@ -2048,7 +2060,7 @@ permalink: /:categories/aws-foundational
   <li>Data migration: 
     <ul>
       <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, 4GB of memory, 2vCPUs)</li>
-      <li>Snowball (Storage Optimized (80TB) /Compute Optimized (42TB up to 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes). EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
+      <li><a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/shipping.html">Snowball</a> (Storage Optimized (80TB) /Compute Optimized (42TB up to 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes), it encrypts the data. EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
       <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
     </ul>  
   </li>
@@ -2114,6 +2126,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Migrate to AWS (relational DBs, data warehouse, NoSQL, other data stores).</li>
   <li>With this is possible do continuous replication (ex: send to data warehouse)</li>
+  <li>The source database remains fully operational during the migration, minimizing downtime</li>
   <li>Option: perform a one-time migration or continuously replicate ongoing changes</li>
   <li>Types: Full Load; Full load and change Data capture (CDC); CDC only</li>
   <li>Source DB -> EC2 instance running DMS -> Target DB</li>
@@ -2291,7 +2304,7 @@ permalink: /:categories/aws-foundational
     <ul>
       <li>Billing dashboard </li> 
       <li>Cost Allocation <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tags</a>: Tracking cost. Tags are used to organized resources.</li>
-      <li>Cost and Usage Reports: set of cost and usage data available - can publish the reports to S3. Tracking cost</li>
+      <li>Cost and Usage Reports: set of cost and usage data available ; can automatically publish the reports to S3. Tracking cost</li>
       <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-explorer/">Cost Explorer</a>: Tracking costs. Visualize data as graph, understand, and manage your AWS costs and usage over time. Future cost projection. Filter by Region, AZ, tags etc. Features: Time, filter, service</li>
     </ul>
   </li>
