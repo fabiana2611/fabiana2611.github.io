@@ -352,7 +352,7 @@ permalink: /:categories/aws-foundational
   <li>For across-account access is better to create a role instead create a new IAM user. It gives temporary credentials.</li>
   <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
-  <li><b>Service Control Policies (SCPs)</b> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to apply the restrictions across multiple member accounts (deny rule). It affects only IAM users and roles (not resources policies)</li>
+  <li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances"><b>Service Control Policies (SCPs)</b></a> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to <u>apply the restrictions across multiple member accounts (deny rule)</u>. It affects only IAM users and roles (not resources policies)</li>
  </ul>
 
 
@@ -453,7 +453,7 @@ permalink: /:categories/aws-foundational
   </li>
 </ul> 
 
-<p style="text-align: justify;"><b>EC2 Hibernate</b>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"><b>EC2 Hibernate</b></a>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
 
 <p><b>Storage:</b></p>
 <ul>
@@ -478,13 +478,13 @@ permalink: /:categories/aws-foundational
       <li>A <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">snapshot</a> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
       <li>It has a limited performance.</li> 
       <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
-      <li>EBS Volume Types: 
+      <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">EBS Volume Types</a>: 
         <ul>
           <li>gp2/gp3 (SSD): general puerpose; balance between price and performance; 3K IOPS and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Hadoop). </li> 
           <li>io1 (SSD): high perfomance and most expensive. 64K IOPs per volume, 50 IOPS per GiB. critical low latency or high throughput]; Use cases: large database, legacy</li>
           <li>io2 (SSD): Higher durability. 500 IOPS per GiB (same price of io1). I/O intensive apps, large database</li>
           <li>st1(HDD): low cost, frequently accessed and thoughput intensive workload (big data, data warehouse); </li>
-          <li>sc1 (HDD): lowest cost; less frequently accedded]. Onlys SSDs can be boot volume.</li>
+          <li>sc1 (HDD): lowest cost; less frequently accedded. Onlys SSDs can be boot volume.</li>
         </ul>
       </li>
       <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted.</li>
@@ -560,9 +560,10 @@ permalink: /:categories/aws-foundational
   <img src="/img/aws/placementgroup.png" height="90%" width="90%">
 </center></p>
 
-<p style="text-align: justify;"><b>EC2 Pricing:</b> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"><b>EC2 Pricing:</b></a> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
   <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
+  <li>On-Demand Capacity Reservations enable to reserve compute capacity for EC2 instances in a specific AZ for any duration. You always have access to EC2 capacity when you need it, for as long as you need it. You can create Capacity Reservations at any time, without entering a one-year or three-year term commitment, and the capacity is available immediately.</li>
   <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front. The remaining term of the reserved instances can be sold on Marketplace
     <ul>
       <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
@@ -716,8 +717,14 @@ permalink: /:categories/aws-foundational
   <li><b>Elastic IP</b>: static IP for a public IP in EC2 instance</li>
   <li><b>Route Tables</b>: make possible the access of the internet and between subnets.</li>
   <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) and <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"><b>NAT instance</b></a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. Nat Gateway does not need to patch. NAT instance supports port forwarding and it's associated with security groups</li>
-  <li><b>VPC Endpoint</b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">[1]</a>: connect to AWS services using private Network. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leaving AWS environment. They are horizontaly scaled, redundant, and highly available. Types: Interface endpoints (elastic network interface with private IP - supports many services) and Gateway Endpoints (virtual device you provision, similar to NAT GW - supports connection to S3 and DynamoDB)</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"><b>NAT instance</b></a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. </li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) does not need to patch. NAT instance supports port forwarding and it's associated with security groups. A NAT gateway is used for outbound traffic not inbound traffic and cannot make the application available to internet-based clients.</li>
+  <li><b>VPC Endpoint</b>: connect to AWS services using <u>private Network</u>. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leaving AWS environment. They are horizontaly scaled, redundant, and highly available. 
+    <ul>Types: 
+      <li><b>Interface endpoints</b>: uses Elastic Eetwork Interface (<u>ENI</u>) with <u>private IP</u> redirected by DNS; supports many services; use Security Groups</li>
+      <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">Gateway Endpoints</a>: virtual device you provision; configure <u>route table</u> to redirect the traffic; similar to NAT GW;  supports connection to S3 and DynamoDB; All traffic that go through the VPC endpoint go direct to DynamoDB or S3 using private IP; use VPC Endpoint Policies </li>
+    </ul>
+  </li>
 </ul>
 
 <p><b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/security.html">VPC Security</a></b></p>
@@ -771,14 +778,14 @@ permalink: /:categories/aws-foundational
   <li>It is a hybrid architecture.</li>
   <li>It's not possible to extend Route 53 to on-premises instances.</li>
   <li>Paied for hosted zone, queries, traffic flow, health checks, domain name. </li>
-  <li>Policies:
+  <li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">Routing Policies</a>
     <ul>
-      <li><b>Weighted routing policy</b><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">[1]</a> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource (split traffic based on different weights assigned). It can be used, e.g, for load balancing purpose. Assigning 0 to a record will stop the traffic to that resource. Assigning 0 to all records then all records returns equally.</li>
+      <li><b>Weighted routing policy</b> is used to route traffic to multiple resources (associated with a single domain/subdomain) and to choose how much traffic is routed to each resource (split traffic based on different weights assigned). It can be used, e.g, for load balancing purpose. Assigning 0 to a record will stop the traffic to that resource. Assigning 0 to all records then all records returns equally.</li>
       <li><b>Simple Routing Policy</b> route the traffic to a single resource. It allows one record with multiple IP; if the record is multiple value the Route 53 returns all values to the user in a random order.</li>
       <li><b>Geolocation Routing Policy</b>: choose where the traffic will be sent based on the geographic location of the <u>users</u> (which DNS queries originate). Also, can restrict distribution of content. </li>
       <li><b>Geoproximity Routing</b>: based on geographic location of the <u>resources</u>, and can choose to route more traffic to a given resource. </li>
       <li><b>Latency Routing Policy</b>: based on the lowest network latency for the end user (which regions will give them the fastest response time)</li>    
-      <li><b>Failover routing policy</b>: use primary and standby configuration that sends all traffic to the primary until it fails a health check and sends traffic to the secondary. This solution does not good enough for lowest latency. It is used when you want to create an active/passive set up. It cannot be associated with Health Checks.</li>
+      <li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring.html"><b>Failover routing policy</b></a>: use primary and standby configuration that sends all traffic to the primary until it fails a health check and sends traffic to the secondary. This solution does not good enough for lowest latency. It is used when you want to create an active/passive set up. It cannot be associated with Health Checks.</li>
     </ul>
   </li>
   <li>Health Checks: Only for public resources</li>
@@ -818,7 +825,9 @@ permalink: /:categories/aws-foundational
 <p><b>AWS Global Accelerator</b> <a href="https://aws.amazon.com/global-accelerator/">[1]</a><a href="https://digitalcloud.training/aws-global-accelerator/">[2]</a></p>
 <ul>
   <li>Network service that send users' traffic through AWS's global network infrastructure via accelerators.</li>
+  <li>Direct users to different instances of the application in different regions based on latency.</li>
   <li>Improve global application availability and performance</li>
+  <li>it will intelligently route traffic to the closest point of presence (reducing latency)</li>
   <li>Increase performance with IP cache. Can help deal with IP caching issues by providing static IPs</li>
   <li>By default, GA provides two static Anycast IP address</li>
   <li>Good when use static IP and need determinist and fast regional failover.</li>
@@ -836,6 +845,7 @@ permalink: /:categories/aws-foundational
   <li>Global (and fast) Content Delivery Network (CDN)</li>
   <li>It works with AWS and on-site architecture</li>
   <li>It can block countries, but the best place to do to it is WAF</li>
+  <li>If you need to prevent users in specific countries from accessing your content, you can use the CloudFront geo restriction feature</li>
   <li>Replicate part of your application to AWS Edge Locations (content is served at the edge)</li>
   <li>Edge location: location to cache the content</li>
   <li>It can use cache at the edge to reduce latency. Improves read performance</li>
@@ -846,6 +856,7 @@ permalink: /:categories/aws-foundational
   <li>Can be integrated with CloudTrail</li>
   <li>Great for static content that must be available everywhere; in oposite of S3 Cross Region Replication that is great for dynamic content that needs to be available at low latency in few regions</li>
   <li><b>Pricing</b>: Traffic distribution; Requests; Data transfer out. Price is different for region</li>
+  <li>Set <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html">price class</a> to determine where in the world the content will be cached.</li>
 </ul>
 
 
@@ -917,7 +928,7 @@ permalink: /:categories/aws-foundational
         </ul>
       </li>
       <li>CORS: needs to be enabled</li>
-      <li>MFA delete: for delete object or suspend version. Only the owner can enbled it.</li>
+      <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">MFA delete</a>: for delete object or suspend version. Only the owner can enbled it.</li>
     </ul>
   </li>
 </ul>
@@ -974,7 +985,7 @@ permalink: /:categories/aws-foundational
   <li>Standard: High Availability and durability; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
   <li>Standard-IA (Infrequent Access): Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup. Comparing with Glacier, it is the best option if is necessary retrieves IA data immediately.</li>
   <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA (lower cost); Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
-  <li>Intelligent-Tiering: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not. No performance impact or operational overhead. More expensive than Standard-IA</li>
+  <li><a href="https://aws.amazon.com/s3/storage-classes/#Unknown_or_changing_access">Intelligent-Tiering</a>: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not. No performance impact or operational overhead. More expensive than Standard-IA</li>
   <li>Gacier: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
     <ul>
       <li>Gacier Instant Retrieval (minimum duration - 90 days)</li>
@@ -1021,6 +1032,7 @@ permalink: /:categories/aws-foundational
   <li>Message size: up to 256KB of text)</li>
   <li>Require Message Group ID and Message Deduplication ID</li>
   <li>AWS recommend using separate queues when you need to provide prioritization of work</li>
+  <li>Short polling and long polling are used to control the amount of time the consumer process waits before closing the API call and trying again.</li>
   <li>Security
     <ul>
       <li>Encryption: message are encrypted in trasit (HTTPS) by defaul but not at rest (can do using KMS)</li>
@@ -1252,7 +1264,7 @@ permalink: /:categories/aws-foundational
       <li>Components:
         <ul>
           <li>Cluster: logical grouping of tasks or services. It can have ECS Container instances in different AZ</li>
-          <li>Task: a running Docker container</li>
+          <li>Task: a running Docker container. To specify permissions for a specific task on ECS you should use IAM Roles for Tasks. The taskRoleArn parameter is used to specify the policy.</li>
           <li>Container instance: EC2 instance running the ECS agent</li>
           <li>Service: Defines long running tasks. It can control number of tasks with Auto Scaling, and attach an ELB for distrubute traffic across containers</li>  
         </ul>
@@ -1339,9 +1351,11 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
 <ul>
   <li>Use EC2 instance</li>
-  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS. You can only create read replicas of databases running on RDS.</li>
+  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS. You can only create read replicas of databases running on RDS. You cannot create an RDS Read Replica of a database that is running on Amazon EC2</li>
   <li>RDS types for it: SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</li>
   <li>It's possible encrypt the RDS instances using AWS Key Management Service (KMS) and snapshot</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Amazon RDS creates an SSL certificate and installs the certificate on the DB instance when it provisions the instance</a>. <em>You can download a root certificate from AWS that works for all Regions or you can download Region-specific intermediate certificates and connect to RDS DB instance. It ensure SSL/TLS encryption in transit.</em> The certificates are signed by a certificate authority. You cannot use self-signed certificates with RDS.</li>
+  <li>You cannot enable/disable encryption in transit using the RDS management console or use a KMS key.</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
   <li>Replicas is only to ready. It improves database scalability.</li>
   <li>Read Replica: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
@@ -1374,7 +1388,7 @@ permalink: /:categories/aws-foundational
   <li>Storage: data is stored in 6 replicas across 3 AZ</li>
   <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. automatic backup enabled</li>
   <li>User case: unpredictable and intermittent workloads, no capacity planning</li>
-  <li>Aurora Global: up to 16DB read instances in each region</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">Aurora Global Database</a>: up to 16DB read instances in each region. It consists of one primary AWS Region where your data is mastered, and up to five read-only, secondary AWS Regions. Aurora replicates data (async) to the secondary AWS Regions with typical latency of under a second.</li>
   <li>Perform Machine Learning</li>
 </ul>
 
@@ -1507,7 +1521,7 @@ permalink: /:categories/aws-foundational
 
 <p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
 <ul>
-  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a> - For real-time for ingesting data. It can be used to continuously collect data. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale</li>
+  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a>: It can be used to continuously collect data in <u>real-time</u>. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale. <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Key concepts</a>: <em>It is a set of shards; each shard has a sequence of data records; each data record has a sequence number that is assigned by Kinesis Data Streams. A shard is a uniquely identified sequence of data records in a stream. A partition key is used to group data by shard within a stream. Kinesis Data Streams segregates the data records belonging to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </em></li>
   <li>Data Firehose: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
   <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It analyzes the data after it receives the data</li>
   <li>It is more use to Big Data, but in scenarios that is necessary real data, it is better than SQS.</li>
@@ -2076,7 +2090,7 @@ permalink: /:categories/aws-foundational
     <ul>
       <li>File Gateway caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3</li>
       <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3</li>
-      <li>Tape gateway help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>    
+      <li><a href="https://aws.amazon.com/storagegateway/vtl/">Tape gateway</a> help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>    
     </ul>
   </li>
   <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
