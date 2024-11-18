@@ -285,7 +285,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by <u>users, applications, and services</u>. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
-<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to <u>users, groups, roles or resources</u>. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. Best practices: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-groups-for-permissions">least privilege</a>. The <u>types</u> of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), permissions boundaries (maximum permission), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to <u>users, groups, roles or resources</u>. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. Best practices: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-groups-for-permissions">least privilege</a>. The <u>types</u> of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">permissions boundaries</a> (maximum permissions that an identity-based policy can grant to an IAM entity), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
 <ul>
   <li>Version</li>
   <li>Effect: allow/deny</li>
@@ -480,11 +480,11 @@ permalink: /:categories/aws-foundational
       <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
       <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">EBS Volume Types</a>: 
         <ul>
-          <li>gp2/gp3 (SSD): general puerpose; balance between price and performance; 3K IOPS and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Hadoop). </li> 
-          <li>io1 (SSD): high perfomance and most expensive. 64K IOPs per volume, 50 IOPS per GiB. critical low latency or high throughput]; Use cases: large database, legacy</li>
+          <li>gp2/gp3 (SSD): general puerpose; balance between price and performance; 3K IOPS and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Boot volumes, dev and test env). </li> 
+          <li>io1 (SSD): high perfomance and most expensive. 64K IOPs per volume, 50 IOPS per GiB. critical low latency or high throughput; Use cases: large database, I/O-intensive database workloads</li>
           <li>io2 (SSD): Higher durability. 500 IOPS per GiB (same price of io1). I/O intensive apps, large database</li>
-          <li>st1(HDD): low cost, frequently accessed and thoughput intensive workload (big data, data warehouse); </li>
-          <li>sc1 (HDD): lowest cost; less frequently accedded. Onlys SSDs can be boot volume.</li>
+          <li>st1(HDD): low cost, use case: big data, data warehouse, log processing; </li>
+          <li>sc1 (HDD): lowest cost; Throughput-oriented storage for data that is infrequently accessed.</li>
         </ul>
       </li>
       <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted.</li>
@@ -496,6 +496,7 @@ permalink: /:categories/aws-foundational
       <li>Network File System (NFS) for Linux instances and linux-based applications in multi-AZ.</li>
       <li>Shared File storage service using EC2.</li>
       <li>It is considered highly available, scalable, expensive, pay per use (Expensive).</li>
+      <li>Easy to set up, scale, and cost-optimize file storage in the Amazon Cloud</li>
       <li>Tiers: frequent access (Standard) and not frequent access (IA)</li>
       <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Standard to EFS-IA.</li>
       <li>Encryption at rest using KMS</li>
@@ -626,7 +627,7 @@ permalink: /:categories/aws-foundational
     <ul>
       <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
       <li>Simple Scaling Policy: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
-      <li>Target Tracking Policy: Use scaling metrics and value that ASG should maintain at all times, e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
+      <li>Target Tracking Policy: Use scaling metrics and value that ASG should maintain at all times (increases or decreases the number of tasks that your service runs based on a target value for a specific metric.), e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
     </ul>
   </li>
   <li><b>Instance Warm-Up</b>: stops instances behind load balancer, failing the helath check and being terminated prematuraly</li>
@@ -646,7 +647,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Vertical Scaling: resize the database</li>
   <li>Scaling Storage: resize storage to go up, but is not able scale back down (RDS, Autora)</li>
-  <li>Read Replicas: realy only copies to spread out the workload. Use multiple zones.</li>
+  <li><a href="https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/">Read Replicas</a>: realy only copies to spread out the workload. Use multiple zones.</li>
   <li><a href="https://aws.amazon.com/rds/aurora/serverless/">Aurora Serverless</a>: offload scaling to AWS. Unpredictable workloads. Aurora is the only engine that offers a serverless scaling option.</li>
 </ul>
 
@@ -735,7 +736,7 @@ permalink: /:categories/aws-foundational
 <p><b><u>VPCs Connections</u></b></p>
 <ul>
   <li><b>VPC Peering</b> <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a>: connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li>
-  <li><b>PrivateLink</b>: provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a Network Load Balancer (NLB) on the service VPC and an ENI on the customer VPC.</li>
+  <li><a href="https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf"><b>PrivateLink</b></a>: provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a Network Load Balancer (NLB) on the service VPC and an ENI on the customer VPC.</li>
   <li><b>VPM CloudHub</b>: Multiple sites with its own VPN connection. The traffic is encrypted.</li>
   <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>:
     <ul>
@@ -747,7 +748,7 @@ permalink: /:categories/aws-foundational
       <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
     </ul>
   </li>
-  <li><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (<u>private</u>) between on premises and AWS. Types: dedicated network connection (physical ethernet connection associated with a single customer) or hosted connection (provisioned by a partner). No public internet. The company should use <u>AWS Transit Gateway</u>. Using only DX data in transit is not encrypted but is private; DX + VPN privides an IPSec-encrypted private connection. Resiliency: Use two Direct Connection locations each one with two independent connections.</li>
+  <li><b>Direct Connect (DX)</b><a href="https://aws.amazon.com/directconnect/">[3]</a><a href="https://digitalcloud.training/aws-direct-connect/">[4]</a>: physical connection (<u>private</u>) between on premises and AWS. Types: dedicated network connection (physical ethernet connection associated with a single customer) or hosted connection (provisioned by a partner). The most resilient solution is to configure DX connections at multiple DX locations. This ensures that any issues impacting a single DX location do not affect availability of the network connectivity to AWS. No public internet. The company should use <u>AWS Transit Gateway</u>. Using only DX data in transit is not encrypted but is private; DX + VPN privides an IPSec-encrypted private connection. Resiliency: Use two Direct Connection locations each one with two independent connections.</li>
   <li><b>AWS Transit Gateway</b> <a href="https://aws.amazon.com/transit-gateway/">[1]</a>: connect VPC and on-premise network using a central hub working as a router. It allows a transitive peering; works on a hub-and-spoke model; works on a regional basis (cannot have it across multiple regions but can use it across multiple accounts.)</li>
 </ul>
 
@@ -757,7 +758,7 @@ permalink: /:categories/aws-foundational
 
 <p><b>Bastion Host</b> is a instance in public subnet that handle the communication between internet and one or more EC2 instance in a private subnet via ssh.</p>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html"><b>VPC sharing</b></a> <em> allows multiple AWS accounts to create their application resources into shared and centrally-managed Amazon VPCs. To set this up, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner. You can share Amazon VPCs to leverage the implicit routing within a VPC for applications that require a high degree of interconnectivity and are within the same trust boundaries. </em></p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html"><b>VPC sharing</b></a> <em> allows multiple AWS accounts to create their application resources into shared and centrally-managed Amazon VPCs. To set this up, the account that owns the VPC (owner) shares one or more subnets with other accounts (participants) that belong to the same organization from AWS Organizations. After a subnet is shared, the participants can view, create, modify, and delete their application resources in the subnets shared with them. Participants cannot view, modify, or delete resources that belong to other participants or the VPC owner. You can share Amazon VPCs to leverage the implicit routing within a VPC for applications that require a high degree of interconnectivity and are within the same trust boundaries. If is necessary to restrict access for a specific instance so the consumers cannot connect to other instances in the VPC the best solution is to use PrivateLink to create an endpoint for the application. The endpoint type will be an interface endpoint and it uses an NLB in the shared services VPC</em></p>
 
 
 <p><b>Route 53</b> <a href="https://digitalcloud.training/amazon-route-53/">[1]</a><a href="https://medium.com/@kinnarisutaria9/getting-started-with-amazon-route-53-e10f93165a6a">[2]</a><a href="https://digitalcloud.training/aws-content-delivery-and-dns-services/">[3]</a>: </p>
@@ -844,7 +845,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Global (and fast) Content Delivery Network (CDN)</li>
   <li>It works with AWS and on-site architecture</li>
-  <li>It can block countries, but the best place to do to it is WAF</li>
+  <li>It can block countries, but the best place to do to it is WAF. With WAF you must create an ACL that includes the IP restrictions required and then associate the web ACL with the CloudFront distribution.</li>
   <li>If you need to prevent users in specific countries from accessing your content, you can use the CloudFront geo restriction feature</li>
   <li>Replicate part of your application to AWS Edge Locations (content is served at the edge)</li>
   <li>Edge location: location to cache the content</li>
@@ -908,6 +909,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Access Control Lists (ACLs): It is account level control. It defines which account/groups can access and type of access. It can be attach by object or bucket.</li>
   <li>Bucket Policies: It is account level and user level control. It defines who and what is allowed or denied. - allows across account</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html">Presigned URL</a> gives access to the object identified in the URL. For this creation, is necessary to provide a security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The presigned URLs are valid only for the specified duration. This is the most secure way to provide the vendor with time-limited access to the log file in the S3 bucket.</li>
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">IAM Policy</a>: It is user level control. A policy attached to a user can give permission to access S3 bucket</li>
   <li>IAM Role for EC2 instance can allow EC2 instance access S3 bucket</li>
   <li>Access Point</li>
@@ -1358,7 +1360,7 @@ permalink: /:categories/aws-foundational
   <li>You cannot enable/disable encryption in transit using the RDS management console or use a KMS key.</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
   <li>Replicas is only to ready. It improves database scalability.</li>
-  <li>Read Replica: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
+  <li><a href="https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/">Read Replicas</a>: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
   <li>Multi-AZ: when a Multi-AZ DB instance is provisioned, RDS cautomatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
   <li>It can use Auto scaling to add replicas</li>
   <li>Serveless</li>
@@ -1366,7 +1368,7 @@ permalink: /:categories/aws-foundational
   <li>It is suited for OLTP workloads (real-time)</li>
   <li>Security through IAM, Security Groups, KMS, SSL in transit</li>
   <li>Support for IAM Authentication (IAM roles)</li>
-  <li>RDS Proxy: Allows app to pool and share DB connections improving db efficience, as well reduce the failover</li>
+  <li><a href="https://aws.amazon.com/rds/proxy/">RDS Proxy</a>: Allows app to pool and share DB connections improving db efficience, as well reduce the failover. It makes applications more scalable, more resilient to database failures, and more secure</li>
   <li>Shared Responsibility
     <ul>
       <li>AWS: Manage the underlyning EC2 instance, disable ssh access; Automated DB and OS patching, guarantee the hardware</li>
@@ -1443,6 +1445,7 @@ permalink: /:categories/aws-foundational
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
   <li>Streams: time-ordered sequence of titem-level changes in a table. Stored for 24 hours</li>  
   <li>Global Table: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
+  <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time. This is the native way to handle this within DynamoDB, therefore will incur the least amount of operational overhead</li>
   <li>Time to Live (TTL): define when an item expire and can be automatically deleted</li>
 </ul>
 
@@ -1857,7 +1860,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Filtering traffic: filter specific requests based on rules - requests sent to CloudFront, ELB, API Gateway.</li>
   <li>Protection on layer 7  (HTTP) DDoS attacks, SQL Injection and Cross-Site Scripting(XSS) </li>
-  <li>Define Web ACL (Web Access Control List - rate-based rules).</li>
+  <li>Define Web ACL (Web Access Control List - <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html">rate-based rules</a>). A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action on IPs with rates that go over a limit. This type of rule can be used to temporary block requests from an IP address that's sending excessive requests. By default, AWS WAF aggregates requests based on the IP address from the web request origin.</li>
   <li>Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
   <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
   <li>In case use CloudFront and is necessary to block an IP, WAF must be with CloudFront to block that IP and not in ALB because, in this case, ALB just can see the CloudFront ID; and for the same reason NACL is not enough.</li>
@@ -1939,6 +1942,7 @@ permalink: /:categories/aws-foundational
   <li>The <b>AWS encryption SDK</b> is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/UsingClientSideEncryption.html">client-side encryption</a> library that is separate from the language–specific SDKs</li>
   <li><b>SSE-S3</b> (S3 Managed Keys) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
   <li><b>SSE-KMS</b> Key Management Service: Server-side encryption that is similar to SSE-S3, but using this service. It provides audit trail.</li>
+  <li>SSE-C: server-side with client provided keys</li>
 </ul>
 
 
@@ -2083,7 +2087,7 @@ permalink: /:categories/aws-foundational
   <li>Snowball Pricing: per data transfer job</li>
 </ul>
 
-<p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a></p>
+<p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a><a href="https://digitalcloud.training/aws-storage-gateway/">[3]</a></p>
 <ul>
   <li>Hybrid cloud storage service that helps to merge on-primes resources with cloud</li>
   <li>Types:
@@ -2100,9 +2104,9 @@ permalink: /:categories/aws-foundational
 </ul>
 
 
-<p>AWS <b>DataSync</b> <a href="https://aws.amazon.com/datasync/">[1]</a>:</p>
+<p><a href="https://aws.amazon.com/datasync/"><b>DataSync</b> </a>:</p>
 <ul>
-  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data between on-premises storage, edge locations, other clouds, and AWS Storage services.</li>
+  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data between on-premises storage, edge locations, other clouds, and AWS Storage services. However it is not designed as a hybrid storage service (Storage Gateway is)</li>
   <li>Agent-based solution for migrating on-premises storage to AWS.</li>
   <li>Agent for self-managed locations</li>
   <li>The agent is not necessary when transferring data betwen AWS storage in the same AWS account</li>
