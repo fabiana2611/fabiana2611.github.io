@@ -33,7 +33,7 @@ permalink: /:categories/aws-concepts
     <td><a href="#deploy">Deployment</a></td>
   </tr>
   <tr>
-    <td><a href="#monitoring">Monitoring</a></td>
+    <td><a href="#monitoring">Monitoring and Audit</a></td>
     <td><a href="#security">Security</a></td>
     <td><a href="#migration">Migration</a></td>
   </tr>
@@ -1499,7 +1499,7 @@ permalink: /:categories/aws-concepts
   <li>OLAP - online analytical processing (analytics and data warehouseing)</li>
   <li>Parallel Query</li>
   <li>Run SQL against data warehouse</li>
-  <li>Redshift Spectrum run queries against Amazon S3 without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
+  <li><b>Redshift Spectrum</b> run queries against Amazon S3 without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
   <li>Size: up to 16PB of data</li>
   <li>Pricing: Pay as you go</li>
   <li>BI tools: AWS Quicksight or Tableau</li>
@@ -1508,7 +1508,7 @@ permalink: /:categories/aws-concepts
   <li>Performance: always facor large batches inserts</li>
 </ul>
 
-<p style="text-align: justify;">Amazon EMR (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
+<p style="text-align: justify;">Amazon <b>EMR</b> (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
 <ul>
   <li>Help with ETL processing</li>
   <li>EMER is made up of EC2 instances</li>
@@ -1581,7 +1581,7 @@ permalink: /:categories/aws-concepts
   <li>Works with EC2 and EMR</li>
   <li>Components: Pipeline definition (business logic), Managed Compute (create EC2 instance), task runners, Data Notes (location and types of data)</li>
   <li>Use cases: processing data in EMR using Hadoop streaming; Importing or exporting DynamoDB data; Copying CSF files or data between S3 buckets; Exporting RDS data to S3</li>
-  <li>Can use SNS for failure notification andsuccess and other event-driven workflow</li>
+  <li>Can use SNS for failure notification and success and other event-driven workflow</li>
 </Ul>
 
 
@@ -1597,8 +1597,8 @@ permalink: /:categories/aws-concepts
   <li>Security and Logging
     <ul>
       <li>Integration with KMS</li>
-      <li>Encryption at rest bu default</li>
-      <li>TLS for encryption in trasit between brokers in clisters</li>
+      <li>Encryption at rest by default</li>
+      <li>TLS for encryption in trasit between brokers in clusters</li>
       <li>Deliver broker logs to CloudWatch, S3, Kinesis Data Firehose</li>
       <li>Metrics are gathered and sent to CloudWatch</li>
       <li>MSK API calls are logged to CloudTrail</li>
@@ -1654,7 +1654,7 @@ permalink: /:categories/aws-concepts
   <li>Stack is a regional resource</li>
 </ul>
 
-<p>AWS Elastic <b>Beantalk</b><a href="https://aws.amazon.com/elasticbeanstalk/">[1]</a><a href="https://digitalcloud.training/aws-elastic-beanstalk/">[2]</a></p>
+<p>AWS Elastic <b>Beanstalk</b><a href="https://aws.amazon.com/elasticbeanstalk/">[1]</a><a href="https://digitalcloud.training/aws-elastic-beanstalk/">[2]</a></p>
 <ul>
   <li>Integrate with VPC and IAM</li>
   <li>ZIP, WAR, Git</li>
@@ -1676,7 +1676,7 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>Provides an operations console and APIs for centralized application and resource management in hybrid environments</li>
   <li>A hybrid service that manage EC2 and OnPremises system at scale</li>
-  <li>Operations insights about state of infrastructe. </li>
+  <li>Operations insights about state of infrastructure. </li>
   <li>Provides interactive browser-based shell and CLI experience</li>
   <li>Run commands and apply patches on EC2 instance</li>
   <li>Manage the OS and Database patches</li>
@@ -1686,14 +1686,14 @@ permalink: /:categories/aws-concepts
   <li>Summary
     <ul>
       <li>Capabilities: Automation, run command, patch manager, parameter store, maintenance windows, session manager</li>
-      <li>Session Manager: logging (to CloudWatch and CLoudTrail), SSM Agent</li>
+      <li>Session Manager: logging (to CloudWatch and CloudTrail), SSM Agent</li>
       <li>System Manager Agent (SSM Agent): makes possible for System Manager to update, manage, and configure resoures where the agent is installed</li>
       <li>Parameter Store: free to store config and secret values</li>
     </ul>
   </li>
 </ul>
 
-<p>AWS Proton</p>
+<p>AWS <b>Proton</b></p>
 <ul>
   <li>It is a service that creates and manages infrastructure and deployment tooling</li>
   <li>Automate IaC provisioning and deployments</li>
@@ -1816,9 +1816,14 @@ permalink: /:categories/aws-concepts
 
 <p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for PCI compliance, GDPR, etc</p>
 
-<p><a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a>: is a serverless, Prometheus-compatible <u>monitoring</u> service for container metrics. It is perfect for monitoring Kubernetes clusters at scale</p>
+<p><a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a>: is a serverless, Prometheus-compatible <u>monitoring</u> service for container metrics. It is perfect for monitoring Kubernetes clusters at scale.</p>
 
 <p><a href="https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html">AWS Managed Grafana</a>: fully managed service for infrastructure for data visualizations (<u>analytics and monitoring application</u>). Features: query, correlate, and visualize operational metrics from multiple sources.</p>
+
+<p><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: fully managed best-practices <u>audit tool</u>. Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port. It is account level. Check Categories: Cost Optimization; Performance; Security; Fault Tolerance; Service Limits</p>
+
+<p>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Analyzes configurations and utilization metrics. Reports current usage optimizations and recomendation. Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</p>
+
 
 <p><center>
   <img src="/img/aws/monitor.png" height="100%" width="100%">
@@ -1891,8 +1896,8 @@ permalink: /:categories/aws-concepts
   <li>Detect and remediate the compromise of services</li>
   <li>Analyse CloudTrail events, VPC Flow Logs, etc.</li>
   <li>Ex: unusual API calls, malicious IP, unauthorized deployment, compromised instances</li>
-  <li>Feature: Alerts in GuardDuty console and ClaudWatch Event; receive feeds from thord party (e.g., AWS Security inform malicious IP); monitor CloudTrail, VPC Flow logs and DNS logs; centralize detection across multiple AWS account; automate response with CloudWatch Events and Lambda</li>
-  <li>Pricing: 30 days frew; quantity of CloudTrail Events; volume of DNS and VPC Flow Logs data</li>
+  <li>Feature: Alerts in GuardDuty console and ClaudWatch Event; receive feeds from third party (e.g., AWS Security inform malicious IP); monitor CloudTrail, VPC Flow logs and DNS logs; centralize detection across multiple AWS account; automate response with CloudWatch Events and Lambda</li>
+  <li>Pricing: 30 days free; quantity of CloudTrail Events; volume of DNS and VPC Flow Logs data</li>
 </ul>
 
 <p><b>Macie</b> <a href="https://aws.amazon.com/macie/">[1]</a>:</p>
@@ -1952,7 +1957,7 @@ permalink: /:categories/aws-concepts
   <li>The <b>AWS encryption SDK</b> is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/UsingClientSideEncryption.html">client-side encryption</a> library that is separate from the language–specific SDKs</li>
   <li><b>SSE-S3</b> (S3 Managed Keys) is a <a href="https://docs.aws.amazon.com/en_us/AmazonS3/latest/userguide/serv-side-encryption.html">server-side encryption</a> where each object is encrypted with a unique key. As an additional safeguard, it encrypts the key itself with a root key that it regularly rotates.</li>
   <li><b>SSE-KMS</b> Key Management Service: Server-side encryption that is similar to SSE-S3, but using this service. It provides audit trail.</li>
-  <li>SSE-C: server-side with client provided keys</li>
+  <li><b>SSE-C</b>: server-side with client provided keys</li>
 </ul>
 
 
@@ -2047,8 +2052,6 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">AWS <b>STS</b></a> - Security Token Service: temporary (short-term credentials), limited privileges credentials</p>
 
-
-
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html"><b>AWS IAM Access Analyzer</b></a>: identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.</p>
 
 <p><b>Aditional References:</b></p>
@@ -2100,11 +2103,10 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a><a href="https://digitalcloud.training/aws-storage-gateway/">[3]</a></p>
 <ul>
   <li>Hybrid cloud storage service that helps to merge on-primes resources with cloud</li>
-  <li></li>
   <li>Types:
     <ul>
       <li><a href="https://aws.amazon.com/storagegateway/file/">File Gateway</a> caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3. It uses NFS protocol.</li>
-      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3. They are mounted using block-based protocols (iSCSI), and it cannot be used over long distances such as by the workers in remote locations.</li>
+      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data goes throught Storage Gateway to S3. They are mounted using block-based protocols (iSCSI), and it cannot be used over long distances such as by the workers in remote locations.</li>
       <li><a href="https://aws.amazon.com/storagegateway/vtl/">Tape gateway</a> help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS. It is a backup solution not a file system.</li>    
     </ul>
   </li>
@@ -2340,8 +2342,6 @@ permalink: /:categories/aws-concepts
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing Alarms</a> and <a href="https://aws.amazon.com/aws-cost-management/aws-budgets">Budgets</a>: Monitoring against cost plans. The AWS Budget allows companies to track and categorize spending on a detailed level.</li>
   <li>AWS <b>Cost Anomaly Detection</b>: Continuously monitor your cost and usage using ML to detect unusual spends</li>
   <li>AWS <b>Service Quotas</b>: Notify when a service is close of the quota (maximum value for the resources, actions and item in account) value is achieved</li>
-  <li><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: fully managed best-practices <u>audit tool</u>. Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port. It is account level. Check Categories: Cost Optimization; Performance; Security; Fault Tolerance; Service Limits</li>
-  <li>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Analyzes configurations and utilization metrics. Reports current usage optimizations and recomendation. Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</li>
 </ul>  
 
 <p style="text-align: justify;">AWS <b>Service Catalog</b>:</p>
