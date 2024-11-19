@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "AWS Cloud Concepts"
-date:   2023-06-01
+date:   2024-11-16
 categories: infra
-permalink: /:categories/aws-foundational
+permalink: /:categories/aws-concepts
 ---
 
 <table>
@@ -56,6 +56,10 @@ permalink: /:categories/aws-foundational
 
 <hr>
 <br />
+
+<!--
+<p  style="text-align: justify;">This post was published originally in 2023 for Clound Foundation and updated in 2024 for Solution Architect Certification.</p>
+-->
 
 <p style="text-align: justify;">AWS has a lot of certifications and a few of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
@@ -279,9 +283,9 @@ permalink: /:categories/aws-foundational
   </li>
 </ul>
 
-<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions (by default) with access to an AWS Accounts. They are create with NO access to any AWS services, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "service accounts". It's possible to have 5000 users per AWS account.</p>
+<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions by default, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "service accounts". It's possible to have 5000 users per AWS account.</p>
 
-<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users and cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
+<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users can be part of groups and the group cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
 
 <p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by <u>users, applications, and services</u>. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
@@ -403,7 +407,7 @@ permalink: /:categories/aws-foundational
   <li>It can storing data (EBS/EFS), distributing load (ELB), scaling services (ASG)</li>
   <li>Volumes: <b>EBS</b> (persist) and <b>Instance Store</b> (Non-Persistent)</li>
   <li><b>Bootstrap scripts</b>: script that runs when the instance first runs (EC2 User data scripts). It can install updates, softwares, etc. Those scripts run with root user.</li>
-  <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b>. To review scripts used to bootstrap the instances at runtime you can access <b>http://169.254.169.254/latest/yser-data</b></li>
+  <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b>. To review scripts used to bootstrap the instances at runtime you can access <b>http://169.254.169.254/latest/user-data</b></li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
   <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
@@ -453,7 +457,7 @@ permalink: /:categories/aws-foundational
   </li>
 </ul> 
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"><b>EC2 Hibernate</b></a>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maxmin days an instance can be in hibernation: 60 days.</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"><b>EC2 Hibernate</b></a>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maximun days an instance can be in hibernation: 60 days.</p>
 
 <p><b>Storage:</b></p>
 <ul>
@@ -473,7 +477,7 @@ permalink: /:categories/aws-foundational
       <li>Scalable: dynamically increase capacity and change the volume type with no impact</li>
       <li>The EBS volumes not need to be attached to an instance. There is the root volume. Good practice create your own volume.</li> 
       <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
-      <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains): <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a> Same AZ, only to SSD volume, allowed only in some regions, and others restrictions)</li> 
+      <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains): <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a> (Same AZ, only to SSD volume, allowed only in some regions, and others restrictions)</li> 
       <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
       <li>A <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">snapshot</a> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
       <li>It has a limited performance.</li> 
@@ -487,7 +491,7 @@ permalink: /:categories/aws-foundational
           <li>sc1 (HDD): lowest cost; Throughput-oriented storage for data that is infrequently accessed.</li>
         </ul>
       </li>
-      <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted.</li>
+      <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted. But cannot enable encryption after it is launch.</li>
     </ul>
   </li>
   <li>
@@ -564,7 +568,7 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"><b>EC2 Pricing:</b></a> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
   <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
-  <li>On-Demand Capacity Reservations enable to reserve compute capacity for EC2 instances in a specific AZ for any duration. You always have access to EC2 capacity when you need it, for as long as you need it. You can create Capacity Reservations at any time, without entering a one-year or three-year term commitment, and the capacity is available immediately.</li>
+  <li><b>On-Demand Capacity Reservations</b> enable to reserve compute capacity for EC2 instances in a specific AZ for any duration. You always have access to EC2 capacity when you need it, for as long as you need it. You can create Capacity Reservations at any time, without entering a one-year or three-year term commitment, and the capacity is available immediately.</li>
   <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front. The remaining term of the reserved instances can be sold on Marketplace
     <ul>
       <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
@@ -625,9 +629,9 @@ permalink: /:categories/aws-foundational
   <li>High availability can be achieved with <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling</a> balancing your EC2 count across the AZs</li>
   <li><b>Scaling Policies</b>: minimum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
     <ul>
-      <li>Step scaling policy: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
-      <li>Simple Scaling Policy: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
-      <li>Target Tracking Policy: Use scaling metrics and value that ASG should maintain at all times (increases or decreases the number of tasks that your service runs based on a target value for a specific metric.), e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
+      <li><u>Step scaling policy</u>: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
+      <li><u>Simple Scaling Policy</u>: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
+      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html"><u>Target Tracking Policy</u></a>: Use scaling metrics and value that ASG should maintain at all times (increases or decreases the number of tasks that your service runs based on a target value for a specific metric.), e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
     </ul>
   </li>
   <li><b>Instance Warm-Up</b>: stops instances behind load balancer, failing the helath check and being terminated prematuraly</li>
@@ -635,9 +639,9 @@ permalink: /:categories/aws-foundational
   <li><b>Avoid Thrashing</b>: create instance very fast</li>
   <li><b>Scaling types</b>: 
     <ul>
-      <li>Reactive scaling: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
-      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> (predictable workflow) can be configured for known increase in app traffic.</li> 
-      <li>Predictive Scaling: uses daily and weekly trends to determine when scale</li>
+      <li><u>Reactive scaling</u>: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
+      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html"><u>Scheduled Scaling</u></a> (predictable workflow) can be configured for known increase in app traffic.</li> 
+      <li><u>Predictive Scaling</u>: uses daily and weekly trends to determine when scale</li>
     </ul>
   </li>
   <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
@@ -718,8 +722,8 @@ permalink: /:categories/aws-foundational
   <li><b>Elastic IP</b>: static IP for a public IP in EC2 instance</li>
   <li><b>Route Tables</b>: make possible the access of the internet and between subnets.</li>
   <li><b>Internet Gateways</b>: helps VPC to connect to internet. The public subnet has a route to the internet gateway, but private subnet does NOT have a route to Internet Gateway.</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"><b>NAT instance</b></a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. </li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) does not need to patch. NAT instance supports port forwarding and it's associated with security groups. A NAT gateway is used for outbound traffic not inbound traffic and cannot make the application available to internet-based clients.</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"><b>NAT instance</b></a> (self-managed): allows the instance inside the private Subnets to access the internet or other services. But denying inbound traffic from internet. Automatically assigned a public IP (elastic IP). It is Reduntand inside AZ. NAT instance supports port forwarding and it's associated with security groups.</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) does not need to patch. A NAT gateway is used for outbound traffic not inbound traffic and cannot make the application available to internet-based clients.</li>
   <li><b>VPC Endpoint</b>: connect to AWS services using <u>private Network</u>. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leaving AWS environment. They are horizontaly scaled, redundant, and highly available. 
     <ul>Types: 
       <li><b>Interface endpoints</b>: uses Elastic Eetwork Interface (<u>ENI</u>) with <u>private IP</u> redirected by DNS; supports many services; use Security Groups</li>
@@ -730,21 +734,21 @@ permalink: /:categories/aws-foundational
 
 <p><b><a href="https://docs.aws.amazon.com/vpc/latest/userguide/security.html">VPC Security</a></b></p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-rules"><b>Network ACL</b></a> (Access Control List): it is the first line of defense. It is subnet level: firewall to subnets (only IP), controlling traffic in and out of one or ore subnets. <u>Stateless</u>: have to allow inbound and outbound traffic (checks for an allow rule for both connections). Supports allow and deny rules. Customer is responsible for configure it. The <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#default-network-acl">default ACLs</a> allows all outbound and inbound traffic. The custom ACL denies inbound and outbound traffic by default. A subnet will be associated with the default ACL. A subnet is associated with only one ACL but ACL can be associated with multiple subnets. Rules are evaluating in order starting with the lowest number rule (first match wins).</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-rules"><b>Network ACL</b></a> (Access Control List): it is the first line of defense. It is subnet level: firewall to subnets (only IP), controlling traffic in and out of one or more subnets. <u>Stateless</u>: have to allow inbound and outbound traffic (checks for an allow rule for both connections). Supports allow and deny rules. Customer is responsible for configure it. The <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#default-network-acl">default ACLs</a> allows all outbound and inbound traffic. The custom ACL denies inbound and outbound traffic by default. A subnet will be associated with the default ACL. A subnet is associated with only one ACL but ACL can be associated with multiple subnets. Rules are evaluating in order starting with the lowest number rule (first match wins).</li>
 </ul>
 
 <p><b><u>VPCs Connections</u></b></p>
 <ul>
   <li><b>VPC Peering</b> <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a>: connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li>
-  <li><a href="https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf"><b>PrivateLink</b></a>: provides private connectivity between VPCs, AWS services, and your on-premises networks, without exposing your traffic to the public internet. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a Network Load Balancer (NLB) on the service VPC and an ENI on the customer VPC.</li>
+  <li><a href="https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf"><b>PrivateLink</b></a>: provides private connectivity between VPCs, AWS services, and your on-premises networks, <u>without exposing your traffic to the public internet</u>. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a <u>Network Load Balancer</u> (NLB) on the service VPC and an <u>ENI</u> on the customer VPC.</li>
   <li><b>VPM CloudHub</b>: Multiple sites with its own VPN connection. The traffic is encrypted.</li>
-  <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>:
+  <li>VPN:
     <ul>
-      <li>Establish secure connections between your on-premises networks and VPC using a secure and private connection with IPsec and TLS. Encrypted network connectivity </li>
-      <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: it connects two VPCs via VPN. It needs Virtual Private Gateway (VGW), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail. Connect (encrypted) on premises VPN to AWS over the public internet</li>
+      <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>: Establish secure connections between your on-premises networks and VPC using a secure and private connection with IPsec and TLS. Encrypted network connectivity. <u>Over public internet</u></li>
+      <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: it connects two VPCs via VPN. It needs Virtual Private Gateway (VPG), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail. Over the public internet</li>
       <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
-      <li><b>VPN Gateway</b>: connect one VPC to customer network</li>
-      <li><b>Customer Gateway</b>: installed in customer network</li>
+      <li><b>Virtual Private Gateway</b>: connect one VPC to customer network. It is used to setup an AWS VPN</li>
+      <li><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html"><b>Customer Gateway</b></a>: installed in customer network</li>
       <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
     </ul>
   </li>
@@ -775,7 +779,7 @@ permalink: /:categories/aws-foundational
     </ul>
   </li>
   <li>Reliability and cost-effective way to route end users</li>
-  <li>Helth check</li>
+  <li>Helth check: can monitor the health of a specified resource, the status of other health checks, the status of an Amazon CloudWatch alarm. Only for public resources</li>
   <li>It is a hybrid architecture.</li>
   <li>It's not possible to extend Route 53 to on-premises instances.</li>
   <li>Paied for hosted zone, queries, traffic flow, health checks, domain name. </li>
@@ -789,7 +793,13 @@ permalink: /:categories/aws-foundational
       <li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring.html"><b>Failover routing policy</b></a>: use primary and standby configuration that sends all traffic to the primary until it fails a health check and sends traffic to the secondary. This solution does not good enough for lowest latency. It is used when you want to create an active/passive set up. It cannot be associated with Health Checks.</li>
     </ul>
   </li>
-  <li>Health Checks: Only for public resources</li>
+  <li>Route 53 can be used to <a href="https://aws.amazon.com/premiumsupport/knowledge-center/route-53-dns-health-checks/">check the health of resources</a> and only return healthy resources in response to DNS queries. Types of DNS failover configurations:
+    <ul>
+      <li>Active-passive: Route 53 actively returns a primary resource. In case of failure, Route 53 returns the backup resource. Configured using a failover policy.</li>
+      <li>Active-active: Route 53 actively returns more than one resource. In case of failure, Route 53 fails back to the healthy resource. Configured using any routing policy besides failover.</li>
+      <li>Combination: Multiple routing policies (such as latency-based, weighted, etc.) are combined into a tree to configure more complex DNS failover.</li>
+    </ul>
+  </li>
 </ul>
 
 <p><center>
@@ -845,7 +855,7 @@ permalink: /:categories/aws-foundational
 <ul>
   <li>Global (and fast) Content Delivery Network (CDN)</li>
   <li>It works with AWS and on-site architecture</li>
-  <li>It can block countries, but the best place to do to it is WAF. With WAF you must create an ACL that includes the IP restrictions required and then associate the web ACL with the CloudFront distribution.</li>
+  <li>It can block countries, but the best place to do it is WAF. With WAF you must create an ACL that includes the IP restrictions required and then associate the web ACL with the CloudFront distribution.</li>
   <li>If you need to prevent users in specific countries from accessing your content, you can use the CloudFront geo restriction feature</li>
   <li>Replicate part of your application to AWS Edge Locations (content is served at the edge)</li>
   <li>Edge location: location to cache the content</li>
@@ -1389,8 +1399,10 @@ permalink: /:categories/aws-foundational
   <li>Compatible with <a href="https://aws.amazon.com/rds/aurora/mysql-features/">MySQL</a>, PostgreSQL, Oracle, Microsoft SQL Server</li>
   <li>Storage: data is stored in 6 replicas across 3 AZ</li>
   <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. automatic backup enabled</li>
+  <li>An Aurora cluster can recover in less than 1 minute even in the event of a complete regional outage.</li>
   <li>User case: unpredictable and intermittent workloads, no capacity planning</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">Aurora Global Database</a>: up to 16DB read instances in each region. It consists of one primary AWS Region where your data is mastered, and up to five read-only, secondary AWS Regions. Aurora replicates data (async) to the secondary AWS Regions with typical latency of under a second.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html">Aurora Replicas</a> are independent endpoints in an Aurora DB cluster, best used for scaling read operations and increasing availability. Up to 15 Aurora Replicas can be distributed across the Availability Zones that a DB cluster spans within an AWS Region.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">Aurora Global Database</a>: up to 16DB read instances in each region. It consists of one primary AWS Region where your data is mastered, and up to five read-only, secondary AWS Regions. Aurora replicates data (async) to the secondary AWS Regions with typical latency of under 1 second (Recovery Point Objective - RPO).</li>
   <li>Perform Machine Learning</li>
 </ul>
 
@@ -1400,8 +1412,8 @@ permalink: /:categories/aws-foundational
 
 <p>Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
-  <li>Manage Mem cached</li>
-  <li>Managed Redis</li>
+  <li>Manage Memcached: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data</li>
+  <li>Managed Redis: support both data replication and clustering.</li>
   <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
@@ -1465,6 +1477,7 @@ permalink: /:categories/aws-foundational
 
 <p style="text-align: justify;"><b>Timestream</b>: time series database service for IoT and operational application. For analyses.</p>
 
+<p style="text-align: justify;"><a href="https://aws.amazon.com/lake-formation/features/"><b>AWS Lake Formation</b></a> is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for analysis. With AWS Lake Formation, you can import data from MySQL, PostgreSQL, SQL Server, MariaDB, and Oracle databases running in Amazon Relational Database Service (RDS) or hosted in Amazon Elastic Compute Cloud (EC2). Both bulk and incremental data loading are supported. Use case: Machine Learning</p>
 
 
 <!-- ###################################################### -->
@@ -1734,8 +1747,10 @@ permalink: /:categories/aws-foundational
   <li>Features: System Metrics, Application Metrics, Alarms</li>
   <li>The alarms trigger notifications for metric.</li>
   <li>Types of metrics: default (CPU utilization, Network throughput), custom (EC2 Memory utilization, EBS Storage Capacity)</li>
-  <li>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It's possible to query logs to look for potential issues. For custom logs, use CloudWatch Agent, including on-premise. Features: Filter Patterns; CloudWatch Logs Insights (query using SQL); Alarms. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
+  <li>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It's possible to query logs to look for potential issues. For custom logs, use <u>CloudWatch Agent</u>, including on-premise. Features: Filter Patterns; CloudWatch Logs Insights (query using SQL); Alarms. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
+  <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html">CloudWatch agent</a> collect both system metrics and log files from Amazon EC2 instances and on-premises servers.</li>
   <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
+  <li>Use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html"><u>CloudWatch Container Insights</u></a> to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Kubernetes platforms on Amazon EC2.</li>
 </ul>
 
 <p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
@@ -1873,12 +1888,13 @@ permalink: /:categories/aws-foundational
   <li>Simplify the management of Firewall rules across account</li>
 </ul>
 
-<p><b>GuardDuty</b> <a href="https://aws.amazon.com/guardduty">[1]</a>:</p>
+<p><a href="https://aws.amazon.com/guardduty"><b>GuardDuty</b></a>:</p>
 <ul>
   <li>Threat detection service to protect AWS account</li>
   <li>Monitor suspicious activity</li>
   <li>It uses Machine Learning and check Logs.</li>
   <li>Identify potential security issues.</li>
+  <li>Detect and remediate the compromise of services</li>
   <li>Analyse CloudTrail events, VPC Flow Logs, etc.</li>
   <li>Ex: unusual API calls, malicious IP, unauthorized deployment, compromised instances</li>
   <li>Feature: Alerts in GuardDuty console and ClaudWatch Event; receive feeds from thord party (e.g., AWS Security inform malicious IP); monitor CloudTrail, VPC Flow logs and DNS logs; centralize detection across multiple AWS account; automate response with CloudWatch Events and Lambda</li>
@@ -1920,8 +1936,8 @@ permalink: /:categories/aws-foundational
       <li>CMK - customer master key: can be generated by KMS, customer key management or CloudHSM
         <ul>
           <li>AWS managed CMK: create, managed and used on the customers behalf by AWS; used by AWS services</li>
-          <li>Customer Managed CMK: create, manage, use, enable or disable; rotation policy</li>
-          <li>AWS owned CMK: collections of CMKs owned by AWS to use in multiple accounts. The customer cannot see those keys.</li>
+          <li><a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">Customer Managed CMK</a>: create, manage, use, enable or disable; rotation policy</li>
+          <li><a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS owned CMK</a>: collections of CMKs owned by AWS to use in multiple accounts. The customer cannot see those keys.</li>
           <li>CloudHSM Keys <a href="https://aws.amazon.com/cloudhsm/">[1]</a><a href="https://digitalcloud.training/aws-cloudhsm/">[2]</a>: created by the device
             <ul>
               <li>enables easily generate and use your own encryption keys in AWS cloud</li>
@@ -2090,11 +2106,12 @@ permalink: /:categories/aws-foundational
 <p style="text-align: justify;"><b>Storage Gateway</b><a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html">[1]</a><a href="https://aws.amazon.com/storagegateway/">[2]</a><a href="https://digitalcloud.training/aws-storage-gateway/">[3]</a></p>
 <ul>
   <li>Hybrid cloud storage service that helps to merge on-primes resources with cloud</li>
+  <li></li>
   <li>Types:
     <ul>
-      <li>File Gateway caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3</li>
-      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3</li>
-      <li><a href="https://aws.amazon.com/storagegateway/vtl/">Tape gateway</a> help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS</li>    
+      <li><a href="https://aws.amazon.com/storagegateway/file/">File Gateway</a> caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3. It uses NFS protocol.</li>
+      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data does throught Storage Gateway to S3. They are mounted using block-based protocols (iSCSI), and it cannot be used over long distances such as by the workers in remote locations.</li>
+      <li><a href="https://aws.amazon.com/storagegateway/vtl/">Tape gateway</a> help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS. It is a backup solution not a file system.</li>    
     </ul>
   </li>
   <li>Simplify storage management and reduce costs for key hybrid cloud storage use cases</li>
