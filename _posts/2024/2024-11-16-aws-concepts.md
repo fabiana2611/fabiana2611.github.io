@@ -897,14 +897,10 @@ permalink: /:categories/aws-concepts
   <li>Object store and global file system.</li>
   <li>Used to store any <u>files until 5TB</u> without limits in buckets (directories/containers)</li>
   <li>These objects have a key.</li>
-  <li>You can have <u>version</u> of the objects (bucket level)</li>
   <li>Virtually unlimited amount of online highly durable object storage. </li>
   <li>Each <b>bucket</b> is inside of a region</li>
   <li><b>Write-once-read-many</b> (WORM) - prevention of deletion or overwritten</li>
   <li>Use cases: backup, disaster recovery, archive, application hosting, media hosting, Software delivery, static website</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object </li>
-  <li>Performance: <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> Accelerate global uploads & downloads into Amazon S3; and Increase transfer speed to Edge Location (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
-  <li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a></li>
   <li><b>Shared Responsibility</b>
     <ul>
       <li>AWS: Infrastructure (global security, durability, availability), Configuration and vulnerability analysis, Compliance validation, AWS employees can't not access the customer data, separation between customers</li>
@@ -919,10 +915,10 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>Access Control Lists (ACLs): It is account level control. It defines which account/groups can access and type of access. It can be attach by object or bucket.</li>
   <li>Bucket Policies: It is account level and user level control. It defines who and what is allowed or denied. - allows across account</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html">Presigned URL</a> gives access to the object identified in the URL. For this creation, is necessary to provide a security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The presigned URLs are valid only for the specified duration. This is the most secure way to provide the vendor with time-limited access to the log file in the S3 bucket.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html">Presigned URL</a> gives access to the object identified in the URL. For this creation, is necessary to provide a security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The presigned URLs are valid only for the specified duration. This is the most secure way to provide the vendor with time-limited access to the log file in the S3 bucket. It can be created by Console or CLI.</li>
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">IAM Policy</a>: It is user level control. A policy attached to a user can give permission to access S3 bucket</li>
   <li>IAM Role for EC2 instance can allow EC2 instance access S3 bucket</li>
-  <li>Access Point</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">MFA delete</a>: for delete object or suspend version. Only the owner can enbled it.</li>
   <li>Encrypting S3 Object:
     <ul>
       <li>Types: 
@@ -940,7 +936,6 @@ permalink: /:categories/aws-concepts
         </ul>
       </li>
       <li>CORS: needs to be enabled</li>
-      <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">MFA delete</a>: for delete object or suspend version. Only the owner can enbled it.</li>
     </ul>
   </li>
 </ul>
@@ -969,25 +964,31 @@ permalink: /:categories/aws-concepts
   <li><u>Multipart Uploads</u> can increate performance. It is recomended for files over 100MB and required for files over 5GB. The performance can be improved parallelizing uploads.</li>
   <li>S3 Byte-Range Fetches: Parallelize downloads by specifying bytes ranges</li>
   <li>Tranfer speed can be increate transfering the data to an edge location</li>
-  <li>Transfer acceleration (CloudFront)</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> (CloudFront) Accelerate global uploads & downloads into Amazon S3; and Increase transfer speed to Edge Location (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
+  
 </ul>
 
 <p><b>Backup</b></p>
 
 <ul>
-  <li>Versioning: all versions are stored; good for backup; once enable it cannot be disabled (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object; good for backup; once enable it cannot be disabled (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
   <li>Replication <a href="https://aws.amazon.com/s3/features/replication/">[1]</a><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">[2]</a>:
     <ul>
-      <li>Replicate the object from one bucket to another and the version must be enables in both sides</li>
+      <li>Replicate the object from one bucket to another and the version must be enables in both sides </li>
       <li>Deleted objects are not replicated by default</li>
+      <li>Only new objects are replicated</li>
       <li>Cross-Region Replication (CRR): compliance, lower latency access</li>
       <li>Same-Region Replication (SRR): log aggregation, live replication</li>
-      <li>Copying is asynchronous</li>
-      <li>Only new objects are replicated</li>
+      <li>Copy is asynchronous</li>
     </ul>
   </li>
-  <li>S3 sync command can be used to copy objects between buckets and lists the source and target buckets.</li>
-  <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
+  <li>
+    (<a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a>)
+    <ul>
+      <li>S3 sync command can be used to copy objects between buckets and lists the source and target buckets.</li>
+      <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -1011,8 +1012,7 @@ permalink: /:categories/aws-concepts
 <ul>
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html">S3 Event Notification</a>: <em>enables you to receive notifications when certain events happen in your bucket. To enable notifications, you must first add a notification configuration that identifies the events you want Amazon S3 to publish and the destinations where you want Amazon S3 to send the notifications. An S3 notification can be set up to notify you when objects are restored from Glacier to S3.</em>  It can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery).</li>
   <li>S3 Storage Lens: Tools to analyse S3</li>
-  <li>S3 Access Log: A new buket will store the logs. They must be in the same region.</li>
-  <li>Pre-Signed URL: can be created by Cosole or CLI.</li>
+  <li>S3 Access Log: A new bucket will store the logs. They must be in the same region.</li>
 </ul>
 
 
@@ -1029,7 +1029,7 @@ permalink: /:categories/aws-concepts
 <hr>
 <br />
 
-<h2 id="decouple">Loosly Decouple</h2>
+<h2 id="decouple">Loosly Coupled</h2>
 
 <p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosly Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction</p>
 
