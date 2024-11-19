@@ -1359,15 +1359,15 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
 <ul>
   <li>Use EC2 instance</li>
-  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS. You can only create read replicas of databases running on RDS. You cannot create an RDS Read Replica of a database that is running on Amazon EC2</li>
+  <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS.</li>
   <li>RDS types for it: SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</li>
   <li>It's possible encrypt the RDS instances using AWS Key Management Service (KMS) and snapshot</li>
   <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Amazon RDS creates an SSL certificate and installs the certificate on the DB instance when it provisions the instance</a>. <em>You can download a root certificate from AWS that works for all Regions or you can download Region-specific intermediate certificates and connect to RDS DB instance. It ensure SSL/TLS encryption in transit.</em> The certificates are signed by a certificate authority. You cannot use self-signed certificates with RDS.</li>
   <li>You cannot enable/disable encryption in transit using the RDS management console or use a KMS key.</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
   <li>Replicas is only to ready. It improves database scalability.</li>
-  <li><a href="https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/">Read Replicas</a>: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup.</li>
-  <li>Multi-AZ: when a Multi-AZ DB instance is provisioned, RDS cautomatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
+  <li><a href="https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/">Read Replicas</a>: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup. You can only create read replicas of databases running on RDS. You cannot create an RDS Read Replica of a database that is running on Amazon EC2.</li>
+  <li>Multi-AZ: when a Multi-AZ DB instance is provisioned, RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
   <li>It can use Auto scaling to add replicas</li>
   <li>Serveless</li>
   <li>You can't use SSH to access instances.</li>
@@ -1408,12 +1408,11 @@ permalink: /:categories/aws-concepts
 
 <p>Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
-  <li>Manage Memcached: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data</li>
-  <li>Managed Redis: support both data replication and clustering.</li>
+  <li>Manage <b>Memcached</b>: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data. Multi AZ</li>
+  <li>Managed <b>Redis</b>: support both data replication and clustering. Multi AZ</li>
   <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
-  <li>Support for clustering (Redis) and Multi AZ</li>
   <li>Security through IAM, Security Groups, KMS, Redis Auth</li>
   <li>Shared Responsibility: AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups</li>
 </ul>
@@ -1439,7 +1438,7 @@ permalink: /:categories/aws-concepts
   <li>Low cost and auto scaling</li>
   <li>Horizontal Scaling</li>
   <li>Standard and IA (Infrequent Access) Table class</li>
-  <li>Cache: <a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
+  <li><a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
     <ul>
       <li>It is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
       <li>Lives inside the VPC</li>
@@ -1451,8 +1450,7 @@ permalink: /:categories/aws-concepts
   <li>Backup: On-Demand: full backups at any time; no performance impact, same region of source table</li>
   <li>Recovery: Point-in-Time Recovery (PITR): protect agains accidental writes or deletes; restore to any point in the last 35 days; incremental; not default; latesst restorable in the past 5 minutes</li>
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
-  <li>Streams: time-ordered sequence of titem-level changes in a table. Stored for 24 hours</li>  
-  <li>Global Table: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
+  <li><b>Global Table</b>: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time. This is the native way to handle this within DynamoDB, therefore will incur the least amount of operational overhead</li>
   <li>Time to Live (TTL): define when an item expire and can be automatically deleted</li>
 </ul>
@@ -1461,7 +1459,7 @@ permalink: /:categories/aws-concepts
   <img src="/img/aws/dynamoDB.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales sutomatically up tp 64TB, high avai;ability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
+<p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales automatically up tp 64TB, high avaiability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed graph database; no decentralization component; immutable ledger database. Ex: review a complete history of all the changes. NoSQL. Use cryptography. Immutable database.</p>
 
@@ -1473,7 +1471,7 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><b>Timestream</b>: time series database service for IoT and operational application. For analyses.</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/lake-formation/features/"><b>AWS Lake Formation</b></a> is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for analysis. With AWS Lake Formation, you can import data from MySQL, PostgreSQL, SQL Server, MariaDB, and Oracle databases running in Amazon Relational Database Service (RDS) or hosted in Amazon Elastic Compute Cloud (EC2). Both bulk and incremental data loading are supported. Use case: Machine Learning</p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/lake-formation/features/"><b>AWS Lake Formation</b></a> <em>is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for analysis. With AWS Lake Formation, you can import data from MySQL, PostgreSQL, SQL Server, MariaDB, and Oracle databases running in Amazon Relational Database Service (RDS) or hosted in Amazon Elastic Compute Cloud (EC2). Both bulk and incremental data loading are supported. Use case: Machine Learning.</em></p>
 
 
 <!-- ###################################################### -->
