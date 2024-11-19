@@ -23,7 +23,7 @@ permalink: /:categories/aws-concepts
     <td><a href="#s3">S3</a></td>
   </tr>
   <tr>
-    <td><a href="#decouple">Loosly Decouple</a></td>
+    <td><a href="#decouple">Loosely Coupled</a></td>
     <td><a href="#serverless">Serverless Applications</a></td>
     <td><a href="#container">Containers</a></td>
   </tr>
@@ -1029,9 +1029,9 @@ permalink: /:categories/aws-concepts
 <hr>
 <br />
 
-<h2 id="decouple">Loosly Coupled</h2>
+<h2 id="decouple">Loosely Coupled</h2>
 
-<p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosly Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction</p>
+<p style="text-align: justify;">The AWS recommendation for architecture is <b>Loosely Coupling</b>. It can be achieve by ELB and multiple instances. However, in some scenarios ELB may not be available. For this, other resources can be used to achive that. Here are some services that go on this direction.</p>
 
 <p><b>SQS</b> (cloud native service) <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-queue-service-amazon-sqs">[1]</a><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">[2]</a>:</p>
 <ul>
@@ -1041,7 +1041,7 @@ permalink: /:categories/aws-concepts
   <li>Pay-as-you-go pricing.</li>
   <li>Asynchronous process.</li>
   <li>Settings: Delivery delay (0 up to 15 minutes)</li>
-  <li>Message size: up to 256KB of text)</li>
+  <li>Message size: up to 256KB of text</li>
   <li>Require Message Group ID and Message Deduplication ID</li>
   <li>AWS recommend using separate queues when you need to provide prioritization of work</li>
   <li>Short polling and long polling are used to control the amount of time the consumer process waits before closing the API call and trying again.</li>
@@ -1197,7 +1197,7 @@ permalink: /:categories/aws-concepts
   <li>Run on-demand</li>
   <li>Scaling automatically</li>
   <li>Event-driven</li>
-  <li>Lambda needs IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a>
+  <li>Lambda needs IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a></li>
   <li>Can be monitoring through <b>CloudWatch</b></li>
   <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
   <li>Compute: 
@@ -1248,14 +1248,10 @@ permalink: /:categories/aws-concepts
   <li>Use case: variable workflows; multi-tentant apps (service manage capacity for each app); new apps; dev and test new features; mixed use apps; capacity planning</li>
 </ul>
 
-<p><b>GraphQL</b>: (AWS AppSync): robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
+<p><b>AWS AppSync</b>: (GraphQL): store and sync data between mobile and web app. Robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
 
-<p>Other serverless service</p>
-<ul>
-  
-  <li>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></li>
-  <li>AWS <b>AppSync</b>: store and sync data between mobile and web app</li>
-</ul>
+<p>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></p>
+
 
 
 <!-- ############################################################# -->
