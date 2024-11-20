@@ -413,7 +413,7 @@ permalink: /:categories/aws-concepts
   <li><b>Instance metadata</b> is information about the instance. User data and metadata are not encrypted. The metadata is available at <b>http://169.254.169.254/latest/meta-data</b>. To review scripts used to bootstrap the instances at runtime you can access <b>http://169.254.169.254/latest/user-data</b></li>
   <li>When the instance is stopped and started again the public IP will change. The private IP not change.</li>
   <li>If you have a legacy, the EC2 instance is a good solution to migrate to cloud that is right-sized (right amount of resources for the application)</li>
-  <li>Key pair to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
+  <li><b>Key pair</b> to access EC2: public key (stored in AQS) + private key file (stored locally). It is used to connect to EC2 instance.</li>
   <li>Get metrics in CloudWatch, logs in CloudTrail</li>
   <li><b>Shared Responsability</b>
     <ul>
@@ -431,10 +431,10 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;">Amazon EC2 <a href="https://aws.amazon.com/ec2/spot/">Spot Instances</a></p>
 <ul>
-  <li><em>Let you take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 90% discount compared to On-Demand prices. You can use Spot Instances for various stateless, fault-tolerant, or flexible applications such as big data, containerized workloads, CI/CD, web servers, high-performance computing (HPC), and test & development workloads.</em></li>
-  <li>Useful for workloads resilient to failure (batch, data analysis, Image processing, distributed workload, CI/CD and testing). However, it is not suitable for critical jobs or persistent workload and databases.</li>
-  <li>Useful when workload is not immediate and can be stopped for a moment and continue from that point after</li>
-  <li>Spot fleed: collection of spot on-demand. It will try and match the target capacity with your price restraints. Strategies: capacityOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
+  <li><em>Let you take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a <u>90%</u> discount compared to On-Demand prices. You can use Spot Instances for various <u>stateless, fault-tolerant, or flexible applications</u> such as big data, containerized workloads, CI/CD, web servers, high-performance computing (HPC), and test & development workloads.</em></li>
+  <li>Useful for workloads <u>resilient to failure</u> (batch, data analysis, Image processing, distributed workload, CI/CD and testing). However, it is not suitable for critical jobs or persistent workload and databases.</li>
+  <li>Useful when workload is <u>not immediate and can be stopped</u> for a moment and continue from that point after</li>
+  <li><u>Spot fleed</u>: collection of spot on-demand. It will try and <u>match the target capacity with your price restraints</u>. Strategies: capacityOptimized, lowestPrice, diversified, InstancePoolsToUseCount</li>
 </ul>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html"><b>EC2 Image Builder</b></a></p>
@@ -446,26 +446,26 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
 <ul>
-  <li>Template of root volume + launch permissions + block device mapping the volumes to attach</li>
+  <li><u>Template</u> of root volume + launch permissions + block device mapping the volumes to attach</li>
   <li>Launch EC2 - one or more pre-configured instance </li>
   <li>It can be customized </li>
-  <li>it is build for a specific region. The AMI must be in the same region as that of the EC2 instance to be launched; but can be copied to another one where want to create another instance.</li>
+  <li>it is build for a <u>specific region</u>. The AMI must be in the same region as that of the EC2 instance to be launched; but can be <u>copied</u> to another one where want to create another instance.</li>
   <li>It can be copied to other regions by the console, command line, or the API</li>
-  <li>An EBS snapshot is created when an AMI is builded</li>
+  <li>An <u>EBS snapshot is created when an AMI is builded</u></li>
   <li>Category:
     <ul>
-      <li>Amazon EBS: created from an Amazon EBS snapshot. It can be stopped. The data is not lost if stop or reboot. By default, the root device volume will be deleted on termination</li>
-      <li>Instance Store: created from a template stored in S3. If delete the instance the volume will be deleted as well. If the instance fails you lose data, if reboot the data is not lost. It cannot stop the volume.</li>
+      <li><u>Amazon EBS</u>: created from an Amazon EBS snapshot. It can be stopped. The <u>data is not lost if stop or reboot</u>. <u>By default, the root device volume will be deleted on termination</u></li>
+      <li><u>Instance Store</u>: created from a template stored in S3. <u>If delete the instance the volume will be deleted as well</u>. If the instance fails you lose data, <u>if reboot the data is not lost<u>. It cannot stop the volume.</li>
     </ul>
   </li>
 </ul> 
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"><b>EC2 Hibernate</b></a>: suspende to disk. Hibernation saves the contents from RAM to EBS root volume. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maximun days an instance can be in hibernation: 60 days.</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"><b>EC2 Hibernate</b></a>: suspende to disk. Hibernation <u>saves the contents from RAM to EBS root volume</u>. When start again, EBS root volume is restored; RAM contents are reloaded. Faster to boot up. Maximun days an instance can be in hibernation: <u>60 days</u>.</p>
 
 <p><b>Storage:</b></p>
 <ul>
   <li>
-    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a high-performance hardware disk, better I/O performance. However, it lose their storage when they stop (but not when reboot). So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
+    <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html"><b>EC2 Instance Store</b></a> is an alternative to EBS with a <u>high-performance</u> hardware disk, better I/O performance. However, it lose their storage when they stop (but not when reboot). So, the best scenarios to be used are, e.g, buffer, cache, temporary content.
     <ul>
       <li>AWS: Infrastructure, Replication for data to EBS volumes and EFS drives, replacing faulty hardware, Ensuring their employees cannot access your data.</li>
       <li>Customer: backups and snapshot procesures, data encryptation, analysis the risk</li>
@@ -476,50 +476,50 @@ permalink: /:categories/aws-concepts
     <ul>
       <li>EBS <b>Volume</b>: attached to one instance.</li> 
       <li>Designed for mission-critical workload</li>
-      <li>High Availability: Automatically replicated within a single AZ</li>
-      <li>Scalable: dynamically increase capacity and change the volume type with no impact</li>
+      <li><u>High Availability</u>: Automatically replicated within a single AZ</li>
+      <li><u>Scalable</u>: dynamically increase capacity and change the volume type with no impact</li>
       <li>The EBS volumes not need to be attached to an instance. There is the root volume. Good practice create your own volume.</li> 
       <li>It allows the instance to persist data even after termination, however, Root EBS volumes are deleted on termination by default</li>
-      <li>The EBS volumes cannot be accessed simultaneously by multiple EC2 instance (only with constrains): <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a> (Same AZ, only to SSD volume, allowed only in some regions, and others restrictions)</li> 
-      <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is locked to an AZ. To move to another AZ is necessary to create a <b>snapshot</b> and it can be copy across AZ or Region. </li>
+      <li>The EBS volumes <u>cannot be accessed simultaneously by multiple EC2 instance</u> (only with constrains): <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Attach a volume to multiple instances with Amazon EBS Multi-Attach</a> (Same AZ, only to SSD volume, allowed only in some regions, and others restrictions)</li> 
+      <li>It can be mounted to one instance at a time and can be attached and detached from EC2 instance to another quickly. However it is <u>locked to an AZ</u>. To move to another AZ is necessary to <u>create a <b>snapshot</b> and it can be copy across AZ or Region</u>. </li>
       <li>A <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">snapshot</a> is a backup of the EBS Volume at a point in time. The snapshots are stored on Amazon S3 and they are incremental. EBS Snapshot features are <b>EBS Snapshot Archive</b> and <b>Recycle Bin for EBS Snapshot</b>. The process with snapshots (creating, deletion, updates) can be automated with <b>DLM</b> (Data Lifecycle Manager).</li> 
       <li>It has a limited performance.</li> 
       <li><b>Pricing</b>: Volumes type (performance); storage volume in GB per month provisioned; Snapshots (data storage per month); Data Transfer (OUT)</li>
       <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">EBS Volume Types</a>: 
         <ul>
-          <li>gp2/gp3 (SSD): general puerpose; balance between price and performance; 3K IOPS and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Boot volumes, dev and test env). </li> 
-          <li>io1 (SSD): high perfomance and most expensive. 64K IOPs per volume, 50 IOPS per GiB. critical low latency or high throughput; Use cases: large database, I/O-intensive database workloads</li>
-          <li>io2 (SSD): Higher durability. 500 IOPS per GiB (same price of io1). I/O intensive apps, large database</li>
-          <li>st1(HDD): low cost, use case: big data, data warehouse, log processing; </li>
-          <li>sc1 (HDD): lowest cost; Throughput-oriented storage for data that is infrequently accessed.</li>
+          <li><u>gp2/gp3 (SSD)</u>: <u>general puerpose</u>; balance between price and performance; <u>3K IOPS</u> and 125 MB/s (up to 16K IOPS and 1K MiB/s). Use cases: high performance at a low cost (MySQL, virtual desktop, Boot volumes, dev and test env).</li>
+          <li><u>io1 (SSD)</u>: <u>high perfomance</u> and most expensive. <u>64K IOPs</u> per volume, 50 IOPS per GiB. critical low latency or high throughput; Use cases: large database, I/O-intensive database workloads</li>
+          <li><u>io2 (SSD)</u>: <u>Higher durability</u>. <u>500 IOPS per GiB</u> (same price of io1). I/O intensive apps, large database</li>
+          <li><u>st1(HDD)</u>: <u>low cost</u>, use case: big data, data warehouse, log processing; </li>
+          <li><u>sc1 (HDD)</u>: <u>lowest cost</u>; <u><u>Throughput</u>-oriented storage for data that is <u>infrequently accessed</u>.</li>
         </ul>
       </li>
-      <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html">RAID</a>: RAID array uses multiple EBS volumes to improve performance or redundancy
+      <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html">RAID</a>: RAID array uses multiple EBS volumes to <u>improve performance or redundancy</u>
         <ul>
-          <li>RAID 0:  I/O performance </li>
-          <li>RAID 1: Fault tolerance. Creates a mirror of the data</li>
+          <li>RAID 0:  I/O <u>performance</u> </li>
+          <li>RAID 1: <u>Fault tolerance</u>. Creates a mirror of the data</li>
         </ul>
       </li>
-      <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted. But cannot enable encryption after it is launch.</li>
+      <li>Encryption: use <u>KMS</u>; if the volume is created <u>encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted</u>. A copy of an uncrypted volume can be encrypted. But cannot enable encryption after it is launch.</li>
     </ul>
   </li>
   <li>
     <b>EFS</b> - Amazon Elastic File System <a href="https://aws.amazon.com/efs/">[1]</a><a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html">[2]</a><a href="https://digitalcloud.training/amazon-efs/">[3]</a> 
     <ul>
-      <li>Network File System (NFS) for Linux instances and linux-based applications in multi-AZ.</li>
+      <li><u>Network File System (NFS)</u> for Linux instances and linux-based applications in multi-AZ.</li>
       <li>Shared File storage service using EC2.</li>
-      <li>It is considered highly available, scalable, expensive, pay per use (Expensive).</li>
+      <li>It is considered highly available, scalable, expensive (pay per use).</li>
       <li>Easy to set up, scale, and cost-optimize file storage in the Amazon Cloud</li>
-      <li>Tiers: frequent access (Standard) and not frequent access (IA)</li>
+      <li>Tiers: <u>frequent access</u> (Standard) and <u>not frequent access</u> (IA)</li>
       <li><u>EFS Infrequent Access</u> (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">lifecycle policy</a> to move a file from EFS Standard to EFS-IA (e.g: AFTER_7_DAYS).</li>
-      <li>Encryption at rest using KMS</li>
-      <li><a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Replication</a>: EFS can be used with AWS Backup for automated and centralized backup across AWS services, and supports replication to another region. All replication traffic stays on the AWS global backbone, and most changes are replicated within a minute, with an overall Recovery Point Objective (RPO) of 15 minutes for most file systems</li>
+      <li>Encryption <u>at rest using KMS</u></li>
+      <li><a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Replication</a>: EFS can be used with <u>AWS Backup</u> for automated and centralized backup across AWS services, and supports <u>replication to another region</u>. All replication traffic stays on the AWS global backbone, and most changes are replicated within a <u>minute</u>, with an overall Recovery Point Objective (<u>RPO</u>) of <u>15 minutes</u> for most file systems</li>
     </ul>
   </li>
   <li> <a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a>
     <ul>
-      <li>for Windows File Server: fully managed Microsoft Windows file servers, manage native Microsoft windows file system. Make the migration easy</li>
-      <li>for Lustre: managed file system that is optimized for compute-intensive workloads (HPC, Machine Learning, Media data Processing). Fo Linux File System. It can store data in S3.</li>
+      <li>for <u>Windows</u> File Server: fully managed Microsoft Windows file servers, manage native Microsoft windows file system. Make the migration easy</li>
+      <li>for <u>Lustre</u>: managed file system that is optimized for compute-intensive workloads (HPC, Machine Learning, Media data Processing). Fo Linux File System. It can store data in <u>S3</u>.</li>
     </ul>
   </li>
 </ul>    
@@ -527,48 +527,48 @@ permalink: /:categories/aws-concepts
 
 <p><b>Network:</b></p>
 <ul>
-  <li>ENI (Elastic Network Interface): Virtual Network card
+  <li><b>ENI</b> (Elastic Network Interface): Virtual Network card
     <ul>
       <li>Attributes: Primary and secondary IPv4 address, Elastic IPv4, public IPv4/IPv6, security group, MAC address, source/destination check flag, description</li>
       <li>Attached to instances</li>
-      <li>eth0 is ENI created when an Ec2 instance is launched</li>
+      <li><u>eth0</u> is ENI created when an Ec2 instance is launched</li>
       <li>Use cases: create a management network; use network and security compliances in your VPC; create dual-homed instances with workloads/roles on distinct subnets; create a low-budget, high-availability solution</li>
     </ul>
   </li>
-  <li>ENL (Enhaneed Networking): uses single root I/O virtualization (SR-IOV) to provide high performance (1-Gbps - 100 Gbps)
+  <li><b>ENL</b> (Enhaneed Networking): uses single root I/O virtualization <u>(SR-IOV)</u> to provide high performance <u>(1-Gbps - 100 Gbps)</u>
     <ul>
-      <li>ENA (Elastic Network Adapter): it enable Enhanced network which provides higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies (up to 100 Gbps)</li>
+      <li><b>ENA</b> (Elastic Network Adapter): it enable Enhanced network which provides <u>higher bandwidth, higher packet-per-second (PPS) performance, and consistently lower inter-instance latencies (up to 100 Gbps)</u></li>
       <li>VF (Intel 82599 Virtual Function Interface): For older instances (up to 10 Gbps)</li>
     </ul>  
   </li>
-  <li>EFA (Elastic Fabric Adapter): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of inter-node communications at scale on AWS. </li>
+  <li><b>EFA</b> (Elastic Fabric Adapter): ENA with more capabilities. It is a network interface for Amazon EC2 instances that enables customers to run applications requiring high levels of <u>inter-node communications</u> at scale on AWS. </li>
 </ul>
 
 <p><b>Security</b></p>
 
 <p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"><b>Security Group</b></a> (SG):</p>
 <ul>
-  <li>Virtual firewall to ENI/EC2 instance</li>
-  <li>Instance level (can be attached to multiple instances)</li>
-  <li>Applied to the network security, controlling the traffic into or out of the EC2 instance</li>
-  <li>By default, inbound traffic is blocked and outbound traffic is authorised</li>
-  <li>ALLOW rule: IP and other security groups -> It contains only <b>rules</b> and these rules can reference by IP or by security group. </li>
+  <li>Virtual <u>firewall</u> to ENI/EC2 instance</li>
+  <li><u>Instance level</u> (can be attached to multiple instances)</li>
+  <li>Applied to the network security, controlling the traffic <u>into or out</u> of the EC2 instance</li>
+  <li><u>By default, inbound traffic is blocked and outbound traffic is authorised</u></li>
+  <li><u>ALLOW</u> rule: It contains only <b>rules</b> and these rules can reference by <u>IP or by security group</u>. </li>
+  <li>They regulate access to <u>Ports and authorised IP ranges</u>.</li>
   <li><u>Stateful</u>: if there is an inbount rule that allow the traffic, the outbound automatically allowed without rules; if the outgoing request is done by instance and the rule allow the outbound traffic then the inbound return is automatically allowed. Supports only allow rules. Security Groups can be associated with a NAT instance. The rules are evaluated before deciding whether to allow traffic.</li>
-  <li>Locked down to a region/VPC combination.</li> 
+  <li>Locked down to a <u>region/VPC</u> combination.</li> 
   <li>Protect against low level network attack like UDP floods.</li>
-  <li>They regulate access to Ports and authorised IP ranges.</li>
   <li>A good practices is to create a separate security group for SSH access.</li>
   <li>Tips: errors with time out is a security group issue; error of connection refused can be an application error.</li>
-  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Security groups</a> can be changed for an instance when the instance is in the running or stopped state.</li>
+  <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Security groups</a> can be <u>changed</u> for an instance when the instance is in the <u>running or stopped</u> state.</li>
 </ul>
 
 <p><b>Peformance</b></p>
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html"><b>Placement groups:</b></a> It is an strategy of optimization to meet the needs of your workload which you can launch a group of interdependent EC2 instances into a placement group to influence their placement. It can be: </p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>: grouping of instances within a single AZ. Low latency and high throughput. It can't span multiple Azs</li>
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>: set of racks that each rack has its own network and power source. Multiple EC2 instance</li>
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other. A spread placement group can span multiple Availability Zones in the same Region. You can have a maximum of seven running instances per Availability Zone per group. </li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-cluster">Cluster</a>: grouping of instances within a <u>single AZ</u>. Low latency and high throughput. It can't span multiple Azs</li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-partition">Partition</a>: set of racks that each rack has its <u>own network</u> and power source. Multiple EC2 instance</li>
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html#placement-groups-spread">Spread</a>: group of instances that are each placed on distinct underlying hardware. Small number of critical instances that should be separate from each other. A spread placement group can span multiple Availability Zones in the same Region. You can have a maximum of <u>seven</u> running instances per Availability Zone per group. </li>
 </ul>
 
 <p><center>
@@ -577,18 +577,18 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"><b>EC2 Pricing:</b></a> the price for it depends the instance (number, type), load balance, IP adreess, etc. You can use AWS Pricing Calculator to simulate to cost.</p>
 <ul>
-  <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, no long-term commitment, highest cost, no discount. Best use to <b>short-term and un-interrupted worloads</b>.</li>
-  <li><b>On-Demand Capacity Reservations</b> enable to reserve compute capacity for EC2 instances in a specific AZ for any duration. You always have access to EC2 capacity when you need it, for as long as you need it. You can create Capacity Reservations at any time, without entering a one-year or three-year term commitment, and the capacity is available immediately.</li>
-  <li><b>Reservations (1-3 years):</b> predicted workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front. The remaining term of the reserved instances can be sold on Marketplace
+  <li><b>On-Demand:</b> short workload, predictable pricing, billing per second/hour, pay for what you use, highest cost, no discount. Best use to <u>short-term and un-interrupted worloads</u>.</li>
+  <li><b>On-Demand Capacity Reservations</b> enable to <u>reserve</u> compute capacity for EC2 instances in a <u>specific AZ for any duration</u>. You always have access to EC2 capacity when you need it, for as long as you need it. You can create Capacity Reservations at any time, without entering a one-year or three-year term commitment, and the capacity is available immediately.</li>
+  <li><b>Reservations (1-3 years):</b> <u>predicted</u> workload. Various services like Ec2, DynamoDB, ElastiCache, RDS and RedShift. Pay up Front. The remaining term of the reserved instances can be sold on Marketplace
     <ul>
-      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It cannot be interrupted <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
+      <li><b>Reserved instances (RI)</b>: long workloads; has a big discount and has as scope Regional or Zonal. Indicated for steady-state usage application. It <u>cannot be interrupted</u> <a href="https://aws.amazon.com/ec2/pricing/reserved-instances/">(up to 72% off the on-demand price)</a></li> 
       <li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html"><b>Convertible Reserved Instances</b></a>: long workload with flexible instances; gives a big discount. This model change the attributes of the RI as long as the exchange results in the creation of RIs of equal or greater value (up to 54% off the on-demand price)</li>
     </ul>
   </li>
-  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plan</a></b>: reduce compute cost based on long term (1-3y). Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
-  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instances in AWS. Urgent Capacity; Flexible; Cost Sensitive. Use for app with flexible start and end times; app with low compute prices (Image rendering, Genomic sequence). Not use if need a guarantee of time.</li> 
-  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): physical server with EC2 instance dedicated, can use your own licenses. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
-  <li><b>Dedicated Instance</b>: single customer, isolated hardware dedicated to your application, but this hardware can be shared with other instances in the same account. Compliance, Licensing, on-Demand, Reserved.</li>
+  <li><b>EC2 <a href="https://aws.amazon.com/savingsplans/pricing/">Savings Plan</a></b>: <u>reduce compute cost based on long term (1-3y)</u>. Locked to a specific instance family and region. Lot of flexibility (EC2, Fargate, Lambda). No Upfront or Partial Upfront or All Upfront Payments</li> 
+  <li><b>Spot Instance:</b> High discount (up to 90%). It is the most cost-efficient instances in AWS. Urgent Capacity; Flexible; Cost Sensitive. Use for app with <u>flexible start and end times</u>; app with low compute prices (Image rendering, Genomic sequence). Not use if need a guarantee of time.</li> 
+  <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html"><b>Dedicated host</b></a> (single customer, your VPC): <u>physical</u> server with EC2 instance dedicated, can use your <u>own licenses</u>. It can be purchasing <b>On-Demand</b> or <b>Reserved</b>. It is the most expensive.</li> 
+  <li><b>Dedicated Instance</b>: <u>single customer</u>, isolated hardware dedicated to your application, but this <u>hardware can be shared with other instances in the same account</u>. Compliance, Licensing, on-Demand, Reserved.</li>
   <li><a href="https://aws.amazon.com/blogs/aws/new-per-second-billing-for-ec2-instances-and-ebs-volumes/">Minimum charge</a>: one-minute for Linux based EC2 instances.</li>    
 </ul>
 
