@@ -639,19 +639,19 @@ permalink: /:categories/aws-concepts
   <li>High availability can be achieved with <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling</a> balancing your EC2 count across the AZs</li>
   <li><b>Scaling Policies</b>: minimum, maximum and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-capacity-limits.html).">desired capacity</a> 
     <ul>
-      <li><u>Step scaling policy</u>: launch resources in response to demand. It's not a guarantee the resources are ready when necessary</li>
-      <li><u>Simple Scaling Policy</u>: Relies on metrics for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
-      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html"><u>Target Tracking Policy</u></a>: Use scaling metrics and value that ASG should maintain at all times (increases or decreases the number of tasks that your service runs based on a target value for a specific metric.), e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
+      <li><u>Step scaling policy</u>: launch resources in response to <u>demand</u>. It's not a guarantee the resources are ready when necessary</li>
+      <li><u>Simple Scaling Policy</u>: Relies on <u>metrics</u> for scaling needs, e.g., add 1 instance when CPU utilization metric > 70%.</li>
+      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html"><u>Target Tracking Policy</u></a>: Use scaling <u>metrics</u> and <u>value that ASG should maintain at all times</u> (increases or decreases the number of tasks that your service runs based on a target value for a specific metric.), e.g, Maitain ASGAverageCPUUtilization equal 50%</li>
     </ul>
   </li>
-  <li><b>Instance Warm-Up</b>: stops instances behind load balancer, failing the helath check and being terminated prematuraly</li>
-  <li><b>Cooldown</b>: pause AS for a set amount of time to not launch or terminate instances; </li>
+  <li><b>Instance Warm-Up</b>: <u>stops</u> instances behind load balancer, failing the helath check and being terminated prematuraly</li>
+  <li><b>Cooldown</b>: <u>pause</u> AS for a set amount of time to not launch or terminate instances; </li>
   <li><b>Avoid Thrashing</b>: create instance very fast</li>
   <li><b>Scaling types</b>: 
     <ul>
-      <li><u>Reactive scaling</u>: Monitors and automatically adjusts the capacity; predictable performance at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
-      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html"><u>Scheduled Scaling</u></a> (predictable workflow) can be configured for known increase in app traffic.</li> 
-      <li><u>Predictive Scaling</u>: uses daily and weekly trends to determine when scale</li>
+      <li><u>Reactive scaling</u>: <u>Monitors</u> and automatically adjusts the capacity; <u>predictable performance</u> at the lowest possible cost. It, e.g, add/remove (Scale out/in) EC2 instances when the load is increased/decreased. </li>
+      <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html"><u>Scheduled Scaling</u></a> (<u>predictable workflow</u>) can be configured for known increase in app traffic.</li> 
+      <li><u>Predictive Scaling</u>: uses <u>daily and weekly</u> trends to determine when scale</li>
     </ul>
   </li>
   <li><b>Strategy</b>: Manual or Dynamic (1. SimpleStep Scaling (CloudWatch); 2.Target Tracking Scaling; 3. Scheduled Scaling</li>
@@ -693,10 +693,10 @@ permalink: /:categories/aws-concepts
   <li><b>RTO</b> - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
   <li><a href="https://aws.amazon.com/blogs/publicsector/rapidly-recover-mission-critical-systems-in-a-disaster/"><b>Strategies</b></a>
     <ul>
-      <li>Backup and Restore: Restore from a snapshot (Chepest but slowest). RPO/RTO: hours. Ative/Passive.</li>
-      <li>Pilot Light -  replicate part of your IT structure for a limited set of core services. At the moment to recovery, you can rapidly provision a full-scale production environment around the critical core (faster than backup and restore but some downtime). RPO/RTO: 10s. Ative/Passive.</li>
-      <li>Warm Standby - provision the services necessary to keep the applications up. It is a scaled-down version of a fully functional environment is always running in the cloud. The application can handle traffic (at reduced capacity levels) immediately so this will reduce the RTO (quicker recovery time than Pilot Light but more expensive). RPO/RTO: minutes. Ative/Passive.</li>
-      <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise. RPO/RTO: real time. Ative/Active.</li>
+      <li><b>Backup and Restore</b>: Restore from a <u>snapshot</u> (Chepest but slowest). RPO/RTO: <u>hours</u>. Ative/Passive.</li>
+      <li><b>Pilot Light</b>: replicate <u>part</u> of your IT structure for a <u>limited set of core services</u>. At the moment to recovery, you can rapidly provision a full-scale production environment around the critical core (faster than backup and restore but some downtime). RPO/RTO: <u>10s</u>. Ative/Passive.</li>
+      <li><b>Warm Standby</b>: provision the <u>services necessary to keep the applications up</u>. It is a <u>scaled-down version of a fully functional environment is always running</u> in the cloud. The application can handle traffic (at reduced capacity levels) immediately so this will reduce the RTO (quicker recovery time than Pilot Light but more expensive). RPO/RTO: <u>minutes</u>. Ative/Passive.</li>
+      <li><b>Multi Site / Hot Site Approach</b>: low RTO (expensive); <u>full production scale</u> is running AWS and on-premise. RPO/RTO: <u>real time</u>. Ative/Active.</li>
       <li>All AWS Multi Region - the best approach for Data replication is use Aurora Global</li>
       <li>Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
     </ul>
