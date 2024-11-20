@@ -926,19 +926,20 @@ permalink: /:categories/aws-concepts
 <p><b>Security</b></p>
 
 <ul>
-  <li>Access Control Lists (ACLs): It is account level control. It defines which account/groups can access and type of access. It can be attach by object or bucket.</li>
-  <li>Bucket Policies: It is account level and user level control. It defines who and what is allowed or denied. - allows across account</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html">Presigned URL</a> gives access to the object identified in the URL. For this creation, is necessary to provide a security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The presigned URLs are valid only for the specified duration. This is the most secure way to provide the vendor with time-limited access to the log file in the S3 bucket. It can be created by Console or CLI.</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">IAM Policy</a>: It is user level control. A policy attached to a user can give permission to access S3 bucket</li>
+  <li>Access Control Lists (<b>ACLs</b>): It is <u>account level</u> control. It defines which account/groups can access and type of access. It can be attach by <u>object or bucket</u>.</li>
+  <li><b>Bucket Policies</b>: It is <u>account level and user level control</u>. It defines who and what is allowed or denied - allows across account</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">IAM Policy</a>: It is <u>user level control</u>. A policy attached to a user can give permission to access S3 bucket</li>
   <li>IAM Role for EC2 instance can allow EC2 instance access S3 bucket</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html">Presigned URL</a> gives access to the object identified in the URL. For this creation, is necessary to provide a security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The presigned URLs are valid only for the specified duration. This is the most secure way to provide the vendor with time-limited access to the log file in the S3 bucket. It can be created by Console or CLI.</li>
+  
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">MFA delete</a>: for delete object or suspend version. Only the owner can enbled it.</li>
   <li>Encrypting S3 Object:
     <ul>
       <li>Types: 
         <ul>
-          <li>in transit: SSL/TLS; HTTPS (Buket policy can force encryption)</li>
-          <li>at Rest (server-side): SSE-S3 (AES 256-bit -> default -> all objects); SSE-KMS (advantages: user control + audit key usage using CloudTrail); SSE-C: customer-provider keys (S3 does NOT store the encryption key you provide; must use HTTPS; key must be provided in header). Default encryption on a bucket will encrypt all new objects stored in the bucket</li>
-          <li>at rest: client-side: encrypt before upload file</li>
+          <li><b>in transit</b>: <u>SSL/TLS; HTTPS</u> (Buket policy can force encryption)</li>
+          <li><b>at Rest</b> (server-side): <u>SSE-S3</u> (AES 256-bit -> default -> all objects); <u>SSE-KMS</u> (advantages: user control + audit key usage using CloudTrail); <u>SSE-C</u>: customer-provider keys (S3 does NOT store the encryption key you provide; must use HTTPS; key must be provided in header). Default encryption on a bucket will encrypt all new objects stored in the bucket</li>
+          <li><b>at rest</b> (client-side): encrypt before upload file</li>
         </ul>
       </li>
       <li><a href="https://aws.amazon.com/blogs/security/how-to-prevent-uploads-of-unencrypted-objects-to-amazon-s3/">Enforcing Server-side Encryption</a> adding a parameter in PUT Request Header:
@@ -953,22 +954,22 @@ permalink: /:categories/aws-concepts
   </li>
 </ul>
 
-<p style="text-align: justify;">Buckets are private by default. For securing a bucket with public access is necessary to allow public access to bucket and objects. It involves Object ACL (Individual Object level) and Bucket Policies (entire bucket level).</p>
+<p style="text-align: justify;">Buckets are <u>private by default</u>. For securing a bucket with public access is necessary to allow public access to bucket and objects. It involves Object ACL (Individual Object level) and Bucket Policies (entire bucket level).</p>
 
-<p style="text-align: justify;">S3 is a good option to hosting a static website. It will scales automatically. For that, the bucket access should be public and you can add a policy to allow read permission for the objects. Other use cases can be: backup and storage, disaster recovery, archive, hybrid cloud storage, data lakes and big data analytics.</p>
+<p style="text-align: justify;">S3 is a good option to hosting a <u>static website</u>. It will scales automatically. For that, the bucket access should be public and you can add a policy to allow read permission for the objects. Other use cases can be: backup and storage, disaster recovery, archive, hybrid cloud storage, data lakes and big data analytics.</p>
 
 <p style="text-align: justify;">Amazon S3 <a href="https://aws.amazon.com/s3/features/access-points/">Access Points</a>, a feature of S3, simplify data access for any AWS service or customer application that stores data in S3. With S3 Access Points, customers can create unique access control policies for each access point to easily control access to shared datasets. You can also control access point usage using AWS Organizations support for AWS SCPs.</p>
 
 <p><b>Lock</b></p>
 <ul>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">S3 Object Lock</a>: prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely using WriteOnceReadMany (WORM) model.
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">S3 Object Lock</a>: <u>prevent objects from being deleted or overwritten</u> for a fixed amount of time or indefinitely using WriteOnceReadMany (WORM) model.
     <ul>
-      <li>Governance Mode: overwrite or delete an object version only with special permissions</li>
-      <li>Compliance Mode: even root cannot overwrite or delete protected object version for the duration of the retention period.</li>
-      <li>Legal hold can be placed and removed by user with s3:PutObjectLegalHold permission</li>
+      <li><b>Governance Mode</b>: overwrite or delete an object version only with <u>special permissions</u></li>
+      <li><b>Compliance Mode</b>: <u>even root cannot</u> overwrite or delete protected object version for the duration of the retention period.</li>
+      <li>Legal hold can be placed and removed by user with <u>s3:PutObjectLegalHold</u> permission</li>
     </ul>
   </li>
-  <li>Glacier Vault Lock: WORM. Deploy and enforce compliance controls for individual S3 Glacier valts with vault lock policy. Objects can be deleted.</li>
+  <li><b>Glacier Vault Lock</b>: WORM. Deploy and enforce <u>compliance controls</u> for individual S3 Glacier valts with vault lock policy. Objects can be deleted.</li>
 </ul>
 
 <p><b>Optimizing S3 Performance:</b></p>
@@ -977,16 +978,15 @@ permalink: /:categories/aws-concepts
   <li>Use <u>Preifx</u> (folders inside the bucket) to increase performance</li>
   <li>The use of KMS impact in performance because is necessary to call GenerateDataKey when upload a file and call Decrypt in KMS API to download a file. Prefer SSE-S3.</li>
   <li><u>Multipart Uploads</u> can increate performance. It is recomended for files over 100MB and required for files over 5GB. The performance can be improved parallelizing uploads.</li>
-  <li>S3 Byte-Range Fetches: Parallelize downloads by specifying bytes ranges</li>
-  <li>Tranfer speed can be increate transfering the data to an edge location</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> (CloudFront) Accelerate global uploads & downloads into Amazon S3; and Increase transfer speed to Edge Location (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
+  <li><u>S3 Byte-Range Fetches</u>: <u>Parallelize</u> downloads by specifying bytes ranges</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">S3 Transfer Acceleration:</a> (CloudFront) Accelerate global <u>uploads & downloads</u> into Amazon S3; and Increase <u>transfer speed to Edge Location</u> (enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket) </li>
   
 </ul>
 
 <p><b>Backup</b></p>
 
 <ul>
-  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object; good for backup; once enable it cannot be disabled (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Versioning:</a> stores all versions of an object; good for backup; <u>once enable it cannot be disabled</u> (only suspended); it can be integrated with lifecycle rules and supports MFA. For the static webpage, the last version will be available, not the previous. It can use Lifecycle Management rules to transit versions throgh tiers.</li>
   <li>Replication <a href="https://aws.amazon.com/s3/features/replication/">[1]</a><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">[2]</a>:
     <ul>
       <li>Replicate the object from one bucket to another and the version must be enables in both sides </li>
@@ -998,10 +998,10 @@ permalink: /:categories/aws-concepts
     </ul>
   </li>
   <li>
-    (<a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a>)
+    <a href="https://aws.amazon.com/premiumsupport/knowledge-center/move-objects-s3-bucket/">Move Objects</a>
     <ul>
-      <li>S3 sync command can be used to copy objects between buckets and lists the source and target buckets.</li>
-      <li>Amazon S3 Batch Replication provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
+      <li>S3 <u>sync command</u> can be used to copy objects between buckets and lists the source and target buckets.</li>
+      <li>Amazon S3 <u>Batch Replication</u> provides you a way to replicate objects that existed before a replication configuration was in place, objects that have previously been replicated, and objects that have failed replication. This is done through the use of a Batch Operations job.</li>
     </ul>
   </li>
 </ul>
@@ -1010,11 +1010,11 @@ permalink: /:categories/aws-concepts
 <p><b><a href="https://aws.amazon.com/s3/storage-classes/">Classes</a></b></p>
 
 <ul>
-  <li>Standard: High Availability and durability; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
-  <li>Standard-IA (Infrequent Access): Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup. Comparing with Glacier, it is the best option if is necessary retrieves IA data immediately.</li>
-  <li>One Zone-Infrequent Access: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA (lower cost); Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
+  <li><b>Standard</b>: <u>High Availability and durability</u>; Designed for Frequent Access; Suitable for Most workflows; low latency and high throughput. Ex: Big Data analytics, mobile, gaming, content distribution.</li>
+  <li><b>Standard-IA</b> (Infrequent Access): Rapid Access; Pay to access the data; better to long-term storage, backups and disaster recover. Ex: disaster recover, backup. Comparing with Glacier, it is the best option if is necessary retrieves IA data immediately.</li>
+  <li><b>One Zone-Infrequent Access</b>: data stored redundantly inside a single AZ; Costs 20% less than Standard-IA (lower cost); Better to long-lived, IA, non-critical data. Ex: secondary backup copies of on-premises data.</li>
   <li><a href="https://aws.amazon.com/s3/storage-classes/#Unknown_or_changing_access">Intelligent-Tiering</a>: Good to optimize cost. It is used to move the data into classes in a cost-efficient way if you don't know what is frequent or not. No performance impact or operational overhead. More expensive than Standard-IA</li>
-  <li>Gacier: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
+  <li><b>Gacier</b>: archive data; pay by access; cheap storage. You can use Server-side filter and retrieve less data with SQL
     <ul>
       <li>Gacier Instant Retrieval (minimum duration - 90 days)</li>
       <li>Glacier Flexible Retrieval -> not need immediate access, retrieve large sets of data at no cost (backup, disaster recover)(minimum duration - 90 days)</li>
