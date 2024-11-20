@@ -358,7 +358,7 @@ permalink: /:categories/aws-concepts
   <li>For across-account access is better to create a role instead create a new IAM user. It gives temporary credentials.</li>
   <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
-  <li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances"><b>Service Control Policies (SCPs)</b></a> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to <u>apply the restrictions across multiple member accounts (deny rule)</u>. It affects only IAM users and roles (not resources policies)</li>
+  <li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances"><b>Service Control Policies (SCPs)</b></a> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to <u>apply the restrictions across multiple member accounts (deny rule)</u>. It affects only <u>IAM users and roles</u> (not resources policies)</li>
   <li>You can make new accounts using AWS Organizations however the easiest way to do this is by using the AWS Control Tower service.</li>
  </ul>
 
@@ -367,14 +367,14 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>It is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it.</li>
   <li>it set up and govern a secure and compliant multi-account AWS environment.</li>
-  <li>Monitor compliance through a dashboard. Supports Preventive Guardrail using SCP (e.g, restrict regions across accounts); and Detective Gardrail using AWS Config (e.g, identity untagged resources). </li>
+  <li>Monitor compliance through a dashboard. Supports <u>Preventive Guardrail using SCP</u> (e.g, restrict regions across accounts); and <u>Detective Gardrail using AWS Config</u> (e.g, identity untagged resources). </li>
   <li>Features:
     <ul>
-      <li>Landing Zone: well-architected, multi-account environment based on compliance and security best practices.</li>
-      <li>Guardrails: high-level rules providing continuous governance -> preventive (ensures accounts maintain governance by disallowing violation actions; leverages service control policies; status of enforced or not enabled; supported in all Regions) and Detective (detects and alerts whithin all accounts; leverages AWS config rules; status of clear, in violation, or not enabled; apply to some regions)</li>
-      <li>Account Factory: configurable account template</li>
-      <li>CloudFormation StackSet: automated deployment of templates</li>
-      <li>Shared accounts: three accounts used by Control Tower created during landing zone creation</li>
+      <li><u>Landing Zone</u>: well-architected, multi-account environment based on compliance and security best practices.</li>
+      <li><u>Guardrails</u>: high-level rules providing continuous governance -> preventive (ensures accounts maintain governance by disallowing violation actions; leverages service control policies; status of enforced or not enabled; supported in all Regions) and Detective (detects and alerts whithin all accounts; leverages AWS config rules; status of clear, in violation, or not enabled; apply to some regions)</li>
+      <li><u>Account Factory</u>: configurable account template</li>
+      <li><u>CloudFormation</u> StackSet: automated deployment of templates</li>
+      <li><u>Shared accounts</u>: three accounts used by Control Tower created during landing zone creation</li>
     </ul>
   </li>
 </ul>
