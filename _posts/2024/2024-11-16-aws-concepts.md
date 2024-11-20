@@ -1052,26 +1052,26 @@ permalink: /:categories/aws-concepts
 <p><b>SQS</b> (cloud native service) <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-queue-service-amazon-sqs">[1]</a><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">[2]</a>:</p>
 <ul>
   <li>Fully managed message that use queue for decouple and scale microservices, distributed system and serverless application.</li>
-  <li>Retention of message: default is 4 days, maximum 14 days, the minimun can be customized (e.g.,1 minutes).</li>
-  <li>Deletion: after the retention period or to be read.</li>
+  <li><b>Retention</b> of message: <u>default is 4 days, maximum 14 days</u>, the minimun can be customized (e.g.,1 minutes).</li>
+  <li><b>Deletion</b>: after the retention period or to be read.</li>
   <li>Pay-as-you-go pricing.</li>
-  <li>Asynchronous process.</li>
+  <li><b>Asynchronous</b> process.</li>
   <li>Settings: Delivery delay (0 up to 15 minutes)</li>
-  <li>Message size: up to 256KB of text</li>
+  <li><b>Message size</b>: up to <u>256KB</u> of text</li>
   <li>Require Message Group ID and Message Deduplication ID</li>
-  <li>AWS recommend using separate queues when you need to provide prioritization of work</li>
-  <li>Short polling and long polling are used to control the amount of time the consumer process waits before closing the API call and trying again.</li>
+  <li>AWS recommend using <u>separate queues</u> when you need to provide <u>prioritization</u> of work</li>
+  <li><b>Short polling and long polling</b> are used to control the amount of <u>time</u> the consumer process <u>waits</u> before closing the API call and trying again.</li>
   <li>Security
     <ul>
-      <li>Encryption: message are encrypted in trasit (HTTPS) by defaul but not at rest (can do using KMS)</li>
-      <li>Access Control with IAM policy - SQS API</li>
-      <li>SQS Access policy with resource policy - useful for cross-account or other services</li>
+      <li>Encryption: message are <u>encrypted in trasit (HTTPS) by defaul</u> but not at rest (can do using KMS)</li>
+      <li>Access Control with <u>IAM policy</u> - SQS API</li>
+      <li>SQS Access policy with <u>resource policy</u> - useful for cross-account or other services</li>
     </ul>
   </li>
   <li>Strategy:
     <ul>
-      <li>FIFO: Guaranteed ordering, no message duplication, 300 trasanction per second (can achieve 3000 with baching). FIFO High throughput process up to 9000 transaction per second, per API without batching; and up to 90000 messages using batching APIs. </li>
-      <li>Standard: better performance; the order message can be implemented; message can be duplicated; can use message group ID to process the message in order based on the group; unlimited throughput</li>
+      <li><b>FIFO</b>: Guaranteed <u>ordering, no message duplication</u>, 300 trasanction per second (can achieve 3000 with baching). FIFO High throughput process up to 9000 transaction per second, per API without batching; and up to 90000 messages using batching APIs. </li>
+      <li><b>Standard</b>: better performance; the order message can be implemented; message can be <u>duplicated</u>; can use message group ID to process the message in order based on the group; unlimited throughput</li>
     </ul>
   </li>
   <li>In scenarios of real-time should use Kinesis instead of SQS</li>
@@ -1079,7 +1079,7 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><b>DLQ</b> (Dead-Letter Queues):</p>
 <ul>
-  <li>Target for messages that cannot be processed sussessfully.</li>
+  <li>Target for messages that <u>cannot be processed</u> sussessfully.</li>
   <li>It works with SQS and SNS.</li>
   <li>Useful for debugging applications and messaging systems.</li>
   <li>Redrive capability allows moving the message back into the source queue.</li>
@@ -1090,22 +1090,22 @@ permalink: /:categories/aws-concepts
 
 <p><b>SNS</b> (cloud native service) <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-notification-service">[1]</a><a href="https://aws.amazon.com/sns/">[2]</a> :</p>
 <ul>
-  <li>Push-based messaging service.</li>
-  <li>Delivery messages to the endpoints that are subscribed.</li>
+  <li><u>Push-based</u> messaging service.</li>
+  <li>Delivery messages to the <u>endpoints that are subscribed</u>.</li>
   <li>Fully managed message for application-to-application (A2A) and application-to-person (A2P).</li> 
   <li>Cycle: Publisher -> SNS topic / Subscriber -> get all messages from the topic</li>
   <li>Subscribers: Kinesis, SQS, Lambda, emails, SMS and endpoints</li>
-  <li>Size: 256KB of text</li>
+  <li>Size: <u>256KB</u> of text</li>
   <li>Extended Library allows sending messages up to 2GB. The payload is stored in S3 and then SNS publishes a reference to the object.</li>
-  <li>DLQ Support</li>
-  <li>FIFO or Standard</li>
+  <li><u>DLQ Support</u></li>
+  <li><u>FIFO or Standard</u></li>
   <li>Security
     <ul>
-      <li>Encryption in transit by default (HTTPS) and can add at rest via KMS</li>
-      <li>Access Policies: can be attached a resource policy, useful across-account access</li>
+      <li>Encryption <u>in transit by default</u> (HTTPS) and can add at rest via KMS</li>
+      <li><u>Access Policies<u>: can be attached a <u>resource policy</u>, useful across-account access</li>
     </ul>
   </li>
-  <li>FanOut (SNS+SQS) <a href="https://aws.amazon.com/blogs/aws/kds-enhanced-fanout/">[1]</a> : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
+  <li><u>FanOut (SNS+SQS)</u> <a href="https://aws.amazon.com/blogs/aws/kds-enhanced-fanout/">[1]</a> : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
   <li>Message Filtering: send to specific subscriber</li>
   <li>Publicly accessible by default</li>
 </ul>
@@ -1113,7 +1113,7 @@ permalink: /:categories/aws-concepts
 <p><b>Amazon MQ</b> <a href="https://digitalcloud.training/aws-application-integration/#amazon-mq">[1]</a>:</p>
 <ul>
   <li>Message broker</li>
-  <li>Good when migrating to the cloud</li>
+  <li>Good when <u>migrating</u> to the cloud</li>
   <li>Supports ActiveMQ or RabbitMQ</li>
   <li>Topics and queues</li>
   <li>1:1 and 1:N message design</li>
@@ -1138,9 +1138,9 @@ permalink: /:categories/aws-concepts
   </li>
   <li>Enpoint Types:
     <ul>
-      <li>Edge-optimized - (default option): API requests get sent through a CloudFront edge location (best for global users);</li>
-      <li>Regional - ability to also leverage with CloudFront; reduce latency; can be protected with WAF</li>
-      <li>Private - only accessible via VPCs using interface VPC endpoint or Direct Connect</li>
+      <li><b>Edge-optimized</b> - (default option): API requests get sent through a CloudFront edge location (best for global users);</li>
+      <li><b>Regional</b> - ability to also leverage with CloudFront; reduce latency; can be protected with WAF</li>
+      <li><b>Private</b> - only accessible via VPCs using interface VPC endpoint or Direct Connect</li>
     </ul>
   </li>
   <li>Securing APIs: user authentication (IAM, roles, Cognito, custom authorizer); ACM certs for edge-optimized endpoints and regional endpoints; WAF</li>
@@ -1165,8 +1165,8 @@ permalink: /:categories/aws-concepts
 <p><b>Step Function</b> <a href="https://digitalcloud.training/aws-application-integration/#aws-step-functions">[1]</a></p>
 <ul>
   <li>Coordenate distributed apps</li>
-  <li>Orchestration service; graphical console;</li>
-  <li>Main componenets: state machine (workflow with different event-driven steps) and tasks (specific states within a workflow (state machine) representing a single unit of work). State is every single step within a workflow</li>
+  <li><u>Orchestration</u> service; graphical console;</li>
+  <li>Main componenets: state machine (workflow with different event-driven steps) and tasks (specific states within a <u>workflow</u> (state machine) representing a single unit of work). State is every single step within a workflow</li>
   <li>Execution: instances where you run your workflows in order to perform your task</li>
   <li>Types:
     <ul>
@@ -1178,8 +1178,8 @@ permalink: /:categories/aws-concepts
 
 <p><b>AppFlow</b> <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">[1]</a>:</p>
 <ul>
-  <li>Integration service for exchanging data between SaaS apps and AWS services; </li>
-  <li>Pulls data records from third party SaaS vendors and stores them in S3;</li>
+  <li>Integration service for <u>exchanging data between SaaS apps and AWS services</u>; </li>
+  <li>Pulls data records from <u>third party</u> SaaS vendors and stores them in S3;</li>
   <li>Bi-directional data transfer</li>
   <li>Transfer up to 100 gibibytes per flow, and this avoids the Lambda function timeouts</li>
   <li>Data mapping (how sources data is stored);</li>
