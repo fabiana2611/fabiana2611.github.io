@@ -491,7 +491,7 @@ permalink: /:categories/aws-concepts
           <li><u>io1 (SSD)</u>: <u>high perfomance</u> and most expensive. <u>64K IOPs</u> per volume, 50 IOPS per GiB. critical low latency or high throughput; Use cases: large database, I/O-intensive database workloads</li>
           <li><u>io2 (SSD)</u>: <u>Higher durability</u>. <u>500 IOPS per GiB</u> (same price of io1). I/O intensive apps, large database</li>
           <li><u>st1(HDD)</u>: <u>low cost</u>, use case: big data, data warehouse, log processing; </li>
-          <li><u>sc1 (HDD)</u>: <u>lowest cost</u>; <u><u>Throughput</u>-oriented storage for data that is <u>infrequently accessed</u>.</li>
+          <li><u>sc1 (HDD)</u>: <u>lowest cost</u>; <u>Throughput</u>-oriented storage for data that is <u>infrequently accessed</u>.</li>
         </ul>
       </li>
       <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html">RAID</a>: RAID array uses multiple EBS volumes to <u>improve performance or redundancy</u>
