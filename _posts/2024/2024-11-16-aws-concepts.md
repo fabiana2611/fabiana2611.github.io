@@ -283,13 +283,13 @@ permalink: /:categories/aws-concepts
   </li>
 </ul>
 
-<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions by default, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "service accounts". It's possible to have 5000 users per AWS account.</p>
+<p style="text-align: justify;"><b>User</b> is an entity (person or service) created without permissions by default, only login to the AWS console. The permissions must be explicitly given. They log in using <em>user name</em> and <em>password</em>. They can change some configurations or delete resources in your AWS account. Users created to represent an application are known as "service accounts". It's possible to have <u>5000</u> users per AWS account.</p>
 
-<p style="text-align: justify;"><b>Groups</b> are a way to organize the users (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users can be part of groups and the group cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
+<p style="text-align: justify;"><b>Groups</b> are a way to organize the <u>users</u> (only) and apply <b>policies</b> (permissions) to a collection of users in the same time. A user can belong to multiple groups. Only users can be part of groups and the group cannot be nested (groups with groups). It is not an identity so cannot be referenced in policies.</p>
 
-<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by <u>users, applications, and services</u>. It can provides temporary security credentials (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
+<p style="text-align: justify;"><b>Roles</b> delegate permissions. Roles are assumed by <u>users, applications, and services</u>. It can provides <u>temporary security credentials</u> (STS - Security Token Service) for customer role session. Also, the IAM roles make possible to access cross-account resources. It is a trusted entity.</p>
 
-<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to <u>users, groups, roles or resources</u>. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. Best practices: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-groups-for-permissions">least privilege</a>. The <u>types</u> of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">permissions boundaries</a> (maximum permissions that an identity-based policy can grant to an IAM entity), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action). <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
+<p style="text-align: justify;">The <b>policy</b> manage access and can be attached to <u>users, groups, roles or resources</u>. When it is associated with an identity or resource it defines their permissions. It is a document written in JSON. The policy is evaluate when a user or role makes a request, and the permission inside that determine if the request is allowed or denied. <u>Best practices: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-groups-for-permissions">least privilege</a></u>. The <u>types of policies are:  identity-based policies (user, groups, roles), resource-based policies (resource), <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">permissions boundaries</a> (maximum permissions that an identity-based policy can grant to an IAM entity), AWS Organizations service control policy (SCP)(maximum permission for an oganization), access control list (ACL), and session policies (AssumeRole* API action)</u>. <a href="https://docs.aws.amazon.com/en_us/IAM/latest/UserGuide/access_policies.html">Policy main elements</a>:
 <ul>
   <li>Version</li>
   <li>Effect: allow/deny</li>
@@ -299,13 +299,13 @@ permalink: /:categories/aws-concepts
   <li>Principal: account, user, role, or federated user</li>
 </ul>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">IAM authentication</a> is just another way to authenticate the user's credentials while accessing the database.</p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/blogs/database/using-iam-authentication-to-connect-with-pgadmin-amazon-aurora-postgresql-or-amazon-rds-for-postgresql/">IAM authentication</a> is just another way to authenticate the user's credentials while accessing the <u>database</u>.</p>
 
-<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access (API/SDK). It is generated through the AWS Console</p>
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys"><b>Access keys</b></a> are used to programmatic access <u>(API/SDK)</u>. It is generated through the AWS Console</p>
 
-<p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS CLI.</p>
+<p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS <u>CLI</u>.</p>
 
-<p><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html">AWS IAM Identity Center</a> (successor to AWS Single Sign-On) requires a two-way trust so that it has permissions to read user and group information from your domain to synchronize user and group metadata. IAM Identity Center uses this metadata when assigning access to permission sets or applications.</p>
+<p><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html">AWS IAM Identity Center</a> (successor to AWS Single Sign-On) requires a <u>two-way trust</u> so that it has permissions to read user and group information from your domain to synchronize user and group metadata. IAM Identity Center uses this metadata when assigning access to permission sets or applications.</p>
 
 <p><center>
   <img src="/img/aws/iam.png" height="90%" width="90%">
