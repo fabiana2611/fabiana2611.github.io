@@ -1884,17 +1884,17 @@ permalink: /:categories/aws-concepts
 
 <p>Protecting application with <b>AWS Shield Standard</b></p>
 <ul>
-  <li>Protect AWS customers on ELB, CloudFront and Route 53</li>
-  <li>AWS Shield Standard: free for every customer, protect websites and applications (SYN/UDP floods, reflection attacks, and over layer 3 and 4 attacks). </li>
-  <li>AWS Shield Advanced: protection 24/7, optional DDoS migration services; protection on EC2, ELB, CloudFront, GLobal Acceleator, Route 53 against more sophisticated attacks. Detection and mitigation for network layer (layer 3), transport layer (layer 4) and application layer (layer 7) attacks. Near real-time notifications of DDoS attacks.</li>
+  <li>Protect AWS customers on <u>ELB, CloudFront and Route 53</u></li>
+  <li>AWS Shield <u>Standard</u>: free for every customer, protect websites and applications (SYN/UDP floods, reflection attacks, and over layer 3 and 4 attacks). </li>
+  <li>AWS Shield <u>Advanced</u>: protection 24/7, optional DDoS migration services; protection on EC2, ELB, CloudFront, GLobal Acceleator, Route 53 against more sophisticated attacks. Detection and mitigation for network layer (layer 3), transport layer (layer 4) and application layer (layer 7) attacks. Near real-time notifications of DDoS attacks.</li>
   <li><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">Mitigate</a></li>
 </ul>
 
 <p><b>WAF</b> <a href="https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html">[1]</a><a href="https://digitalcloud.training/aws-waf-shield/">[2]</a> (Web Application Firewall):</p>
 <ul>
-  <li>Filtering traffic: filter specific requests based on rules - requests sent to CloudFront, ELB, API Gateway.</li>
-  <li>Protection on layer 7  (HTTP) DDoS attacks, SQL Injection and Cross-Site Scripting(XSS) </li>
-  <li>Define Web ACL (Web Access Control List - <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html">rate-based rules</a>). A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action on IPs with rates that go over a limit. This type of rule can be used to temporary block requests from an IP address that's sending excessive requests. By default, AWS WAF aggregates requests based on the IP address from the web request origin.</li>
+  <li>Filtering traffic: <u>filter specific requests based on rules</u> - requests sent to CloudFront, ELB, API Gateway.</li>
+  <li>Protection on layer 7  (HTTP) <u>DDoS attacks, SQL Injection and Cross-Site Scripting(XSS)</u> </li>
+  <li>Define Web <u>ACL</u> (Web Access Control List - <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html">rate-based rules</a>). A rate-based rule tracks the rate of requests for each originating IP address, and triggers the rule action on IPs with rates that go over a limit. This type of rule can be used to temporary block requests from an IP address that's sending excessive requests. By default, AWS WAF aggregates requests based on the IP address from the web request origin.</li>
   <li>Protecting a website that is hosted outside of AWS (the on-premise IP is added to a target group).</li>
   <li>Configuring a firewall in front of resources is a <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/mitigation-techniques.html">good practice</a> to protect against DDoS</li>
   <li>In case use CloudFront and is necessary to block an IP, WAF must be with CloudFront to block that IP and not in ALB because, in this case, ALB just can see the CloudFront ID; and for the same reason NACL is not enough.</li>
@@ -1909,38 +1909,38 @@ permalink: /:categories/aws-concepts
 
 <p><a href="https://aws.amazon.com/guardduty"><b>GuardDuty</b></a>:</p>
 <ul>
-  <li>Threat detection service to protect AWS account</li>
-  <li>Monitor suspicious activity</li>
+  <li><u>Threat detection</u> service to protect AWS account</li>
+  <li>Monitor <u>suspicious</u> activity</li>
   <li>It uses Machine Learning and check Logs.</li>
-  <li>Identify potential security issues.</li>
-  <li>Detect and remediate the compromise of services</li>
+  <li>Identify <u>potential security issues</u>.</li>
+  <li><u>Detect and remediate</u> the compromise of services</li>
   <li>Analyse CloudTrail events, VPC Flow Logs, etc.</li>
   <li>Ex: unusual API calls, malicious IP, unauthorized deployment, compromised instances</li>
   <li>Feature: Alerts in GuardDuty console and ClaudWatch Event; receive feeds from third party (e.g., AWS Security inform malicious IP); monitor CloudTrail, VPC Flow logs and DNS logs; centralize detection across multiple AWS account; automate response with CloudWatch Events and Lambda</li>
   <li>Pricing: 30 days free; quantity of CloudTrail Events; volume of DNS and VPC Flow Logs data</li>
 </ul>
 
-<p><b>Macie</b> <a href="https://aws.amazon.com/macie/">[1]</a>:</p>
+<p><a href="https://aws.amazon.com/macie/"><b>Macie</b></a>:</p>
 <ul>
-  <li>Monitoring S3 bucket</li>
+  <li><u>Monitoring S3 bucket</u></li>
   <li>Fully managed data security and data privacy service (Identify potential security issues).</li>
   <li>Personally Identifiable Information (PII) - personal data used to establish an individual's identity</li>
-  <li>It uses machine learning and pattern matching to discover and protect customers sensitive data in S3</li>
+  <li>It uses machine learning and pattern matching to discover and protect customers <u>sensitive</u> data in S3</li>
   <li>Alerts to uncrypted buckets, public buckets, shared buckets</li>
 </ul>
 
 
 <p><b>Inspector</b> <a href="https://aws.amazon.com/inspector/">[1]</a>: </p>
 <ul>
-  <li>Automated security assessment service that helps improve the security and compliance of applications deployed on AWS. </li>
-  <li>Inspect running operating systems (OS) against known vulnerabilities</li>
-  <li>Exposure, vulnerabilities, and deviations from best practices</li>
-  <li>Reports and Integration with AWS security Hub</li>
+  <li>Automated security assessment service that helps <u>improve the security and compliance</u> of applications deployed on AWS. </li>
+  <li>Inspect running <u>operating systems</u> (OS) against known vulnerabilities</li>
+  <li><u>Exposure, vulnerabilities, and deviations from best practices</u></li>
+  <li><u>Reports and Integration</u> with AWS security Hub</li>
   <li>After performing the assessment, it produces a detailed list of security findings prioritized by level of severity</li>
-  <li>Types of assessment: Netework and Host</li>
+  <li>Types of assessment: <u>Netework and Host</u></li>
   <li>Analyze against unintended network accessibility</li>
   <li>Automated Security Assessments for EC2 instances, Container images, Lambda Functions.</li>
-  <li>Send findings to Amazon Event Bridge.</li>
+  <li><u>Send findings to Amazon Event Bridge</u></li>
   <li>Continous scanning of the infrastructure when it is needed</li>
   <li>Can use an agent to monitoring</li>
   <li>Cannot be used to prevent Distributed Denial-of-Service (DDoS) attack</li>
@@ -2011,18 +2011,18 @@ permalink: /:categories/aws-concepts
 
 <p><b>Cognito</b> <a href="https://digitalcloud.training/amazon-cognito/">[1]</a><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">[2]</a></p>
 <ul>
-  <li>AWS Cognito is a fully managed service that provides secure and scalable customer identity and access management (CIAM), enabling user authentication, authorization, and data synchronization across devices and platforms for web and mobile applications, with support for both authenticated and unauthenticated users.</li>
+  <li>AWS Cognito is a fully managed service that provides secure and scalable <u>customer identity</u> and access management (CIAM), enabling user authentication, authorization, and data synchronization across devices and platforms for <u>web and mobile</u> applications, with support for both authenticated and unauthenticated users.</li>
   <li>Alternative to IAM.</li>
   <li>Identity for your Web and <b>Mobile</b> applications users (sign-up/sign-in; social identity like Facebook)</li>
   <li>External</li>
-  <li>Auth process: Authenticate and get tokens; Exchange tokens and get AWS credentials; Access AWS services using credentials.</li>
+  <li>Auth process: <u>Authenticate and get tokens; Exchange tokens and get AWS credentials; Access AWS services using credentials</u></li>
   <li>Components: user pools and identity pools</li>
 </ul>
 
 
 <p><b>AWS Detective</b>: </p>
 <ul>
-  <li>deep analyses to isolate the <b>root cause</b> of the security issues or suspicious activities (ML/graphs)</li>
+  <li><u>deep analyses to isolate the root cause</b> of the security issues or suspicious activities (ML/graphs)</li>
   <li>Machine learning, statistical analysis, and graph theory</li>
   <li>Sources: VPC Flow logs, CloudTrail logs, Kubernates audit logs, GuardDuty findings</li>
   <li>Use case: Triage security findings; Threat Hunting</li>
@@ -2110,9 +2110,9 @@ permalink: /:categories/aws-concepts
   <li>Highly-secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS</li>
   <li>Data migration: 
     <ul>
-      <li>Snowcone: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, 4GB of memory, 2vCPUs)</li>
+      <li><b>Snowcone</b>: less size of storage, it is a small device, send data to AWS offline or using AWS DataSync (8TB of storage, 4GB of memory, 2vCPUs)</li>
       <li><a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/shipping.html">Snowball</a> (Storage Optimized (80TB) /Compute Optimized (42TB up to 81TB): data transfer throught the network, pay per data transfer job (Ex: disaster revovery), can have Storage Clustering (up to 15 nodes), it encrypts the data. EC2 does this natively support. EC2 compute instance can be hosted on a Snowball.</li>
-      <li>Snowmobile: More capacity (100PB - exabytes), high security</li>
+      <li><b>Snowmobile</b>: More capacity (100PB - exabytes), high security</li>
     </ul>  
   </li>
   <li>Edge computing: Snowcone, Snowball Edge. Process data while it's being create on an edge location (Ex: process data, machine learning, transcoding media streams)</li>
@@ -2127,7 +2127,7 @@ permalink: /:categories/aws-concepts
   <li>Types:
     <ul>
       <li><a href="https://aws.amazon.com/storagegateway/file/">File Gateway</a> caching local files in on-premise side. It extends on-primises storage and helps with migration. The data goes to AWS to Storage Gateway or S3. It uses NFS protocol.</li>
-      <li>Volume gateway is a kind of backup drive in on-premise. It can help in migration. The data goes throught Storage Gateway to S3. They are mounted using block-based protocols (iSCSI), and it cannot be used over long distances such as by the workers in remote locations.</li>
+      <li><b>Volume gateway</b> is a kind of backup drive in on-premise. It can help in migration. The data goes throught Storage Gateway to S3. They are mounted using <u>block-based protocols</u> (iSCSI), and it cannot be used over long distances such as by the workers in remote locations.</li>
       <li><a href="https://aws.amazon.com/storagegateway/vtl/">Tape gateway</a> help the migration sending data throught Storage Gateway to Tape Archive (S3 Glacier) in AWS. It is a backup solution not a file system.</li>    
     </ul>
   </li>
@@ -2138,14 +2138,14 @@ permalink: /:categories/aws-concepts
 </ul>
 
 
-<p><a href="https://aws.amazon.com/datasync/"><b>DataSync</b> </a>:</p>
+<p><a href="https://aws.amazon.com/datasync/"><b>DataSync</b> </a></p>
 <ul>
-  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data <u>between on-premises storage</u>, edge locations, other clouds, and AWS Storage services. However it is not designed as a hybrid storage service (Storage Gateway is). Also, it's not available to access to third party data (for that use <a href="https://aws.amazon.com/data-exchange/"><u>AWS Data Exchange</u></a>)</li>
+  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data <u>between on-premises storage, edge locations, other clouds, and AWS Storage services</u>. However it is not designed as a hybrid storage service (Storage Gateway is). Also, it's not available to access to third party data (for that use <a href="https://aws.amazon.com/data-exchange/"><u>AWS Data Exchange</u></a>)</li>
   <li>Agent-based solution for migrating on-premises storage to AWS.</li>
   <li>Agent for self-managed locations</li>
   <li>The agent is not necessary when transferring data betwen AWS storage in the same AWS account</li>
   <li>Move data between NFS/SMB and AWS storage solutions</li>
-  <li>DataSync encrypts data in-transit via TLS.</li>
+  <li>DataSync <u>encrypts data in-transit</u> via TLS.</li>
   <li>DataSync works best as a solution for one-time data migration.</li> 
   <li>DataSync can transfer data to archival storage, such as S3 Glacier Deep Archive.</li> 
 </ul>
@@ -2153,7 +2153,7 @@ permalink: /:categories/aws-concepts
 
 <p>AWS <b>Transfer Family</b> <a href="https://aws.amazon.com/aws-transfer-family/">[1]</a>:</p>
 <ul>
-  <li>Transfer Family allows you to integrate legacy applications that use FTPS and S3 together</li>
+  <li>Transfer Family allows you to integrate legacy applications that use <u>FTPS</u> and S3 together</li>
   <li>Move files in and out S3 or EFS using SFTP, FTPS, FTP.</li>
   <li>Easiest way to change nothing.</li>
 </ul> 
@@ -2161,7 +2161,7 @@ permalink: /:categories/aws-concepts
 
 <p>AWS <b>Application Discovery Service</b><a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html">[1]</a> </p>
 <ul>
-  <li>helps you plan your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</li>
+  <li>helps you <u>plan</u> your migration to the AWS cloud by collecting usage and configuration data about your on-premises servers.</li>
   <li>Types: Agentless and Agent Based</li>
 </ul>
 
@@ -2169,7 +2169,7 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>Plan migration projects</li>
   <li>Agentless Discovery or Agent-based</li>
-  <li>This service is an automated lift-and-shift (rehost) solution for expediting migration of apps to AWS and can be used for physical, virtual, or cloud servers to avoid cutover windows or disruptions.</li>
+  <li>This service is an automated <u>lift-and-shift</u> (rehost) solution for expediting migration of apps to AWS and can be used for physical, virtual, or cloud servers to avoid cutover windows or disruptions.</li>
   <li>Migrating to run natively on AWS</li>
 </ul>
 
@@ -2178,7 +2178,7 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>Migrate to AWS (relational DBs, data warehouse, NoSQL, other data stores).</li>
   <li>With this is possible do continuous replication (ex: send to data warehouse)</li>
-  <li>The source database remains fully operational during the migration, minimizing downtime</li>
+  <li>The source database remains <u>fully operational during the migration</u>, minimizing downtime</li>
   <li>Option: perform a one-time migration or continuously replicate ongoing changes</li>
   <li>Types: Full Load; Full load and change Data capture (CDC); CDC only</li>
   <li>Source DB -> EC2 instance running DMS -> Target DB</li>
