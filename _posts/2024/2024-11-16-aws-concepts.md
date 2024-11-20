@@ -2022,7 +2022,7 @@ permalink: /:categories/aws-concepts
 
 <p><b>AWS Detective</b>: </p>
 <ul>
-  <li><u>deep analyses to isolate the root cause</b> of the security issues or suspicious activities (ML/graphs)</li>
+  <li><u>deep analyses to isolate the root cause</u> of the security issues or suspicious activities (ML/graphs)</li>
   <li>Machine learning, statistical analysis, and graph theory</li>
   <li>Sources: VPC Flow logs, CloudTrail logs, Kubernates audit logs, GuardDuty findings</li>
   <li>Use case: Triage security findings; Threat Hunting</li>
