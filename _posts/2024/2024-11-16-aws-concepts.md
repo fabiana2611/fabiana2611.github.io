@@ -41,7 +41,7 @@ permalink: /:categories/aws-concepts
   <tr>
     <td><a href="#machinelearning">Machine Learning</a></td>
     <td><a href="#code">Code</a></td>
-    <td><a href="#others">Others Services</a></td>
+    <td><a href="#others">Other Services</a></td>
   </tr>
   <tr>
     <td><a href="#pricing">Billing and Pricing</a></td>
@@ -305,6 +305,8 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><b>SSH key</b> is an IAM feature to allow developer to access AWS services through the AWS CLI.</p>
 
+<p><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html">AWS IAM Identity Center</a> (successor to AWS Single Sign-On) requires a two-way trust so that it has permissions to read user and group information from your domain to synchronize user and group metadata. IAM Identity Center uses this metadata when assigning access to permission sets or applications.</p>
+
 <p><center>
   <img src="/img/aws/iam.png" height="90%" width="90%">
 </center></p>
@@ -511,6 +513,7 @@ permalink: /:categories/aws-concepts
       <li>Tiers: frequent access (Standard) and not frequent access (IA)</li>
       <li><u>EFS Infrequent Access</u> (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">lifecycle policy</a> to move a file from EFS Standard to EFS-IA (e.g: AFTER_7_DAYS).</li>
       <li>Encryption at rest using KMS</li>
+      <li><a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Replication</a>: EFS can be used with AWS Backup for automated and centralized backup across AWS services, and supports replication to another region. All replication traffic stays on the AWS global backbone, and most changes are replicated within a minute, with an overall Recovery Point Objective (RPO) of 15 minutes for most file systems</li>
     </ul>
   </li>
   <li> <a href="https://aws.amazon.com/fsx/windows/">Amazon FSx</a>
@@ -690,10 +693,10 @@ permalink: /:categories/aws-concepts
   <li><b>RTO</b> - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
   <li><a href="https://aws.amazon.com/blogs/publicsector/rapidly-recover-mission-critical-systems-in-a-disaster/"><b>Strategies</b></a>
     <ul>
-      <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
-      <li>Pilot Light -  replicate part of your IT structure for a limited set of core services. At the moment to recovery, you can rapidly provision a full-scale production environment around the critical core (faster than backup and restore but some downtime)</li>
-      <li>Warm Standby - provision the services necessary to keep the applications up. It is a scaled-down version of a fully functional environment is always running in the cloud. The application can handle traffic (at reduced capacity levels) immediately so this will reduce the RTO (quicker recovery time than Pilot Light but more expensive)</li>
-      <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise</li>
+      <li>Backup and Restore: Restore from a snapshot (Chepest but slowest). RPO/RTO: hours. Ative/Passive.</li>
+      <li>Pilot Light -  replicate part of your IT structure for a limited set of core services. At the moment to recovery, you can rapidly provision a full-scale production environment around the critical core (faster than backup and restore but some downtime). RPO/RTO: 10s. Ative/Passive.</li>
+      <li>Warm Standby - provision the services necessary to keep the applications up. It is a scaled-down version of a fully functional environment is always running in the cloud. The application can handle traffic (at reduced capacity levels) immediately so this will reduce the RTO (quicker recovery time than Pilot Light but more expensive). RPO/RTO: minutes. Ative/Passive.</li>
+      <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise. RPO/RTO: real time. Ative/Active.</li>
       <li>All AWS Multi Region - the best approach for Data replication is use Aurora Global</li>
       <li>Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
     </ul>
@@ -746,7 +749,7 @@ permalink: /:categories/aws-concepts
 
 <p><b><u>VPCs Connections</u></b></p>
 <ul>
-  <li><b>VPC Peering</b> <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a>: connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. </li>
+  <li><b>VPC Peering</b> <a href="https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html">[1]</a>: connect two VPC via direct network route using private IP; cross account and region, no transitive peering, must not have overlapping CIDRS. It can use Security Group cross account but not cross region. For cross region, the security group has to allow traffic from the second region using application server IP addresses</li>
   <li><a href="https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf"><b>PrivateLink</b></a>: provides private connectivity between VPCs, AWS services, and your on-premises networks, <u>without exposing your traffic to the public internet</u>. It is the best option to expose a service to many of customer VPC. It does not need VPC peering, or route tables or Gateways. It needs a <u>Network Load Balancer</u> (NLB) on the service VPC and an <u>ENI</u> on the customer VPC.</li>
   <li><b>VPM CloudHub</b>: Multiple sites with its own VPN connection. The traffic is encrypted.</li>
   <li>VPN:
@@ -754,7 +757,7 @@ permalink: /:categories/aws-concepts
       <li><b>VPN</b> - Virtual Private Network<a href="https://aws.amazon.com/vpn/">[1]</a>: Establish secure connections between your on-premises networks and VPC using a secure and private connection with IPsec and TLS. Encrypted network connectivity. <u>Over public internet</u></li>
       <li><b><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html">Site to Site VPN</a></b>: it connects two VPCs via VPN. It needs Virtual Private Gateway (VPG), a VPN concentrator on the AWS side of VPN connection; and a customer Gateway (CGW) in the customer side of the VPN. It can be used as a backup connection in case DX fail. Over the public internet</li>
       <li><b>AWS Managed VPN</b>: Tunnels from VPC to on premises</li>
-      <li><b>Virtual Private Gateway</b>: connect one VPC to customer network. It is used to setup an AWS VPN</li>
+      <li><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html"><b>Virtual Private Gateway</b></a> (VPN Gateway): connect one VPC to customer network. It is used to setup an AWS VPN (<em> logical, fully redundant distributed edge routing function that sits at the edge of your VPC</em>)</li>
       <li><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html"><b>Customer Gateway</b></a>: installed in customer network</li>
       <li><b>Client VPN</b>: connect to your computer using OpenVPN. Connect to EC2 instance over a private IP.</li>
     </ul>
@@ -871,7 +874,7 @@ permalink: /:categories/aws-concepts
   <li>It can use cache at the edge to reduce latency. Improves read performance</li>
   <li>It's possible to force the expiration of content or use TTL</li>
   <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html"><b>CloudFront Functions</b></a>: you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations. That functions can manipulate the requests and responses that flow through CloudFront, perform basic authentication and authorization, generate HTTP responses at the edge, and more. It is lower cost than Lambda@Edge.</li>
-  <li><b>Security</b>: Defauls to HTTPS connections and can add custom SSL certificate; DDoS protection, integration with Shield, Firewall</li>
+  <li><b>Security</b>: Defauls to HTTPS connections and can add custom SSL certificate; DDoS protection, integration with Shield, Firewall. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-cookies.html"><b>CloudFront signed cookies</b></a> are a method to control who can access your content. </li>
   <li>Customer origin: ALB, EC2 instance, S3 website</li>
   <li>S3 bucket: distribute files and caching at the edge, security with OAC (Origing Access Control)</li>  
   <li>Can be integrated with CloudTrail</li>
@@ -1421,9 +1424,8 @@ permalink: /:categories/aws-concepts
 
 <p>Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
-  <li>Manage <b>Memcached</b>: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data. Multi AZ</li>
-  <li>Managed <b>Redis</b>: support both data replication and clustering. Multi AZ</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Redis authentication tokens</a> enable Redis to require a token (password) before allowing clients to execute commands, thereby improving data security.</li>
+  <li><a href="https://aws.amazon.com/elasticache/redis-vs-memcached/">Manage <b>Memcached</b></a>: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data. Multi AZ. The memached engine supports multiple cores and threads and large nodes.</li>
+  <li><a href="https://aws.amazon.com/elasticache/redis/">Managed <b>Redis</b></a>: support both data replication and clustering. Multi AZ. <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Redis authentication tokens</a> enable Redis to require a token (password) before allowing clients to execute commands, thereby improving data security. It supports storing session state data</li>
   <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
@@ -1466,7 +1468,7 @@ permalink: /:categories/aws-concepts
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
   <li><b>Global Table</b>: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time. This is the native way to handle this within DynamoDB, therefore will incur the least amount of operational overhead</li>
-  <li>Time to Live (TTL): define when an item expire and can be automatically deleted</li>
+  <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time to Live (TTL)</a>: define when an item expire and can be automatically deleted</li>
 </ul>
 
 <p><center>
@@ -1557,6 +1559,7 @@ permalink: /:categories/aws-concepts
   <li>it is serverless (no infrastructure to manage);</li>
   <li>Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
   <li>Use case: Query logs -> Serverless solution - the only service that allow you to directly query data that's stored in S3</li>
+  <li>If you have data in sources other than Amazon S3, you can use <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html"><b>Athena Federated Query</b></a> to query the data in place or build pipelines that extract data from multiple data sources and store them in Amazon S3. With Athena Federated Query, you can run SQL queries across data stored in relational, non-relational, object, and custom data sources.</li>
 </ul>
 
 <p style="text-align: justify;"><b>Amazon Glue</b><a href="https://aws.amazon.com/glue/">[1]</a><a href="https://digitalcloud.training/aws-glue/">[2]</a></p>
@@ -1717,7 +1720,7 @@ permalink: /:categories/aws-concepts
   <li>Supports CloudFormation and Terraform</li>
 </ul>
 
-<p style="text-align: justify;">AWS <b>Amplify</b>: develop and deploy scalable full stack web and mobile application</p>
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/amplify/"><b>Amplify</b></a>: develop and deploy scalable full stack web and mobile application. It simplifies the process of hosting web applications with automated deployment processes. It also integrates with CloudFront, providing a global content delivery network to efficiently serve the game interface.</p>
 
 <p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
 
@@ -1761,6 +1764,7 @@ permalink: /:categories/aws-concepts
   <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html">CloudWatch agent</a> collect both system metrics and log files from Amazon EC2 instances and on-premises servers.</li>
   <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
   <li>Use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html"><u>CloudWatch Container Insights</u></a> to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Kubernetes platforms on Amazon EC2.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html">CloudWatch Dashboard Sharing</a>: share CloudWatch dashboards with people who do not have direct access to your AWS account. This enables you to share dashboards across teams, with stakeholders, and with people external to your organization. You can even display dashboards on big screens in team areas or embed them in Wikis and other webpages.
 </ul>
 
 <p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
@@ -1789,6 +1793,7 @@ permalink: /:categories/aws-concepts
   <li>It can send alerts for changes and the configuration can be store inside S3.</li>
   <li>Use case: discover the architecture in a account (query); create rules to monitor and receive alerts when that rules are violated (enforce); get the history (learn)</li>
   <li>Pricing: pay per item and rule evaluation</li>
+  <li>Detection of non-compliant resources: Config Rules to confirm that resources are configured in compliance with a created policies</li>
   <li>Remediation: can be automatic via SSM automation document which can leverage Lambda function for custom logic</li>
 </ul>
 
@@ -2288,7 +2293,7 @@ permalink: /:categories/aws-concepts
 <hr>
 <br />
 
-<h2 id="others">Others Services</h2>
+<h2 id="others">Other Services</h2>
 
 
 <p style="text-align: justify;">Amazon <b>LightSail</b>: Low cost, easy, preconfigured virtual servers, good to beginners. However, it not possible to deploy a scalable node.js application into a VPC</p>
@@ -2304,6 +2309,8 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/license-manager/">AWS License Manager</a> makes it easier to manage your software licenses from vendors such as Microsoft, SAP, Oracle, and IBM across AWS and on-premises environments. AWS License Manager lets administrators create customized licensing rules that mirror the terms of their licensing agreements.</p>
+
+<p style="text-align: justify;"><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html">AWS Systems Manager Run command</a> is designed to run commands across a large group of instances without having to SSH into all your instances and run the same command multiple times. You can easily run the same command to all the managed nodes as part of the workload, without having to maintain access keys or individual access for each instance.</p>
 
 
 <p><b>Aditional References:</b></p>
@@ -2356,7 +2363,7 @@ permalink: /:categories/aws-concepts
       <li>Billing dashboard </li> 
       <li>Cost Allocation <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tags</a>: Tracking cost. Tags are used to organized resources.</li>
       <li>Cost and Usage Reports: set of cost and usage data available ; can automatically publish the reports to S3. Tracking cost</li>
-      <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-explorer/">Cost Explorer</a>: Tracking costs. Visualize data as graph, understand, and manage your AWS costs and usage over time. Future cost projection. Filter by Region, AZ, tags etc. Features: Time, filter, service</li>
+      <li><a href="https://aws.amazon.com/aws-cost-management/aws-cost-explorer/">Cost Explorer</a>: Tracking costs. Visualize data as <u>graph</u>, understand, and manage your AWS costs and usage over time. Future cost projection. Filter by Region, AZ, tags etc. Features: Time, filter, service</li>
     </ul>
   </li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing Alarms</a> and <a href="https://aws.amazon.com/aws-cost-management/aws-budgets">Budgets</a>: Monitoring against cost plans. The AWS Budget allows companies to track and categorize spending on a detailed level.</li>
