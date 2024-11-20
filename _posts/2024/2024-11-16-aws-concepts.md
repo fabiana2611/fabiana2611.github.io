@@ -357,10 +357,11 @@ permalink: /:categories/aws-concepts
   <li>It provides volume discounts or EC2 and S3 aggregated across the member AWS account.</li>
   <li><a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidate billing</a>: bill for multiple accounts and volume discounts as usage in all accounts is combined, easy to tracking or charges across accounts, combined usege across accounts and sharing of volume pricing discounts, reserved instance discounts and saving plans.</li>
   <li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html#example-ec2-instances"><b>Service Control Policies (SCPs)</b></a> is in AWS Organization and can control a lot of available permissions in AWS account, but NOT grant permissions. It can be used to <u>apply the restrictions across multiple member accounts (deny rule)</u>. It affects only IAM users and roles (not resources policies)</li>
+  <li>You can make new accounts using AWS Organizations however the easiest way to do this is by using the AWS Control Tower service.</li>
  </ul>
 
 
-<p><b>Control Tower</b>:</p>
+<p><a href="https://aws.amazon.com/controltower/"><b>Control Tower</b></a>:</p>
 <ul>
   <li>It is over organization and give support to some adicional features, as create Landing Zone (multi-account baseline) and CT will deploy it.</li>
   <li>it set up and govern a secure and compliant multi-account AWS environment.</li>
@@ -491,6 +492,12 @@ permalink: /:categories/aws-concepts
           <li>sc1 (HDD): lowest cost; Throughput-oriented storage for data that is infrequently accessed.</li>
         </ul>
       </li>
+      <li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html">RAID</a>: RAID array uses multiple EBS volumes to improve performance or redundancy
+        <ul>
+          <li>RAID 0:  I/O performance </li>
+          <li>RAID 1: Fault tolerance. Creates a mirror of the data</li>
+        </ul>
+      </li>
       <li>Encryption: use KMS; if the volume is created encrypted the data in trasit is encrypted, the snapshots are encrypted, the volumes created from snapshots are encrypted. A copy of an uncrypted volume can be encrypted. But cannot enable encryption after it is launch.</li>
     </ul>
   </li>
@@ -502,7 +509,7 @@ permalink: /:categories/aws-concepts
       <li>It is considered highly available, scalable, expensive, pay per use (Expensive).</li>
       <li>Easy to set up, scale, and cost-optimize file storage in the Amazon Cloud</li>
       <li>Tiers: frequent access (Standard) and not frequent access (IA)</li>
-      <li>EFS Infrequent Access (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a policy to move a file from EFS Standard to EFS-IA.</li>
+      <li><u>EFS Infrequent Access</u> (EFS-IA) is a storage class that is cost-optimized for files not accessed and has lower cost than EFS standard. It is based on the last access. You can use a <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">lifecycle policy</a> to move a file from EFS Standard to EFS-IA (e.g: AFTER_7_DAYS).</li>
       <li>Encryption at rest using KMS</li>
     </ul>
   </li>
@@ -681,11 +688,11 @@ permalink: /:categories/aws-concepts
 <ul>
   <li><b>RPO</b> - Recovery Point Objective: point in time to recover (24h, 5 minutes, etc) (How often you run backups - back in time to get the data to recover)</li>
   <li><b>RTO</b> - Recovery Time Objective: how fast to recover; how long the business support (when recover after disaster)</li>
-  <li><b>Strategies</b>
+  <li><a href="https://aws.amazon.com/blogs/publicsector/rapidly-recover-mission-critical-systems-in-a-disaster/"><b>Strategies</b></a>
     <ul>
       <li>Backup and Restore: Restore from a snapshot (Chepest but slowest)</li>
-      <li>Pilot Light -  not consume the same level; provision 100% of the services to keep the applications up (faster than backup and restore but some downtime)</li>
-      <li>Warm Standby - provision the services necessary to keep the applications up (quicker recovery time than Pilot Light but more expensive)</li>
+      <li>Pilot Light -  replicate part of your IT structure for a limited set of core services. At the moment to recovery, you can rapidly provision a full-scale production environment around the critical core (faster than backup and restore but some downtime)</li>
+      <li>Warm Standby - provision the services necessary to keep the applications up. It is a scaled-down version of a fully functional environment is always running in the cloud. The application can handle traffic (at reduced capacity levels) immediately so this will reduce the RTO (quicker recovery time than Pilot Light but more expensive)</li>
       <li>Multi Site / Hot Site Approach: low RTO (expensive); full production scale is running AWS and on-premise</li>
       <li>All AWS Multi Region - the best approach for Data replication is use Aurora Global</li>
       <li>Active/Active Failover: is necessary to have a complete duplicated services (the most expensive but no downtime but lowest RTO and RPO)</li>    
@@ -757,6 +764,8 @@ permalink: /:categories/aws-concepts
 </ul>
 
 <p style="text-align: justify;">5G Networking with <a href="https://aws.amazon.com/wavelength/"><b>AWS WaveLength</b></a>: Infrastructure embedded within the telecommunication provides datacenters at 5G network</p>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/private5g/">AWS Private 5G</a> is a managed service that makes it easy to deploy, operate, and scale your own private cellular network, with all required hardware and software provided by AWS.</p>
 
 <p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>: capture information about the IP traffic going to and from network interfaces in your VPC. For this, configure the <u>Bastion Host</u> security Group to allows inbound from internet on port 22.</p>
 
@@ -861,6 +870,7 @@ permalink: /:categories/aws-concepts
   <li>Edge location: location to cache the content</li>
   <li>It can use cache at the edge to reduce latency. Improves read performance</li>
   <li>It's possible to force the expiration of content or use TTL</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html"><b>CloudFront Functions</b></a>: you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations. That functions can manipulate the requests and responses that flow through CloudFront, perform basic authentication and authorization, generate HTTP responses at the edge, and more. It is lower cost than Lambda@Edge.</li>
   <li><b>Security</b>: Defauls to HTTPS connections and can add custom SSL certificate; DDoS protection, integration with Shield, Firewall</li>
   <li>Customer origin: ALB, EC2 instance, S3 website</li>
   <li>S3 bucket: distribute files and caching at the edge, security with OAC (Origing Access Control)</li>  
@@ -928,7 +938,7 @@ permalink: /:categories/aws-concepts
           <li>at rest: client-side: encrypt before upload file</li>
         </ul>
       </li>
-      <li>Enforcing Server-side Encryption adding a parameter in PUT Request Header:
+      <li><a href="https://aws.amazon.com/blogs/security/how-to-prevent-uploads-of-unencrypted-objects-to-amazon-s3/">Enforcing Server-side Encryption</a> adding a parameter in PUT Request Header:
         <ul>
           <li>x-amz-server-side-encryption: AES256</li>
           <li>x-amz-server-side-encryption: aws:kms</li>
@@ -944,9 +954,11 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;">S3 is a good option to hosting a static website. It will scales automatically. For that, the bucket access should be public and you can add a policy to allow read permission for the objects. Other use cases can be: backup and storage, disaster recovery, archive, hybrid cloud storage, data lakes and big data analytics.</p>
 
+<p style="text-align: justify;">Amazon S3 <a href="https://aws.amazon.com/s3/features/access-points/">Access Points</a>, a feature of S3, simplify data access for any AWS service or customer application that stores data in S3. With S3 Access Points, customers can create unique access control policies for each access point to easily control access to shared datasets. You can also control access point usage using AWS Organizations support for AWS SCPs.</p>
+
 <p><b>Lock</b></p>
 <ul>
-  <li>S3 Object Lock: WriteOnce, ReadMany (WORM)
+  <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">S3 Object Lock</a>: prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely using WriteOnceReadMany (WORM) model.
     <ul>
       <li>Governance Mode: overwrite or delete an object version only with special permissions</li>
       <li>Compliance Mode: even root cannot overwrite or delete protected object version for the duration of the retention period.</li>
@@ -1013,6 +1025,7 @@ permalink: /:categories/aws-concepts
   <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html">S3 Event Notification</a>: <em>enables you to receive notifications when certain events happen in your bucket. To enable notifications, you must first add a notification configuration that identifies the events you want Amazon S3 to publish and the destinations where you want Amazon S3 to send the notifications. An S3 notification can be set up to notify you when objects are restored from Glacier to S3.</em>  It can be trigger to SNS, SQS, Lambda, EventBridge (archive, replay events, reliable delivery).</li>
   <li>S3 Storage Lens: Tools to analyse S3</li>
   <li>S3 Access Log: A new bucket will store the logs. They must be in the same region.</li>
+  <li><a href="https://aws.amazon.com/s3/features/object-lambda/">S3 Object Lambda</a></li>
 </ul>
 
 
@@ -1248,7 +1261,7 @@ permalink: /:categories/aws-concepts
   <li>Use case: variable workflows; multi-tentant apps (service manage capacity for each app); new apps; dev and test new features; mixed use apps; capacity planning</li>
 </ul>
 
-<p><b>AWS AppSync</b>: (GraphQL): store and sync data between mobile and web app. Robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
+<p><a href="https://aws.amazon.com/appsync/"><b>AWS AppSync</b></a>: (GraphQL): store and sync data between mobile and web app. Robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
 
 <p>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></p>
 
@@ -1410,6 +1423,7 @@ permalink: /:categories/aws-concepts
 <ul>
   <li>Manage <b>Memcached</b>: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data. Multi AZ</li>
   <li>Managed <b>Redis</b>: support both data replication and clustering. Multi AZ</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Redis authentication tokens</a> enable Redis to require a token (password) before allowing clients to execute commands, thereby improving data security.</li>
   <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
@@ -1436,7 +1450,7 @@ permalink: /:categories/aws-concepts
   <li>Distributed serverless database</li>
   <li>Integrated with IAM for security, authorization and administration</li>
   <li>Low cost and auto scaling</li>
-  <li>Horizontal Scaling</li>
+  <li>Horizontal Scaling (scale without downtime and with minimal operational overhead)</li>
   <li>Standard and IA (Infrequent Access) Table class</li>
   <li><a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
     <ul>
@@ -1499,7 +1513,7 @@ permalink: /:categories/aws-concepts
   <li>OLAP - online analytical processing (analytics and data warehouseing)</li>
   <li>Parallel Query</li>
   <li>Run SQL against data warehouse</li>
-  <li><b>Redshift Spectrum</b> run queries against Amazon S3 without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
+  <li><a href="https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html"><b>Redshift Spectrum</b></a> run queries against Amazon <u>S3</u> without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
   <li>Size: up to 16PB of data</li>
   <li>Pricing: Pay as you go</li>
   <li>BI tools: AWS Quicksight or Tableau</li>
@@ -1531,9 +1545,9 @@ permalink: /:categories/aws-concepts
 
 <p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
 <ul>
-  <li>Amazon Kinesis Data Streams (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a>: It can be used to continuously collect data in <u>real-time</u>. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale. <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Key concepts</a>: <em>It is a set of shards; each shard has a sequence of data records; each data record has a sequence number that is assigned by Kinesis Data Streams. A shard is a uniquely identified sequence of data records in a stream. A partition key is used to group data by shard within a stream. Kinesis Data Streams segregates the data records belonging to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </em></li>
-  <li>Data Firehose: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
-  <li>Kinesis Data Analytics and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It analyzes the data after it receives the data</li>
+  <li><b>Data Streams</b> (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a>: It can be used to continuously collect data in <u>real-time</u>. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale. <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Key concepts</a>: <em>It is a set of shards; each shard has a sequence of data records; each data record has a sequence number that is assigned by Kinesis Data Streams. A shard is a uniquely identified sequence of data records in a stream. A partition key is used to group data by shard within a stream. Kinesis Data Streams segregates the data records belonging to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </em></li>
+  <li><a href="https://aws.amazon.com/kinesis/data-firehose/"><b>Data Firehose</b></a>: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. It can ingest data and load it directly to a data store. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
+  <li><b>Data Analytics</b> and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It analyzes the data after it receives the data</li>
   <li>It is more use to Big Data, but in scenarios that is necessary real data, it is better than SQS.</li>
 </ul>
 
@@ -1731,7 +1745,9 @@ permalink: /:categories/aws-concepts
 <br />
 <hr>
 <br />
-<h2 id="monitoring">Cloud Monitoring, Audit</h2>
+<h2 id="monitoring">Monitoring nad Audit</h2>
+
+<p style="text-align: justify;"><b>Instance Monitoring</b>: By default, a instance is enabled for basic monitoring (data available in 5 minutes). Detailed monitoring (data available in 1 minutes - charged by metric sent to CloudWatch) can be enabled.</p>
 
 <p style="text-align: justify;"><b>CloudWatch</b> (Metrics, Logs, Alarms, Events) <a href="https://aws.amazon.com/cloudwatch/">[1]</a><a href="https://digitalcloud.training/amazon-cloudwatch/">[2]</a></p>
 <ul>
@@ -1764,11 +1780,12 @@ permalink: /:categories/aws-concepts
   <li>Auditing and recording compliance of the AWS resources, and record configurations and changes</li>
   <li>Allows automating the evaluation of recorded configurations</li>
   <li>Per region service; can be aggregated across regions and accounts</li>
+  <li>Per <u>Region</u> but can be aggreated across region and account.</li>
   <li>Inventory management and control tool (it's not preventative)</li>
   <li>Record configuration changes (<u>configuration history</u>)</li>
   <li>Receive alerts via SNS for alerting (change and compliance notification)</li>
   <li>EventBridge can send events from Config events to other AWS service</li>
-  <li>Per <u>Region</u> but can be aggreated across region and account.</li>
+  <li><a href="https://docs.aws.amazon.com/config/latest/developerguide/monitor-config-with-cloudwatchevents.html">EventBridge</a> can be used to detect and react to changes in the status of AWS Config events. </li>
   <li>It can send alerts for changes and the configuration can be store inside S3.</li>
   <li>Use case: discover the architecture in a account (query); create rules to monitor and receive alerts when that rules are violated (enforce); get the history (learn)</li>
   <li>Pricing: pay per item and rule evaluation</li>
@@ -2096,6 +2113,7 @@ permalink: /:categories/aws-concepts
     </ul>  
   </li>
   <li>Edge computing: Snowcone, Snowball Edge. Process data while it's being create on an edge location (Ex: process data, machine learning, transcoding media streams)</li>
+  <li><a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_LargeDBs.html">Snowball + DMS</a>: Because network restriction, the migration can combine these two methods. Steps: AWS <u>Schema Conversion Tool</u> (AWS SCT) to extract the data locally and move it to an <u>Edge device</u>; ship the Edge device or devices back to AWS; Edge device automatically loads its data into an Amazon <u>S3 bucket</u>; AWS <u>DMS</u> takes the files and migrates the data to the target data store. If you are using change data capture (CDC), those updates are written to the Amazon S3 bucket and then applied to the target data store.</li>
   <li>OpsHub manage Snow Family device.</li>
   <li>Snowball Pricing: per data transfer job</li>
 </ul>
@@ -2119,7 +2137,7 @@ permalink: /:categories/aws-concepts
 
 <p><a href="https://aws.amazon.com/datasync/"><b>DataSync</b> </a>:</p>
 <ul>
-  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data between on-premises storage, edge locations, other clouds, and AWS Storage services. However it is not designed as a hybrid storage service (Storage Gateway is)</li>
+  <li>Great for online data transfers to simplify, automate, and accelerate copying large amounts of data <u>between on-premises storage</u>, edge locations, other clouds, and AWS Storage services. However it is not designed as a hybrid storage service (Storage Gateway is). Also, it's not available to access to third party data (for that use <a href="https://aws.amazon.com/data-exchange/"><u>AWS Data Exchange</u></a>)</li>
   <li>Agent-based solution for migrating on-premises storage to AWS.</li>
   <li>Agent for self-managed locations</li>
   <li>The agent is not necessary when transferring data betwen AWS storage in the same AWS account</li>
@@ -2200,7 +2218,7 @@ permalink: /:categories/aws-concepts
 
 <p>Amazon <b>Connect</b>: receive calls, create contact flows</p>
 
-<p>Amazon <b>Comprehend</b>: Natural Language Processing (NLP), serverless service; analyses and organize text; identify positive/negative experience </p>
+<p>Amazon <a href="https://aws.amazon.com/comprehend/"><b>Comprehend</b></a>: Natural Language Processing (NLP), serverless service; analyses and organize text; identify positive/negative experience </p>
 
 <p>Amazon <b>Forecast</b>: predict future sales, reduce forecasting time. Ex. Financial planning.</p>
 
@@ -2284,6 +2302,8 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;">AWS <b>Fault Inject Simulator (FIS)</b>: based on chaos engineering. stressing test.</p>
 
 <p style="text-align: justify;">AWS <b>Ground Station</b>: control satellite communication</p>
+
+<p style="text-align: justify;"><a href="https://aws.amazon.com/license-manager/">AWS License Manager</a> makes it easier to manage your software licenses from vendors such as Microsoft, SAP, Oracle, and IBM across AWS and on-premises environments. AWS License Manager lets administrators create customized licensing rules that mirror the terms of their licensing agreements.</p>
 
 
 <p><b>Aditional References:</b></p>
