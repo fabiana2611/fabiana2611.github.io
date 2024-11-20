@@ -455,7 +455,7 @@ permalink: /:categories/aws-concepts
   <li>Category:
     <ul>
       <li><u>Amazon EBS</u>: created from an Amazon EBS snapshot. It can be stopped. The <u>data is not lost if stop or reboot</u>. <u>By default, the root device volume will be deleted on termination</u></li>
-      <li><u>Instance Store</u>: created from a template stored in S3. <u>If delete the instance the volume will be deleted as well</u>. If the instance fails you lose data, <u>if reboot the data is not lost<u>. It cannot stop the volume.</li>
+      <li><u>Instance Store</u>: created from a template stored in S3. <u>If delete the instance the volume will be deleted as well</u>. If the instance fails you lose data, <u>if reboot the data is not lost</u>. It cannot stop the volume.</li>
     </ul>
   </li>
 </ul> 
