@@ -1288,7 +1288,7 @@ permalink: /:categories/aws-concepts
       <li>Components:
         <ul>
           <li>Cluster: logical grouping of tasks or services. It can have ECS Container instances in different AZ</li>
-          <li>Task: a running Docker container. To specify permissions for a specific task on ECS you should use IAM Roles for Tasks. The taskRoleArn parameter is used to specify the policy.</li>
+          <li>Task: a running Docker container. To specify permissions for a specific task on ECS you should use IAM Roles for Tasks. The <u>taskRoleArn</u> parameter is used to specify the policy.</li>
           <li>Container instance: EC2 instance running the ECS agent</li>
           <li>Service: Defines long running tasks. It can control number of tasks with Auto Scaling, and attach an ELB for distrubute traffic across containers</li>  
         </ul>
@@ -1304,7 +1304,7 @@ permalink: /:categories/aws-concepts
       </li>
       <li>ECS anywhere:
         <ul> 
-          <li>on-Premise, no orchestration, completely managed, Inboud traffic has to be managed separately (no ELB support)</li>
+          <li><u>on-Premise</u>, no orchestration, completely managed, Inboud traffic has to be managed separately (no ELB support)</li>
           <li>Requirement: SSM Agent, ECS Agent, Doker; register external instances; installation script within ECS console; execute scripts on on-premises VMs; deploy containers using EXTERNAl launch type</li>
         </ul>
       </li>  
@@ -1313,13 +1313,13 @@ permalink: /:categories/aws-concepts
   <li><b>EKS</b> (Amazon Elastic Container Service for Kubernetes) <a href="https://aws.amazon.com/eks/">[3]</a>:
     <ul>
       <li>Manage Kubernetes clusters on AWS</li>
-      <li>Can be used on-premise and the cloud</li>
+      <li>Can be used <u>on-premise and the cloud</u></li>
       <li>Best used when is not all in on AWS</li>
       <li>More work to configure and integrate with AWS</li>
       <li>EKS-D: managed by developer. Self-managed Kubernetes deployment (EKS anywhere)</li>
       <li>EKS anywhere:
         <ul> 
-          <li>on-Premise EKS, EKS Distro (deployment, usege and management for cluster), full lifecycle management</li>
+          <li><u>on-Premise</u> EKS, EKS Distro (deployment, usege and management for cluster), full lifecycle management</li>
           <li>Concepts: control plane, location, updates (manual CLI), Curated Packages, Enterprise Subscription</li>
         </ul>
       </li>
@@ -1372,25 +1372,25 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;">It's possible to install database in EC2 instance. It can be necessary when is needed full control over instance and database; and using a third-party database engine <a href="https://digitalcloud.training/aws-database-services/">[1]</a><a href="https://aws.amazon.com/backup/">[2]</a>.</p>
 
-<p style="text-align: justify;">RDS - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
+<p style="text-align: justify;"><b>RDS</b> - Amazon Relational Database Service<a href="https://aws.amazon.com/rds/">[1]</a><a href="https://digitalcloud.training/amazon-rds/">[2]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">[3]</a>.</p>
 <ul>
   <li>Use EC2 instance</li>
   <li>Benefits to deploy database on RDS instead EC2: hardware provision, database setup, Automated backup and software patching. It reduce the database administration tasks. There is no need to manage OS.</li>
-  <li>RDS types for it: SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</li>
-  <li>It's possible encrypt the RDS instances using AWS Key Management Service (KMS) and snapshot</li>
+  <li>RDS types for it: <u>SQL Server, Oracle, MySQL, PostgreSQL, MariaDB</u></li>
+  <li>It's possible encrypt the RDS instances using AWS Key Management Service (<u>KMS</u>) and snapshot</li>
   <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Amazon RDS creates an SSL certificate and installs the certificate on the DB instance when it provisions the instance</a>. <em>You can download a root certificate from AWS that works for all Regions or you can download Region-specific intermediate certificates and connect to RDS DB instance. It ensure SSL/TLS encryption in transit.</em> The certificates are signed by a certificate authority. You cannot use self-signed certificates with RDS.</li>
-  <li>You cannot enable/disable encryption in transit using the RDS management console or use a KMS key.</li>
+  <li>You <u>cannot enable/disable encryption in transit</u> using the RDS management console or use a KMS key.</li>
   <li>Sales up by increaing instance size (compute and storage)</li>
-  <li>Replicas is only to ready. It improves database scalability.</li>
+  <li><u>Replicas is only to ready</u>. It improves database scalability.</li>
   <li><a href="https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-rds-read-replicas-now-support-multi-az-deployments/">Read Replicas</a>: read-only copy of the primary database. It can be cross-AZ and cross-region. Not used for recovery disaster, only for performance. It requeres Automatic backup. You can only create read replicas of databases running on RDS. You cannot create an RDS Read Replica of a database that is running on Amazon EC2.</li>
-  <li>Multi-AZ: when a Multi-AZ DB instance is provisioned, RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
+  <li><u>Multi-AZ</u>: when a Multi-AZ DB instance is provisioned, RDS automatically creates a primary DB Instance and <u>synchronously</u> replicates the data to a standby instance in a different Availability Zone (AZ). RDS will automatically failover to the standby copy.</li>
   <li>It can use Auto scaling to add replicas</li>
   <li>Serveless</li>
   <li>You can't use SSH to access instances.</li>
-  <li>It is suited for OLTP workloads (real-time)</li>
+  <li>It is suited for <u>OLTP</u> workloads (real-time)</li>
   <li>Security through IAM, Security Groups, KMS, SSL in transit</li>
   <li>Support for IAM Authentication (IAM roles)</li>
-  <li><a href="https://aws.amazon.com/rds/proxy/">RDS Proxy</a>: Allows app to pool and share DB connections improving db efficience, as well reduce the failover. It makes applications more scalable, more resilient to database failures, and more secure</li>
+  <li><a href="https://aws.amazon.com/rds/proxy/">RDS Proxy</a>: Allows app to pool and <u>share DB connections</u> improving db efficience, as well reduce the failover. It makes applications more scalable, more resilient to database failures, and more secure</li>
   <li>Shared Responsibility
     <ul>
       <li>AWS: Manage the underlyning EC2 instance, disable ssh access; Automated DB and OS patching, guarantee the hardware</li>
@@ -1408,12 +1408,12 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;"><b>Aurora</b><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">[1]</a><a href="https://aws.amazon.com/rds/aurora/">[2]</a><a href="https://digitalcloud.training/amazon-aurora/">[3]</a><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html">[4]</a></p>
 <ul>
   <li>Relational DB from AWS fully managed.</li>
-  <li>Compatible with <a href="https://aws.amazon.com/rds/aurora/mysql-features/">MySQL</a>, PostgreSQL, Oracle, Microsoft SQL Server</li>
-  <li>Storage: data is stored in 6 replicas across 3 AZ</li>
-  <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. automatic backup enabled</li>
-  <li>An Aurora cluster can recover in less than 1 minute even in the event of a complete regional outage.</li>
+  <li>Compatible with <u><a href="https://aws.amazon.com/rds/aurora/mysql-features/">MySQL</a>, PostgreSQL, Oracle, Microsoft SQL Server</u></li>
+  <li>Storage: data is stored in <u>6 replicas across 3 AZ</u></li>
+  <li>Compute: cluster of DB instance across multiple AZ, auto scaling (up 128 TB) of Read Replicas. <u>Automatic backup enabled</u></li>
+  <li>An Aurora cluster can <u>recover in less than 1 minute</u> even in the event of a complete regional outage.</li>
   <li>User case: unpredictable and intermittent workloads, no capacity planning</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html">Aurora Replicas</a> are independent endpoints in an Aurora DB cluster, best used for scaling read operations and increasing availability. Up to 15 Aurora Replicas can be distributed across the Availability Zones that a DB cluster spans within an AWS Region.</li>
+  <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html">Aurora Replicas</a> are independent <u>endpoints</u> in an Aurora DB cluster, best used for scaling read operations and increasing availability. Up to 15 Aurora Replicas can be distributed across the Availability Zones that a DB cluster spans within an AWS Region.</li>
   <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">Aurora Global Database</a>: up to 16DB read instances in each region. It consists of one primary AWS Region where your data is mastered, and up to five read-only, secondary AWS Regions. Aurora replicates data (async) to the secondary AWS Regions with typical latency of under 1 second (Recovery Point Objective - RPO).</li>
   <li>Perform Machine Learning</li>
 </ul>
@@ -1424,8 +1424,8 @@ permalink: /:categories/aws-concepts
 
 <p>Amazon <b>ElastiCache</b><a href="https://aws.amazon.com/elasticache">[1]</a><a href="https://digitalcloud.training/amazon-elasticache/">[2]</a></p>
 <ul>
-  <li><a href="https://aws.amazon.com/elasticache/redis-vs-memcached/">Manage <b>Memcached</b></a>: with ElastiCache Memcached there is no data replication or high availability. Each node is a separate partition of data. Multi AZ. The memached engine supports multiple cores and threads and large nodes.</li>
-  <li><a href="https://aws.amazon.com/elasticache/redis/">Managed <b>Redis</b></a>: support both data replication and clustering. Multi AZ. <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Redis authentication tokens</a> enable Redis to require a token (password) before allowing clients to execute commands, thereby improving data security. It supports storing session state data</li>
+  <li><a href="https://aws.amazon.com/elasticache/redis-vs-memcached/">Manage <b>Memcached</b></a>: with ElastiCache Memcached there is <u>no data replication or high availability</u>. Each node is a separate partition of data. Multi AZ. The memached engine supports multiple cores and threads and large nodes.</li>
+  <li><a href="https://aws.amazon.com/elasticache/redis/">Managed <b>Redis</b></a>: support both data <u>replication and clustering</u>. Multi AZ. <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Redis authentication tokens</a> enable Redis to require a token (password) before allowing clients to execute commands, thereby improving data security. It supports storing session state data</li>
   <li>Can be used in front of any database but betther for RDS</li>
   <li>Service that adds caching layers on top of your databases</li>
   <li>In-Memory databases with high performance and low latency (under a millisecond)</li>
@@ -1441,19 +1441,19 @@ permalink: /:categories/aws-concepts
 
 <ul>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WhyDynamoDB.html">NoSQL</a> database</li>
-  <li>Key/value store (Tables, Items [maximum size 400KB] and Attributes)</li>
+  <li><u>Key/value</u> store (Tables, Items [maximum size 400KB] and Attributes)</li>
   <li>Not generally suited to storing documents or images</li>
   <li>Highly available with replication across 3 AZ.</li>
-  <li>Stored on SSD storage</li>
-  <li>Hight performance: reads and writes for online transaction processing (OLTP) workloads</li>
+  <li>Stored on <u>SSD</u> storage</li>
+  <li>Hight performance: reads and writes for online transaction processing (<u>OLTP</u>) workloads</li>
   <li>Low latency retrieval</li>
   <li>Eventually consistent reads (default - better performance) or Strongly consistent reads</li>
-  <li>Multi-Region replication. Ative-Active with cross region support.</li>
+  <li><u>Multi-Region replication</u>. Ative-Active with cross region support.</li>
   <li>Distributed serverless database</li>
   <li>Integrated with IAM for security, authorization and administration</li>
   <li>Low cost and auto scaling</li>
   <li>Horizontal Scaling (scale without downtime and with minimal operational overhead)</li>
-  <li>Standard and IA (Infrequent Access) Table class</li>
+  <li><u>Standard and IA</u> (Infrequent Access) Table class</li>
   <li><a href="https://aws.amazon.com/dynamodb/dax/">DAX</a> (DynamoDB Accelarator)
     <ul>
       <li>It is fully managed in memory cache, the performance is improved, highly scalable and available. Only used with DynamoDB</li>
@@ -1461,12 +1461,12 @@ permalink: /:categories/aws-concepts
     </ul>
   </li>
   <li>Pricing: throughput; Indexed data storage; Data tranfer; Global tables; reserved capacity; On-demand capacity mode; Provisioned capacity mode</li>
-  <li>Security: Encryption at rest using KMS; Site-to-Site VPN, Direct Connect (DX), IAM policies and roles; Integrate with CloudWatch and CloudTrail; VPC endpoints to communicate directly with DynamoDB</li>
-  <li>ACID with DynamoDB -> Dynamo transaction across 1 or more tables within a single AWS account and region. Used when the application needs coordenation. This feature needs to be enable.</li>
-  <li>Backup: On-Demand: full backups at any time; no performance impact, same region of source table</li>
-  <li>Recovery: Point-in-Time Recovery (PITR): protect agains accidental writes or deletes; restore to any point in the last 35 days; incremental; not default; latesst restorable in the past 5 minutes</li>
+  <li>Security: <u>Encryption at rest using KMS</u>; Site-to-Site VPN, Direct Connect (DX), IAM policies and roles; Integrate with CloudWatch and CloudTrail; VPC endpoints to communicate directly with DynamoDB</li>
+  <li><u>ACID</u> with DynamoDB -> Dynamo transaction across 1 or more tables within a single AWS account and region. Used when the application needs coordenation. This feature needs to be enable.</li>
+  <li><u>Backup: On-Demand</u>: full backups at any time; no performance impact, same region of source table</li>
+  <li><u>Recovery: Point-in-Time Recovery (PITR)</u>: protect agains accidental writes or deletes; restore to any point in the last 35 days; incremental; <u>not default</u>; latesst restorable in the past 5 minutes</li>
   <li>Considering a <a href="https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-continuous-backups-and-point-in-time-recovery-pitr/"><b>point-in-time recovery</b></a> (PITR)(continuous backup) for DynamoDB, the customer is responsible to configure (turn on) and AWS is responsible for the backup. Amazon RDS database instance can be restored to a specific point in time with a granularity of 5 minutes</li>
-  <li><b>Global Table</b>: managed multi-master, multi-region replication: globally distributed applications; based on DynamoDB streams; replication latency under 1 second</li>  
+  <li><b>Global Table</b>: managed multi-master, multi-region replication: <u>globally distributed applications</u>; based on DynamoDB streams; <u>replication latency under 1 second</u></li>  
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time. This is the native way to handle this within DynamoDB, therefore will incur the least amount of operational overhead</li>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time to Live (TTL)</a>: define when an item expire and can be automatically deleted</li>
 </ul>
@@ -1475,19 +1475,19 @@ permalink: /:categories/aws-concepts
   <img src="/img/aws/dynamoDB.png" height="100%" width="100%">
 </center></p>
 
-<p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of MongoDB. It is fully managed service; storage scales automatically up tp 64TB, high avaiability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
+<p style="text-align: justify;"><b>DocumentDB</b><a href="https://aws.amazon.com/documentdb">[1]</a><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/backup_restore.html">[2]</a>: Implementation of <u>MongoDB</u>. It is fully managed service; storage scales automatically up tp 64TB, high avaiability and replicates six copies of the data across 3 AZs. Used to migrate MongoDB to cloud. Backup to S3. Ex: User profile.</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed graph database; no decentralization component; immutable ledger database. Ex: review a complete history of all the changes. NoSQL. Use cryptography. Immutable database.</p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/qldb"><b>QLDB</b></a>(Quantum Ledger Database): Fully managed <u>graph</u> database; no decentralization component; <u>immutable</u> ledger database. Ex: review a complete history of all the changes. NoSQL. Use cryptography.</p>
 
 <p style="text-align: justify;"><b>Managed Blockchain</b>: create and manage blockchain networks with open-source frameworks</p>
 
-<p style="text-align: justify;"><b>Amazon Keyspaces</b>: run Apache Cassandra workloads. Distributed database that uses NoSQL. Main application is big data but can be used for backend. Fully manage database. Pay for resource is used.</p>
+<p style="text-align: justify;"><b>Amazon Keyspaces</b>: run Apache <u>Cassandra</u> workloads. Distributed database that uses NoSQL. Main application is big data but can be used for backend. Fully manage database. Pay for resource is used.</p>
 
-<p><b>Neptune</b><a href="https://aws.amazon.com/neptune">[1]</a><a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">[2]</a>: Fully managed graph database. Good to app with highly connected datasets, as fraud detection and knowledge graphs. Used for analysis, build connections between identities, build knowledge, detect fraud patterns, security.</p>
+<p><b>Neptune</b><a href="https://aws.amazon.com/neptune">[1]</a><a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">[2]</a>: Fully managed <u>graph</u> database. Good to app with highly connected datasets, as fraud detection and knowledge graphs. Used for analysis, build connections between identities, build knowledge, detect fraud patterns, security.</p>
 
-<p style="text-align: justify;"><b>Timestream</b>: time series database service for IoT and operational application. For analyses.</p>
+<p style="text-align: justify;"><b>Timestream</b>: time series database service for <u>IoT</u> and operational application. For analyses.</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/lake-formation/features/"><b>AWS Lake Formation</b></a> <em>is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for analysis. With AWS Lake Formation, you can import data from MySQL, PostgreSQL, SQL Server, MariaDB, and Oracle databases running in Amazon Relational Database Service (RDS) or hosted in Amazon Elastic Compute Cloud (EC2). Both bulk and incremental data loading are supported. Use case: Machine Learning.</em></p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/lake-formation/features/"><b>AWS Lake Formation</b></a> <em>is a service that makes it easy to set up a secure data lake in days. A data lake is a centralized, curated, and secured repository that stores all your data, both in its original form and prepared for <u>analysis</u>. With AWS Lake Formation, you can import data from MySQL, PostgreSQL, SQL Server, MariaDB, and Oracle databases running in Amazon Relational Database Service (RDS) or hosted in Amazon Elastic Compute Cloud (EC2). Both bulk and incremental data loading are supported. Use case: <u>Machine Learning</u>.</em></p>
 
 
 <!-- ###################################################### -->
@@ -1510,11 +1510,11 @@ permalink: /:categories/aws-concepts
 <p style="text-align: justify;"><b>Amazon Redshift</b><a href="https://aws.amazon.com/redshift">[1]</a><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">[2]</a><a href="https://digitalcloud.training/amazon-redshift/">[3]</a><a href="https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html#c-spectrum-overview">[4]</a><a href="https://aws.amazon.com/blogs/big-data/amazon-redshift-spectrum-extends-data-warehousing-out-to-exabytes-no-loading-required/">[4]</a></p>
 
 <ul>
-  <li>Based on PostgreSQL (but not OLTP)</li>
-  <li>Relational database for a analytic purpose</li>
-  <li>OLAP - online analytical processing (analytics and data warehouseing)</li>
-  <li>Parallel Query</li>
-  <li>Run SQL against data warehouse</li>
+  <li>Based on <u>PostgreSQL</u> (but not OLTP)</li>
+  <li>Relational database for a <u>analytic</u> purpose</li>
+  <li><u>OLAP</u> - online analytical processing (analytics and <u>data warehouseing</u>)</li>
+  <li><u>Parallel Query</u></li>
+  <li>Run <u>SQL against data warehouse</u></li>
   <li><a href="https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html"><b>Redshift Spectrum</b></a> run queries against Amazon <u>S3</u> without loading the data from Amazon S3 into data warehousing solution. Massive parallelism</li>
   <li>Size: up to 16PB of data</li>
   <li>Pricing: Pay as you go</li>
@@ -1526,7 +1526,7 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;">Amazon <b>EMR</b> (Elastic MapReduce)<a href="https://aws.amazon.com/emr/features/">[1]</a><a href="https://digitalcloud.training/amazon-emr/">[2]</a></p>
 <ul>
-  <li>Help with ETL processing</li>
+  <li>Help with <u>ETL</u> processing</li>
   <li>EMER is made up of EC2 instances</li>
   <li>Managed big data platform</li>
   <li>Storage:
@@ -1545,28 +1545,28 @@ permalink: /:categories/aws-concepts
 </ul>
 
 
-<p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for real-time. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
+<p><b>Kinesis</b> <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a><a href="https://aws.amazon.com/blogs/big-data/streaming-data-from-amazon-s3-to-amazon-kinesis-data-streams-using-aws-dms/">[2]</a><a href="https://aws.amazon.com/kinesis/data-streams/">[3]</a><a href="https://aws.amazon.com/kinesis/data-streams/faqs/">[4]</a>: it is a message broker for <u>real-time</u>. it is a kind of big data pathway connected to a AWS account. It ingest, process and anlyze rel-time streaming data. </p>
 <ul>
-  <li><b>Data Streams</b> (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a>: It can be used to continuously collect data in <u>real-time</u>. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale. <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Key concepts</a>: <em>It is a set of shards; each shard has a sequence of data records; each data record has a sequence number that is assigned by Kinesis Data Streams. A shard is a uniquely identified sequence of data records in a stream. A partition key is used to group data by shard within a stream. Kinesis Data Streams segregates the data records belonging to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </em></li>
-  <li><a href="https://aws.amazon.com/kinesis/data-firehose/"><b>Data Firehose</b></a>: data transfer tool to get information to S3, Redshift, Elasticsearh, or Splunk. It can ingest data and load it directly to a data store. Near real time (60s). It is plug and play with AWS architecture. It scale automatically</li>
-  <li><b>Data Analytics</b> and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It analyzes the data after it receives the data</li>
-  <li>It is more use to Big Data, but in scenarios that is necessary real data, it is better than SQS.</li>
+  <li><b>Data Streams</b> (KDS) <a href="https://digitalcloud.training/amazon-kinesis/">[1]</a>: It can be used to continuously <u>collect</u> data in <u>real-time</u>. The developer is responsible for creating the consumer and scaling the stream. It does not automatically scale. <a href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Key concepts</a>: <em>It is a set of <u>shards</u>; each shard has a sequence of <u>data records</u>; each data record has a sequence number that is assigned by Kinesis Data Streams. A shard is a uniquely identified sequence of data records in a stream. A <u>partition key</u> is used to <u>group data</u> by shard within a stream. Kinesis Data Streams segregates the data records belonging to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </em></li>
+  <li><a href="https://aws.amazon.com/kinesis/data-firehose/"><b>Data Firehose</b></a>: data <u>transfer tool</u> to get information to S3, Redshift, Elasticsearh, or Splunk. It can <u>ingest data and load</u> it directly to a data store. <u>Near real time</u> (60s). It is plug and play with AWS architecture. It scale automatically</li>
+  <li><b>Data Analytics</b> and SQL: Easy, no servers, cost (pay for resources consumed). Easiest way to process data going through Kinesis using SQL. It <u>analyzes</u> the data after it receives the data</li>
+  <li>It is more use to Big Data, but in scenarios that is necessary real time, it is better than SQS.</li>
 </ul>
 
 <p><b>Athena</b> <a href="https://digitalcloud.training/amazon-athena/">[1]</a><a href="https://aws.amazon.com/athena/features/">[2]</a>: </p>
 <ul>
-  <li>Analyze data in S3 using SQL;</li>
-  <li>it is serverless (no infrastructure to manage);</li>
+  <li><u>Analyze data in S3 using SQL</u></li>
+  <li>Tt is serverless (no infrastructure to manage);</li>
   <li>Pricing: you pay only for the queries that you run. Ex: BI, analytics, reporting</li>
   <li>Use case: Query logs -> Serverless solution - the only service that allow you to directly query data that's stored in S3</li>
-  <li>If you have data in sources other than Amazon S3, you can use <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html"><b>Athena Federated Query</b></a> to query the data in place or build pipelines that extract data from multiple data sources and store them in Amazon S3. With Athena Federated Query, you can run SQL queries across data stored in relational, non-relational, object, and custom data sources.</li>
+  <li>If you have data in sources other than Amazon S3, you can use <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source.html"><b>Athena Federated Query</b></a> to query the data in place or build pipelines that extract data from <u>multiple data sources</u> and store them in Amazon S3. With Athena Federated Query, you can run SQL queries across data stored in relational, non-relational, object, and custom data sources.</li>
 </ul>
 
 <p style="text-align: justify;"><b>Amazon Glue</b><a href="https://aws.amazon.com/glue/">[1]</a><a href="https://digitalcloud.training/aws-glue/">[2]</a></p>
 <ul>
   <li>Serverless data integration</li>
-  <li>Discover, prepare, and combine data for analytics</li>
-  <li>ETL: extract, transform, and load service</li>
+  <li><u>Discover, prepare, and combine data for analytics</u></li>
+  <li><u>ETL</u>: extract, transform, and load service</li>
   <li>The AWS Glue Data Catalog is a central repository to store structural and operational metadata for all your data assets. </li>
   <li>Good working together with Athena: Athena can work by itself and Glue can design schema for the data</li>
   <li>It's possible to specify the number of DPUs (data processing unit) for an ETL job. A Glue ETL job must have a minimum of 2 DPUs. AWS Glue allocates 10 DPUs to each ETL job by default</li>
@@ -1574,9 +1574,9 @@ permalink: /:categories/aws-concepts
 
 <p><b>QuickSight</b><a href="https://aws.amazon.com/quicksight/">[1]</a>:  </p>
 <ul>
-  <li>Primarily used for analyzing log files and docs, specially within an ETL process</li>
-  <li>scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service</li>
-  <li>Data visualization service -  dashboards</li>
+  <li>Primarily used for <u>analyzing log files and docs</u>, specially within an ETL process</li>
+  <li>Scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service</li>
+  <li><u>Data visualization</u> service -  dashboards</li>
   <li>Features: visualization, ad-hoc data analytics; integrates with RDS, Aurora, Athena, S3...</li>
   <li>Robust in-memory engine</li>
   <li>Colum-level security (CLS)</li>
@@ -1587,14 +1587,14 @@ permalink: /:categories/aws-concepts
 <p><b>AWS <a href="https://aws.amazon.com/datapipeline/">AWS Data Pipeline</a></b></p>
 
 <Ul>
-  <li>It is a managed ETL (Extract, Transform, Load ) service within AWS</li>
-  <li>Implement automated workflows for movement and transformation of data between different compute and storage services</li>
+  <li>It is a managed <u>ETL</u> (Extract, Transform, Load ) service within AWS</li>
+  <li>Implement automated <u>workflows</u> for movement and transformation of data between different compute and storage services</li>
   <li>Data source can be on-premise</li>
   <li>Define data-driven workflows</li>
   <li>Define parameters for data transformation</li>
   <li>Highly Availability and fault tolerant</li>
   <li>Handling Failures - automatically retries failed activities</li>
-  <li>Integrate with DynamoDB, RDS, Redshift and S3</li>
+  <li>Integrate with <u>DynamoDB, RDS, Redshift and S3</u></li>
   <li>Works with EC2 and EMR</li>
   <li>Components: Pipeline definition (business logic), Managed Compute (create EC2 instance), task runners, Data Notes (location and types of data)</li>
   <li>Use cases: processing data in EMR using Hadoop streaming; Importing or exporting DynamoDB data; Copying CSF files or data between S3 buckets; Exporting RDS data to S3</li>
@@ -1613,8 +1613,8 @@ permalink: /:categories/aws-concepts
   <li>Serverless</li>
   <li>Security and Logging
     <ul>
-      <li>Integration with KMS</li>
-      <li>Encryption at rest by default</li>
+      <li>Integration with <u>KMS</u></li>
+      <li><u>Encryption at rest by default</u></li>
       <li>TLS for encryption in trasit between brokers in clusters</li>
       <li>Deliver broker logs to CloudWatch, S3, Kinesis Data Firehose</li>
       <li>Metrics are gathered and sent to CloudWatch</li>
@@ -1627,7 +1627,7 @@ permalink: /:categories/aws-concepts
 <p><b>OpenSearch</b><a href="https://aws.amazon.com/elasticsearch-service/features/">[1]</a></p>
 <ul>
   <li>Successor of Elasticsearch</li>
-  <li>Managed analytics and visualization service</li>
+  <li>Managed <u>analytics and visualization</u> service</li>
   <li>Quick Analysis in clusters, usually par of an TLS process</li>
   <li>Search any field</li>
   <li>Can be used as a component to another database</li>
@@ -1720,11 +1720,11 @@ permalink: /:categories/aws-concepts
   <li>Supports CloudFormation and Terraform</li>
 </ul>
 
-<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/amplify/"><b>Amplify</b></a>: develop and deploy scalable full stack web and mobile application. It simplifies the process of hosting web applications with automated deployment processes. It also integrates with CloudFront, providing a global content delivery network to efficiently serve the game interface.</p>
+<p style="text-align: justify;">AWS <a href="https://aws.amazon.com/amplify/"><b>Amplify</b></a>: develop and deploy scalable <u>full stack web and mobile application</u>. It simplifies the process of <u>hosting web applications</u> with automated deployment processes. It also integrates with CloudFront, providing a global content delivery network to efficiently serve the game interface.</p>
 
-<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to test web application and mobile</p>
+<p style="text-align: justify;">AWS <b>Devise Farm</b>: service to <u>test</u> web application and mobile</p>
 
-<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: marketing communication service (email, sms, voice) - engage with customers</p>
+<p style="text-align: justify;">AWS <b><a href="https://aws.amazon.com/pinpoint/">Pinpoint</a></b>: <u>marketing communication</u> service (email, sms, voice) - engage with customers</p>
 
 
 -----
@@ -1759,33 +1759,32 @@ permalink: /:categories/aws-concepts
   <li>Regional source</li>
   <li>Features: System Metrics, Application Metrics, Alarms</li>
   <li>The alarms trigger notifications for metric.</li>
-  <li>Types of metrics: default (CPU utilization, Network throughput), custom (EC2 Memory utilization, EBS Storage Capacity)</li>
-  <li>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable real-time monitoring, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It's possible to query logs to look for potential issues. For custom logs, use <u>CloudWatch Agent</u>, including on-premise. Features: Filter Patterns; CloudWatch Logs Insights (query using SQL); Alarms. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
+  <li>Types of metrics: default (<u>CPU utilization, Network throughput</u>), custom (<u>EC2 Memory utilization, EBS Storage Capacity</u>)</li>
+  <li>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">CloudWatch Logs</a> enable <u>real-time monitoring</u>, can store and access customers log file from EC2 instance, CloudTrail, etc. Centralize logs, quering logs, audit, etc. It's possible to query logs to look for potential issues. For custom logs, use <u>CloudWatch Agent</u>, including on-premise. Features: Filter Patterns; CloudWatch Logs Insights (query using SQL); Alarms. It cannot provide the <b>status</b> of the customer resources. Adjustable retention. </li>
   <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html">CloudWatch agent</a> collect both system metrics and log files from Amazon EC2 instances and on-premises servers.</li>
   <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
   <li>Use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html"><u>CloudWatch Container Insights</u></a> to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Kubernetes platforms on Amazon EC2.</li>
-  <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html">CloudWatch Dashboard Sharing</a>: share CloudWatch dashboards with people who do not have direct access to your AWS account. This enables you to share dashboards across teams, with stakeholders, and with people external to your organization. You can even display dashboards on big screens in team areas or embed them in Wikis and other webpages.
+  <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html">CloudWatch Dashboard Sharing</a>: share CloudWatch dashboards with people who do not have direct access to your AWS account. This enables you to share dashboards across teams, with stakeholders, and with people external to your organization. You can even display dashboards on big screens in team areas or embed them in Wikis and other webpages.</li>
 </ul>
 
 <p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
 <ul>
-  <li>Record API calls</li>
-   <li>It tracks events (history events/API calls).</li>
-   <li>Log, monitoring and retain account activity (Who, What, When). Track user activities and API requests and filter logs to assist with operational analysis and troubleshooting. </li>
-  <li><b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has encryptation enabled as default. </li>
+  <li>Record <u>API</u> calls</li>
+  <li>It tracks events (history events/API calls).</li>
+  <li><u>Log, monitoring and retain account activity</u> (Who, What, When). Track user activities and API requests and filter logs to assist with operational analysis and troubleshooting. </li>
+  <li><b>Governance, compliance, audit for AWS account</b>. It can be applied to all regions or one. It has <u>encryptation enabled as default</u>. </li>
   <li>Enabling the <b>insights</b> allows CloudTrail detect automatically <b>unusual API activities</b> in the customer account. </li>
 </ul>
 
 <p><b>AWS Config</b> <a href="https://digitalcloud.training/aws-config/">[1]</a><a href="https://aws.amazon.com/config/">[2]</a>:</p>
 <ul>
-  <li>Enables customer to assess, audit, and evaluate the configurations of their AWS resources.</li>
+  <li>Enables customer to <u>assess, audit, and evaluate the configurations</u> of their AWS resources.</li>
   <li>Continuous monitoring.</li>
   <li>Track all changes in the resources</li>
   <li>Auditing and recording compliance of the AWS resources, and record configurations and changes</li>
   <li>Allows automating the evaluation of recorded configurations</li>
-  <li>Per region service; can be aggregated across regions and accounts</li>
   <li>Per <u>Region</u> but can be aggreated across region and account.</li>
-  <li>Inventory management and control tool (it's not preventative)</li>
+  <li><u>Inventory management and control tool</u> (it's not preventative)</li>
   <li>Record configuration changes (<u>configuration history</u>)</li>
   <li>Receive alerts via SNS for alerting (change and compliance notification)</li>
   <li>EventBridge can send events from Config events to other AWS service</li>
@@ -1793,7 +1792,7 @@ permalink: /:categories/aws-concepts
   <li>It can send alerts for changes and the configuration can be store inside S3.</li>
   <li>Use case: discover the architecture in a account (query); create rules to monitor and receive alerts when that rules are violated (enforce); get the history (learn)</li>
   <li>Pricing: pay per item and rule evaluation</li>
-  <li>Detection of non-compliant resources: Config Rules to confirm that resources are configured in compliance with a created policies</li>
+  <li><u>Detection of non-compliant resources</u>: Config Rules to confirm that resources are configured in compliance with a created policies</li>
   <li>Remediation: can be automatic via SSM automation document which can leverage Lambda function for custom logic</li>
 </ul>
 
@@ -1801,7 +1800,7 @@ permalink: /:categories/aws-concepts
 <p><b>EventBridge</b> <a href="https://aws.amazon.com/eventbridge/">[1]</a></p>
 <ul>
   <li>Serverless event bus</li>
-  <li>Pass events from a source to an endpoint</li>
+  <li>Pass events <u>from a source to an endpoint</u></li>
   <li>Build event-driven applications at scale, schedule (cron jobs), event pattern, trigger lambda functions,send SQS/SNS message, etc.</li>
   <li>Events Bus is the router that receives events and delivers them to targets.</li> 
   <li>Use it to trigger an action based on an event in AWS</li>
@@ -1812,13 +1811,12 @@ permalink: /:categories/aws-concepts
 <p><b><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></b>:</p>
 <ul> 
   <li>Serverless</li>
-  <li>Collect data to get insights about requests and responses</li>
-  <li>Traces - tracing headers, send trace data</li>
+  <li>Collect data to get <u>insights about requests and responses</u></li>
+  <li>Traces - <u>tracing headers</u>, send trace data</li>
   <li>Debugging in Production.</li>
   <li>Benefits: performance, uderstand dependencies, review request, find errors, identify users, trace request across microservice/AWS Service.</li>
   <li>Contepts: Segments, subsegments, service graph, traces, tracing headers</li>
 </ul>
-
 
 <p><b><a href="https://status.aws.amazon.com/">AWS Helth Dashboard</a></b>:</p>
 <ul>
@@ -1836,15 +1834,15 @@ permalink: /:categories/aws-concepts
   <li>It gives a personalized view of performance and availability of the services used by customer.</li>
 </ul>
 
-<p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for PCI compliance, GDPR, etc</p>
+<p><b>Audit Manager</b>: Automated service for <b>continuous auditing</b> that procuces reports for <u>PCI compliance, GDPR</u>, etc</p>
 
 <p><a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a>: is a serverless, Prometheus-compatible <u>monitoring</u> service for container metrics. It is perfect for monitoring Kubernetes clusters at scale.</p>
 
 <p><a href="https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html">AWS Managed Grafana</a>: fully managed service for infrastructure for data visualizations (<u>analytics and monitoring application</u>). Features: query, correlate, and visualize operational metrics from multiple sources.</p>
 
-<p><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: fully managed best-practices <u>audit tool</u>. Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port. It is account level. Check Categories: Cost Optimization; Performance; Security; Fault Tolerance; Service Limits</p>
+<p><a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS <b>Trust Advisor</b></a>: fully managed best-practices <u>audit tool</u>. <u>Analyse account and provide real-time <a href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/">best practices</a> recommentation</u> (Cost, performance, Security, Falt tolerance and Service limits). Ex: Checks security groups for rules that allow unrestrictec access to specific port. It is <u>account level</u>. Check Categories: Cost Optimization; Performance; Security; Fault Tolerance; Service Limits</p>
 
-<p>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Analyzes configurations and utilization metrics. Reports current usage optimizations and recomendation. Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</p>
+<p>AWS <a href=" https://aws.amazon.com/compute-optimizer/"><b>Compute Optimizer</b></a>: Analyzes <u>configurations and utilization metrics</u>. Reports current usage optimizations and recomendation. Reduce costs and improve performance. Use ML. Helps the customer to choose optimal configuration and right size workload, including the CPU utilization and memory utilization. It delivers recommentations to EC2 instance, EC2 Scaling groups, EBS volumes and AWS lambda functions.</p>
 
 
 <p><center>
