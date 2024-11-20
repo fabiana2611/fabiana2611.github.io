@@ -1102,7 +1102,7 @@ permalink: /:categories/aws-concepts
   <li>Security
     <ul>
       <li>Encryption <u>in transit by default</u> (HTTPS) and can add at rest via KMS</li>
-      <li><u>Access Policies<u>: can be attached a <u>resource policy</u>, useful across-account access</li>
+      <li><u>Access Policies</u>: can be attached a <u>resource policy</u>, useful across-account access</li>
     </ul>
   </li>
   <li><u>FanOut (SNS+SQS)</u> <a href="https://aws.amazon.com/blogs/aws/kds-enhanced-fanout/">[1]</a> : messages published to SNS topic are replicated to multiple endpoint subscription (1:N)</li>
@@ -1208,12 +1208,12 @@ permalink: /:categories/aws-concepts
   <li>Example of integration: ELB, API Gateway, Kinesis, DynamoDB, S3, CloudFront, CloudWatch, SNS, SQS, Cognito</li>
   <li>Virtual functions</li>
   <li>By default, Lambda function is launched outside of VPC, but it can be done in VPC</li>
-  <li>Synchronous: CLI,SDK, API Gateway</li>
-  <li>Asynchronous: S3, SNS, CloudWatch, etc</li>
+  <li><u>Synchronous</u>: CLI,SDK, API Gateway</li>
+  <li><u>Asynchronous</u>: S3, SNS, CloudWatch, etc</li>
   <li>Run on-demand</li>
   <li>Scaling automatically</li>
   <li>Event-driven</li>
-  <li>Lambda needs IAM role to access AWS APIs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">[3]</a></li>
+  <li>Lambda needs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">IAM role to access AWS APIs</a></li>
   <li>Can be monitoring through <b>CloudWatch</b></li>
   <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
   <li>Compute: 
