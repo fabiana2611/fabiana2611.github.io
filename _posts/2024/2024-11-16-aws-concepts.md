@@ -57,13 +57,24 @@ permalink: /:categories/aws-concepts
 <hr>
 <br />
 
-<p  style="text-align: justify;">This post was published originally in 2023 for Clound Foundation and updated in 2024 for Solution Architect Certification. Here you will not find any insights or good discussion. This post has only notes got from sources to help to organize the concepts to the tests</p>
+<p  style="text-align: justify;">This post was published originally in 2023 for Clound Foundation and updated in 2024 for Solution Architect Certification. Here you will not find any insights or good discussion. This post has only notes got from sources to help to organize the concepts to the tests.</p>
 
 <p style="text-align: justify;">AWS has a lot of certifications and a few of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
 <p style="text-align: justify;">A optional test is <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/?ch=tile&tile=getstarted">AWS Certified Cloud Practitioner (CLF-C01)</a>, and the first mandatory is <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/?ch=sec&sec=rmg&d=1">AWS Certified Solutions Architect Associate (SAA-C03)</a>.</p>
 
 <p style="text-align: justify;">The first step to start your journey is <a href="https://www.tutorialspoint.com/amazon_web_services/amazon_web_services_account.htm">creating your account</a> to do your tests. AWS has a <a href="https://repost.aws/knowledge-center/create-and-activate-aws-account">HowTo</a> for it. Don't forget to not use the root to do your tasks. You have to create user in AWS IAM service by <a href="https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson">AWS Management Console</a>. The default region available to the user is <b>North Virginia</b>.</p>
+
+<table>
+  <tr>
+    <td>
+      <center><img src="/img/aws/AWSPractioner.png" height="60%" width="60%"/></center> 
+    </td>
+    <td>
+      <center><img src="/img/aws/awssa.png" height="60%" width="60%"/></center> 
+    </td>
+  </tr>
+</table>
 
 <p style="text-align: justify;">Some courses:</p>
 <ul>
@@ -2501,14 +2512,3 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;">Good luck!</p>
 
-<table>
-  <tr>
-    <td>
-      <center><img src="/img/aws/AWSPractioner.png" height="60%" width="60%"/></center> 
-    </td>
-    <td>
-      <center><img src="/img/aws/awssa.png" height="60%" width="60%"/></center> 
-    </td>
-</tr>
-</table>
-<p></p>
