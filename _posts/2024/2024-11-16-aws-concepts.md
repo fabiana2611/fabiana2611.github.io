@@ -57,7 +57,7 @@ permalink: /:categories/aws-concepts
 <hr>
 <br />
 
-<p  style="text-align: justify;">This post was published originally in 2023 for Clound Foundation and updated in 2024 for Solution Architect Certification. Here you will not find any insights or good discussion. This post has only notes got from sources to help to organize the concepts to the tests.</p>
+<p style="text-align: justify;">This post was published originally in 2023 for Clound Foundation and updated in 2024 for Solution Architect Certification. Here you will not find any insights or good discussion. This post has only notes got from sources to help to organize the concepts to the tests.</p>
 
 <p style="text-align: justify;">AWS has a lot of certifications and a few of them together defines a Role. You can see all the journeys <a href="https://d1.awsstatic.com/training-and-certification/docs/AWS_certification_paths.pdf">here</a>. As soon as you are  prepared, you can schedule your exam <a href="https://aws.training">here</a>. Two important benefits are 30 minutes more if you are not a native  English speaker, and 50% in your next test. </p>
 
@@ -84,7 +84,7 @@ permalink: /:categories/aws-concepts
   <li><a href="https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/">6 Practice Exams | AWS Certified Cloud Practitioner CLF-C01</a></li>
   <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/?srsltid=AfmBOorzNJorKXzTS3Em5hppo_mNN1sFL3mJMRo4frUF-nD0hVNo5rql&couponCode=ST20MT111124A">Ultimate AWS Certified Solutions Architect Associate SAA-C03</a></li>
   <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-hands-on/?srsltid=AfmBOorhqC5fI0UB9elZPwHObF9FAdz3SCIJCtdd8csSGV3DFcTed2fi&couponCode=ST20MT111124A">AWS Certified Solutions Architect Associate (SAA-C03) Course</a></li>
-  <li><a href="https://www.udemy.com/course/pe-aws-saa/?utm_source=adwords&utm_medium=udemyads&utm_campaign=Search_DSA_Alpha_Prof_la.EN_cc.ROW-English&campaigntype=Search&portfolio=ROW-English&language=EN&product=Course&test=&audience=DSA&topic=DevOps&priority=Alpha&utm_content=deal4584&utm_term=_._ag_162511578644_._ad_696197165238_._kw__._de_c_._dm__._pl__._ti_dsa-1676636558159_._li_9212021_._pd__._&matchtype=&gad_source=1&gclid=Cj0KCQiA0fu5BhDQARIsAMXUBOKPfpKQiUjVH04cByxRzQoMuZ4EGdgqpJhtTMkvFxC37hDl03X1X3saAkbfEALw_wcB&couponCode=2021PM20">Practice Exam AWS Certified Solutions Architect Associate/a></li>
+  <li><a href="https://www.udemy.com/course/pe-aws-saa/?utm_source=adwords&utm_medium=udemyads&utm_campaign=Search_DSA_Alpha_Prof_la.EN_cc.ROW-English&campaigntype=Search&portfolio=ROW-English&language=EN&product=Course&test=&audience=DSA&topic=DevOps&priority=Alpha&utm_content=deal4584&utm_term=_._ag_162511578644_._ad_696197165238_._kw__._de_c_._dm__._pl__._ti_dsa-1676636558159_._li_9212021_._pd__._&matchtype=&gad_source=1&gclid=Cj0KCQiA0fu5BhDQARIsAMXUBOKPfpKQiUjVH04cByxRzQoMuZ4EGdgqpJhtTMkvFxC37hDl03X1X3saAkbfEALw_wcB&couponCode=2021PM20">Practice Exam AWS Certified Solutions Architect Associate</a></li>
   <li><a href="https://www.pluralsight.com/cloud-guru/courses/aws-certified-solutions-architect-associate-saa-c03">[Cloud Guru] AWS Certified Solutions Architect - Associate (SAA-C03) </a></li>
 </ul>
 
