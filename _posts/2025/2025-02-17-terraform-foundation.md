@@ -2,7 +2,7 @@
 layout: post
 title:  "Terraform Foundation"
 date:   2025-02-17
-categories: infra book
+categories: infra
 permalink: /:categories/terraform-foundation
 ---
 
@@ -12,8 +12,8 @@ permalink: /:categories/terraform-foundation
 <ul>
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/certification-associate-tutorials-003">[DOC] Terraform Associate (003) Tutorials</a></li>
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-review-003">[DOC] Exam Content List - Terraform Associate (003)</a></li>
-	<li><a href="https://developer.hashicorp.com/certifications"></a>TF Certification</li>
-	<li><a href="https://www.pluralsight.com/courses/hashicorp-certified-terraform-associate"></a>[CloudGuru] Hashicorp Cetified Terraform Associate: Foundations</li>
+	<li><a href="https://developer.hashicorp.com/certifications">TF Certification</a></li>
+	<li><a href="https://www.pluralsight.com/courses/hashicorp-certified-terraform-associate">[CloudGuru] Hashicorp Cetified Terraform Associate: Foundations</a></li>
 	<li><a href="https://www.udemy.com/course/terraform-beginner-to-advanced/?srsltid=AfmBOopbMkNKb0_VqG2dg1aFzfVFoM2N12XLFS5M9fIVLEg-Hx_cveyr">[Udemy] HashiCorp Certified: Terraform Associate 2024</a></li>
 	<li><a href="https://www.amazon.es/Terraform-Running-Writing-Infrastructure-Code/dp/1098116747">Book: Terraform - Up and Running</a></li>
 	
@@ -58,12 +58,12 @@ permalink: /:categories/terraform-foundation
 </ul>
 
 <p>Tools:</p>
-<u>
+<ul>
 	<li>Infra provisioning tools: Terraform, AWS Cloudformation</li>
 	<li>Server templating tools: AWS Cloudformation, AWS EC2 Image Builder, Hashicorp Packer</li>
 	<li>Orchestration tools: Kubernetes, Docker Swarm and Apache Mesos</li>
 	<li>Configuration management tools: Puppet, Chef, Ansible, SaltStack and Microsoft DSC</li>
-</u>
+</ul>
 
 <p><b>Other References</b></p>
 <ul>
@@ -82,13 +82,13 @@ permalink: /:categories/terraform-foundation
 
 <p style="text-align: justify;"><a href="https://developer.hashicorp.com/terraform/tutorials/certification-associate-tutorials-003/infrastructure-as-code">Terraform</a> is a Iac tool used to manage infrastructure with <u>declarative</u> (desired end-state) configuration files. It manage multiple cloud platform, track resource changes using state, standardize the deployment workflow, manage dependencies between resources to create or destroy in the correct order, and prevent race conditions. Terraform create a dependency graph to ensure create the resources in the right order.</p>
 
-<u>
+<ul>
 	<li>The <a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">state</a> maps the resources configuration in the real world.</li>
 	<li>Terraform use APIs to handle the resources enabled by <a href="https://registry.terraform.io/">providers</a> like AWS or Azure.</li>
 	<li><em>Terraform configuration files are declarative, meaning that they describe the end state of your infrastructure</em></li>
 	<li><a href="https://registry.terraform.io/">Core workflow</a>: <u>Write, Plan, Apply</u></li>
 	<li>It standarizes the deployment workflow allowing the same Terraform configuration to <a href="https://developer.hashicorp.com/terraform/intro/use-cases#multi-cloud-deployment">different providers</a></li>
-</u>
+</ul>
 
 <p><b>Benefits TF with IaC:</b></p>
 <ul>
@@ -215,20 +215,20 @@ permalink: /:categories/terraform-foundation
 <p style="text-align: justify;">In case multiple users sharing the same Terraform configuration then they should use the same <a href="https://developer.hashicorp.com/terraform/language/expressions/version-constraints#version-constraint-syntax">version</a>. For that, there are two alternatives to manage the provider version: provide version (<a href="https://developer.hashicorp.com/terraform/language/settings#specifying-a-required-terraform-version">required_version</a>) in terraform block or dependency lock file. More details about the <u>Terraform block</u> you can see <a href="https://developer.hashicorp.com/terraform/language/terraform#specifying-provider-requirements">here</a>.</p>
 
 <p>For <b>Dependency Lock</b> approach:</p>
-<u>
+<ul>
 	<li>The <a href="https://developer.hashicorp.com/terraform/language/files/dependency-lock">dependency lock</a> is related to provider dependencies. It stores the version to be used. </li>
 	<li>The `init` step considers the version constraints in the configuration and the version selections recorded in the lock file as well. The Terraform will get the version recorded in lock file</li>
 	<li>This file (`.terraform.lock.hcl`) must be in root folder and pushed to the code repository</li>
 	<li>The lock file has the exact version of each provider is used (inside of required_providers block)</li>
 	<li>Use `terraform init -upgrade` to update the version</li>
 	<li>A checksum verification checks if the checksum for the packaged to be installed matches with the checksum related to the version in lock file</li>
-</u>
+</ul>
 
 <!-- ###  -->    
 
 <h3><b>State</b></h3>
 
-<p><a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">Concepts:</a></u></p>
+<p><a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">Concepts:</a></p>
 <ul>
 	<li>All the metadata about deploy</li>
 	<li>Track what is deployed (real infrastructure) by a state file (mapping configuration to real-world resources)</li>
@@ -291,12 +291,11 @@ permalink: /:categories/terraform-foundation
 <p style="text-align: justify;">Usually the map key/value of variables are inside the file `terraform.tfvars` and the declarations whith their <a href="https://developer.hashicorp.com/terraform/language/expressions/types">data types</a>, and <a href="https://developer.hashicorp.com/terraform/language/values/variables#declaring-an-input-variable">names</a> are inside `variables.tf`. Also, the variables can be <a href="https://developer.hashicorp.com/terraform/cli/config/environment-variables">environment variables</a> that must be in the format TV_VAR_VARIABLENAME. </p>
 
 Type Constraints:
-- Primitive types: number, strong, bool
-- Complex types 
-- - Collection (one primitives): list, map, set
-- - Structural (multiple primitives): tuple, set , object
-- Dynamic Type:
-- any (not decided yet)
+<ul>
+	<li>Primitive types: number, strong, bool</li>
+	<li>Complex types: Collection (list, map, set), Structural (tuple, set , object - multiple primitives)</li> 
+	<li>Dynamic Type: any (not decided yet)</li>
+</ul>
 
 <p>The <a href="https://developer.hashicorp.com/terraform/language/values/locals">locals</a> block is another way to declare variables but it can create variables and use expressions.</p>
 
@@ -376,7 +375,8 @@ https://registry.terraform.io/browse/modules">private/public registry</a>. <a hr
 
 <p style="text-align: justify;" >The modules can be in public or private registry. Private registry modules have source strings of the form HOSTNAME/NAMESPACE/NAME/PROVIDER. This is the same format as the public registry but with an added hostname prefix.</p>
 
-<p>benefits</p>
+<p>Benefits:</p>
+<ul>
 	<li>support versioning</li>
 	<li>automatically generated documentation</li>
 	<li>allow browsing version histories</li>
@@ -470,7 +470,7 @@ https://registry.terraform.io/browse/modules">private/public registry</a>. <a hr
 	<li>
 		<a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement">Sentinel or OPA with HCP Terraform</a>
 		<ul>
-			 <li><em>Both tools allow you to define custom policies to evaluate and control Terraform configurations before they are applied. Both offer powerful capabilities to enforce custom policies on your Terraform configurations, providing an additional layer of security and governance. By leveraging these tools, you can prevent sensitive information or undesired strings from being present in your infrastructure code, reducing the risk of accidental misconfigurations and potential security vulnerabilities.<em> <a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel">[1]</a><a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/opa">[2]</a></li>
+			 <li><em>Both tools allow you to define custom policies to evaluate and control Terraform configurations before they are applied. Both offer powerful capabilities to enforce custom policies on your Terraform configurations, providing an additional layer of security and governance. By leveraging these tools, you can prevent sensitive information or undesired strings from being present in your infrastructure code, reducing the risk of accidental misconfigurations and potential security vulnerabilities.</em> <a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel">[1]</a><a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/opa">[2]</a></li>
 			<li>Sentinel Policy: policy as code framework integrated with HashiCoprp Enterprise</li>
 			<li>Teal-time feedback on potential security risks in Terraform configurations during the development process</li>
 			<li>Sentinel and OPA can enhance security by preventing unauthorized changes to your managed infrastructure</li>
