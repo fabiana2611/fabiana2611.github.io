@@ -14,7 +14,7 @@ permalink: /:categories/terraform-foundation
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-review-003">[DOC] Exam Content List - Terraform Associate (003)</a></li>
 	<li><a href="https://developer.hashicorp.com/certifications">TF Certification</a></li>
 	<li><a href="https://www.pluralsight.com/courses/hashicorp-certified-terraform-associate">[CloudGuru] Hashicorp Cetified Terraform Associate: Foundations</a></li>
-	<li><a href="https://www.udemy.com/course/terraform-beginner-to-advanced/?srsltid=AfmBOopbMkNKb0_VqG2dg1aFzfVFoM2N12XLFS5M9fIVLEg-Hx_cveyr">[Udemy] HashiCorp Certified: Terraform Associate 2024</a></li>
+	<li><a href="https://www.udemy.com/course/terraform-beginner-to-advanced/?srsltid=AfmBOopbMkNKb0_VqG2dg1aFzfVFoM2N12XLFS5M9fIVLEg-Hx_cveyr">[Udemy] HashiCorp Certified: Terraform Associate 2025</a></li>
 	<li><a href="https://www.amazon.es/Terraform-Running-Writing-Infrastructure-Code/dp/1098116747">Book: Terraform - Up and Running</a></li>
 	
 </ul>
@@ -46,14 +46,13 @@ permalink: /:categories/terraform-foundation
 <ul>
 	<li>Relatively simple to learn and write</li>
 	<li>Makes Infrastructure more Reliable: changes become idempotent, consistent, repeatable, and predictable</li>
-	<li>Idempotent: the outcome of applying the same configuration multiple times will always result in the same desired state.</li>
+	<li>Idempotent: if apply same configuration multiple times the results are always the same desired state.</li>
 	<li>Makes Infrastructure more Manageable</li>
 	<li>Reuse of code to deploy similar resources</li>
 	<li>Easily change and update existing infrastructure</li>
 	<li>Allows a user to turn a manual task into a simple, automated deployment</li>
 	<li>Allows recreate an application's infrastructure for disaster recovery scenarios</li>
 	<li>Allows infrastructure to be versioned</li>
-	<li>Provides configuration consistency and standardization among deployments</li>
 	<li>Creating a blueprint of your data center</li>
 </ul>
 
@@ -85,8 +84,7 @@ permalink: /:categories/terraform-foundation
 <ul>
 	<li>The <a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">state</a> maps the resources configuration in the real world.</li>
 	<li>Terraform use APIs to handle the resources enabled by <a href="https://registry.terraform.io/">providers</a> like AWS or Azure.</li>
-	<li><em>Terraform configuration files are declarative, meaning that they describe the end state of your infrastructure</em></li>
-	<li><a href="https://registry.terraform.io/">Core workflow</a>: <u>Write, Plan, Apply</u></li>
+	<li><a href="https://developer.hashicorp.com/terraform/intro/core-workflow">Core workflow</a>: <u>Write, Plan, Apply</u></li>
 	<li>It standarizes the deployment workflow allowing the same Terraform configuration to <a href="https://developer.hashicorp.com/terraform/intro/use-cases#multi-cloud-deployment">different providers</a></li>
 </ul>
 
@@ -96,14 +94,10 @@ permalink: /:categories/terraform-foundation
 	<li>Easily integrate with application workflows (GitHub Actions, Azure DevOps, CI/CD tools)</li>
 	<li>Provide reusable modules for easy sharing and collaboration</li>
 	<li>Manage infrastructure on multiple cloud platforms (platform agnostic)</li>
-	<li>Human-readable configuration language</li>. 
+	<li>Human-readable configuration language</li>
 	<li>Terraform is written in HashiCorp Configuration Language (HCL)</li>
 	<li>Tests modifications using a "dry run" before applying any actual changes</li>
 </ul>
-
-
-<p>Some <a href="https://developer.hashicorp.com/terraform/language/style">recomendations</a> when writing Terraform code. One of them is 2 spaces between each nesting level in Terraform code for better readability and maintainability.</p>
-
 
 
 <!-- ### ####################################### -->    
@@ -119,7 +113,7 @@ permalink: /:categories/terraform-foundation
 
 <p style="text-align: justify;">Terraform is available for <a href="https://www.terraform.io/enterprise/requirements/os-specific/supported-os">macOS, FreeBSD, OpenBSD, Linux, Solaris, and Windows.</a> </p>
 
-<p style="text-align: justify;">Terraform has some <a href="https://developer.hashicorp.com/terraform/language/syntax/style">recomendation</a> that are not mandatory but are good practices.</p>
+<p style="text-align: justify;">HCP has some <a href="https://developer.hashicorp.com/terraform/language/syntax/style">recomendation</a> that are not mandatory but are good practices.</p>
 
 <!-- ###  -->    
 
@@ -140,7 +134,6 @@ permalink: /:categories/terraform-foundation
         	<li>Initialise any modules. TF downloads modules from the module registry or a version control system</li>
         	<li>It can automatically download community providers. It was <a href="https://www.hashicorp.com/blog/automatic-installation-of-third-party-providers-with-terraform-0-13">added with Terraform 0.13</a>. Before 0.13, terraform init would NOT download community providers</li>
         	<li>Set up the the backend for storing state files</li>
-        	<li><a href="- https://developer.hashicorp.com/terraform/internals/debugging">Debug</a>: If you want to see details you can use variables `TF_LOG` and `TF_LOG_PATH`. It sends logs to stderr. Levels: TRACE (most verbose), DEBUG, INFO, WARN, ERROR <a href="https://developer.hashicorp.com/terraform/internals/v1.1.x/debugging">[1]</a><a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/troubleshooting-workflow#enable-terraform-logging">[2]</a></li>
     	</ul>
     </li>
     <li><a href="https://developer.hashicorp.com/terraform/cli/commands/plan">Plan</a> - show the planned infrastructure changes: 
@@ -151,7 +144,7 @@ permalink: /:categories/terraform-foundation
 	        <li>Generates an execution plan allowing to review the changes before applying them</li>
 	        <li>Terraform performs a refresh, unless explicitly disabled</li>
 	        <li><a href="https://developer.hashicorp.com/terraform/cli/commands/plan#planning-modes">Refresh-only</a> mode: creates a plan whose goal is only to update the Terraform state and any root module output values to match changes made to remote objects outside of Terraform. </li>
-	        <li>save the plan: use the -out flag</li>
+	        <li>Save the plan using `-out` flag</li>
     	</ul>
     </li>
     <li><a href="https://developer.hashicorp.com/terraform/cli/commands/apply">Apply</a> - deploy the infrastructure: 
@@ -170,6 +163,9 @@ permalink: /:categories/terraform-foundation
     	</ul>
     </li>
 </ol>
+
+
+<a href="- https://developer.hashicorp.com/terraform/internals/debugging">Debug</a>: If you want to see details you can use variables `TF_LOG` and `TF_LOG_PATH`. It sends logs to stderr. Levels: TRACE (most verbose), DEBUG, INFO, WARN, ERROR <a href="https://developer.hashicorp.com/terraform/internals/v1.1.x/debugging">[1]</a><a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/troubleshooting-workflow#enable-terraform-logging">[2]</a>
 
 <!-- ###  -->    
 
@@ -202,7 +198,7 @@ permalink: /:categories/terraform-foundation
 	<li>The Terraform providers are responsible for allow the interaction between Terraform and cloud providers. That communication is done via APIs. Examples of providers: google, aws, azure, kubernetes, datadog, etc. <a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/provider-versioning">[1]</a><a href="https://developer.hashicorp.com/terraform/language/v1.1.x/providers/configuration">[2]</a><a href="https://developer.hashicorp.com/terraform/language/providers">[3]</a><a href="https://registry.terraform.io/browse/providers">[4]</a><a href="https://developer.hashicorp.com/terraform/language/providers/requirements#provider-installation">[5]</a><a href="https://developer.hashicorp.com/terraform/cli/commands/providers">[6]</a></li>
 	<li><em>Providers are distributed separately from Terraform itself, and each provider has its own release cadence and version numbers.</em> <a href="https://developer.hashicorp.com/terraform/plugin/how-terraform-works">[1]</a></li>
 	<li>The providers are plugins that are downloaded in `init` step considering the provider configuration. </li>
-	<li>- The <a href="https://developer.hashicorp.com/terraform/plugin#installing-plugins">provider plugins are downloaded and stored</a> in the `.terraform/providers` directory within the current working directory.</li>
+	<li>The <a href="https://developer.hashicorp.com/terraform/plugin#installing-plugins">provider plugins are downloaded and stored</a> in the `.terraform/providers` directory within the current working directory.</li>
 	<li>In case be necessary use <a href="https://www.terraform.io/language/providers/configuration#alias-multiple-provider-configurations">multiple providers</a>, terraform allows the use of <u>alias</u> to manage them.</li>
 	<li>The <a href="https://registry.terraform.io/providers/hashicorp/vault/latest/docs">Vault Provider</a> allows you to read and write to HashiCorp Vault from Terraform. </li>
 	<li>Good practice: specify the provider version inside the terraform setting block</li>
@@ -210,7 +206,7 @@ permalink: /:categories/terraform-foundation
 	<li><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication">Authentication</a></li>
 </ul>
 
-<p style="text-align: justify;">The provider (plugin) can exist in local work directory without any reference to it in the Terraform configuration, and may not reflect a provider dependency. That provider dependency exisist if: exist any resource instace belong to a provider in the state; exist any resource or data block in configuration; or explicit provider block in configuration.</p>
+<p style="text-align: justify;">The provider (plugin) can exist in local work directory without any reference to it in the Terraform configuration, and may not reflect a provider dependency. That provider dependency exisist if: exist any resource instace that belong to a provider in the state; exist any resource or data block in configuration; or explicit provider block in configuration.</p>
 
 <p style="text-align: justify;">In case multiple users sharing the same Terraform configuration then they should use the same <a href="https://developer.hashicorp.com/terraform/language/expressions/version-constraints#version-constraint-syntax">version</a>. For that, there are two alternatives to manage the provider version: provide version (<a href="https://developer.hashicorp.com/terraform/language/settings#specifying-a-required-terraform-version">required_version</a>) in terraform block or dependency lock file. More details about the <u>Terraform block</u> you can see <a href="https://developer.hashicorp.com/terraform/language/terraform#specifying-provider-requirements">here</a>.</p>
 
@@ -228,12 +224,12 @@ permalink: /:categories/terraform-foundation
 
 <h3><b>State</b></h3>
 
-<p><a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">Concepts:</a></p>
+<p>Concepts:<a href="https://developer.hashicorp.com/terraform/language/v1.1.x/state/purpose">[1]</a><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli">[2]</a></p>
 <ul>
 	<li>All the metadata about deploy</li>
-	<li>Track what is deployed (real infrastructure) by a state file (mapping configuration to real-world resources)</li>
+	<li>Track what is deployed by a state file (mapping configuration to real-world resources)</li>
 	<li>State file is stored in plain text</li>
-	<li>Stored locally in `terrafomr.tfstate` (default) </li>
+	<li>Stored locally in `terrafome.tfstate` (default) </li>
 	<li>Stored remotely in AWS S3, Google Storage
 		<ul>
 			<li>Allows sharing state file with multiple teams</li>
@@ -247,10 +243,10 @@ permalink: /:categories/terraform-foundation
 	<li>Helps to determining the correct order to destroy resources</li>
 </ul>
 
-<p><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli">Commands:</a></p>
+<p>Commands:</p>
 <ul>
 	<li>State commands: list, show, output, graph <a href="https://developer.hashicorp.com/terraform/cli/v1.1.x/inspect">[1]</a></li>
-	<li><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli#replace-a-resource-with-cli">Replace</a>: rebuild a specific resources avoiding a full destroy operation. It recreates the resource even without midification in the configuration (previous versions: taint)(terraform taint RESOURCE_ADDRESS -> modifies state file (taints a resource, force to be destroyed and recreted)) </li>
+	<li><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli#replace-a-resource-with-cli">Replace</a>: rebuild a specific resources avoiding a full destroy operation. It recreates the resource even without modification in the configuration (previous versions: taint)(terraform taint RESOURCE_ADDRESS -> modifies state file (taints a resource, force to be destroyed and recreted)) </li>
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli#move-a-resource-to-a-different-state-file">Move</a>: the `terraform state mv` moves resources from one state file to another. You can also rename resources with mv. The move command will update the resource in state, but not in your configuration file</li>
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli#remove-a-resource-from-state">Remove</a>: Use a removed block to remove specific resources from your state. This does not destroy the infrastructure itself, instead it indicates that your Terraform configuration will no longer manage the resource.</li>
 	<li><a href="https://developer.hashicorp.com/terraform/tutorials/state/state-cli#refresh-modified-infrastructure">Refresh</a>: The terraform refresh command updates the state file when physical resources change outside of the Terraform workflow.</li>
@@ -262,7 +258,7 @@ permalink: /:categories/terraform-foundation
 
 <p><u>Workspace</u></p>
 <ul>
-	<li>Definition: It is the state file working directory, where the `terrafomr.tfstate` file will be stored. </li>
+	<li>Definition: It is the state file working directory, where the `terrafome.tfstate` file will be stored. </li>
 	<li>Each Terraform <a href="https://developer.hashicorp.com/terraform/language/state/workspaces#workspace-internals">workspace</a> indeed uses its own state file to manage the infrastructure specific to that workspace</li>
 	<li><a href="https://blog.gruntwork.io/how-to-manage-terraform-state-28f5697e68fa#784f">Isolate State:</a>
 		<ul>
@@ -271,7 +267,7 @@ permalink: /:categories/terraform-foundation
 		</ul>
 	</li>	
 	<li>A workspace can only be configured to a single VCS repo, however, multiple workspaces can use the same repo.<a href="https://developer.hashicorp.com/terraform/cloud-docs/workspaces/creating">[1]</a></li>
-	<li><a href="https://learn.hashicorp.com/tutorials/terraform/cloud-migrate">Migration:</a> to migrate a backend is necessary to move the state file and configuration to a nre location. The backend can be migrate even if exists managed resources whithout de-provisioning anything</li>
+	<li><a href="https://learn.hashicorp.com/tutorials/terraform/cloud-migrate">Migration:</a> to migrate a backend is necessary to move the state file and configuration to a new location. The backend can be migrate even if exists managed resources whithout de-provisioning anything</li>
 	<li>The default local backend stores the state file on the local filesystem of the machine where Terraform is being run. It uses system APIs to lock the state file and performs all operations locally.</li>
 	<li>Alternatives available to provide the remaining values to Terraform to initialize and communicate with the remote backend: use the -backend-config=PATH flag to specify a separate config file enables users to store sensitive information in a dedicated file that can be securely managed; directly querying HashiCorp Vault for the secrets; interactively on the command line</li>
 	<li>Commands: <a href="https://developer.hashicorp.com/terraform/cli/commands/workspace/select">[1]</a><a href="https://developer.hashicorp.com/terraform/cli/commands/workspace/new">[2]</a>
@@ -288,7 +284,7 @@ permalink: /:categories/terraform-foundation
 
 <h3><b>Variables and Outputs</b></h3>
 
-<p style="text-align: justify;">Usually the map key/value of variables are inside the file `terraform.tfvars` and the declarations whith their <a href="https://developer.hashicorp.com/terraform/language/expressions/types">data types</a>, and <a href="https://developer.hashicorp.com/terraform/language/values/variables#declaring-an-input-variable">names</a> are inside `variables.tf`. Also, the variables can be <a href="https://developer.hashicorp.com/terraform/cli/config/environment-variables">environment variables</a> that must be in the format TV_VAR_VARIABLENAME. </p>
+<p style="text-align: justify;">Usually the map key/value of variables are inside the file `terraform.tfvars` and the declarations whith their <a href="https://developer.hashicorp.com/terraform/language/expressions/types">data types</a>, and <a href="https://developer.hashicorp.com/terraform/language/values/variables#declaring-an-input-variable">names</a> are inside `variables.tf`. Also, the variables can be <a href="https://developer.hashicorp.com/terraform/cli/config/environment-variables">environment variables</a> that must be in the format TF_VAR_VARIABLENAME. </p>
 
 Type Constraints:
 <ul>
@@ -299,15 +295,15 @@ Type Constraints:
 
 <p>The <a href="https://developer.hashicorp.com/terraform/language/values/locals">locals</a> block is another way to declare variables but it can create variables and use expressions.</p>
 
-<p style="text-align: justify;">The <a href="https://developer.hashicorp.com/terraform/language/values/variables">input variables</a> are the values you pass to the terraform configuration. When they are declared inside the module is necessary to take care if it is sensitive or not because even sensitive variables are store inside state file. If you don't want to store that, you can mark it as ephemeral.</p>
+<p style="text-align: justify;">The <a href="https://developer.hashicorp.com/terraform/language/values/variables">input variables</a> are the values you pass to the terraform configuration. When they are declared inside the module is necessary to take care if it is sensitive or not because even sensitive variables are stored inside state file. If you don't want to store that, you can mark it as <a href="https://developer.hashicorp.com/terraform/language/state/sensitive-data">ephemeral</a>.</p>
 
-<p style="text-align: justify;">As of Terraform 0.9, Terraform does not persist state to the local disk when remote state is in use, and some backends can be configured to encrypt the state data at rest.<a href="https://developer.hashicorp.com/terraform/language/state/sensitive-data">[1]</a></p>
+<p style="text-align: justify;">As of Terraform 0.9, Terraform does not persist state to the local disk when remote state is in use, and some backends can be configured to encrypt the state data at rest.</p>
 
 <p style="text-align: justify;">If you pass that values using <a href="https://www.terraform.io/docs/commands/environment-variables.html">environment variable</a> and it is <a href="https://developer.hashicorp.com/terraform/language/values/variables#values-for-undeclared-variables">undeclared</a>, no warning or error will be shown. In case the values are passed inside of `.tfvars` file, then a warn will be shown, what helps to identify some mistakes. In case it is passed by command line then it will return an error.</p>
 
-<p style="text-align: justify;">The <a href="https://developer.hashicorp.com/terraform/language/values/variables#variable-definition-precedence">terraform precedence</a> to load th variables is: Environment variable, `.tfvars` or `.tfvars.json`, `.auto.tfvars` or `.auto.tfvars.json`, -var or -var-file (using the order given in command line).</p>
+<p style="text-align: justify;">The <a href="https://developer.hashicorp.com/terraform/language/values/variables#variable-definition-precedence">terraform precedence</a> to load th variables is: Environment variable, `.tfvars`,  `.tfvars.json`, `.auto.tfvars` or `.auto.tfvars.json`, -var or -var-file (using the order given in command line).</p>
 
-<p style="text-align: justify;">Consiring that risk of expose sensitive data, Terraform <a href="https://github.com/github/gitignore/blob/main/Terraform.gitignore">recommends to ignore</a>: `terraform.tfstate`, `terraform.tfvars`, .terraform directory , terraform.tfstate and terraform.tfstate.backup, .tfvars files, .tfplan files.</p>
+<p style="text-align: justify;">Considering that risk of expose sensitive data, Terraform <a href="https://github.com/github/gitignore/blob/main/Terraform.gitignore">recommends to ignore</a>: `terraform.tfstate`, `terraform.tfvars`, .terraform directory , terraform.tfstate and terraform.tfstate.backup, .tfvars files, .tfplan files.</p>
 
 <p style="text-align: justify;">Even using the Terraform provider for <a href="https://learn.hashicorp.com/tutorials/terraform/secrets-vault">Vault</a>, the tight integration between Terraform and Vault does not automatically mask secrets in the state file. Developers need to implement secure practices to handle secrets effectively. An alternative is to use environment variables to store sensitive information or use Terraform's data sources to retrieve the information from the environment. </p>
 
@@ -334,7 +330,7 @@ A data source in Terraform enables the configuration to fetch data from an exter
 
 <p><u>depends_on</u></p>
 
-<p style="text-align: justify;"> In TF we can identify two types of dependencies: <a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/dependencies">[1]</a><a href="https://developer.hashicorp.com/terraform/tutorials/certification-associate-tutorials-003/dependencies">[2]</a><a href="">[3]</a></p>
+<p style="text-align: justify;"> In TF we can identify two types of dependencies: <a href="https://developer.hashicorp.com/terraform/tutorials/configuration-language/dependencies">[1]</a></p>
 <ul>
 	<li><em>The `depends_on` argument in Terraform creates an explicit dependency between resources. This means that Terraform will wait for the specified resource to be created or updated before proceeding with the dependent resource. </em></li>
 	<li><em>Terraform implicit dependencies refer to the dependencies between resources in a Terraform configuration but are not explicitly defined in the configuration. Terraform uses a graph to track these implicit dependencies and ensures that resources are created, updated, and deleted in the correct order.</em></li>
@@ -348,7 +344,7 @@ A data source in Terraform enables the configuration to fetch data from an exter
 
 <p><u>for_each</u></p>
 
-<p style="text-align: justify;"><em>In Terraform, when you use the for_each argument in a resource block, Terraform generates multiple instances of that resource, each with a unique address. The address of each instance is determined by the keys of the for_each map, and it is used to identify and manage each instance of the resource.</em> <a href="https://developer.hashicorp.com/terraform/cli/v1.1.x/state/resource-addressing">[1]</a></p>
+<p style="text-align: justify;"><em>In Terraform, when you use the for_each argument in a resource block, Terraform generates multiple instances of that resource, each with a unique address. The address of each instance is determined by the keys of the for_each map, and it is used to identify and manage each instance of the resource.</em> <a href="https://developer.hashicorp.com/terraform/cli/v1.1.x/state/resource-addressing#for_each-example">[1]</a></p>
 
 <p><u>Dynamic blocks</u></p>
 
@@ -414,19 +410,29 @@ https://registry.terraform.io/browse/modules">private/public registry</a>. <a hr
 
 <ul>
 	<li>Terraforms comes pre-packaged with functions<a href="https://developer.hashicorp.com/terraform/language/functions">[1]</a></li>
-	<li>User-defined functions are nor allowed</li>
-	<li>Built-In Functions: join</li>
-	<li>Test using <a href="https://developer.hashicorp.com/terraform/cli/commands/console">console</a>:$terraform console. Command-line interface (CLI) tool that allows you to interactively evaluate expressions in Terraform. The terraform console command opens a REPL (Read-Eval-Print Loop) environment, where you can type Terraform expressions and see the results immediately. Console is used to test expressions, debugging configuration and understand TF behaviour.</li>
+	<li>User-defined functions are not allowed</li>
+	<li>Test using <a href="https://developer.hashicorp.com/terraform/cli/commands/console">console</a>: $terraform console. Command-line interface (CLI) tool that allows you to interactively evaluate expressions in Terraform. The terraform console command opens a REPL (Read-Eval-Print Loop) environment, where you can type Terraform expressions and see the results immediately. Console is used to test expressions, debugging configuration and understand TF behaviour.</li>
 </ul>	
+
+Categories:
+
+<ul>
+	<li>Numeric: abs, ceil, floor, max, min</li>
+	<li>String: concat, replace, split, join, tolower, toupper</li>
+	<li>Collection: element, keys, length, merge, sort, slice</li>
+	<li>Filesystem: file, filebase64, dirname</li>
+</ul>
 
 
 <p><b>Other References</b></p>
 <ul>
 	<li><a href="https://developer.hashicorp.com/terraform/language/functions/index_function">Index function</a></li>
+	<li><a href="https://developer.hashicorp.com/terraform/language/functions/element">Element</a></li>	
 	<li><a href="https://www.terraform.io/docs/configuration/functions/zipmap.html">zipmap function</a></li>	
 	<li><a href="https://www.terraform.io/language/functions/lookup">lookup function</a></li>	
 	<li><a href="https://developer.hashicorp.com/terraform/language/functions/length">Length function</a></li>	
-	<li><a href="https://developer.hashicorp.com/terraform/language/functions/element">Element</a></li>	
+	<li><a href="https://developer.hashicorp.com/terraform/language/functions/toset">toset</a></li>	
+	<li><a href="https://developer.hashicorp.com/terraform/language/functions/formatdate">formatdate</a></li>	
 </ul>
 
 
@@ -472,7 +478,7 @@ https://registry.terraform.io/browse/modules">private/public registry</a>. <a hr
 		<ul>
 			 <li><em>Both tools allow you to define custom policies to evaluate and control Terraform configurations before they are applied. Both offer powerful capabilities to enforce custom policies on your Terraform configurations, providing an additional layer of security and governance. By leveraging these tools, you can prevent sensitive information or undesired strings from being present in your infrastructure code, reducing the risk of accidental misconfigurations and potential security vulnerabilities.</em> <a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel">[1]</a><a href="https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/opa">[2]</a></li>
 			<li>Sentinel Policy: policy as code framework integrated with HashiCoprp Enterprise</li>
-			<li>Teal-time feedback on potential security risks in Terraform configurations during the development process</li>
+			<li>Real-time feedback on potential security risks in Terraform configurations during the development process</li>
 			<li>Sentinel and OPA can enhance security by preventing unauthorized changes to your managed infrastructure</li>
 			<li>Organizations can enforce resource naming conventions or approved machine images for improved consistency and clarity</li>
 			<li>Sentinel and OPA enable automated policy checks to enforce compliance standards before applying changes to production environments</li>
