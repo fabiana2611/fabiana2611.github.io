@@ -19,7 +19,7 @@ permalink: /:categories/terraform-foundation
 </ul>
 
 
-<center><img src="/img/infra/certified-tf-003.png" height="60%" width="60%"/></center> 
+<center><img src="/img/infra/certified-tf-003.png" height="30%" width="30%"/></center> 
 
 <!-- ### ####################################### -->
 
