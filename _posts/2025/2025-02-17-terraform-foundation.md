@@ -16,9 +16,10 @@ permalink: /:categories/terraform-foundation
 	<li><a href="https://www.pluralsight.com/courses/hashicorp-certified-terraform-associate">[CloudGuru] Hashicorp Cetified Terraform Associate: Foundations</a></li>
 	<li><a href="https://www.udemy.com/course/terraform-beginner-to-advanced/?srsltid=AfmBOopbMkNKb0_VqG2dg1aFzfVFoM2N12XLFS5M9fIVLEg-Hx_cveyr">[Udemy] HashiCorp Certified: Terraform Associate 2025</a></li>
 	<li><a href="https://www.amazon.es/Terraform-Running-Writing-Infrastructure-Code/dp/1098116747">Book: Terraform - Up and Running</a></li>
-	
 </ul>
 
+
+<center><img src="/img/infra/certified-tf-003.png" height="60%" width="60%"/></center> 
 
 <!-- ### ####################################### -->
 
