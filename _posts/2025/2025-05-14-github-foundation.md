@@ -6,9 +6,10 @@ categories: infra
 permalink: /:categories/github-foundation
 ---
 
+<p>Hare are some notes about GitHub Foundation concepts extracted from documentation</p>
 
-
-<h2>Domain 1: Introduction to Git and GitHub 22%</h2>
+<br />
+<h2>Introduction to Git and GitHub</h2>
 
 
 <h3>Git and GitHub Basics</h3>
@@ -16,7 +17,7 @@ permalink: /:categories/github-foundation
 <ul>
   <li><b>Open Source</b>: 
     <ul>
-      <li><em>open source software (OSS) refers to software that features freely available source code, which users may view, modify, adopt, and share for both commercial and noncommercial purposes.<a href="https://github.com/resources/articles/software-development/what-is-open-source-software">[1]</a></em></li>
+      <li><em>open source software (OSS) refers to software that features freely available source code, which users may view, modify, adopt, and share for both commercial and noncommercial purposes.</em><a href="https://github.com/resources/articles/software-development/what-is-open-source-software">[1]</a></li>
     </ul>
   </li>
   <li><b>Version Control</b>: 
@@ -40,7 +41,7 @@ permalink: /:categories/github-foundation
   <li>
     <b>GitHub repository</b>: 
     <ul>
-      <li><em>Repository (repo): The directory, located at the top level of a working tree, where Git keeps all the history and metadata for a project. <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[1]</a></em></li>      
+      <li><em>Repository (repo): The directory, located at the top level of a working tree, where Git keeps all the history and metadata for a project.</em> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[1]</a></li>      
     </ul>
   </li>
   <li><b>Commit</b>: 
@@ -60,8 +61,16 @@ permalink: /:categories/github-foundation
       <li><em>GitHub is a cloud platform that uses Git as its core technology. GitHub acts as the remote repository. </em><a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[2]</a></li>
     </ul>
   </li>
-  <li><b>Git vs GitHub</b>: The main difference between Git and GitHub is that Git is a distributed version control system that you install and run locally on your computer. It helps you track changes to your code over time. GitHub, on the other hand, is a web-based platform that provides hosting for Git repositories. It adds many collaborative features on top of Git, such as issue tracking, pull requests, and a web interface for managing your code. Think of Git as the engine for version control, and GitHub as a popular online service that uses Git as its engine and provides a social and collaborative environment for developers. [from Gemini]</li>
-  <li><b>GitHub flow</b>: <em>"GitHub flow": create branch or fork, edit and preview files, commit changes, and create a pull request; besides upload/download files from/to your computer.</em> <a href="https://docs.github.com/en/get-started/using-github/github-flow#following-github-flow">[3]</a></li>
+  <li><b>Git vs GitHub</b>: 
+    <ul>
+      <li>The main difference between Git and GitHub is that Git is a distributed version control system that you install and run locally on your computer. It helps you track changes to your code over time. GitHub, on the other hand, is a web-based platform that provides hosting for Git repositories. It adds many collaborative features on top of Git, such as issue tracking, pull requests, and a web interface for managing your code. Think of Git as the engine for version control, and GitHub as a popular online service that uses Git as its engine and provides a social and collaborative environment for developers. [from Gemini]</li>
+    </ul>
+  </li>
+  <li><b>GitHub flow</b>: 
+    <ul>
+      <li><em>"GitHub flow": create branch or fork, edit and preview files, commit changes, and create a pull request; besides upload/download files from/to your computer.</em> <a href="https://docs.github.com/en/get-started/using-github/github-flow#following-github-flow">[1]</a></li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -111,7 +120,7 @@ git push origin mytag
 git push --tags
 {% endhighlight %}
 
-<!--
+
 <h3>GitHub Entities</h3>
 
 <em>Every user has an GH account. Accounts allow you to organize and control access to that code.</em>
@@ -122,35 +131,40 @@ git push --tags
       <li><a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#user-accounts">User account:</a>
         <ul>
           <li>Personal account: if you signed up for your own account on GitHub.com, you are using a personal account</li>
-          <li>Managed account: If your account was created for you by an enterprise on GitHub Enterprise Cloud, you are using a managed user account. Some of your account details and settings are managed by your enterprise; You can create your own private repositories, but you cannot create public content or contribute to repositories outside the enterprise.</li>
+          <li>Managed account: account created by an enterprise on GitHub Enterprise Cloud. You can create your own private repositories</li>
           <li>Machine users are accounts created to automate an activity</li>
         </ul>        
       </li>
       <li><a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#organization-accounts">Organization account:</a>
         <ul>
-          <li>Organizations are shared accounts where a large number of people can collaborate across many projects at once. only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features.</li>
-          <li>Organizations are limited to owning 100,000 repositories, to create additional repositories you can create additional organizations.</li>
-          <li>An organization account enhances collaboration between multiple users, and an enterprise account allows central management of multiple organizations.</li>
+          <li>Organizations are shared accounts where a large number of people can collaborate across many projects at once. </li>
+          <li>Organizations are limited to owning 100,000 repositories.</li>
+          <li>An organization account enhances collaboration between multiple users</li>
         </ul>
       </li>
       <li><a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#enterprise-accounts">Enterprise account:</a>
         <ul>
-          <li>centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. </li>
+          <li>Centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. </li>
+          <li>Allows central management of multiple organizations</li>
         </ul>
       </li>
-      <li></li>
     </ul>
   </li>
-  <li><b>GitHub’s products for personal accounts (free, pro)</b>: Each personal account uses either GitHub Free or GitHub Pro. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use GitHub Free, private repositories owned by your personal account have a limited feature set. You can upgrade to GitHub Pro to get a full feature set for private repositories. <a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#personal-accounts">[1]</a>
+  <li><b>GitHub’s products for personal accounts (free, pro)</b>: 
+    <ul>
+      <li>All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories.</li>
+      <li>GitHub Free: private repositories owned by your personal account have a limited feature set. You can upgrade to GitHub Pro to get a full feature set for private repositories. <a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#personal-accounts">[1]</a></li>
+    </ul>
+  </li>
 </li>
   <li><b>GitHub’s products for organization accounts (free for organizations, teams)</b>: 
     <ul>
-      <li> <a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#organization-accounts">You can use organizations for free, with GitHub Free, which includes limited features on private repositories.</a></li>
-      <li><a href="https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization">Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization</a></li>
-      <li><a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository">You can manage a person's access to a repository owned by your organization.</a></li>
-      <li><a href="https://docs.github.com/en/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization">You can invite former organization members to rejoin your organization, and choose whether to restore the person's former role, access permissions, forks, and settings</a></li>
-      <li><a href="https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization">Before requiring two-factor authentication (2FA), you can notify users about the upcoming change and verify who already uses 2FA</a></li>
-      <li><a href="https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams">Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions</a></li>
+      <li> You can use organizations for free, with GitHub Free, which includes limited features on private repositories.<a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#organization-accounts">[1]</a></li>
+      <li>Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization<a href="https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization">[1]</a></li>
+      <li>You can manage a person's access to a repository owned by your organization.<a href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository">[1]</a></li>
+      <li>You can invite former organization members to rejoin your organization, and choose whether to restore the person's former role, access permissions, forks, and settings<a href="https://docs.github.com/en/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization">[1]</a></li>
+      <li>Before requiring two-factor authentication (2FA), you can notify users about the upcoming change and verify who already uses 2FA<a href="https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization">[1]</a></li>
+      <li>Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions<a href="https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams">[1]</a></li>
     </ul>
   </li>
   <li><a href="https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-github-for-enterprises#about-deployment-options">Deployment options for GitHub Enterprise</a>:
@@ -162,15 +176,15 @@ git push --tags
   <li><b>Features in the user profile (metadata, achievements, profile readme, repositories, pinned repositories,stars, etc.)</b>:
     <ul>
       <li>Your profile page tells people the story of your work through the repositories you're interested in, the contributions you've made, and the conversations you've had.<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile">[1]</a></li>
-      <li><a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">Readme</a>: You can add a README to your GitHub profile to tell other people about yourself.</li>
-      <li><a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile">Pin</a>: You can pin gists and repositories to your profile so other people can quickly see your best work.</li>
-      <li><a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile">Organization's profile</a>organization's profile page shows basic information about your organization.</li>
+      <li>You can add a README to your GitHub profile to tell other people about yourself.<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme">[1]</a></li>
+      <li>You can PIN gists and repositories to your profile so other people can quickly see your best work.<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile">[1]</a></li>
+      <li>Organization's profile page shows basic information about your organization.<a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile">[1]</a></li>
     </ul>
   </li>
 </ul>
 
 
-
+<!--
 <h3>GitHub Markdown</h3>
 
 <ul>
