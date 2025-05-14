@@ -22,13 +22,13 @@ permalink: /:categories/github-foundation
   <li><b>Version Control</b>: 
     <ul>
       <li><em>A version control system (VCS) is a program or set of programs that tracks changes to a collection of files facilitating collaboration, and maintaining a history of modifications. Another name for a VCS is a software configuration management (SCM) system. </em> <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[1]</a></li>
-      <li>VCS does not aim to ensure compliance with industry regulations as files are created or changed<a href="https://docs.github.com/en/get-started/using-git/about-git">[1]></a></li>
+      <li>VCS does not aim to ensure compliance with industry regulations as files are created or changed<a href="https://docs.github.com/en/get-started/using-git/about-git">[1]</a></li>
     </ul>
   </li>
   <li><b>Distributed Version Control</b>: 
     <ul>
-      <li><em>Every developer has a full copy of the project and project history. It means DVCSs don't need a constant connection to a central repository. <a href="https://docs.github.com/en/get-started/using-git/about-git#about-version-control-and-git">[1]</a>. </li>
-      <li>Git is distributed, which means that a project's complete history is stored both on the client and on the server. <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[2]</a></em></li>
+      <li><em>Every developer has a full copy of the project and project history. It means DVCSs don't need a constant connection to a central repository.</em> <a href="https://docs.github.com/en/get-started/using-git/about-git#about-version-control-and-git">[1]</a></li>
+      <li><em>Git is distributed, which means that a project's complete history is stored both on the client and on the server. </em><a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[2]</a></li>
     </ul>
   </li>
   <li><b>Git</b><a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[1]</a>: 
@@ -55,14 +55,13 @@ permalink: /:categories/github-foundation
   </li>
   <li><b>GitHub</b>: 
     <ul>
-      <li><em>GitHub is a web-based app that lets you host files in repositories, collaborate on work, and track changes to files over time. Version tracking on GitHub is powered by the open source software Git. Whenever you update a repository on GitHub, Git tracks the changes you make.<a href="https://docs.github.com/en/get-started/using-github/connecting-to-github#introduction">[1]</a></em></li>
-      <li><em>GitHub hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the GitHub Marketplace. </em><a href="<p style="text-align: justify;"><em>">[2]</a></li>
-      <li><em>GitHub is a cloud platform that uses Git as its core technology. GitHub acts as the remote repository. <a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[4]</a></em></li>
+      <li><em>GitHub is a web-based app that lets you host files in repositories, collaborate on work, and track changes to files over time. Version tracking on GitHub is powered by the open source software Git. Whenever you update a repository on GitHub, Git tracks the changes you make.</em><a href="https://docs.github.com/en/get-started/using-github/connecting-to-github#introduction">[1]</a></li>
+      <li><em>GitHub hosts Git repositories and provides developers with tools to ship better code through command line features, issues (threaded discussions), pull requests, code review, or the use of a collection of free and for-purchase apps in the GitHub Marketplace. </em></li>
+      <li><em>GitHub is a cloud platform that uses Git as its core technology. GitHub acts as the remote repository. </em><a href="https://learn.microsoft.com/en-us/training/modules/intro-to-git/1-what-is-vc">[2]</a></li>
     </ul>
   </li>
   <li><b>Git vs GitHub</b>: The main difference between Git and GitHub is that Git is a distributed version control system that you install and run locally on your computer. It helps you track changes to your code over time. GitHub, on the other hand, is a web-based platform that provides hosting for Git repositories. It adds many collaborative features on top of Git, such as issue tracking, pull requests, and a web interface for managing your code. Think of Git as the engine for version control, and GitHub as a popular online service that uses Git as its engine and provides a social and collaborative environment for developers. [from Gemini]</li>
-  <li><b>GitHub flow</b>: <em>"GitHub flow": create branch or fork, edit and preview files, commit changes, and create a pull request; besides upload/download files from/to your computer.</p></em> <a href="https://docs.github.com/en/get-started/using-github/github-flow#following-github-flow">[3]</a></li>
-  <li>The set of nested directories and files containing the project being worked on is commonly referred to as the "working directory" or "working tree." It is the top-level directory in a Git repository where developers edit, create, delete, and organize files as part of their ongoing work on the project.<a href="https://docs.github.com/en/get-started/quickstart/github-glossary">[1]</a></li>
+  <li><b>GitHub flow</b>: <em>"GitHub flow": create branch or fork, edit and preview files, commit changes, and create a pull request; besides upload/download files from/to your computer.</em> <a href="https://docs.github.com/en/get-started/using-github/github-flow#following-github-flow">[3]</a></li>
 </ul>
 
 
