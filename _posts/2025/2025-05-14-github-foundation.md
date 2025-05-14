@@ -8,7 +8,9 @@ permalink: /:categories/github-foundation
 
 <p>Hare are some notes about GitHub Foundation concepts extracted from documentation</p>
 
-<a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="">[Collaboration]</a><a href="">[]</a>
+<a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="#d3">[Collaboration]</a><a href="#d4">[Development]</a>
+<a href="#d5">[Project Management]</a><a href="#d6">[Privacy, Security, and Administration]</a><a href="#d7">[Community]</a>
+
 
 <br />
 <h2>Introduction to Git and GitHub</h2>
@@ -315,17 +317,17 @@ git push --tags
   <li>To create a new Gist, you should go to the Gist homepage. This is the dedicated space for managing and creating Gists on GitHub.<a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists">[1]</a></li>
 </ul>
 
-<!--
+
 <br />
 <hr>
 <br />
-<h2>Domain 4: Modern Development 13%</h2>
+<h2 id="d4">Modern Development</h2>
 
 <ul>
   <li><b>Actions</b>:
     <ul>
-      <li><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production</a><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">[2]</a></li>
-      <li><a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows#access-to-reusable-workflows">Workflows can be reused</a></li>
+      <li>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production<a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">[1]</a><a href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions">[2]</a></li>
+      <li>Workflows can be reused<a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows#access-to-reusable-workflows">[1]</a></li>
       <li>Events that trigger workflows: PR, push, open an issue<a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">[1]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#about-events-that-trigger-workflows">[2]</a></li>
     </ul>
   </li>
@@ -356,7 +358,7 @@ git push --tags
 <br />
 <hr>
 <br />
-<h2>Domain 5: Project Management 7%</h2>
+<h2 id="d5">Project Management</h2>
 
 <ul>
   <li>The roadmap layout provides a high-level visualization of your project across a configurable timespan, and allows you to drag items to affect their start and target dates or selected iteration. <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#about-the-roadmap-layout">[1]</a></li>
@@ -382,7 +384,7 @@ git push --tags
 <br />
 <hr>
 <br />
-<h2>Domain 6: Privacy, Security, and Administration 10%</h2>
+<h2 id="d6">Privacy, Security, and Administration</h2>
 
 <ul>
   <li><a href="https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management">Administrators must decide how users will access the enterprise's resources on GitHub.</a></li>
@@ -409,7 +411,7 @@ git push --tags
 <br />
 <hr>
 <br />
-<h2>Domain 7: Benefits of the GitHub Community 10%</h2>
+<h2 id="d7">Benefits of the GitHub Community</h2>
 
 <ul>
   <li><a href="https://learn.microsoft.com/en-us/training/modules/contribute-open-source/2-identify">Contribution</a></li>
@@ -426,15 +428,15 @@ git push --tags
   <li>Issue templates are helpful when you want to provide guidance for opening issues while allowing contributors to specify the content of their issues. If you want contributors to provide specific, structured information when they open issues, issue forms help ensure that you receive your desired information<a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates#issue-templates">[1]</a></li>
 </ul>
 
--->
+
 
 <br />
 <h3>References</h3>
 <ul>
   <li><a href="https://docs.github.com/en/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications">About GitHub Certifications</a></li>
   <li><a href="https://assets.ctfassets.net/wfutmusr1t3h/1kmMx7AwI4qH8yIZgOmQlP/79e6ff1dfdee589d84a24dd763b1eef7/github-foundations-exam-study-guide__1_.pdf">Study Guide</a></li>
-  <li><a href="">Udemy: NEW - GitHub Foundations Certification - Practice Exams 2025
+  <li><a href="https://www.udemy.com/course/github-foundations-certification/?srsltid=AfmBOopCCmdWaYhRMlgIymrfOd-DnSB68CuFWDZrtTrmclDl1i4LodBM&couponCode=CP130525">Udemy: NEW - GitHub Foundations Certification - Practice Exams 2025
 </a></li>
-<li><a href="">Udemy: GitHub Ultimate: Master Git and GitHub - Beginner to Expert
+<li><a href="https://www.udemy.com/course/github-ultimate/?srsltid=AfmBOopO7KO66lRt82xtU6bfnPvSnWdAk-rhXBKPpGtBedhPnObDlQOp">Udemy: GitHub Ultimate: Master Git and GitHub - Beginner to Expert
 </a></li>
 </ul>  
