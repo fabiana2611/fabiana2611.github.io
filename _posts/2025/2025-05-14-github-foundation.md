@@ -370,6 +370,7 @@ git push --tags
       <li><b>user chart</b>: displays information related to individual users, such as their activity or contributions, rather than the distribution of assigned items among team members.</li>
       <li><b>historical chart</b>: it focuses on visualizing data over a period of time in the past</li>
       <li><b>project chart</b>: typically provides an overview of the project's progress, milestones, or tasks, rather than focusing on individual team members' assignments.</li>
+    </ul>
   </li>
   <li>Information is synced automatically to your project as you make changes, updating your views and charts. When you change information about a pull request or issue in your project, the pull request or issue reflects that information.<a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects">[1]</a><a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones">[2]</a></li>
   <li>Milestones in GitHub are designed for grouping and tracking related issues, making it efficient for tracking and reporting purposes.<a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests">[1]</a></li>
@@ -430,6 +431,8 @@ git push --tags
 
 
 
+<br />
+<hr>
 <br />
 <h3>References</h3>
 <ul>
