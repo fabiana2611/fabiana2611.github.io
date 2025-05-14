@@ -156,7 +156,6 @@ git push --tags
       <li>GitHub Free: private repositories owned by your personal account have a limited feature set. You can upgrade to GitHub Pro to get a full feature set for private repositories. <a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#personal-accounts">[1]</a></li>
     </ul>
   </li>
-</li>
   <li><b>GitHub’s products for organization accounts (free for organizations, teams)</b>: 
     <ul>
       <li> You can use organizations for free, with GitHub Free, which includes limited features on private repositories.<a href="https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts#organization-accounts">[1]</a></li>
@@ -167,7 +166,7 @@ git push --tags
       <li>Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions<a href="https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams">[1]</a></li>
     </ul>
   </li>
-  <li><a href="https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-github-for-enterprises#about-deployment-options">Deployment options for GitHub Enterprise</a>:
+  <li>Deployment options for GitHub Enterprise<a href="https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-github-for-enterprises#about-deployment-options">[1]</a>:
     <ul>
       <li>GH Enterprise Cloud: Hosted by GH</li>
       <li>GH Enterprise Server: hosted in your own GH instance (on-premises or cloud service)</li>
@@ -184,7 +183,6 @@ git push --tags
 </ul>
 
 
-<!--
 <h3>GitHub Markdown</h3>
 
 <ul>
@@ -194,7 +192,7 @@ git push --tags
 <h3>GitHub Desktop</h3>
 
 <ul>
-  <li><a href="https://docs.github.com/en/desktop/overview/about-github-desktop">GitHub Desktop is a free, open source application that helps you to work with files hosted on GitHub or other Git hosting services.</a></li>
+  <li>GitHub Desktop is a free, open source application that helps you to work with files hosted on GitHub or other Git hosting services.<a href="https://docs.github.com/en/desktop/overview/about-github-desktop">[1]</a></li>
   <li><b>GitHub Desktop vs github.com</b>: GitHub Desktop is a graphical user interface (GUI) for interacting with GitHub, a website where you can host and manage Git repositories. It allows you to perform common Git operations like cloning, committing, pushing, and pulling, but through a visual interface instead of using the command line. Github.com is the website itself, where you can host repositories, create issues, and collaborate with others. [from Gemini]</li>
 </ul>
 
@@ -202,11 +200,11 @@ git push --tags
 <h3>GitHub Mobile</h3>
 
 <ul>
-  <li><a href="https://docs.github.com/en/get-started/using-github/github-mobile">Triage, collaborate, and manage your work on GitHub from your mobile device</a></li>
-  <li><a href="https://github.com/features">Features</a></li>
-  <li>Features: web-based code editing in PR; read, review, and collaborate on issues and pull requests</li>
+  <li>Triage, collaborate, and manage your work on GitHub from your mobile device<a href="https://docs.github.com/en/get-started/using-github/github-mobile">[1]</a></li>
+  <li>Features: web-based code editing in PR; read, review, and collaborate on issues and pull requests <a href="https://github.com/features">[1]</a></li>
 </ul>
 
+<!--
 <br />
 <hr>
 <br />
