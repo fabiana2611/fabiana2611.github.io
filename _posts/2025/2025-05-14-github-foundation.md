@@ -6,7 +6,7 @@ categories: infra
 permalink: /:categories/github-foundation
 ---
 
-<p>Hare are some notes about GitHub Foundation concepts extracted from documentation</p>
+<p>Hare are some notes about GitHub Foundation. The concepts were extracted from documentation and Udemy training.</p>
 
 <a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="#d3">[Collaboration]</a><a href="#d4">[Development]</a>
 <a href="#d5">[Project Management]</a><a href="#d6">[Privacy, Security, and Administration]</a><a href="#d7">[Community]</a>
