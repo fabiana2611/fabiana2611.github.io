@@ -8,11 +8,13 @@ permalink: /:categories/github-foundation
 
 <p>Hare are some notes about GitHub Foundation concepts extracted from documentation</p>
 
+<a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="">[]</a><a href="">[]</a>
+
 <br />
 <h2>Introduction to Git and GitHub</h2>
 
 
-<h3>Git and GitHub Basics</h3>
+<h3 id="d1">Git and GitHub Basics</h3>
 
 <ul>
   <li><b>Open Source</b>: 
@@ -204,39 +206,50 @@ git push --tags
   <li>Features: web-based code editing in PR; read, review, and collaborate on issues and pull requests <a href="https://github.com/features">[1]</a></li>
 </ul>
 
-<!--
+
 <br />
 <hr>
 <br />
-<h2>Domain 2: Working with GitHub Repositories 8%</h2>
+<h2 id="d2">Working with GitHub Repositories</h2>
 
 <ul>
+  <li><b>Best practices</b><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories">[1]</a>: 
+    <ul>
+      <li>Create a README file for every repository; </li>
+      <li>single repository to streamline collaboration, creating pull requests between branches instead of between repositories.</li>
+      <li>Forking is best suited for accepting contributions from people who are unaffiliated with a project, such as open-source contributors; </li>
+      <li>To track large files in a Git repository, GitHub recommends using Git Large File Storage (Git LFS) </li>
+    </ul>
+  </li>
+  <li><b>Recommended file</b> for a new repo that provide essential information about the project, help contributors understand the codebase, and maintain transparency in the development process: .gititnore, a contributing file to document the guidelines on how people should contribute to your project, a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">licence</a> that communicates how users can use the files contained in the repository, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">readme</a>, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">CODEOWNERS</a></li>
   <li>README
     <ul>
-      <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">Goal</a>: why your project is useful, what they can do with your project, how they can use it, Where users can get help, Who maintains and contributes</li>
+      <li>Goal: why your project is useful, what they can do with your project, how they can use it, Where users can get help, Who maintains and contributes<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">[1]</a></li>
       <li>Where to put: .github, root and docs; using that precedence </li>
-      <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">License</a>: public repo needs that to be free to use by others. Without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work</li>
-      <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">Codeowners</a>: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.</li>
+      <li>License: public repo needs that to be free to use by others. Without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">[2]</a></li>
+      <li>Codeowners: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">[1]</a></li>
       <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">Topics</a>: To help other people find and contribute to your project</li>
     </ul>
   </li>
-  <li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository">Explain how to create a new repository</a></li>
-  <li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">How to clone a repository</a></li>
-  <li>Describe repository templates: generate new repositories with the same directory structure, branches, and files.<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">[1]</a><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">[2]</a></li>
-  <li>Describe the different features to maintaining a repository: Access Control and Permissions, <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository">Branch Management</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a>, <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">Issue Tracking</a>, Managing <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">labels</a> and <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones">Milestones</a>, <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">Releases</a>, <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">Github Action</a>, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings">Repository Setting</a>, <a href="https://docs.github.com/en/get-started/git-basics/ignoring-files">.gitignore file</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">Code review tools</a></li>
-  <li>Explain how to add files to a repository<a href="https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files">[1]</a><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">[2]</a></li>
-  <li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">Describe how to create a new branch</a></li>
-  <li><a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">Explain how to save a repository with stars</a></li>
-  <li><a href="https://docs.github.com/en/get-started/using-github/exploring-early-access-releases-with-feature-preview">Explain feature previews</a></li>
-  <li><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects">Identify how to view repository insights</a></li>
+  <li>How to
+    <ul>
+      <li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository">Create a new repository</a></li>
+      <li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">Clone a repository</a></li>
+      <li>Add files to a repository<a href="https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files">[1]</a><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">[2]</a></li>
+      <li><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line">Add a file to a repository using the command line</a></li>
+      <li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">Create a new branch</a></li>
+      <li><a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">Save a repository with stars</a></li>
+      <li>View repository insights<a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects">[1]</a></li>
+      <li>Create repository templates (generate new repositories with the same directory structure, branches, and files) <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">[1]</a><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">[1]</a></li>
+    </ul>
+  </li>
+  <li>Different features to maintaining a repository: Access Control and Permissions, <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository">Branch Management</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a>, <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">Issue Tracking</a>, Managing <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">labels</a> and <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones">Milestones</a>, <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">Releases</a>, <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">Github Action</a>, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings">Repository Setting</a>, <a href="https://docs.github.com/en/get-started/git-basics/ignoring-files">.gitignore file</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">Code review tools</a></li>
+  <li><a href="https://docs.github.com/en/get-started/using-github/exploring-early-access-releases-with-feature-preview">Feature previews</a></li>
   <li>You can restrict who has access to a repository by choosing a repository's visibility: public, internal, or private<a href="https://docs.github.com/en/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility">[1]</a><a href="https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">[2]</a></li>
-  <li><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line">Adding a file to a repository using the command line</a></li>
   <li>We recommend that regular collaborators work from a single repository to streamline collaboration, creating pull requests between branches instead of between repositories. Forking is best suited for accepting contributions from people who are unaffiliated with a project, such as open-source contributors.<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories">[1]</a></li>
-  <li>Best practices: create a README file for every repository; single repository to streamline collaboration, creating pull requests between branches instead of between repositories. Forking is best suited for accepting contributions from people who are unaffiliated with a project, such as open-source contributors; to optimize performance, GitHub.com limits the sizes of files allowed in repositories. To track large files in a Git repository, GitHub recommends using Git Large File Storage (Git LFS) <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories">[1]</a></li>
-  <li>Recommended file for a new repo that provide essential information about the project, help contributors understand the codebase, and maintain transparency in the development process: .gititnore, a contributing file to document the guidelines on how people should contribute to your project, a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">licence</a> that communicates how users can use the files contained in the repository, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">readme</a>, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">CODEOWNERS</a></li>
 </ul>
 
-
+<!--
 <br />
 <hr>
 <br />
