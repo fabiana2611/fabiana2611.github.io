@@ -8,7 +8,7 @@ permalink: /:categories/github-foundation
 
 <p>Hare are some notes about GitHub Foundation concepts extracted from documentation</p>
 
-<a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="">[]</a><a href="">[]</a>
+<a href="#d1">[Basic]</a><a href="#d2">[Repositories]</a><a href="">[Collaboration]</a><a href="">[]</a>
 
 <br />
 <h2>Introduction to Git and GitHub</h2>
@@ -226,7 +226,7 @@ git push --tags
     <ul>
       <li>Goal: why your project is useful, what they can do with your project, how they can use it, Where users can get help, Who maintains and contributes<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">[1]</a></li>
       <li>Where to put: .github, root and docs; using that precedence </li>
-      <li>License: public repo needs that to be free to use by others. Without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">[2]</a></li>
+      <li>License: public repo needs that to be free to use by others. Without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">[1]</a></li>
       <li>Codeowners: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">[1]</a></li>
       <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">Topics</a>: To help other people find and contribute to your project</li>
     </ul>
@@ -240,7 +240,7 @@ git push --tags
       <li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">Create a new branch</a></li>
       <li><a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">Save a repository with stars</a></li>
       <li>View repository insights<a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects">[1]</a></li>
-      <li>Create repository templates (generate new repositories with the same directory structure, branches, and files) <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">[1]</a><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">[1]</a></li>
+      <li>Create repository templates (generate new repositories with the same directory structure, branches, and files) <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository">[1]</a><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">[2]</a></li>
     </ul>
   </li>
   <li>Different features to maintaining a repository: Access Control and Permissions, <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository">Branch Management</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a>, <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues">Issue Tracking</a>, Managing <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">labels</a> and <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones">Milestones</a>, <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">Releases</a>, <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">Github Action</a>, <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings">Repository Setting</a>, <a href="https://docs.github.com/en/get-started/git-basics/ignoring-files">.gitignore file</a>, <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews">Code review tools</a></li>
@@ -249,11 +249,11 @@ git push --tags
   <li>We recommend that regular collaborators work from a single repository to streamline collaboration, creating pull requests between branches instead of between repositories. Forking is best suited for accepting contributions from people who are unaffiliated with a project, such as open-source contributors.<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories">[1]</a></li>
 </ul>
 
-<!--
+
 <br />
 <hr>
 <br />
-<h2>Domain 3: Collaboration Features 30%</h2>
+<h2 id="d3">Collaboration Features</h2>
 
 <h3>Issues</h3>
 
@@ -294,7 +294,7 @@ git push --tags
 <h3>Discussions</h3>
 
 <ul>
-  <li><a href="https://docs.github.com/en/discussions/quickstart">GitHub Discussions is a collaborative communication forum for the community around an open source or internal project</a></li>
+  <li>GitHub Discussions is a collaborative communication forum for the community around an open source or internal project<a href="https://docs.github.com/en/discussions/quickstart">[1]</a></li>
   <li>You can pin a discussion above the list of discussions for the repository or organization or to a specific category. The globally pinned discussions will be shown in addition to the discussions pinned to a specific category.<a href="https://docs.github.com/en/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion">[1]</a></li>
 </ul>
 
@@ -302,20 +302,20 @@ git push --tags
 <h3>Notifications</h3>
 
 <ul>
-  <li><a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications">Notifications provide updates about the activity on GitHub that you've subscribed to. You can use the notifications inbox to customize, triage, and manage your updates</a></li>
+  <li>Notifications provide updates about the activity on GitHub that you've subscribed to. You can use the notifications inbox to customize, triage, and manage your updates<a href="https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications">[1]</a></li>
 </ul>
 
 
 <h3>Gists, Wikis, and GitHub Pages</h3>
 
 <ul>
-  <li>Gists: Gists provide a simple way to share code snippets with others. Every gist is a Git repository. If you are signed in to GitHub when you create a gist, the gist will be associated with your account. Gists can be public or secret. you can fork or clone any gist, even if you aren't the original author. You can also view a gist's full commit history, including diffs<a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists">[1]</a><a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists"></a></li>
-  <li><a href="https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis">Wikis</a>: Every repository on GitHub comes equipped with a section for hosting documentation, called a wiki. </li>
-  <li><a href="https://docs.github.com/en/pages/quickstart">Github Pages</a>: You can use GitHub Pages to showcase some open source projects, host a blog, or even share your résumé</li>
+  <li><b>Gists</b> provide a simple way to share code snippets with others. Every gist is a Git repository. If you are signed in to GitHub when you create a gist, the gist will be associated with your account. Gists can be public or secret. you can fork or clone any gist, even if you aren't the original author. You can also view a gist's full commit history, including diffs<a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists">[1]</a><a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists">[2]</a></li>
+  <li><b>Wikis</b>: Every repository on GitHub comes equipped with a section for hosting documentation, called a wiki.<a href="https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis">[1]</a> </li>
+  <li><b>Github Pages</b>: You can use GitHub Pages to showcase some open source projects, host a blog, or even share your résumé <a href="https://docs.github.com/en/pages/quickstart">[1]</a></li>
   <li>To create a new Gist, you should go to the Gist homepage. This is the dedicated space for managing and creating Gists on GitHub.<a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists">[1]</a></li>
 </ul>
 
-
+<!--
 <br />
 <hr>
 <br />
