@@ -444,6 +444,7 @@ git push --tags
           <li>'.copilot' can be used to disabled suggestions</li>
           <li>'copilot.yaml' can be used to configure content exclusion</li>
         </ul>
+      </li>
       <li><b>Security:</b>
         <ul>
           <li>Audit Logs: track Copilot usage at a high level (organizational level - user and admin activities related to GitHub Copilot). It provides visibility into Copilot-related events, such as when users enable or disable Copilot in their settings, unauthorized access to GitHub Copilot</li>
