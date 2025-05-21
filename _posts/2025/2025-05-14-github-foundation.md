@@ -342,7 +342,7 @@ git push --tags
   <li><a href="https://docs.github.com/en/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps">Marketplace</a>:
     <ul>
       <li>GitHub Marketplace connects you to developers who want to extend and improve their GitHub workflows. You can list free and paid tools for developers to use in GitHub Marketplace. GitHub Marketplace offers developers two types of tools: GitHub Actions and Apps, and each tool requires different steps for adding it to GitHub Marketplace.</li>
-      <li>GitHub Marketplace is a central location for finding actions created by the GitHub community. You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the GitHub community.<a href="https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions">[1]</a>
+      <li>GitHub Marketplace is a central location for finding actions created by the GitHub community. You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the GitHub community.<a href="https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions">[1]</a></li>
     </ul>
   </li>
   <li id="copilot"><a href="https://docs.github.com/en/copilot/quickstart">Copilot</a>: 
