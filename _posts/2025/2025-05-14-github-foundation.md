@@ -360,7 +360,7 @@ git push --tags
           <li>Coding related questions</li> 
           <li>Primary English</li>
           <li>Uses OpenAI’s Codex model</li>
-          <li>Can generate source code, documentation, git ignore, commit messages, unit test.</li>
+          <li>Can generate source code, documentation, git ignore, commit messages, unit test</li>
           <li> It is available in IDE, GH Mobile, command line and Github.com (only Enterprise)</li>
         </ul>
       </li>
@@ -382,22 +382,21 @@ git push --tags
       </li>
       <li><b>Training:</b>
         <ul>
-          <li>It is trained on all languages that appear in public repositories (including open-source repositories). The quality of suggestions depends on the volume and diversity of training data for each language.</li>
+          <li>It is trained on all languages that appear in public repositories (including open-source repositories). The quality of suggestions depends on the volume and diversity of training data for each language</li>
           <li>Largin training Dataset in public repo > Neural Network Arch based on transformer in unsupervised leraning (learned pattern and struture without label) > use Supervised learn for during fine tuning process (learn from examples helps to understand the context and improve the accuracy) > outcome: Codex model (descendent of GptTree; based on transformer archtecture)</li>
-          <li>GitHub Copilot’s model is trained on a static dataset that includes publicly available code. Since model training is computationally expensive, the training data is not updated in real-time. This means that some suggestions may be outdated, referencing older best practices or deprecated APIs. Developers need to verify suggestions against current documentation.</li>
+          <li>GitHub Copilot’s model is trained on a static dataset that includes publicly available code. The model training is computationally expensive what means that the training data is not updated in real-time. That can make some suggestions outdated</li>
         </ul>
       </li>
       <li><b>How it works: </b>
         <ul>
-          <li>Examining code in editor (lines befor after the cursos, files open); send the info to Copilot's model</li>
           <li>Transmits the code and its surrounding context to a large language model (e.g. Codex), which is hosted remotely (cloud-based models). </li>
-          <li>Generates suggestions while ensuring data privacy: uses a proxy service to ensure data privacy and security. The proxy filters user inputs, removing sensitive or personally identifiable information before sending the data to the cloud-based model. This ensures that Copilot does not store or expose private information, and that the suggestions are based on a sanitized version of the data, without leaking private code or sensitive data.</li>
-          <li>The request is sent to GitHub Copilot's servers, forwarded to a proxy server that pre-processes the data (such as context and completion suggestions), and then passed to the model. Once the model generates a suggestion, it undergoes post-processing through the proxy server before being sent back to your IDE.</li>
+          <li>(1) The request is sent to GitHub Copilot's servers, (2) forwarded to a proxy server that pre-processes the data (such as context and completion suggestions). The proxy filters user inputs, removing sensitive or personally identifiable information before sending the data to the cloud-based model, which means the suggestions are based on a sanitized version of the data, without leaking private code or sensitive data. (3) Then pass to the model. Once the model generates a suggestion, (4) it undergoes post-processing through the proxy server before being (5) sent back to your IDE.</li>
           <li>It sends small snippets of code (a few lines around the cursor) to GitHub’s servers, where an AI model processes the data and generates relevant code completions. These snippets are temporarily processed to provide real-time suggestions.</li>
           <li>Your input code → Pre-trained model hosted in the cloud → Tokenized input analyzed → Context-aware code suggestion returned</li>
           <li>No user-specific data is stored or logged persistently. The processing is done in memory, and once the suggestions are generated, the data is discarded, preserving user privacy.</li>
           <li>GitHub Copilot incorporates privacy-preserving techniques, such as differential privacy, to ensure that the model does not remember or retain data from individual user sessions. </li>
-          <li>Duplication: GitHub Copilot is designed to avoid suggesting code that matches more than 150 characters from any single block in publicly available repositories</li>       
+          <li>Duplication: GitHub Copilot is designed to avoid suggesting code that matches more than 150 characters from any single block in publicly available repositories</li>      
+        </ul> 
       </li>
       <li><b>Chat: </b>
         <ul>
