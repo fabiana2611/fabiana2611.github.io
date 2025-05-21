@@ -6,13 +6,14 @@ categories: infra
 permalink: /:categories/github-foundation
 ---
 
-<p>Hare are some notes about GitHub Foundation. The concepts were extracted from documentation and Udemy training.</p>
+<p>Hare are some notes about GitHub Foundation, including GH Copilot. The concepts were extracted from documentation and Udemy training.</p>
 
 <ol>
   <li><a href="#d1">Basic</a></li>
   <li><a href="#d2">Repositories</a></li>
   <li><a href="#d3">Collaboration</a></li>
   <li><a href="#d4">Development</a></li>
+  <li><a href="#copilot">Copilot</a></li>
   <li><a href="#d5">Project Management</a></li>
   <li><a href="#d6">Privacy, Security, and Administration</a></li>
   <li><a href="#d7">Community</a></li>
@@ -344,11 +345,114 @@ git push --tags
       <li>GitHub Marketplace is a central location for finding actions created by the GitHub community. You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the GitHub community.<a href="https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions">[1]</a>
     </ul>
   </li>
-  <li><a href="https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-individual">Copilot</a>: 
+  <li id="copilot"><a href="https://docs.github.com/en/copilot/quickstart">Copilot</a>: 
     <ul>
-      <li>GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration</li>
-      <li>Implementing Copilot Business for users allows the organization to configure the service to meet company-wide policies and exclude specific files from being evaluated. <a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">[1]</a></li>
-      <li>It is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. Languages with less representation in public repositories may produce fewer or less robust suggestions.<a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">[1]</a></li>
+      <li><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">What is:</a> GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration</li>
+      <li><b>Machine Learn: </b>
+        <ul>
+          <li>Can be: supervised (input label - e.g algorithm: classification, Regression), unsupervised (without input label - e.g. algorithm: clustering), reinforced (feedback - e.g. algorithm: Decision making)</li>
+          <li>Process: input text, tokenization([create, a, file]), embedding generation (each token is converted into a vector embbedings), model processing</li>
+        </ul>
+      </li>
+      <li><b>Characteristics: </b>
+        <ul>
+          <li>Probabilistic: may generate different outputs for the same input</li>
+          <li>Coding related questions</li> 
+          <li>Primary English</li>
+          <li>Uses OpenAI’s Codex model</li>
+          <li>Can generate source code, documentation, git ignore, commit messages, unit test.</li>
+          <li> It is available in IDE, GH Mobile, command line and Github.com (only Enterprise)</li>
+        </ul>
+      </li>
+      <li><b>Features: </b>
+        <ul>
+          <li>Code suggestions</li>
+          <li>Understand the context of the code</li>
+          <li>Multi language support</li>
+          <li>Inteligent debugging</li>
+          <li>Code refactoring</li>
+          <li>Security assistence</li>
+          <li>Writing documentation</li>
+          <li>Autocomple</li>
+          <li>Automate the creation of projects and related directories</li>
+          <li>Chat</li>
+          <li>Support in the CLI</li>
+          <li>AI-generated PR summaries (only for Enterprise)</li>
+        </ul>
+      </li>
+      <li><b>Training:</b>
+        <ul>
+          <li>It is trained on all languages that appear in public repositories (including open-source repositories). The quality of suggestions depends on the volume and diversity of training data for each language.</li>
+          <li>Largin training Dataset in public repo > Neural Network Arch based on transformer in unsupervised leraning (learned pattern and struture without label) > use Supervised learn for during fine tuning process (learn from examples helps to understand the context and improve the accuracy) > outcome: Codex model (descendent of GptTree; based on transformer archtecture)</li>
+          <li>GitHub Copilot’s model is trained on a static dataset that includes publicly available code. Since model training is computationally expensive, the training data is not updated in real-time. This means that some suggestions may be outdated, referencing older best practices or deprecated APIs. Developers need to verify suggestions against current documentation.</li>
+        </ul>
+      </li>
+      <li><b>How it works: </b>
+        <ul>
+          <li>Examining code in editor (lines befor after the cursos, files open); send the info to Copilot's model</li>
+          <li>Transmits the code and its surrounding context to a large language model (e.g. Codex), which is hosted remotely (cloud-based models). </li>
+          <li>Generates suggestions while ensuring data privacy: uses a proxy service to ensure data privacy and security. The proxy filters user inputs, removing sensitive or personally identifiable information before sending the data to the cloud-based model. This ensures that Copilot does not store or expose private information, and that the suggestions are based on a sanitized version of the data, without leaking private code or sensitive data.</li>
+          <li>The request is sent to GitHub Copilot's servers, forwarded to a proxy server that pre-processes the data (such as context and completion suggestions), and then passed to the model. Once the model generates a suggestion, it undergoes post-processing through the proxy server before being sent back to your IDE.</li>
+          <li>It sends small snippets of code (a few lines around the cursor) to GitHub’s servers, where an AI model processes the data and generates relevant code completions. These snippets are temporarily processed to provide real-time suggestions.</li>
+          <li>Your input code → Pre-trained model hosted in the cloud → Tokenized input analyzed → Context-aware code suggestion returned</li>
+          <li>No user-specific data is stored or logged persistently. The processing is done in memory, and once the suggestions are generated, the data is discarded, preserving user privacy.</li>
+          <li>GitHub Copilot incorporates privacy-preserving techniques, such as differential privacy, to ensure that the model does not remember or retain data from individual user sessions. </li>
+          <li>Duplication: GitHub Copilot is designed to avoid suggesting code that matches more than 150 characters from any single block in publicly available repositories</li>       
+      </li>
+      <li><b>Chat: </b>
+        <ul>
+          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment.</li>
+          <li>Avoid ambiguity (instead of use 'this' use specific termes or files). It provides context-aware responses based on open files and project structure</li>
+          <li>Very effective for helping developers understand unfamiliar code by explaining its functionality, dependencies, and usage</li>
+          <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons. </li>
+          <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code. </li>
+          <li>it cannot execute code directly within the chat interface</li>
+        </ul>
+      </li>
+      <li><b>Subscription:</b>
+        <ul>
+          <li>Free: code completion (2k line/month), chat (50/month), block suggestion, access to Claude Sonet and ChatGPT model</li>
+          <li>Pro: code completion [no limit], chat[no limit], chat in GH Mobile</li>
+          <li>Business: 
+            <ul>
+              <li>Completion, chat, char in GH Mobile, file exclusion, organization wide policy, audit logs, support for public and private repositories, manage policies at the enterprise or organization level.</li>
+              <li>Allows the organization to configure the service to meet company-wide policies and exclude specific files from being evaluated.</li>
+              <li>Designed for organizations that need data privacy and security features.</li>
+              <li>It has the ability to restrict AI-generated code suggestions based on organization policies.</li>
+              <li>Provides an IP (intellectual property) indemnity clause that covers claims against the generated code in certain scenarios.</li>
+            </ul>
+          </li>
+          <li>Enterprise: 
+            <ul>
+              <li>All the previows + Copilot Knowladge bases[improve accuracy - dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output], fine tuning a custom LLM, SAML SSO.</li>
+              <li>Provides the ability to manage licenses and users at scale.</li>
+              <li>Analyzes commit messages, file changes, and project context to generate a concise pull request summary.</li>
+              <li>Best option for large organizations with strict privacy and security concerns.</li>
+              <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely.</li>
+              <li>Enterprise-grade privacy standards.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><b>Access: </b>
+        <ul>
+          <li><a href="https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-individual">GitHub Copilot Individual</a> is designed for single-user environments and does not include team management features like access control. It is  a member of an Organization with subscription.</li>
+          <li>FREE for student, teacher oe maintainer of a popular OSS project</li>
+        </ul>
+      </li>
+      <li><b>The configuration files:</b>
+        <ul>
+          <li>'.copilot' can be used to disabled suggestions</li>
+          <li>'copilot.yaml' can be used to configure content exclusion</li>
+        </ul>
+      <li><b>Security:</b>
+        <ul>
+          <li>Audit Logs: track Copilot usage at a high level (organizational level - user and admin activities related to GitHub Copilot). It provides visibility into Copilot-related events, such as when users enable or disable Copilot in their settings, unauthorized access to GitHub Copilot</li>
+          <li>GitHub provides options to configure repository-level exclusion rules to prevent sensitive files and directories from being accessed by GitHub Copilot</li>
+          <li>If a policy is applied at enterprise level, all organizations within the enterprise will inherit the policiy</li>
+          <li>For Business subscription, the admin can get the list of subscription by the endpoint GET /orgs/{org}/copilot/subscriptions using the API token scope as admin:org. OAuth2 token is necessary to provide the required authentication for organizational access</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="https://docs.github.com/en/codespaces/overview">Codespace</a>:
@@ -449,4 +553,6 @@ git push --tags
 </a></li>
 <li><a href="https://www.udemy.com/course/github-ultimate/?srsltid=AfmBOopO7KO66lRt82xtU6bfnPvSnWdAk-rhXBKPpGtBedhPnObDlQOp">Udemy: GitHub Ultimate: Master Git and GitHub - Beginner to Expert
 </a></li>
+<li><a href="https://www.udemy.com/course/github-copilot-certification-practice-exams/?srsltid=AfmBOooSF8IylHUHhqoOnPm3eRt-bHJRk4kuXroCddcMMbxJFXEtfCF9&couponCode=CP130525">Udemy: GitHub Copilot Exam Prep: Ace Your Certification [2025]</a></li>
+<li><a href="https://www.udemy.com/course/git-for-geeks/?srsltid=AfmBOopKaUo5tj9KFCj6_Lp1OByVCBcfz7bCM8nzAqobfTS9LscRaRxC&couponCode=CP130525">Udemy: Git for Geeks: Quick Git Training for Developers</a></li>
 </ul>  
