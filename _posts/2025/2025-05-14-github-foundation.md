@@ -389,22 +389,22 @@ git push --tags
       </li>
       <li><b>How it works: </b>
         <ul>
-          <li>Transmits the code and its surrounding context to a large language model (e.g. Codex), which is hosted remotely (cloud-based models). </li>
-          <li>(1) The request is sent to GitHub Copilot's servers, (2) forwarded to a proxy server that pre-processes the data (such as context and completion suggestions). The proxy filters user inputs, removing sensitive or personally identifiable information before sending the data to the cloud-based model, which means the suggestions are based on a sanitized version of the data, without leaking private code or sensitive data. (3) Then pass to the model. Once the model generates a suggestion, (4) it undergoes post-processing through the proxy server before being (5) sent back to your IDE.</li>
-          <li>It sends small snippets of code (a few lines around the cursor) to GitHub’s servers, where an AI model processes the data and generates relevant code completions. These snippets are temporarily processed to provide real-time suggestions.</li>
+          <li>Transmits the code and its surrounding context to a large language model (e.g. Codex), which is hosted remotely (cloud-based models)</li>
+          <li>(1) The request is sent to GitHub Copilot's servers, (2) forwarded to a proxy server that pre-processes the data (such as context and completion suggestions). The proxy filters user inputs, removing sensitive or personally identifiable information before sending the data to the cloud-based model, which means the suggestions are based on a sanitized version of the data, without leaking private code or sensitive data. (3) Then pass to the model. Once the model generates a suggestion, (4) it undergoes post-processing through the proxy server before being (5) sent back to your IDE</li>
+          <li>It sends small snippets of code (a few lines around the cursor) to GitHub’s servers, where an AI model processes the data and generates relevant code completions. These snippets are temporarily processed to provide real-time suggestions</li>
           <li>Your input code → Pre-trained model hosted in the cloud → Tokenized input analyzed → Context-aware code suggestion returned</li>
-          <li>No user-specific data is stored or logged persistently. The processing is done in memory, and once the suggestions are generated, the data is discarded, preserving user privacy.</li>
-          <li>GitHub Copilot incorporates privacy-preserving techniques, such as differential privacy, to ensure that the model does not remember or retain data from individual user sessions. </li>
+          <li>No user-specific data is stored or logged persistently. The processing is done in memory, and once the suggestions are generated, the data is discarded, preserving user privacy</li>
+          <li>GitHub Copilot incorporates privacy-preserving techniques, such as differential privacy, to ensure that the model does not remember or retain data from individual user sessions </li>
           <li>Duplication: GitHub Copilot is designed to avoid suggesting code that matches more than 150 characters from any single block in publicly available repositories</li>      
         </ul> 
       </li>
       <li><b>Chat: </b>
         <ul>
-          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment.</li>
-          <li>Avoid ambiguity (instead of use 'this' use specific termes or files). It provides context-aware responses based on open files and project structure</li>
+          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment./li>
+          <li>Works better when there are no ambiguity (instead of use 'this' use specific termes or files)</li>
           <li>Very effective for helping developers understand unfamiliar code by explaining its functionality, dependencies, and usage</li>
-          <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons. </li>
-          <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code. </li>
+          <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons </li>
+          <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code </li>
           <li>it cannot execute code directly within the chat interface</li>
         </ul>
       </li>
@@ -414,21 +414,21 @@ git push --tags
           <li>Pro: code completion [no limit], chat[no limit], chat in GH Mobile</li>
           <li>Business: 
             <ul>
-              <li>Completion, chat, char in GH Mobile, file exclusion, organization wide policy, audit logs, support for public and private repositories, manage policies at the enterprise or organization level.</li>
+              <li>Completion, chat, char in GH Mobile, file exclusion, organization wide policy, audit logs, support for public and private repositories, manage policies at the enterprise or organization level</li>
               <li>Allows the organization to configure the service to meet company-wide policies and exclude specific files from being evaluated.</li>
-              <li>Designed for organizations that need data privacy and security features.</li>
-              <li>It has the ability to restrict AI-generated code suggestions based on organization policies.</li>
-              <li>Provides an IP (intellectual property) indemnity clause that covers claims against the generated code in certain scenarios.</li>
+              <li>Designed for organizations that need data privacy and security features</li>
+              <li>It has the ability to restrict AI-generated code suggestions based on organization policies</li>
+              <li>Provides an IP (intellectual property) indemnity clause that covers claims against the generated code in certain scenarios</li>
             </ul>
           </li>
           <li>Enterprise: 
             <ul>
-              <li>All the previows + Copilot Knowladge bases[improve accuracy - dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output], fine tuning a custom LLM, SAML SSO.</li>
-              <li>Provides the ability to manage licenses and users at scale.</li>
-              <li>Analyzes commit messages, file changes, and project context to generate a concise pull request summary.</li>
-              <li>Best option for large organizations with strict privacy and security concerns.</li>
-              <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely.</li>
-              <li>Enterprise-grade privacy standards.</li>
+              <li>All the previows + Copilot Knowladge bases (improve accuracy - dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output), fine tuning a custom LLM, SAML SSO</li>
+              <li>Provides the ability to manage licenses and users at scale</li>
+              <li>Analyzes commit messages, file changes, and project context to generate a concise pull request summary</li>
+              <li>Best option for large organizations with strict privacy and security concerns</li>
+              <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely</li>
+              <li>Enterprise-grade privacy standards</li>
             </ul>
           </li>
         </ul>
@@ -436,7 +436,7 @@ git push --tags
       <li><b>Access: </b>
         <ul>
           <li><a href="https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-individual">GitHub Copilot Individual</a> is designed for single-user environments and does not include team management features like access control. It is  a member of an Organization with subscription.</li>
-          <li>FREE for student, teacher oe maintainer of a popular OSS project</li>
+          <li>FREE for student, teacher or maintainer of a popular OSS project</li>
         </ul>
       </li>
       <li><b>The configuration files:</b>
