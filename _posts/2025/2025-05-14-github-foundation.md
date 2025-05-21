@@ -400,7 +400,7 @@ git push --tags
       </li>
       <li><b>Chat: </b>
         <ul>
-          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment./li>
+          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment.</li>
           <li>Works better when there are no ambiguity (instead of use 'this' use specific termes or files)</li>
           <li>Very effective for helping developers understand unfamiliar code by explaining its functionality, dependencies, and usage</li>
           <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons </li>
