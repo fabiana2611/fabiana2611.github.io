@@ -347,7 +347,7 @@ git push --tags
   </li>
   <li id="copilot"><a href="https://docs.github.com/en/copilot/quickstart">Copilot</a>: 
     <ul>
-      <li><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">What is:</a> GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration</li>
+      <li><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">What is:</a> GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration <a href=" https://github.com/copilot">[Immersive view]</a></li>
       <li><b>Machine Learn: </b>
         <ul>
           <li>Can be: supervised (input label - e.g algorithm: classification, Regression), unsupervised (without input label - e.g. algorithm: clustering), reinforced (feedback - e.g. algorithm: Decision making)</li>
@@ -364,9 +364,10 @@ git push --tags
           <li> It is available in IDE, GH Mobile, command line and Github.com (only Enterprise)</li>
         </ul>
       </li>
-      <li><b>Features: </b>
+      <li><b>Features</b><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot#copilot-features">[1]</a><a href="https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features">[2]</a>:
         <ul>
           <li>Code suggestions</li>
+          <li>Code Review</li>
           <li>Understand the context of the code</li>
           <li>Multi language support</li>
           <li>Inteligent debugging</li>
@@ -378,6 +379,7 @@ git push --tags
           <li>Chat</li>
           <li>Support in the CLI</li>
           <li>AI-generated PR summaries (only for Enterprise)</li>
+          <li><a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot">Refactor</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project">migrate a project</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot">write tests</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot">modernize legacy code</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/upgrading-java-projects-with-github-copilot">upgrading java projects</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task">Choosing the right AI tool for your task</a></li>
         </ul>
       </li>
       <li><b>Training:</b>
@@ -400,19 +402,28 @@ git push --tags
       </li>
       <li><b>Chat: </b>
         <ul>
-          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment.</li>
-          <li>Works better when there are no ambiguity (instead of use 'this' use specific termes or files)</li>
+          <li>You can select the AI models<a href="https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task">[1]</a></li>
+          <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/getting-started-with-prompts-for-copilot-chat">[1]</a></li>
+          <li>Prompt engineering: Start general, then get specific; give examples; Break complex tasks into simpler tasks; Avoid ambiguity; Indicate relevant code; Experiment and iterate; Keep history relevant; Follow good coding practices <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat">[1]</a></li>
           <li>Very effective for helping developers understand unfamiliar code by explaining its functionality, dependencies, and usage</li>
           <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons </li>
           <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code </li>
           <li>it cannot execute code directly within the chat interface</li>
+          <li>You can <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile">chat in mobile</a>, but with some limitations of quality</li>
+          <li>Edit mode is use for more granular control: choose files to let Copilot make changes<a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task#using-copilot-chat-in-edit-mode">[1]</a>
         </ul>
       </li>
-      <li><b>Subscription:</b>
+      <li><b>Agent: </b>
         <ul>
-          <li>Free: code completion (2k line/month), chat (50/month), block suggestion, access to Claude Sonet and ChatGPT model</li>
-          <li>Pro: code completion [no limit], chat[no limit], chat in GH Mobile</li>
-          <li>Business: 
+          <li>Copilot can work like a developer: fix bugs, implement features, create PR, etc  <a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot">[1]</a></li>
+        </ul>
+      </li>
+      <li><b>Subscription</b><a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan">[1]</a><a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot">[2]</a>:
+        <ul>
+          <li><a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits#github-copilot-free">Free</a>: code completion (2k line/month), chat (50/month), block suggestion, access to Claude Sonnet and ChatGPT model</li>
+          <li><a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits#github-copilot-pro">Pro</a>: code completion [no limit], chat[no limit], chat in GH Mobile</li>
+          <li><a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits#github-copilot-pro-1">Pro+</a>: PRO + Full access to all available models in Copilot Chat; Up to 1,500 premium requests per month; Priority access to advanced AI capabilities</li>
+          <li><a href="https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-plan-for-your-organization/subscribing-to-copilot-for-your-organization">Business</a>: 
             <ul>
               <li>Completion, chat, char in GH Mobile, file exclusion, organization wide policy, audit logs, support for public and private repositories, manage policies at the enterprise or organization level</li>
               <li>Allows the organization to configure the service to meet company-wide policies and exclude specific files from being evaluated.</li>
@@ -421,10 +432,10 @@ git push --tags
               <li>Provides an IP (intellectual property) indemnity clause that covers claims against the generated code in certain scenarios</li>
             </ul>
           </li>
-          <li>Enterprise: 
+          <li><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-plan-for-your-enterprise/subscribing-to-copilot-for-your-enterprise">Enterprise</a>: 
             <ul>
               <li>All the previows + Copilot Knowladge bases (improve accuracy - dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output), fine tuning a custom LLM, SAML SSO</li>
-              <li>Provides the ability to manage licenses and users at scale</li>
+              <li>Provides the ability to <a href="https://docs.github.com/en/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business">manage licenses</a> and users at scale</li>
               <li>Analyzes commit messages, file changes, and project context to generate a concise pull request summary</li>
               <li>Best option for large organizations with strict privacy and security concerns</li>
               <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely</li>
@@ -436,7 +447,7 @@ git push --tags
       <li><b>Access: </b>
         <ul>
           <li><a href="https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-individual">GitHub Copilot Individual</a> is designed for single-user environments and does not include team management features like access control. It is  a member of an Organization with subscription.</li>
-          <li>FREE for student, teacher or maintainer of a popular OSS project</li>
+          <li><a href="https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer">Free Copilot Pro</a>: student, teacher or maintainer of a popular OSS project</li>
         </ul>
       </li>
       <li><b>The configuration files:</b>
