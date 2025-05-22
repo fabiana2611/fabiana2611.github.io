@@ -410,7 +410,7 @@ git push --tags
           <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code </li>
           <li>it cannot execute code directly within the chat interface</li>
           <li>You can <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile">chat in mobile</a>, but with some limitations of quality</li>
-          <li>Edit mode is use for more granular control: choose files to let Copilot make changes<a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task#using-copilot-chat-in-edit-mode">[1]</a>
+          <li>Edit mode is use for more granular control: choose files to let Copilot make changes<a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task#using-copilot-chat-in-edit-mode">[1]</a></li>
         </ul>
       </li>
       <li><b>Agent: </b>
