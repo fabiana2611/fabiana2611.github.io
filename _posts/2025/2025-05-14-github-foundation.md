@@ -378,7 +378,7 @@ git push --tags
           <li>Automate the creation of projects and related directories</li>
           <li>Chat</li>
           <li>Support in the CLI</li>
-          <li>AI-generated PR summaries (only for Enterprise)</li>
+          <li>AI-generated PR summaries (only for Enterprise). It analyzes the diff of the code changes, the commit history, and comments</li>
           <li><a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot">Refactor</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project">migrate a project</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot">write tests</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot">modernize legacy code</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/upgrading-java-projects-with-github-copilot">upgrading java projects</a>, <a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task">Choosing the right AI tool for your task</a></li>
         </ul>
       </li>
@@ -386,7 +386,7 @@ git push --tags
         <ul>
           <li>It is trained on all languages that appear in public repositories (including open-source repositories). The quality of suggestions depends on the volume and diversity of training data for each language</li>
           <li>Largin training Dataset in public repo > Neural Network Arch based on transformer in unsupervised leraning (learned pattern and struture without label) > use Supervised learn for during fine tuning process (learn from examples helps to understand the context and improve the accuracy) > outcome: Codex model (descendent of GptTree; based on transformer archtecture)</li>
-          <li>GitHub Copilot’s model is trained on a static dataset that includes publicly available code. The model training is computationally expensive what means that the training data is not updated in real-time. That can make some suggestions outdated</li>
+          <li>GitHub Copilot’s model is trained on a static dataset that includes publicly available code. The model training is computationally expensive what means that the training data is not updated in real-time. That can make some suggestions outdated because of some old or deprecated code</li>
         </ul>
       </li>
       <li><b>How it works: </b>
@@ -402,6 +402,7 @@ git push --tags
       </li>
       <li><b>Chat: </b>
         <ul>
+          <li>Inputs are sent directly to OpenAI’s Codex API for processing</li>
           <li>You can select the AI models<a href="https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task">[1]</a></li>
           <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/getting-started-with-prompts-for-copilot-chat">[1]</a></li>
           <li>Prompt engineering: Start general, then get specific; give examples; Break complex tasks into simpler tasks; Avoid ambiguity; Indicate relevant code; Experiment and iterate; Keep history relevant; Follow good coding practices <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat">[1]</a></li>
@@ -409,8 +410,9 @@ git push --tags
           <li>Includes built-in feedback mechanisms, allowing users to rate suggestions by clicking thumbs-up or thumbs-down buttons </li>
           <li>Builds a prompt by extracting relevant portions of the currently open file, taking into account the user’s cursor position, function signatures, surrounding comments, and contextual code </li>
           <li>it cannot execute code directly within the chat interface</li>
-          <li>You can <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile">chat in mobile</a>, but with some limitations of quality</li>
+          <li>The <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile">mobile has the chat feature</a>, but with some limitations of quality</li>
           <li>Edit mode is use for more granular control: choose files to let Copilot make changes<a href="https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task#using-copilot-chat-in-edit-mode">[1]</a></li>
+          <li>Bias: the developer is respobsible for review code to avoid biased suggestions and make appropriate edits to ensure that the open-source project remains inclusive and avoids reinforcing harmful stereotypes.</li>
         </ul>
       </li>
       <li><b>Agent: </b>
@@ -430,16 +432,23 @@ git push --tags
               <li>Designed for organizations that need data privacy and security features</li>
               <li>It has the ability to restrict AI-generated code suggestions based on organization policies</li>
               <li>Provides an IP (intellectual property) indemnity clause that covers claims against the generated code in certain scenarios</li>
+              <li>SSO integration</li>
+              <li>Private code generation</li>
+              <li>Vulnerability scanning</li>
+              <li>Endpoint to manage subscription for a user in an organization: POST /orgs/{org}/copilot/seats</li>
+              <li>Orgaization-wide policies like disable suggestions matching public code</li>
             </ul>
           </li>
           <li><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-plan-for-your-enterprise/subscribing-to-copilot-for-your-enterprise">Enterprise</a>: 
             <ul>
-              <li>All the previows + Copilot Knowladge bases (improve accuracy - dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output), fine tuning a custom LLM, SAML SSO</li>
+              <li>All the previows + Copilot Knowladge bases (improve accuracy), fine tuning a custom LLM, SAML SSO</li>
+              <li>Knowladge base:  dedicated repository that holds all the relevant documentation, code, and libraries; make the contents available for enhanced coding suggestions, ensuring that organization-specific practices are reflected in Copilot’s output</li>
               <li>Provides the ability to <a href="https://docs.github.com/en/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business">manage licenses</a> and users at scale</li>
               <li>Analyzes commit messages, file changes, and project context to generate a concise pull request summary</li>
               <li>Best option for large organizations with strict privacy and security concerns</li>
-              <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely</li>
+              <li>It includes advanced privacy controls, like the ability to configure context exclusions, enforce corporate policy integration, and ensure that sensitive codebases are handled securely. Also allows admins configure policies at the organization level to specify which repositories are enabled for Copilot</li>
               <li>Enterprise-grade privacy standards</li>
+              <li>Centralized administrative controls</li>
             </ul>
           </li>
         </ul>
@@ -458,7 +467,7 @@ git push --tags
       </li>
       <li><b>Security:</b>
         <ul>
-          <li>Audit Logs: track Copilot usage at a high level (organizational level - user and admin activities related to GitHub Copilot). It provides visibility into Copilot-related events, such as when users enable or disable Copilot in their settings, unauthorized access to GitHub Copilot</li>
+          <li>Audit Logs: track Copilot usage at a high level (organizational level - user and admin activities related to GitHub Copilot) such as when users enable or disable Copilot in their settings, subscription updates, unauthorized access to GitHub Copilot</li>
           <li>GitHub provides options to configure repository-level exclusion rules to prevent sensitive files and directories from being accessed by GitHub Copilot</li>
           <li>If a policy is applied at enterprise level, all organizations within the enterprise will inherit the policiy</li>
           <li>For Business subscription, the admin can get the list of subscription by the endpoint GET /orgs/{org}/copilot/subscriptions using the API token scope as admin:org. OAuth2 token is necessary to provide the required authentication for organizational access</li>
