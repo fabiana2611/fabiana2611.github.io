@@ -8,11 +8,11 @@ permalink: /:categories/github-copilot
 
 <p>Hare are some notes about GitHub Copilot. The concepts were extracted from documentation and Udemy training.</p>
 
-<center><img src="/img/git/github-copilot.png" height="50%" width="50%"/></center> 
+<center><img src="/img/git/github-copilot.png" height="30%" width="30%"/></center> 
 
 <h2>Definition</h2>
 
-<p style="text-align: justify;"><em>GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration</em><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">[What is]</a><a href="https://docs.github.com/en/copilot/quickstart">[QuickStart]</a><a href=" https://github.com/copilot">[Immersive view]</p>
+<p style="text-align: justify;"><em>GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration</em><a href="https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot">[What is]</a><a href="https://docs.github.com/en/copilot/quickstart">[QuickStart]</a><a href=" https://github.com/copilot">[Immersive view]</a></p>
 
 <h2>Machine Learn</h2>
 
