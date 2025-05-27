@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GitHub Foundation + Copilot"
+title:  "GitHub Foundation"
 date:   2025-05-14
 categories: infra
 permalink: /:categories/github-foundation
