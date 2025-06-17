@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Github Actions"
+title:  "Github Actions overview"
 date:   2024-04-01
 categories: infra
 permalink: /:categories/github-actions
@@ -9,6 +9,12 @@ permalink: /:categories/github-actions
 
 <blockquote>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. <a href="GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. ">[Github]</a></blockquote>
 
+<em>Series: 
+[Foundation](https://fabiana2611.github.io/infra/github-foundation)>
+[Copilot](https://fabiana2611.github.io/infra/github-copilot)>
+[Actions](https://fabiana2611.github.io/infra/github-actions)>
+[Actions Cert](https://fabiana2611.github.io/infra/gh-actions-cert)
+</em>
 
 <h2>Intro</h2>
 

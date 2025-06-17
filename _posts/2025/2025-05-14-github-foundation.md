@@ -8,6 +8,13 @@ permalink: /:categories/github-foundation
 
 <p>Hare are some notes about GitHub Foundation. The concepts were extracted from documentation and Udemy training.</p>
 
+<em>Series: 
+[Foundation](https://fabiana2611.github.io/infra/github-foundation)>
+[Copilot](https://fabiana2611.github.io/infra/github-copilot)>
+[Actions](https://fabiana2611.github.io/infra/github-actions)>
+[Actions Cert](https://fabiana2611.github.io/infra/gh-actions-cert)
+</em>
+
 <ol>
   <li><a href="#d1">Basic</a></li>
   <li><a href="#d2">Repositories</a></li>

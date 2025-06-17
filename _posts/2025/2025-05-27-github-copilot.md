@@ -9,11 +9,12 @@ permalink: /:categories/github-copilot
 
 <p>Hare are some notes about GitHub Copilot. The concepts were extracted from documentation and Udemy training.</p>
 
-Series: 
+<em>Series: 
 [Foundation](https://fabiana2611.github.io/infra/github-foundation)>
 [Copilot](https://fabiana2611.github.io/infra/github-copilot)>
 [Actions](https://fabiana2611.github.io/infra/github-actions)>
 [Actions Cert](https://fabiana2611.github.io/infra/gh-actions-cert)
+</em>
 
 <center><img src="/img/git/github-copilot.png" height="30%" width="30%"/></center> 
 
