@@ -6,7 +6,14 @@ categories: infra
 permalink: /:categories/github-copilot
 ---
 
+
 <p>Hare are some notes about GitHub Copilot. The concepts were extracted from documentation and Udemy training.</p>
+
+Series: 
+[Foundation](https://fabiana2611.github.io/infra/github-foundation)>
+[Copilot](https://fabiana2611.github.io/infra/github-copilot)>
+[Actions](https://fabiana2611.github.io/infra/github-actions)>
+[Actions Cert](https://fabiana2611.github.io/infra/gh-actions-cert)
 
 <center><img src="/img/git/github-copilot.png" height="30%" width="30%"/></center> 
 
@@ -29,7 +36,7 @@ permalink: /:categories/github-copilot
   <li>Probabilistic: may generate different outputs for the same input</li>
   <li>Coding related questions</li> 
   <li>Primary English</li>
-  <li>Uses OpenAI’s Codex model</li>
+  <li>Uses OpenAI’s Codex model, a machine-learning model derived from GPT-3</li>
   <li>Can generate source code, documentation, git ignore, commit messages, unit test</li>
   <li>It is available in IDE, GH Mobile, command line and Github.com (only Enterprise)</li>
 </ul>
@@ -112,9 +119,9 @@ permalink: /:categories/github-copilot
 
 <ul>
   <li>Inputs are sent directly to OpenAI’s Codex API for processing</li>
-  <li>You can select the AI models<a href="https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task">[1]</a></li>
+  <li>You can choose the AI models<a href="https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task">[1]</a></li>
   <li>Coding-related questions, explanations for code snippets, debugging help, and real-time code suggestions based on current coding environment <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/getting-started-with-prompts-for-copilot-chat">[1]</a></li>
-  <li>Prompt engineering: Start general, then get specific; give examples; Break complex tasks into simpler tasks; Avoid ambiguity; Indicate relevant code; Experiment and iterate; Keep history relevant; Follow good coding practices <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat">[1]</a></li>
+  <li>Prompt engineering: Start general, then get specific; give examples; Break complex tasks into simpler tasks; Avoid ambiguity; Indicate relevant code; Experiment and iterate; Keep history relevant; Follow good coding practices <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat">[1]</a><a href="https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot">[2]</a><a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet#chat-participants-1">[3]</a><a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#file-references">[4]</a><a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet#slash-commands-3">[5]</a></li>
   <li>Very effective for helping developers understand unfamiliar code by explaining its functionality, dependencies, and usage</li>
   <li>Includes built-in feedback mechanisms (rate by clicking thumbs-up or thumbs-down buttons) </li>
   <li>Feedback about GitHub Copilot Chat is through the in-editor feedback button, which allows users to send context-specific feedback while using Copilot</li>
