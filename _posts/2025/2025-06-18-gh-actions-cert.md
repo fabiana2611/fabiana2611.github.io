@@ -24,7 +24,7 @@ permalink: /:categories/gh-actions-cert
 <h2>Initial Concepts</h2>
 
 <ul>
-    <li>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows build, test, and deployment automation. GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">[understand action]</a>
+    <li>GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows build, test, and deployment automation. GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">[understand action]</a></li>
     <li>Actions are the building blocks that power your workflow. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow">[building blocks]</a></li>
     <li>Components: 
         <ul>
@@ -50,7 +50,7 @@ permalink: /:categories/gh-actions-cert
     <li>CD with GitHub Actions provides features that give you more control over deployments. It's possible use OpenID Connect (OIDC) to interact with cloud <a href="https://docs.github.com/en/actions/about-github-actions/about-continuous-deployment-with-github-actions">[CD]</a></li>
     <li>You can use CLI. GitHub CLI is preinstalled on all GitHub-hosted runners. For each step that uses GitHub CLI, you must set an environment variable called GH_TOKEN to a token with the required scopes. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-github-cli-in-workflows">[CLI]</a></li>
     <li>You can use GitHub Actions workflows to run scripts. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow">[scripts]</a></li>
-</li>
+</ul>
 
 <!-- ##################################################################### -->
 
