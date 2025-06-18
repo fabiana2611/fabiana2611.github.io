@@ -11,8 +11,8 @@ permalink: /:categories/github-foundation
 <em>Series: 
 [Foundation](https://fabiana2611.github.io/infra/github-foundation)>
 [Copilot](https://fabiana2611.github.io/infra/github-copilot)>
-[Actions](https://fabiana2611.github.io/infra/github-actions)>
-[Actions Cert](https://fabiana2611.github.io/infra/gh-actions-cert)
+[Actions Overview](https://fabiana2611.github.io/infra/github-actions)>
+[Dive in Actions](https://fabiana2611.github.io/infra/gh-actions-cert)
 </em>
 
 <ol>
