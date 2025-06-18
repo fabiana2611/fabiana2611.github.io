@@ -299,16 +299,16 @@ permalink: /:categories/gh-actions-cert
     <li>A composite action allows for consolidating multiple workflow steps into a single action <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions#composite-actions">[composite]</a></li>
     <li>Semantic versioning (SemVer) provides a systematic approach to versioning (MAJOR.MINOR.PATCH) <a href="https://resources.github.com/learn/pathways/automation/advanced/building-your-first-custom-github-action/">[build action]</a></li>
     <li>All actions require a metadata file (action.yml or action.yaml) that defines the inputs, outputs, and runs configuration for the action.<a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions">[action metadata syntax]</a></li>
-    <li>In GitHub Actions, the exit code of an action determines its success or failure status. A zero exit code indicates success, allowing the workflow to execute subsequent tasks. Conversely, a nonzero exit code signifies failure, leading to canceling concurrent actions and skipping future actions in the workflow. <a href="https://docs.github.com/en/actions/creating-actions/setting-exit-codes-for-actions">[exit code]</a></li>
+    <li>In GitHub Actions, the exit code of an action determines its success or failure status. A zero exit code indicates success, and a nonzero exit code signifies failure <a href="https://docs.github.com/en/actions/creating-actions/setting-exit-codes-for-actions">[exit code]</a></li>
     <li>Execute commands directly on the runner using the run keyword <a href="https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow">[adding scripts]</a></li>
-    <li>
-        <ul>Custom actions:
+    <li>Custom actions:
+        <ul>
             <li>For distribute a custom action: provide a clear and concise description of the action's functionality and selecting the most relevant category <a href="https://resources.github.com/learn/pathways/automation/advanced/building-your-first-custom-github-action/">[building custom action]</a></li>
             <li>JavaScript actions, composite actions, docker container actions <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[about]</a></li>
             <li>JavaScript
                 <ul>
                     <li>JavaScript actions require that the runs statement takes two arguments:  'using' and 'main'<a href="https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action">[create js action]</a></li>
-                    <li>JavaScript actions in GitHub repositories differ from traditional Node.js projects in their development and distribution processes. They include dependent packages alongside the code and support tagged releases for direct publication to GitHub Marketplace. Due to their integration with various APIs, robust end-to-end testing is encouraged to ensure functionality and security.<a href="https://docs.github.com/en/actions/creating-actions/releasing-and-maintaining-actions#about-javascript-actions">[javascript actions]</a></li>        
+                    <li>JavaScript actions in GitHub repositories differ from traditional Node.js projects in their development and distribution processes. They include dependent packages alongside the code and support tagged releases for direct publication to GitHub Marketplace. <a href="https://docs.github.com/en/actions/creating-actions/releasing-and-maintaining-actions#about-javascript-actions">[javascript actions]</a></li>        
                 </ul>
             </li>
             <li>Docker
@@ -350,7 +350,7 @@ permalink: /:categories/gh-actions-cert
     <li>Actions can be disabled for all organizations or only for a specific one  <a href="https://docs.github.com/en/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise">[policy]</a></li>
     <li>To access encrypted secrets within actions and workflows for GitHub Actions, developers can utilize the secrets context provided by GitHub Actions. <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow">[secrets]</a></li>
     <li>Important balance between security (e.g. IP address) and operational efficiency <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners">[hosted runners]</a></li>
-    <li>Syntax to reference a secret: `${{ secrets.secret_name }}` <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-environment">[secrets]</a></li>
+    <li>Syntax to reference a secret: `secrets.secret_name` <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-environment">[secrets]</a></li>
     <li>Workflow templates ensure automation is reused and maintained in your enterprise (public and private repositories of the organization) <a href="https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization">[create workflow]</a></li>
     <li>Organization-template workflow has as benefits: promotes consistency, best practices and saves time <a href="https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization">[create workflows]</a></li>
     <li>To effectively manage and collaborate on your organization's diverse reusable components in GitHub Actions workflows, enforce a standardized naming convention across all teams. <a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">[reuse workflow]</a> <a href="https://docs.github.com/en/actions/sharing-automations/avoiding-duplication">[avoiding duplication]</a></li>
