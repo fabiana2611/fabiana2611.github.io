@@ -28,15 +28,28 @@ permalink: /:categories/gh-actions-cert
     <li>Actions are the building blocks that power your workflow. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow"></a></li>
     <li>Components: 
         <ul>
-            <li>The workflow is triggered when an <b>event</b> occurs (e.g a pull request). Your workflow contains one or more <b>jobs</b> which can run in <u>sequential order or in parallel</u>. Each job will run inside its own <u>virtual machine runner</u>, or inside a <u>container</u>, and has one or more <b>steps</b> that either run a <u>script</u> that you define or run an <u>action</u>, which is a reusable extension that can simplify your workflow. <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">[components]</a> <a href="https://docs.github.com/en/actions/using-workflows/about-workflows">[about workflow]</a><a href="https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow">[using jobs]</a></li>
-            <li>GitHub adds two additional steps to each job to set up and complete the job's execution (<b>Set up job</b> and <b>Complete job</b>)<a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures"></a>[view logs]</li>
-            <li>For jobs run on GitHub-hosted runners, <b>Set up job</b> records <u>details of the runner image</u>, and includes a link to the list of preinstalled tools that were present on the runner machine. <a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow">[trigger workflow]</a></li>
-            <li>Jobs run in <u>parallel by default</u>. To do in sequence use <b>'needs'</b>. Unlimited number of jobs <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow">[jobs]</a></li>
-            <li>The <b>timeout-minutes</b> keyword is used to set a maximum duration for the execution of individual commands within a step. If a command takes longer to execute than the specified timeout, the step will be marked as failed, and the workflow will proceed to the next step. <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes">[timeout]</a></li>
-            <li>Steps represent individual tasks within a job. In the context of workflow, a job is often broken down into smaller steps<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps">[jobs and steps]</a></li>
-            <li>Use on.ENV_NAME.types to define the type of activity that will trigger a workflow run.<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes">[types]</a></li>
-            <li>You can use the if conditional to prevent a step from running unless a condition is met. It can be expression and use Functions<a href="https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution">[conditional]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions#status-check-functions">[check functions]</a></li>
-            <li>Dependent jobs in a workflow are used to define the sequential execution order within the workflow<a href="https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow">[jobs in workflow]</a></li>
+            <li>The workflow is triggered when an <b>event</b> occurs (e.g a pull request). The workflow contains one or more <b>jobs</b> which can run in <u>sequential order or in parallel</u>. Each job will run inside its own <u>virtual machine runner</u>, or inside a <u>container</u>, and has one or more <b>steps</b> that either run a <u>script</u> or run an <u>action</u>, which is a reusable extension that can simplify the workflow. <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#the-components-of-github-actions">[components]</a> <a href="https://docs.github.com/en/actions/using-workflows/about-workflows">[about workflow]</a><a href="https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow">[using jobs]</a></li>
+            <li>Jobs
+                <ul>
+                    <li>Jobs run in <u>parallel by default</u>. To do in sequence use <b>'needs'</b>. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow">[jobs]</a></li>  
+                    <li>Unlimited number of jobs</li>
+                    <li>Dependent jobs in a workflow are used to define the sequential execution order within the workflow<a href="https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow">[jobs in workflow]</a></li>      
+                </ul>
+            </li>
+            <li>Steps
+                <ul>
+                    <li>Steps represent individual tasks within a job. In the context of workflow, a job is often broken down into smaller steps<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps">[jobs and steps]</a></li>        
+                    <li>You can use the if conditional to prevent a step from running unless a condition is met. It can be expression and use Functions<a href="https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution">[conditional]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions#status-check-functions">[check functions]</a></li>
+                    <li>The <b>timeout-minutes</b> keyword is used to set a maximum duration for the execution of individual commands within a step. If a command takes longer to execute than the specified timeout, the step will be marked as failed, and the workflow will proceed to the next step. <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes">[timeout]</a></li>
+                </ul>
+            </li>
+            <li>GitHub adds two additional steps to each job to set up and complete the job's execution (<b>Set up job</b> and <b>Complete job</b>)<a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures">[view logs]</a>
+                <ul>
+                    <li>You can see the permissions that GITHUB_TOKEN <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token">[token permission]</a></li>
+                    <li>Operation System</li>
+                    <li>Details of images. In Runner Image section there are links with preinstalled Software <a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software-for-github-owned-images">[preinstalled]</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
     <li>CI using GitHub Actions offers workflows that can build the code in your repository and run your tests. <a href="https://docs.github.com/en/actions/about-github-actions/about-continuous-integration-with-github-actions">[CI]</a></li> 
@@ -92,6 +105,7 @@ permalink: /:categories/gh-actions-cert
     </li>
     <li>If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-environments-to-manually-trigger-workflow-jobs">[manual trigger]</a></li>
     <li>The 'on' keyword is used to specify the events (e.g push) that should trigger a workflow.<a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[Events to trigger]</a><a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow">[trigger]</a></li>
+    <li>Use on.ENV_NAME.types to define the type of activity that will trigger a workflow run.<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes">[types]</a></li>
 </ul>
 
 <!-- ##################################################################### -->
@@ -105,10 +119,20 @@ permalink: /:categories/gh-actions-cert
     <li>jobs.job_id.runs-on <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job">[choose runner]</a></li>
     <li>Types:
         <ul>
-            <li>GitHub-hosted runner: each job runs in a fresh instance of a runner image specified by runs-on <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories">[standar hosted runner]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners">[about]</a></li>        
-            <li>Larger runner: customized use case. More resources. Allow static IPs <a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners">[large runners]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#ip-addresses">[ip]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners#machine-sizes-for-larger-runners">[size]</a></li>
-            <li>Self-hosted runner: more control. It can be in a virtual machine or dedicated hardware <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#choosing-self-hosted-runners">[self-hosted runner]</a><a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners">[about]</a>
+            <li>GitHub-hosted runner: 
                 <ul>
+                    <li>Each job runs in a fresh instance of a runner image specified by runs-on <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories">[standar hosted runner]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners">[about]</a></li>
+                    <li>For jobs run on GitHub-hosted runners, <b>Set up job</b> records <u>details of the runner image</u>, and includes a link to the list of preinstalled tools that were present on the runner machine. <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures">[view logs]</a></li>
+                </ul>
+            </li>        
+            <li>Larger runner: 
+                <ul>
+                    <li>Customized use case. More resources. Allow static IPs <a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners">[large runners]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#ip-addresses">[ip]</a><a href="https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners#machine-sizes-for-larger-runners">[size]</a></li>
+                </ul>
+            </li>
+            <li>Self-hosted runner: 
+                <ul>
+                    <li>more control. It can be in a virtual machine or dedicated hardware <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#choosing-self-hosted-runners">[self-hosted runner]</a><a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners">[about]</a></li>
                     <li>Self-hosted runner can communicate through a proxy server configuring the proxy settings by environment variables: 'https_proxy: PROXY_URL_TRAFFIC'. <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners">[self-hosted proxy]</a></li>
                     <li>When troubleshooting connectivity issues with a self-hosted runner and validating its access to GitHub services, the development team must use the --check feature alongside the runner's URL and authentication token.  <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity">[connectivity]</a></li>
                     <li>The primary purpose of custom labels for self-hosted runners is to route jobs to specific types of runners based on the labels assigned to those runners<a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow#using-custom-labels-to-route-jobs">[label to route jobs]</a></li>
