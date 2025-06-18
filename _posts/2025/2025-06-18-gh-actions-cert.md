@@ -83,25 +83,26 @@ permalink: /:categories/gh-actions-cert
 <h2>Trigger Workflow</h2>
 
 <ul>
-    <li>Workflow triggers are events that cause a workflow to run. These events occur in workflow's repository, outside of GitHub, manually or scheduled <a href="https://docs.github.com/en/actions/writing-workflows/about-workflows">[about woarkflow]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows">[events trigger]</a>
-        <ul>Steps <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow">[triggering workflows]</a>:
-          <li>An event occurs on your repository. The event has an associated commit SHA and Git ref.</li>
-          <li>GitHub searches the .github/workflows directory in the root of your repository for workflow files that are present in the associated commit SHA or Git ref of the event.</li>
-          <li>A workflow run is triggered for any workflows that have 'on:' values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.</li>
-          <li>Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, GitHub sets the GITHUB_SHA (commit SHA) and GITHUB_REF (Git ref) environment variables in the runner environment. </li>   
+    <li>Workflow triggers are events that cause a workflow to run. These events occur in workflow's repository, outside of GitHub, manually or scheduled <a href="https://docs.github.com/en/actions/writing-workflows/about-workflows">[about woarkflow]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows">[events trigger]</a></li>
+    <li>The 'on' keyword is used to specify the events (e.g push) that should trigger a workflow.<a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[Events to trigger]</a><a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow">[trigger]</a></li>
+    <li>Steps <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow">[triggering workflows]</a>:
+        <ul>
+          <li>An event occurs on a repository. The event has an associated commit SHA and Git ref.</li>
+          <li>GitHub searches the <em>.github/workflows</em> directory in the root of your repository for workflow files that are present in the associated commit SHA or Git ref of the event.</li>
+          <li>A workflow run is triggered for any workflows that have 'on:' values that match the triggering event. </li>
+          <li>Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, GitHub sets the GITHUB_SHA (commit SHA) and GITHUB_REF (Git ref) environment variables.</li>   
         </ul>
     </li>
-    <li>The workflow can be triggered, for example, when an issue has been opened, edited, or milestoned; when a commit or a tag is pushed; when a repository is created from a template; when a discussion has been created, edited, or answered.<a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[events trigger]</a><a href=""></a><a href=""></a></li>
+    <li>The workflow can be triggered, for example, when an issue has been opened, edited, or milestoned; when a commit or a tag is pushed; when a repository is created from a template; when a discussion has been created, edited, or answered. <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[events trigger]</a><a href=""></a><a href=""></a></li>
     <li>You can use activity <b>types</b> and <b>filters</b> to further control when your workflow will run. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-event-activity-types">[event activity type]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-filters">[using filters]</a>
         <ul>
             <li>In case the workflow has as filter both branches and paths filter, the workflow will only run when both branches and paths are satisfied.</li>
             <li>The 'branches-ignore' can be used for exclusions.</li>
             <li>The branch and branch-ignore can not be used for the same event. <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore">[target branch and ignore]</a></li>
+            <li>Use on.ENV_NAME.types to define the type of activity that will trigger a workflow run.<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes">[types]</a></li>
         </ul>
     </li>
     <li>If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-environments-to-manually-trigger-workflow-jobs">[manual trigger]</a></li>
-    <li>The 'on' keyword is used to specify the events (e.g push) that should trigger a workflow.<a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[Events to trigger]</a><a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow">[trigger]</a></li>
-    <li>Use on.ENV_NAME.types to define the type of activity that will trigger a workflow run.<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes">[types]</a></li>
 </ul>
 
 <!-- ##################################################################### -->
