@@ -64,6 +64,7 @@ permalink: /:categories/gh-actions-cert
     <li>Controlling permissions for GITHUB_TOKEN. The GITHUB_TOKEN lasts until a job finishes or a maximum of 24 hours, whichever comes first <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token">[token]</a><a href="https://docs.github.com/en/actions/security-guides/automatic-token-authentication">[token auth]</a></li>
     <li>Protection Rules:
         <ul>
+            <li>Deployment Protection: Required reviewers,Deployment branches and tags, Allow administrators to bypass, require reviews before deployment, prevent self-reviews for deployment <a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">[manage env]</a></li>
             <li>When a workflow job references an environment, the job won't start until all of the environment's protection rules pass <a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">[use env]</a></li>
             <li>In case workflow requires review, If a job is rejected the workflow fails as the job did not meet the approval criteria set for the review process <a href="https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments#approving-or-rejecting-a-job">[approve and reject]</a></li>
         </ul>    
@@ -72,6 +73,7 @@ permalink: /:categories/gh-actions-cert
     <li>To store secrets larger than 48 KB, you have to use encryption with GPG. The encrypted file is stored in the repository, and the decryption passphrase is stored as a secret on GitHub. <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#limits-for-secrets">[limits for secrets]</a></li>
     <li>Programmatically access workflow logs: needs  owner, repo, and run_id <a href="https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#download-workflow-run-logs">[download logs]</a></li>
     <li>Automated release prioritizes security by ensuring that only dependencies are committed to tagged release commits and builds are performed during a release. <a href="https://docs.github.com/en/actions/creating-actions/releasing-and-maintaining-actions#results">[releasing and maintaining]</a></li>
+    <li>Encrypted secrets cannot be created at the workflow level. Workflows are specific to individual repositories and are used to define the automation tasks and processes for that repository. Secrets should be defined at a higher level of scope, such as organization, environment, or repository, to ensure proper access control and security. <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions">[using secrets]</a></li>
 </ul>
 
 
@@ -103,6 +105,8 @@ permalink: /:categories/gh-actions-cert
         </ul>
     </li>
     <li>If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-environments-to-manually-trigger-workflow-jobs">[manual trigger]</a></li>
+    <li>issue_comment is an event when a comment is created on an issue <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment">[issue_comment]</a></li>
+    <li>The check_suite event in GitHub Actions is specifically designed to trigger workflow runs on the default branch of the repository. <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#check_suite">[check_suite]</a></li>
 </ul>
 
 <!-- ##################################################################### -->
@@ -135,8 +139,10 @@ permalink: /:categories/gh-actions-cert
                     <li>Self-hosted runner can communicate through a proxy server configuring the proxy settings by environment variables: 'https_proxy: PROXY_URL_TRAFFIC'. <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners">[self-hosted proxy]</a></li>
                     <li>When troubleshooting connectivity issues with a self-hosted runner and validating its access to GitHub services, the development team must use the --check feature alongside the runner's URL and authentication token.  <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-self-hosted-runner-network-connectivity">[connectivity]</a></li>
                     <li>The primary purpose of custom labels for self-hosted runners is to route jobs to specific types of runners based on the labels assigned to those runners<a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow#using-custom-labels-to-route-jobs">[label to route jobs]</a></li>
+                    <li>Runner labels in GitHub Actions allow you to categorize different types of self-hosted runners based on their capabilities or workloads. By assigning labels to runners, you can easily incorporate them into workflows by specifying which runners should execute specific jobs based on their labels. <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners">[label felf-runner]</a></li>
                     <li>By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners">[self-hosted updates]</a></li>
                     <li>Monitor the status of the self-hosted runners: offline, idle, active <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner">[checking status]</a></li>
+                    <li>network requirement: permitting outbound connectivity to GitHub hosts using long polling <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github">[communication]</a></li>
                 </ul>
             </li>
         </ul>
@@ -167,6 +173,16 @@ permalink: /:categories/gh-actions-cert
             <li>The name in the action's metadata file must be unique on the GitHub Marketplace</li>
         </ul>
     </li>
+    <li>Steps: <a href="https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action">[steps to publish]</a>
+        <ul>
+            <li>Add the action's metadata file to the repository root directory, </li>
+            <li>Draft a release, </li>
+            <li>Select "Publish this Action to the GitHub Marketplace,"</li>
+            <li>Choose categories,</li>
+            <li>Set a version tag,</li>
+            <li>Publish the release</li>
+        </ul>
+    </li>
     <li>How to decide to use or not an action: <a href="https://learn.microsoft.com/en-us/training/modules/github-actions-automate-tasks/2-github-actions-automate-development-tasks">[automate tasks]</a>
         <ul>
             <li>Review the action's action.yml file to make sure the code does what it says it does</li>
@@ -192,25 +208,41 @@ permalink: /:categories/gh-actions-cert
     <li>Context <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs">[about]</a><a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#using-event-information">[event information]</a></li>
     <li>Setting a default shell and working directory <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/setting-a-default-shell-and-working-directory">[default shell]</a></li>
     <li>The ‘env’ key in the workflow file sets a custom environment variable for a single workflow. The scope of a custom variable set by this method is limited to the element in which it is defined. <a href="https://docs.github.com/en/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow">[def env variables]</a></li>
-    <li>Default Environment Variables: <a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">[default env variables]</a>
+    <li>Default Environment Variables: <a href="https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables">[default env variables]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-environment-variables-for-a-single-workflow">[Def env variable]</a>
         <ul>
-            <li>Default environment variables are set by GitHub and are available at every step in a workflow. They provide information about the workflow run and repository. </li>
+            <li>They are all uppercase </li>
+            <li>They can only be used within the runner</li>
+            <li>They are not accessible through the env context. They can be accessed directly</li>
+            <li>They are set by GitHub and are available at every step in a workflow.</li>
+            <li>They provide information about the workflow run and repository. </li>
             <li>The GITHUB_REPOSITORY default environment variable provides the owner and repository name (in the format owner/repository) for the repository where the workflow is running. </li>      
             <li>The RUNNER_OS environment variable provides the operating system of the runner executing the job. Possible values are Linux, Windows, or macOS. </li>  
             <li>The default environment variables starting with "GITHUB_" and "RUNNER_" cannot be overwritten using the GITHUB_ENV file in a workflow. <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable">[env. variables]</a><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#default-environment-variables">[workflow - default variables]</a></li>
             <li>It is recommended that you use the default environment variables to reference the filesystem rather than using hard-coded file paths</li>
+            <li>The GITHUB_ACTIONS variable is used to determine whether the current workflow is running in GitHub Actions. It always evaluates to true when the workflow is running in the GitHub Actions environment, allowing you to conditionally execute certain steps or tasks based on this variable. </li>
+            <li>Setting ACTIONS_STEP_DEBUG to true can be configured as a secret or variable, with the value of the secret taking precedence. This allows for secure configuration of the debug logging setting while also providing the flexibility to override it with a variable if needed. <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging">[enabling debug]</a></li>
         </ul>
     </li>
-    <li>Workflow command
-        <ul>
-            <li>Workflow commands are used to interact with the runner during the execution of a step, providing a way to pass information, set environment variables, or perform other actions related to the workflow <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow command]</a><a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#using-workflow-commands-to-access-toolkit-functions">[toolkit]</a></li>
-            <li>Send info to summary: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary">[add summary]</a></li>
-            <li>Recommended practice for treating environment variables in GitHub Actions across different operating systems and shells:  treat environment variables as case-sensitive <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow commands]</a></li>
-            <li>GITHUB_PATH environment variable can be used to to add the a path (e.g. /tmp directory) to the PATH. It can be done using 'echo "/tmp" >> $GITHUB_PATH' <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow commands]</a></li>
-        </ul>
-    </li>
+    <li>When an input is specified in a workflow file or a default input value is used, GitHub converts input names to uppercase letters and replaces spaces with _ characters when creating the corresponding environment variable <a href="https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs">[specify inputs]</a></li>
 </ul>
 
+
+<!-- ##################################################################### -->
+
+<br />
+<hr>
+<br />
+<h2>Workflow command</h2>
+
+<ul>
+    <li>Workflow commands are used to interact with the runner during the execution of a step, providing a way to pass information, set environment variables, or perform other actions related to the workflow <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow command]</a><a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#using-workflow-commands-to-access-toolkit-functions">[toolkit]</a></li>
+    <li>Send info to summary: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary">[add summary]</a></li>
+    <li>Recommended practice for treating environment variables in GitHub Actions across different operating systems and shells:  treat environment variables as case-sensitive <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow commands]</a></li>
+    <li>GITHUB_PATH environment variable can be used to to add the a path (e.g. /tmp directory) to the PATH. It can be done using 'echo "/tmp" >> $GITHUB_PATH' <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow commands]</a></li>
+    <li>The 'group' command in GitHub Actions allows you to group multiple workflow commands together under a specified name. This helps in organizing and structuring the workflow logs by grouping related commands, making it easier to identify and understand the different sections of the workflow. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#grouping-log-lines">[grouping log lines]</a></li>
+    <li>The 'add-mask' command is used to mask sensitive information in the workflow logs, such as passwords or API keys, to prevent them from being exposed. </li>
+    <li>Workflow commands prefixed with the :: can be used to customize the runner environment, such as setting environment variables or modifying the working directory <a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[commands]</a></li>
+</ul>
 
 <!-- ##################################################################### -->
 
@@ -251,6 +283,7 @@ permalink: /:categories/gh-actions-cert
             <li>The expiration date of a specific artifact can be checked by the execution of a specific API call that retrieves the expiration date information associated with that artifact. The date can be checked by the 'expires_at' value returned by the “Actions” API <a href="https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts">[artifact]</a></li>
             <li>Download the artifacts from the "Artifacts" section of the workflow run associated with the `build` job <a href="https://docs.github.com/en/actions/managing-workflow-runs/downloading-workflow-artifacts">[download artifact]</a></li>
             <li>The level of access required to download workflow artifacts is 'read' <a href="https://docs.github.com/en/actions/managing-workflow-runs/downloading-workflow-artifacts">[download artifact]</a></li>
+            <li>once deleted, an artifact cannot be restored <a href="https://docs.github.com/en/actions/managing-workflow-runs/removing-workflow-artifacts">[removing]</a></li>
         </ul>
     </li>
     <li>You can view a GitHub Actions workflow run status for a pull request on the pull request before a merge, on the checks tab of the pull request and within the GitHub Actions tab of the repository <a href="https://docs.github.com/en/actions/using-workflows/triggering-a-workflow">[trigger]</a></li>
@@ -267,6 +300,7 @@ permalink: /:categories/gh-actions-cert
             <li>Enabling debug logging in the GitHub repository settings increases the verbosity of the job's logs, providing more detailed information that can help troubleshoot issues with the JavaScript action. This is a common first step to gather additional diagnostic information about the failed job. <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging">[debbug]</a></li>
             <li>To enable step debug logging, set the following secret or variable in the repository that contains the workflow: ACTIONS_STEP_DEBUG to true. If both the secret and variable are set, the value of the secret takes precedence over the variable <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging">[debug logging]</a></li>
             <li>In GitHub Actions, debug messages printed using workflow commands are not displayed in the logs by default. They are only shown when debug logging is explicitly enabled for the workflow run. If debug logging is not enabled, the debug messages will not appear in the logs, even though they were printed successfully. You must create a secret named ACTIONS_STEP_DEBUG with the value true to see the debug messages set by this command in the log. <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging">[enabling debug]</a><a href="https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions">[workflow command]</a></li>
+            <li>The 'write' access level on a GitHub repository allows users to make changes to the repository, including deleting log files from workflow runs. <a href="https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs">[run logs]</a></li>
         </ul>
     </li>
     <li>Migrate to GH Actions <a href=" https://docs.github.com/en/actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/automating-migration-with-github-actions-importer">[migration]</a></li>
@@ -279,6 +313,7 @@ permalink: /:categories/gh-actions-cert
         </ul>
     </li>
     <li>continue-on-error allows the workflow to continue even if the step fails <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error">[job contibue error]</a></li>
+    <li>You can delete a workflow run that has been completed or is more than two weeks old. <a href="https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/deleting-a-workflow-run">[deleting workflow run]</a></li>
 </ul>
 
 
@@ -304,6 +339,7 @@ permalink: /:categories/gh-actions-cert
     <li>Custom actions:
         <ul>
             <li>For distribute a custom action: provide a clear and concise description of the action's functionality and selecting the most relevant category <a href="https://resources.github.com/learn/pathways/automation/advanced/building-your-first-custom-github-action/">[building custom action]</a></li>
+            <li>The "runs" keyword within an action.yml file is used to define the executable command for the action. The "using" keyword within the "runs" section is specifically used to indicate the type of action being executed (JavaScript action, Docker container action, or composite run steps action) <a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs">[runs]</a></li>
             <li>JavaScript actions, composite actions, docker container actions <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[about]</a></li>
             <li>JavaScript
                 <ul>
@@ -317,7 +353,9 @@ permalink: /:categories/gh-actions-cert
                     <li>Checking the GitHub Actions logs provides detailed information about the execution of Docker container actions, including any errors encountered during startup or execution, aiding in troubleshooting. <a href="">[dockerfile support]</a></li>
                     <li>To access an environment variable corresponding to an input in a Docker container action, you must pass the input using the args keyword in the action metadata file. This ensures that the input is correctly passed to the Docker container environment <a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs">[action metadata syntax]</a></li>
                     <li>The URL for the GitHub Container Registry is ghcr.io. <a href="https://docs.github.com/en/actions/publishing-packages/publishing-docker-images#publishing-images-to-github-packages">[gh container registry]</a></li>
-                    <li>Running jobs in a container: Use jobs.JOB_ID.container to create a container to run any steps in a job that don't already specify a container. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/running-jobs-in-a-container">[run in a container]</a></li>        
+                    <li>Running jobs in a container: Use jobs.JOB_ID.container to create a container to run any steps in a job that don't already specify a container. <a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/running-jobs-in-a-container">[run in a container]</a></li>   
+                    <li>Use contaiber has as advantage easy access to actual or simulated external dependencies <a href="https://docs.github.com/en/actions/using-containerized-services/about-service-containers">[service container]</a></li>     
+                    <li>Verify the environment variables passed to your Docker container action: use the env command within the Docker container action to display the environment variables <a hre="https://docs.docker.com/engine/reference/builder/#environment-replacement">[env replacement]</a></li>
                 </ul>
             </li>
             <li>Release:
@@ -353,6 +391,7 @@ permalink: /:categories/gh-actions-cert
     <li>Syntax to reference a secret: `secrets.secret_name` <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-environment">[secrets]</a></li>
     <li>Workflow templates ensure automation is reused and maintained in your enterprise (public and private repositories of the organization) <a href="https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization">[create workflow]</a></li>
     <li>Organization-template workflow has as benefits: promotes consistency, best practices and saves time <a href="https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization">[create workflows]</a></li>
+    <li>Creating a templated workflow for a organization, the workflow files and associated metadata files must be stored inside a directory named workflow-templates within a repository named .github <a href="https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization">[workflow for organization]</a></li>
     <li>To effectively manage and collaborate on your organization's diverse reusable components in GitHub Actions workflows, enforce a standardized naming convention across all teams. <a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">[reuse workflow]</a> <a href="https://docs.github.com/en/actions/sharing-automations/avoiding-duplication">[avoiding duplication]</a></li>
     <li>Reusable workflows can be in the same repository or a different one. In case to set up multiple reusable workflows in your organization, it might be a good idea to set up a common workflow repository.<a href=""></a></li>
     <li>Sharing actions<a href="https://docs.github.com/en/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository">[sharing actions and workflows]</a></li>
