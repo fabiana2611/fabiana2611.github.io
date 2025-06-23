@@ -82,7 +82,7 @@ permalink: /:categories/github-actions
   <li>The events define when a given workflow will be executed <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">[4.1]</a></li>
   <li>Repository-related: push, PR, create, fork, issues, issue_comment, watch, discussion</li>
   <li>Otther: workflow_dispatch, repository_dispach, schedule, workflow_call</li>
-  <li>By default, PRs based on forks do NOT trigger a workflow for sacirity reasons</li>
+  <li>By default, PRs based on forks do NOT trigger a workflow for security reasons</li>
 </ul>
 
 
@@ -110,7 +110,7 @@ permalink: /:categories/github-actions
 
 <p style="text-align: justify;"><b>Custom Action: </b> You can customize your own actions using different approaches <a href="https://docs.github.com/en/actions/creating-actions/about-custom-actions">[Custom Action]</a></p>
 <ul>
-  <li>JavaScriptActions (node_module us bit ignired but pushed)</li>
+  <li>JavaScript Actions (node_module is bit ignored but pushed)</li>
   <li>Docker Actions</li>
   <li>Composite Actions</li>
 </ul>
@@ -124,7 +124,7 @@ permalink: /:categories/github-actions
 <p style="text-align: justify;"><b>Matrix strategy:</b> run same job in different configuration. Jobs are executed in parallel <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">[Matrix]</a>.</p>
 
 
-<p>Security and Permissions</p>
+<p><b>Security and Permissions</b></p>
 <ul>
   <li><a href="https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections">script injection</a></li>
   <li><a href="https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions">malicious third-party actions</a></li>
