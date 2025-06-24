@@ -17,6 +17,8 @@ permalink: /:categories/gh-actions-cert
 </em>
 
 
+<center><img src="/img/git/ghactions_icon.png" height="30%" width="30%"/></center> 
+
 <em>Index:
 <a href="#intro">Initial Conceptps > </a>
 <a href="#security">Security > </a>
