@@ -107,7 +107,14 @@ The slides must be clean and easy to get information (page number, labels, legen
 	<li>High: Concerted team effort. All team members work together to achieve the team goal</li>
 </ul>
 
-<p style="text-align: justify;">Here are some examples of tools: <a href="https://internalchange.com/everything-disc-products/">DiSC</a>, <a href="https://www.gallup.com/cliftonstrengths/en/253850/cliftonstrengths-for-individuals.aspx">StrenghtsFinder</a>, <a href="https://www.amazon.com/dp/B002U3CBUW/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">Emotional Intelligence</a>, <a href="https://www.myersbriggs.org/my-mbti-personality-type/myers-briggs-overview/">Myers-Briggs</a>, <a href="https://erinmeyer.com/tools/">Culture Mapping</a>, <a href="https://www.predictiveindex.com/assessments/behavioral-assessment/">Predictive Index</a>, <a href="https://www.enneagraminstitute.com/type-descriptions/">Enneagram Assessment</a>.</p>
+<p style="text-align: justify;">Another import point is the role that could be good in a team and, as a collaborator, we can navigate in some of then. He are the <a href="https://www.belbin.com/about/belbin-team-roles">nine Belbin Team Roles</a></p>
+<ul>
+	<li>Action: Implementer, Completer Finisher, Shaper</li>
+	<li>Social: Coordinator, Team Worker, Resource Investigation</li>
+	<li>Thinking: Plant, Monitor Evaluator, Specialist</li>
+</ul>
+
+<p style="text-align: justify;">Here are some examples of tools we can use for collaboration purpose: <a href="https://internalchange.com/everything-disc-products/">DiSC</a>, <a href="https://www.gallup.com/cliftonstrengths/en/253850/cliftonstrengths-for-individuals.aspx">StrenghtsFinder</a>, <a href="https://www.amazon.com/dp/B002U3CBUW/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">Emotional Intelligence</a>, <a href="https://www.myersbriggs.org/my-mbti-personality-type/myers-briggs-overview/">Myers-Briggs</a>, <a href="https://erinmeyer.com/tools/">Culture Mapping</a>, <a href="https://www.predictiveindex.com/assessments/behavioral-assessment/">Predictive Index</a>, <a href="https://www.enneagraminstitute.com/type-descriptions/">Enneagram Assessment</a>.</p>
 
 
 <h2>Conclusion</h2>
