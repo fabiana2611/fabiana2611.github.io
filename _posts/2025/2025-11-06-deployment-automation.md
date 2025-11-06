@@ -89,53 +89,7 @@ Testing Strategies:
 <h3>Be continued...</h3>
 
 
- <!--
-
-Deployment Automation (AWS Certified DevOps Engineer - Professional)
-
-DOMAIN 1: SDLC
-- CI/CD
-- AWS CodeBuild
-- AWS CodeDeploy
-- AWS CodePipeline
-- Beanstalk
-- Blue/Green Deployment
-- Canary Deployment
-- Lambda@Edge
-- A/B Testing
-- Automated Test
-- CodeArtifact
-
-
-Continuous delivery: manual approval step
-Continuous Deployment: no approval step
-
-Deployment Lifecycle
-- AppSec Hooks in CodeDeploy: Start > Applicationstop > DownloadBundle > BeforeInstall > Install > AfterInstall > ApplicationStart > ValidateService > End
-
-Deployment Policies supported in Beanstalck: 
-- All at Once (fastest, but cause downtime): Deploys the new version to all instances simultaneously.
-- Rolling: Updates a batch of instances at a time; the environment remains available
-- Rolling with additional batch: Launches an extra batch of instances to maintain full capacity during deployment. After update, old instances are terminated.
-- Immutable: Deploys the new version to a fresh group of instances (a full batch), then swaps them in after successful deployment.
-- Traffic splitting: Splits incoming traffic between old and new application versions, allowing gradual exposure.
-
-Rolling Deployments
-- Blue/Green > Deployment = Routing production traffic from blue to green environment
-- Canary Deployments: is a process where we deploy a new feature and shift some % of traffic to the new feature to perform some analysis to see if feature is successful
-- A/B Testing also referred as split testing) is comparing two versions of a web page to see
-which one performs better.
-
-
-
-DOMAIN 2: Configuration Management and IaC
-DOMAIN 3: Resilient Cloud Solution
-DOMAIN 4: Monitoring and Logging
-DOMAIN 5: Incident and Event Response
-DOMAIN 6: Security and Compliance
-
-
--->
+ 
 
 
 <br />
