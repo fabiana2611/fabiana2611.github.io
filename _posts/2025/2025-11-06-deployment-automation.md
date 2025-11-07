@@ -84,6 +84,15 @@ Testing Strategies:
 - Shadow test pattern
 
 
+<table>
+  <tr>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/AWVTKBUnoIg?si=MlJWXe5zSm2jdotp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/zFMgpxG-chM?si=P1o3jQ3xOV3QEmFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+  </tr>
+
+</table>
+
+
 <h3>Releases</h3>
 
 [Rolling Back plan](https://blog.invgate.com/rollback-plan): Redeploy previous Good version (lead to a downtime, hard to deploy what went wrong, lose data created following the deployment). 
@@ -97,6 +106,8 @@ Testing Strategies:
 
 <h3>Be continued...</h3>
 
+
+ 
 
 
 <br />
