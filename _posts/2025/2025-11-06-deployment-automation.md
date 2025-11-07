@@ -28,6 +28,15 @@ Here is an overview about Deployment. It is part of my understanding about the c
 - Acceptance stage
 - UAT/Capacity/ PROD
 
+
+<table>
+  <tr>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/42UP1fxi2SY?si=j7qqZROTrw13xfqV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+    <td><iframe width="360" height="215" src="https://www.youtube.com/embed/LNLKZ4Rvk8w?si=BZl6ex0ibl6gdLH5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+  </tr>
+
+</table>
+
 <h3>Deployment</h3>
 
 Pratices:
@@ -88,8 +97,6 @@ Testing Strategies:
 
 <h3>Be continued...</h3>
 
-
- 
 
 
 <br />
