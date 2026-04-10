@@ -111,7 +111,7 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><b>Problems solved:</b> Flexibility; Cost-Effectiveness, Scalability, Elasticity, Agility, High-availability and fault-tolerance</p>
 
-<p style="text-align: justify;"><a href="https://aws.amazon.com/what-is-cloud-computing/?pg=TOCC"><b>Benefits</b></a>: Agility, Elasticity, Cost saving (trade fixed expenses for variable expenses), deploy globally in minutes</p>
+<p style="text-align: justify;"><a href="https://aws.amazon.com/what-is-cloud-computing/?pg=TOCC"><b>Benefits</b></a>: Agility, Elasticity, Cost saving (trade fixed expenses - capital expenses - for variable expenses), deploy globally in minutes</p>
 
 <p style="text-align: justify;"><b><a href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html">Advantages</a> of cloud computing</b></p>
 <ul>
@@ -160,7 +160,7 @@ permalink: /:categories/aws-concepts
 
 <p style="text-align: justify;"><a href="https://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>: make possible a global application (decrease latency, disaster recovery, attack protection)</p>
 <ul>
-  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em>. Minimum of two AZ to achieve high availability.</li>
+  <li><b>Availability Zones</b> (AZ): <em>one or more discrete data centers with redundant power, networking, and connectivity. Each AZ has independent power, cooling, and physical security and is connected via redundant, ultra-low-latency networks. AZs give customers the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. All traffic between AZs is encrypted. AZs are physically separated by a meaningful distance.</em> Minimum of two AZ to achieve high availability.</li>
   <li>AWS <b>Regions</b>: <em> physical location around the world where we cluster data centers. Each AWS Region is isolated, and physically separate AZs within a geographic area.</em> Minimum of three AZs by region. Criterias to choose the region: Compliance, Proximity to the customer, available service (<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">List of AWS Services Available by Region</a>) and pricing.</li>
   <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"><b>Local Zones</b></a>: <em>place compute, storage, database, and other select AWS services closer to end-users. Each AWS Local Zone location is an extension of an AWS Region.</em></li>
   <li><b>Edge Locations</b>: <em>Content Delivery Network (CDN) endpoints for CloudFront</em>. Delivery content closer the user.</li>
@@ -451,6 +451,7 @@ permalink: /:categories/aws-concepts
   <li>Automate the creation, maintain, validate and test EC2 AMIs</li>
   <li>The execution can be scheduled and after the process the AMI can be distributed (multiple regions)</li>
 </ul> 
+
 
 <p style="text-align: justify;"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon <b>AMI</b></a> (Amazon Machine Image)</p>
 <ul>
@@ -744,7 +745,7 @@ permalink: /:categories/aws-concepts
   <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html"><b>NAT Gateway</b></a> (AWS-managed) does not need to patch. A NAT gateway is used for <u>outbound</u> traffic not inbound traffic and cannot make the application available to internet-based clients.</li>
   <li><b>VPC Endpoint</b>: connect to AWS services using <u>private Network</u>. It can be combined with PrivateLink and is not necessary NAT, gateways,etc. It is not leaving AWS environment. They are horizontaly scaled, redundant, and highly available. 
     <ul>
-      <li><b>Interface endpoints</b>: uses Elastic Eetwork Interface (<u>ENI</u>) with <u>private IP</u> redirected by DNS; supports many services; use Security Groups</li>
+      <li><b>Interface endpoints</b>: uses Elastic Network Interface (<u>ENI</u>) with <u>private IP</u> redirected by DNS; supports many services; use Security Groups</li>
       <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">Gateway Endpoints</a>: virtual device you provision; configure <u>route table</u> to redirect the traffic; similar to NAT GW;  supports connection to S3 and DynamoDB; All traffic that go through the VPC endpoint go direct to DynamoDB or S3 using private IP; use VPC Endpoint Policies </li>
     </ul>
   </li>
@@ -1152,9 +1153,10 @@ permalink: /:categories/aws-concepts
     </ul>
   </li>
   <li>Securing APIs: user authentication (IAM, roles, Cognito, custom authorizer); ACM certs for edge-optimized endpoints and regional endpoints; WAF</li>
+  <li>You can enable <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">API caching</a> in Amazon API Gateway to cache your endpoint's responses. </li>
 </ul>
   
-
+ 
 <p>AWS <a href="https://aws.amazon.com/batch/"><b>Batch</b></a></p>
 <ul>
   <li>Run batch computing workloads within AWS (EC2 or ECS/Fargate): Fargate is more recomended because require fast start times (<30 sec), 16 VCPU or less, no GPU, 120 GiB of memory; EC2 needs more control, require GPU and custom AMIs, high levels of cuncurrency, require access to Linux Parameters</li>
@@ -1182,7 +1184,9 @@ permalink: /:categories/aws-concepts
       <li>express: at least one execution, can run for up to five minutes, useful for high-event-rate workflows, e.g IoT data streaming; pricing based on number of execution, durations and memory</li>
     </ul>
   </li>
+  <li>A Step Functions execution receives a JSON text as <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">input</a> and passes that input to the first state in the workflow. Individual states receive JSON as input and usually pass JSON as output to the next state. Use <a href="https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-handling-error-conditions.html">ResultPath</a> in a Catch to include the error with the original input, instead of replacing it.</li>
 </ul>
+
 
 <p><b>AppFlow</b> <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">[1]</a>:</p>
 <ul>
@@ -1221,6 +1225,7 @@ permalink: /:categories/aws-concepts
   <li>Run on-demand</li>
   <li>Scaling automatically</li>
   <li>Event-driven</li>
+  <li>It's possible to versioning and use alias for each version</li>
   <li>Lambda needs <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html">IAM role to access AWS APIs</a></li>
   <li>Can be monitoring through <b>CloudWatch</b></li>
   <li>Pricing: Pay per call (request) and duration (time of execution). Free tier of 1.000.000 requests and 400.000 GB of compute per month. After that, pay per request.</li>
@@ -1273,6 +1278,7 @@ permalink: /:categories/aws-concepts
 </ul>
 
 <p><a href="https://aws.amazon.com/appsync/"><b>AWS AppSync</b></a>: (GraphQL): store and sync data between mobile and web app. Robust, scalable GraphQL Interface for application developers; combines data from multiple sources; enable integration for developers via GraphQL (data language used by apps to fetch data from servers)</p>
+
 
 <p>SWF <a href="https://digitalcloud.training/aws-application-integration/#amazon-simple-workflow-service-amazon-swf">[1]</a></p>
 
@@ -1335,6 +1341,8 @@ permalink: /:categories/aws-concepts
   </li>
 </ul>  
 
+
+
 <p><center>
   <img src="/img/aws/ecs.png" height="100%" width="100%">
 </center></p>
@@ -1354,6 +1362,7 @@ permalink: /:categories/aws-concepts
     </ul>
   </li>
 </ul>
+
 
 <p><b>ECR</b> - Elastic Container Registry</p>
 <ul>
@@ -1477,7 +1486,11 @@ permalink: /:categories/aws-concepts
   <li><b>Global Table</b>: managed multi-master, multi-region replication: <u>globally distributed applications</u>; based on DynamoDB streams; <u>replication latency under 1 second</u></li>  
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">DynamoDB Streams</a> captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time. This is the native way to handle this within DynamoDB, therefore will incur the least amount of operational overhead</li>
   <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time to Live (TTL)</a>: define when an item expire and can be automatically deleted</li>
+  <li>A Scan operation always scans the entire table or secondary index that consume a lot of RCUs. The <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html#QueryAndScanGuidelines.ParallelScan">recomendation</a> to reduce the amount of RCUs used by the scan: Limit parameter (page size for the request) and parallel scan.</li>
+  <li>Instead of using a large Scan operation, you can <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html">Reduce page size and Isolate scan operations</a> to minimize the impact of a scan on a table's provisioned throughput</li>
+
 </ul>
+
 
 <p><center>
   <img src="/img/aws/dynamoDB.png" height="100%" width="100%">
@@ -1694,6 +1707,7 @@ permalink: /:categories/aws-concepts
     </ul>
   </li>    
   <li>Pricing: Free but you pay for the underlying instances</li>
+  <li>When you use the AWS Elastic Beanstalk console to deploy a new application or an application version, you'll need to upload a <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-sourcebundle.html">source bundle</a>: it is a single ZIP file or WAR file which not exceed 512 MB. It has to include a cron.yaml file in case you want to deploy a worker application that processes periodic background tasks.</li>
 </ul>
 
 
@@ -1773,6 +1787,7 @@ permalink: /:categories/aws-concepts
   <li>Monitoring with Managed Service (Grafana, for Prometheus)</li>
   <li>Use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html"><u>CloudWatch Container Insights</u></a> to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. Container Insights is available for Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Kubernetes platforms on Amazon EC2.</li>
   <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html">CloudWatch Dashboard Sharing</a>: share CloudWatch dashboards with people who do not have direct access to your AWS account. This enables you to share dashboards across teams, with stakeholders, and with people external to your organization. You can even display dashboards on big screens in team areas or embed them in Wikis and other webpages.</li>
+  <li>CloudWatch API: there is a request limit. To reduce call rate and avoid <a href="https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-400-error-throttling/">API throttled</a> is possible as best practice distribute the API call, Combine as many metrics as possible into a single API call, Retry your call with exponential backoff and jitter</li>
 </ul>
 
 <p><b>CloudTrail</b><a href="https://aws.amazon.com/cloudtrail/"></a><a href="https://digitalcloud.training/aws-cloudtrail/">[2]</a>: </p>
@@ -2027,7 +2042,6 @@ permalink: /:categories/aws-concepts
   <li>Components: user pools and identity pools</li>
 </ul>
 
-
 <p><b>AWS Detective</b>: </p>
 <ul>
   <li><u>deep analyses to isolate the root cause</u> of the security issues or suspicious activities (ML/graphs)</li>
@@ -2269,7 +2283,12 @@ permalink: /:categories/aws-concepts
       <li>CodeDeploy Agent is responsable to provision and configure Servers and Instances</li>
     </ul>
   </li>
-  <li>AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology</li>
+  <li>AWS <a href="https://aws.amazon.com/codecommit/"><b>CodeCommit</b></a>: Same of Git technology
+    <ul>
+      <li>Migrate from GH repo: the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">first step</a> is to create a set of credentials generated from IAM</li>
+      <li>Use these credentials for HTTPS connections</li>
+    </ul>
+  </li>
   <li>AWS <a href="https://aws.amazon.com/codepipeline/"><b>CodePipeline</b></a>: Orchestrate the steps until production</li>
   <li>AWS <a href="https://aws.amazon.com/codestar/features/"><b>CodeStar</b></a>: UI to manage Software Development activities.</li>
   <li>AWS <b>Cloud9</b>: Cloud IDE</li>
@@ -2278,6 +2297,7 @@ permalink: /:categories/aws-concepts
       <li>Compile code, run tests and packaged to be deployed by CodeDeploy</li>
       <li>Pay-as-you-go pricing. Pay for build time</li>
       <li>Like Jenkins</li>
+      <li>The <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html">post_build phase</a> is an optional sequence that represents the commands that CodeBuild runs after the build.</li>
     </ul>
   </li>
   <li>AWS <b>CodeArtifact</b>
@@ -2495,6 +2515,17 @@ permalink: /:categories/aws-concepts
 <p><b>Audit</b>: CloudWatch, CloudTrail, SSE-KMS, AWS Config</p>
 
 <p><b>Encryptation</b>: AZ traffic (Default), CloudTrail (default), Site-To-Site VPN (default), all storage (RDS, S3, EBS, Redshift, EFS)</p>
+
+
+<!-- ########################################################## -->
+
+<br />
+<hr>
+<br />
+<h2 id="concept">IA</h2>
+
+GenIA
+BedRock
 
 
 <!-- ########################################################## -->
